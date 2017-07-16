@@ -5,12 +5,17 @@ $pq-yellow: #6b6039;
 @import "bourbon";
 @import "neat";
 @import "base/base";
+@import "surahs";
 
 body>header {
-  @include grid-column(12);
-  border-bottom: 1px solid #ccc;
+  @include grid-container;
+  border-bottom: 4px solid $pq-brown;
   padding-bottom: 2rem;
   margin-bottom: 2rem;
+
+  div {
+    @include grid-column(12);
+  }
 }
 
 main {

@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+unless Surah.first
+  surahs = YAML.load_file("#{Rails.root}/db/seeds/surahs.yml")
+  surahs.each do |surah|
+    Surah.find_or_create_by!(id: surah['id']) do |s|
+      s.id = surah['id']
+      s.number_of_ayahs = surah['number_of_ayahs'] 
+      s.order_of_revelation = surah['order_of_revelation']
+      s.revelation_type = surah['revelation_type']
+      s.permalink = surah['permalink']
+      s.transliterated_name = surah['transliterated_name']
+      s.arabic_name = surah['arabic_name']
+      s.english_name = surah['english_name']
+      s.character_length = surah['character_length']
+      s.percent_of_total = surah['percent_of_total']
+    end
+  end
+end

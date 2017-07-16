@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170716183856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "surahs", force: :cascade do |t|
+    t.integer "number_of_ayahs"
+    t.integer "order_of_revelation"
+    t.integer "revelation_type"
+    t.string "permalink"
+    t.string "transliterated_name"
+    t.string "arabic_name"
+    t.string "english_name"
+    t.integer "character_length"
+    t.float "percent_of_total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

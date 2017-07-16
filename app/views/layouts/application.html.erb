@@ -8,12 +8,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body id="<%= params["controller"] %>">
     <header>
-      <%= link_to "The Perfect Quran", root_path %>
-      <nav>
-        <%= link_to "Example", "#" %>
-      </nav>
+      <div>
+        <%= link_to "The Perfect Quran", root_path %>
+      </div>
     </header>
     <main>
       <%= yield %>
