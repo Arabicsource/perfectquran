@@ -4,5 +4,6 @@ class SurahsController < ApplicationController
   end
 
   def show
+    @surah = Surah.find_by(permalink: params[:permalink])
   end
 end

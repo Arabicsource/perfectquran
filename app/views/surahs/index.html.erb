@@ -1,9 +1,9 @@
-<h1>Suwar</h1>
+<h1 class="hidden">Suwar</h1>
 
 <ol>
   <% @surahs.each do | surah | %>
     <li>
-      <%= link_to "#" do %>
+      <%= link_to surah.permalink do %>
         <div>
           <h2>
             <%= "#{surah.id}. #{surah.transliterated_name} : #{surah.arabic_name}" %>

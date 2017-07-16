@@ -21,3 +21,7 @@ body>header {
 main {
   @include grid-column(12);
 }
+
+.hidden {
+  display: none;
+}
