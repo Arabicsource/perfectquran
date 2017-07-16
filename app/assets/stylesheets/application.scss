@@ -1,0 +1,18 @@
+$pq-brown: #6b5139;
+$pq-orange: #ff9937;
+$pq-yellow: #6b6039;
+
+@import "bourbon";
+@import "neat";
+@import "base/base";
+
+body>header {
+  @include grid-column(12);
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+main {
+  @include grid-column(12);
+}
