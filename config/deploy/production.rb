@@ -1,0 +1,1 @@
+server '178.62.36.88', user: 'abdullah', roles: %w{app db web}

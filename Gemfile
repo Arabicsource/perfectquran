@@ -64,3 +64,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Using Bourbon and Neat for styles. Trying to get away from the bigness of bootstrap or foundation
 gem 'bourbon', '~> 5.0.0.beta.8'
 gem 'neat'
+
+# Capistrano for deployment
+gem 'capistrano', '~> 3.7', '>= 3.7.1'
+gem 'capistrano-rails', '~> 1.2'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rvm'
