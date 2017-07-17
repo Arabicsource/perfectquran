@@ -39,3 +39,11 @@ unless Ayah.first
     Ayah.find_or_create_by!(ayah)
   end
 end
+
+# add Uthmani text
+unless Text.where(quran_id: 1).first
+  one = YAML.load_file("#{Rails.root}/db/seeds/texts/1.yml")
+  one.each do |t|
+    Text.find_or_create_by!(t)
+  end
+end
