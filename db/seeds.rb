@@ -23,3 +23,11 @@ unless Language.first
     Language.find_or_create_by!(lang)
   end
 end
+
+# add qurans
+unless Quran.first
+  qurans = YAML.load_file("#{Rails.root}/db/seeds/qurans.yml")
+  qurans.each do |quran|
+    Quran.find_or_create_by!(quran)
+  end
+end
