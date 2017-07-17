@@ -17,5 +17,6 @@
 #
 
 class Surah < ApplicationRecord
-   enum revelation_type: [ :meccan, :medinan ]
+  enum revelation_type: [ :meccan, :medinan ]
+  has_many :ayahs, -> { order('id asc') }
 end

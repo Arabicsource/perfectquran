@@ -24,6 +24,8 @@ RSpec.describe Ayah, type: :model do
   specify { expect(@ayah).to respond_to :percent_of_total }
   specify { expect(@ayah).to respond_to :percent_of_surah }
   specify { expect(@ayah).to respond_to :surah }
+  specify { expect(@ayah).to respond_to :texts }
 
   specify { expect(@ayah).to belong_to :surah }
+  specify { expect(@ayah).to have_many :texts }
 end

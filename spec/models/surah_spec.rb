@@ -32,6 +32,8 @@ RSpec.describe Surah, type: :model do
   specify { expect(@surah).to respond_to :english_name }
   specify { expect(@surah).to respond_to :character_length }
   specify { expect(@surah).to respond_to :percent_of_total }
+  specify { expect(@surah).to respond_to :ayahs }
 
+  specify { expect(@surah).to have_many(:ayahs).order('id asc') }
   specify { expect(@surah).to define_enum_for(:revelation_type).with([:meccan, :medinan]) }
 end
