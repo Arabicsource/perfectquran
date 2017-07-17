@@ -31,3 +31,11 @@ unless Quran.first
     Quran.find_or_create_by!(quran)
   end
 end
+
+# add ayahs
+unless Ayah.first
+  ayahs = YAML.load_file("#{Rails.root}/db/seeds/ayahs.yml")
+  ayahs.each do |ayah|
+    Ayah.find_or_create_by!(ayah)
+  end
+end
