@@ -1,0 +1,164 @@
+-
+  id: 1
+  name: "Arabic"
+  direction: "rtl"
+-
+  id: 2
+  name: "English"
+  direction: "ltr"
+-
+  id: 3
+  name: "Albanian"
+  direction: "ltr"
+-
+  id: 4
+  name: "Azerbaijani"
+  direction: "ltr"
+-
+  id: 5
+  name: "Bengali"
+  direction: "ltr"
+-
+  id: 6
+  name: "Bosnian"
+  direction: "ltr"
+-
+  id: 7
+  name: "Bulgarian"
+  direction: "ltr"
+-
+  id: 8
+  name: "Chinese"
+  direction: "ltr"
+-
+  id: 9
+  name: "Czech"
+  direction: "ltr"
+-
+  id: 10
+  name: "Divehi"
+  direction: "rtl"
+-
+  id: 11
+  name: "Dutch"
+  direction: "ltr"
+-
+  id: 12
+  name: "French"
+  direction: "ltr"
+-
+  id: 13
+  name: "German"
+  direction: "ltr"
+-
+  id: 14
+  name: "Hausa"
+  direction: "ltr"
+-
+  id: 15
+  name: "Hindi"
+  direction: "ltr"
+-
+  id: 16
+  name: "Indonesian"
+  direction: "ltr"
+-
+  id: 17
+  name: "Italian"
+  direction: "ltr"
+-
+  id: 18
+  name: "Japanese"
+  direction: "ltr"
+-
+  id: 19
+  name: "Korean"
+  direction: "ltr"
+-
+  id: 20
+  name: "Kurdish"
+  direction: "rtl"
+-
+  id: 21
+  name: "Malay"
+  direction: "ltr"
+-
+  id: 22
+  name: "Malayalam"
+  direction: "ltr"
+-
+  id: 23
+  name: "Norwegian"
+  direction: "ltr"
+-
+  id: 24
+  name: "Persian"
+  direction: "rtl"
+-
+  id: 25
+  name: "Polish"
+  direction: "ltr"
+-
+  id: 26
+  name: "Portuguese"
+  direction: "ltr"
+-
+  id: 27
+  name: "Romanian"
+  direction: "ltr"
+-
+  id: 28
+  name: "Russian"
+  direction: "ltr"
+-
+  id: 29
+  name: "Sindhi"
+  direction: "rtl"
+-
+  id: 30
+  name: "Somali"
+  direction: "ltr"
+-
+  id: 31
+  name: "Spanish"
+  direction: "ltr"
+-
+  id: 32
+  name: "Swahili"
+  direction: "ltr"
+-
+  id: 33
+  name: "Swedish"
+  direction: "ltr"
+-
+  id: 34
+  name: "Tajik"
+  direction: "ltr"
+-
+  id: 35
+  name: "Tamil"
+  direction: "ltr"
+-
+  id: 36
+  name: "Tatar"
+  direction: "ltr"
+-
+  id: 37
+  name: "Thai"
+  direction: "ltr"
+-
+  id: 38
+  name: "Turkish"
+  direction: "ltr"
+-
+  id: 39
+  name: "Urdu"
+  direction: "rtl"
+-
+  id: 40
+  name: "Uyghur"
+  direction: "rtl"
+-
+  id: 41
+  name: "Uzbek"
+  direction: "ltr"

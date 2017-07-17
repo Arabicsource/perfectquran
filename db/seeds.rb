@@ -15,3 +15,11 @@ unless Surah.first
     end
   end
 end
+
+# add languages
+unless Language.first
+  languages = YAML.load_file("#{Rails.root}/db/seeds/languages.yml")
+  languages.each do |lang|
+    Language.find_or_create_by!(lang)
+  end
+end
