@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717182600) do
+ActiveRecord::Schema.define(version: 20170717183423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20170717182600) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "qurans", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.bigint "language_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_id"], name: "index_qurans_on_language_id"
+  end
+
   create_table "surahs", force: :cascade do |t|
     t.integer "number_of_ayahs"
     t.integer "order_of_revelation"
@@ -48,4 +57,5 @@ ActiveRecord::Schema.define(version: 20170717182600) do
   end
 
   add_foreign_key "ayahs", "surahs"
+  add_foreign_key "qurans", "languages"
 end
