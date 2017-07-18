@@ -5,6 +5,11 @@ class Api::V1::AyahsController < ApplicationController
   end
 
   def show
-    render json: Ayah.find(params[:id])
+    if params[:id]
+      ayah = Ayah.find(params[:id])
+    else
+      ayah = Ayah.find_by(surah_id: params[:surah_id], number: params[:ayah_number])
+    end
+    render json: ayah
   end
 end

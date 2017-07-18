@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :surahs, only: [ :index, :show ]
       resources :ayahs, only: [ :index, :show ]
+      get '/surah/:surah_id/ayah/:ayah_number', to: 'ayahs#show'
     end
   end
 
