@@ -2,4 +2,16 @@ body#surahs {
   ol {
     column-count: 3;
   }
+
+  #surah {
+
+  	#ayahs {
+  		@include grid-shift(3);
+  		@include grid-column(9);
+  	}
+  	aside {
+  		@include grid-column(3);
+  		@include grid-shift(-9);
+  	}
+  }
 }

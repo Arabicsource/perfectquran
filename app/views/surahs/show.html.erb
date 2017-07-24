@@ -1,3 +1,38 @@
-<h1><%= @surah.transliterated_name %></h1>
+<article id="surah">
+	<h1><%= @surah.transliterated_name %></h1>
 
-<%= render @surah.ayahs %>
+	<div id="ayahs">
+		<%= render @surah.ayahs %>
+	</div>
+		
+	<aside>
+		<table>
+			<tbody>
+				<tr>
+					<td>Number of Ayahs</td>
+					<td><%= @surah.number_of_ayahs %></td>
+				</tr>
+				<tr>
+					<td>Order of Revelation</td>
+					<td><%= @surah.order_of_revelation.ordinalize %></td>
+				</tr>
+				<tr>
+					<td>Revelation Type</td>
+					<td><%= @surah.revelation_type.capitalize %></td>
+				</tr>
+				<tr>
+					<td>Arabic Name</td>
+					<td><%= @surah.arabic_name %></td>
+				</tr>
+				<tr>
+					<td>Transliterated Name</td>
+					<td><%= @surah.transliterated_name %></td>
+				</tr>
+				<tr>
+					<td>English Name</td>
+					<td><%= @surah.english_name %></td>
+				</tr>
+			</tbody>
+		</table>
+	</aside>
+</article>
