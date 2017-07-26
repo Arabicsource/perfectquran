@@ -36,4 +36,16 @@ RSpec.describe Surah, type: :model do
 
   specify { expect(@surah).to have_many(:ayahs).order('id asc') }
   specify { expect(@surah).to define_enum_for(:revelation_type).with([:meccan, :medinan]) }
-end
+
+  describe "#next" do
+    before { @surahs = FactoryGirl.create_list(:surah, 5) }
+    specify "returns the next surah" do 
+      first_surah = @surahs.first
+      expect(first_surah.next).to eq(@surahs[1])
+    end
+
+    specify "returns first surah if current surah is last" do
+      expect(@surahs.last.next).to eq(@surahs[0])
+    end
+  end
+ end

@@ -1,6 +1,7 @@
 <article id="surah">
 	<div id="ayahs">
 		<h1 class="page-title"><%= @surah.transliterated_name %></h1>
+		<%= link_to "Next", @surah.next.permalink %>
 		<%= render @surah.ayahs %>
 	</div>
 		

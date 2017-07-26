@@ -19,4 +19,14 @@
 class Surah < ApplicationRecord
   enum revelation_type: [ :meccan, :medinan ]
   has_many :ayahs, -> { order('id asc') }
+
+  # Returns the next surah if surah < surah.last.
+  # If surah is last, returns first surah.
+  def next
+  	if id < Surah.last.id
+  		self.class.find(id + 1)
+  	else
+  		self.class.first
+  	end
+  end
 end
