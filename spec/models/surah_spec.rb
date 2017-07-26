@@ -48,4 +48,16 @@ RSpec.describe Surah, type: :model do
       expect(@surahs.last.next).to eq(@surahs[0])
     end
   end
+
+  describe "#previous" do
+    before { @surahs = FactoryGirl.create_list(:surah, 3) }
+
+    specify "returns the previous surah" do
+      expect(@surahs.last.previous).to eq(@surahs[1])
+    end
+
+    specify "returns the last surah if the current surah is first" do
+      expect(@surahs.first.previous).to eq(@surahs.last)
+    end
  end
+end

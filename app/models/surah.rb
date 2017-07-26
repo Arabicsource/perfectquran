@@ -29,4 +29,14 @@ class Surah < ApplicationRecord
   		self.class.first
   	end
   end
+
+  # Returns the previous surah if surah is > surah.first
+  # If surah is first, returns last surah.
+  def previous
+  	if id > Surah.first.id
+  		self.class.find(id - 1)
+  	else
+  		self.class.last
+  	end
+  end
 end
