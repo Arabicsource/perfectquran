@@ -22,4 +22,14 @@ RSpec.describe SurahsHelper, type: :helper do
 			expect(breadcrumb).to have_text surah.transliterated_name
 		end
 	end
+
+  describe "#previous_next_links" do
+
+    specify do
+      surah = FactoryGirl.create(:surah)
+      previous_next_links = helper.previous_next_links(surah)
+      expect(previous_next_links).to have_link "Previous"
+      expect(previous_next_links).to have_link "Next"
+    end
+  end
 end

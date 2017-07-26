@@ -4,10 +4,7 @@
 	<header>
 		<h1><%= @surah.transliterated_name %></h1>
 		<%= breadcrumb(@surah) %>
-		<nav>
-			<%= link_to "Previous", @surah.previous.permalink, class: "button" %>
-			<%= link_to "Next", @surah.next.permalink, class: "button" %>
-		</nav>
+		<%= previous_next_links(@surah) %>
 	</header>
 
 	<div id="ayahs">
@@ -15,10 +12,7 @@
 	</div>
 
 	<footer>
-		<nav>
-			<%= link_to "Previous", @surah.previous.permalink, class: "button" %>
-			<%= link_to "Next", @surah.next.permalink, class: "button" %>
-		</nav>
+		<%= previous_next_links(@surah) %>
 	</footer>
 
 </article>
