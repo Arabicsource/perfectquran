@@ -5,6 +5,7 @@
 		<h1><%= @surah.transliterated_name %></h1>
 		<nav>
 			<%= link_to "Previous", @surah.previous.permalink %>
+			<%= breadcrumb(@surah) %>
 			<%= link_to "Next", @surah.next.permalink %>
 		</nav>
 	</header>

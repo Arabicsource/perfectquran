@@ -11,5 +11,15 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe SurahsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+	describe "#breadcrumb" do
+
+		specify do
+			surah = FactoryGirl.create(:surah)
+			breadcrumb = helper.breadcrumb(surah)
+			expect(breadcrumb).to have_css "div.breadcrumb"
+			expect(breadcrumb).to have_link "Home"
+			expect(breadcrumb).to have_text surah.transliterated_name
+		end
+	end
 end
