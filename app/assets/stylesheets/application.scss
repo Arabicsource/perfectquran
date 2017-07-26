@@ -22,17 +22,6 @@ body>header {
   }
 }
 
-main {
-  @include grid-column(12);
-}
-
 .hidden {
   display: none;
-}
-
-.page-title {
-  padding-bottom: 10px;
-  margin-bottom: 35px;
-  border-bottom: 1px solid #ccc;
-  font-size: 1.4em;
 }

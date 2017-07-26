@@ -16,3 +16,29 @@ body {
 body {
   margin: 0;
 }
+
+main {
+  @include grid-container;
+}
+
+.full-page {
+  
+	#content {
+		@include grid-column(12);
+	}
+
+	aside {
+		display: none;
+	}
+}
+
+.two-column {
+
+	#content {
+		@include grid-column(9);
+		}
+
+	aside {
+		@include grid-column(3);
+	}
+}
