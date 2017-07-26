@@ -10,7 +10,7 @@ body#surahs {
       @include grid-container;
       padding-bottom: 10px;
       margin-bottom: 35px;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 2px solid $light-gray;
 
       h1 {
         @include grid-column(4);
@@ -36,8 +36,7 @@ body#surahs {
     }
 
   	.ayah {
-  		border: 2px solid #ccc;
-  		border-radius: 5px;
+  		border-bottom: 2px solid $light-gray;
   		padding: 10px;
   		margin-bottom: 30px;
 
