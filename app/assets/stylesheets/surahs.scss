@@ -4,6 +4,8 @@ body#surahs {
   }
 
   #surah {
+    margin-bottom: 50px;
+    
     header {
       @include grid-container;
       padding-bottom: 10px;
@@ -28,6 +30,12 @@ body#surahs {
         @include grid-column(4);
         text-align: right;
         float: right;
+      }
+    }
+
+    footer {
+      nav {
+        text-align: right;
       }
     }
 
