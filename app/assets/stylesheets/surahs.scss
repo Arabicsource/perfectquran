@@ -11,13 +11,21 @@ body#surahs {
       border-bottom: 1px solid #ccc;
 
       h1 {
-        @include grid-column(6);
+        @include grid-column(4);
         font-size: 1.4em;
         margin-left: 0;
       }
 
+      div.breadcrumb {
+        @include grid-column(4);
+
+        a {
+          text-decoration: none;
+        }
+      }
+
       nav {
-        @include grid-column(6);
+        @include grid-column(4);
         text-align: right;
         float: right;
       }

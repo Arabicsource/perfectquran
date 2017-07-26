@@ -3,10 +3,10 @@
 
 	<header>
 		<h1><%= @surah.transliterated_name %></h1>
+		<%= breadcrumb(@surah) %>
 		<nav>
-			<%= link_to "Previous", @surah.previous.permalink %>
-			<%= breadcrumb(@surah) %>
-			<%= link_to "Next", @surah.next.permalink %>
+			<%= link_to "Previous", @surah.previous.permalink, class: "button" %>
+			<%= link_to "Next", @surah.next.permalink, class: "button" %>
 		</nav>
 	</header>
 
