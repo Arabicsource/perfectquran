@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body id="<%= params["controller"] %>" class="<%= params['controller'] == 'surahs' && params['action'] == 'index' ? 'full-page' : 'two-column' %>">
+  <body id="<%= params["controller"] %>">
     
     <%= render '/layouts/shared/analytics' %>
 

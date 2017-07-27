@@ -6,13 +6,20 @@
       <%= link_to surah.permalink do %>
         <div>
           <h2>
-            <%= "#{surah.id}. #{surah.transliterated_name} : #{surah.arabic_name}" %>
+            <span class="surah-id"><%= surah.id %></span>
+            <span class="transliteration"><%= surah.transliterated_name %></span>
+            <span class="arabic"><%= surah.arabic_name %></span>
           </h2>
           <p>
-            <%= "#{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}." %>
+            <%= "#{surah.english_name}. #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}." %>
           </p>
         </div>
       <% end %>
     </li>
   <% end %>
 </ol>
+
+<% content_for(:aside) do %>
+  <nav>
+  </nav>
+<% end %>

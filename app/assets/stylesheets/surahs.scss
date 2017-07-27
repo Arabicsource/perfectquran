@@ -1,6 +1,37 @@
 body#surahs {
   ol {
-    column-count: 3;
+    column-count: 2;
+
+    li {
+      margin-bottom: 35px;
+      border-bottom: 2px solid $light-gray;
+      background: lighten($light-gray, 11);
+      padding-top: 4px;
+    }
+
+    .arabic {
+      font-size: 1.6em;
+      float: right;
+    }
+
+    .surah-id {
+      background: $light-gray;
+      padding: 3px;
+      margin-right: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #555;
+    }
+
+    p {
+      text-align: right;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
   }
 
   #surah {
