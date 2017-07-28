@@ -32,9 +32,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails', '~> 3.5'
@@ -49,6 +46,10 @@ group :development do
   gem 'guard-rspec', require: false
   # Annotates specs/models etc with scheme information
   gem 'annotate'
+  gem 'capistrano', '~> 3.7', '>= 3.7.1'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rvm'
 end
 
 group :test do
@@ -64,9 +65,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Using Bourbon and Neat for styles. Trying to get away from the bigness of bootstrap or foundation
 gem 'bourbon', '~> 5.0.0.beta.8'
 gem 'neat'
-
-# Capistrano for deployment
-gem 'capistrano', '~> 3.7', '>= 3.7.1'
-gem 'capistrano-rails', '~> 1.2'
-gem 'capistrano-passenger', '~> 0.2.0'
-gem 'capistrano-rvm'
