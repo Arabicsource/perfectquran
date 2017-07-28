@@ -25,6 +25,11 @@ body>header {
       color: $light-gray;
       font-weight: bold;
     }
+
+    li {
+      display: inline;
+      margin-right: 20px;
+    }
   }
 
   .brand {
