@@ -1,4 +1,11 @@
 <article class="ayah">
   <h1><%= "#{@surah.id}:#{ayah.number}" %></h1>
-  <p class="arabic"><%= ayah.texts.first.content %></p>
+  <section>
+    <h2 class="hidden">Uthmani</h2>
+    <p class="arabic"><%= ayah.texts.first.content %></p>
+  </section>
+  <section>
+    <h2>Transliteration</h2>
+    <p><%= ayah.texts.last.content.html_safe %></p>
+  </section>
 </article>

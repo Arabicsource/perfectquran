@@ -47,3 +47,10 @@ unless Text.where(quran_id: 1).first
     Text.find_or_create_by!(t)
   end
 end
+
+unless Text.where(quran_id: 2).first
+  one = YAML.load_file("#{Rails.root}/db/seeds/texts/2.yml")
+  one.each do |t|
+    Text.find_or_create_by!(t)
+  end
+end
