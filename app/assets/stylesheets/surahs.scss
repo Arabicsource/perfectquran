@@ -74,10 +74,15 @@ body#surahs {
   		.arabic {
   			text-align: right;
   			font-size: 3em;
+        line-height: 2em;
   		}
 
       h2 {
         color: $pq-brown;
+      }
+
+      section {
+        margin-bottom: 30px;
       }
   	}
   }

@@ -21,6 +21,6 @@ RSpec.describe Text, type: :model do
   specify { expect(@text).to respond_to :quran }
   specify { expect(@text).to respond_to :ayah }
 
-  specify { expect(@text).to belong_to :quran }
+  specify { expect(@text).to belong_to(:quran) }
   specify { expect(@text).to belong_to :ayah }
 end

@@ -54,3 +54,11 @@ unless Text.where(quran_id: 2).first
     Text.find_or_create_by!(t)
   end
 end
+
+unless Text.where(quran_id: 3).first
+  sql = File.read("#{Rails.root}/db/seeds/texts/3.sql")
+  sql.each_line do |query|
+    puts query
+    ActiveRecord::Base.connection.execute(query)
+  end
+end

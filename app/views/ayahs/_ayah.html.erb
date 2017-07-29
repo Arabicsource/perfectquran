@@ -1,11 +1,10 @@
 <article class="ayah">
   <h1><%= "#{@surah.id}:#{ayah.number}" %></h1>
-  <section>
-    <h2 class="hidden">Uthmani</h2>
-    <p class="arabic"><%= ayah.texts.first.content %></p>
-  </section>
-  <section>
-    <h2>Transliteration</h2>
-    <p><%= ayah.texts.last.content.html_safe %></p>
-  </section>
+
+  <% ayah.texts.ordered_by_quran_id.each do |text| %>
+    <section>
+      <h2<%= ' class="hidden"'.html_safe if text.quran_id == 1 %>><%= text.quran.name %></h2>
+      <p<%= ' class="arabic"'.html_safe if text.quran_id == 1 %>><%= text.content.html_safe %></p>
+    </section>
+  <% end %>
 </article>
