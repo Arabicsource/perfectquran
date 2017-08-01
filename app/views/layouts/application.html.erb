@@ -25,6 +25,13 @@
     </header>
 
     <main>
+    
+      <% flash.each do |type, message| %>
+        <div class="flash-<%= type %>" role="alert">
+          <%= message %>
+        </div>
+      <% end %>
+      
     <% if content_for?(:aside) %>
       <aside>
         <%= yield(:aside) %>
