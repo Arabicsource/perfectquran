@@ -1,0 +1,26 @@
+header.navigation
+  +grid-container
+  background-color: $pq-brown
+  margin-bottom: $base-spacing * 2
+
+  h1
+    // +hide-text
+    +grid-column(1)
+    background-image: image-url("perfectquran-q.png")
+    background-repeat: no-repeat
+    height: 50px
+    margin: $base-spacing / 2
+
+    a 
+      color: transparent
+
+  nav
+    +grid-column(11)
+    font-size: 1.2em
+    line-height: 70px
+
+    a
+      margin-right: $base-spacing
+      text-decoration: none
+      color: $light-gray
+      font-weight: bold
