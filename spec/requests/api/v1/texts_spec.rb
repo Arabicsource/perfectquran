@@ -17,6 +17,8 @@ RSpec.describe "Texts API", type: :request do
         expect(json['content']).to eq(@text.content)
         expect(json['ayah_id']).to eq(@text.ayah_id)
         expect(json['quran_id']).to eq(@text.quran_id)
+        expect(json['surah_id']).to eq(@text.ayah.surah_id)
+        expect(json['ayah_number']).to eq(@text.ayah.number)
     end
   end
 end
