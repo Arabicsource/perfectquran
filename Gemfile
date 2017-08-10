@@ -68,3 +68,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Using Bourbon and Neat for styles. Trying to get away from the bigness of bootstrap or foundation
 gem 'bourbon', '~> 5.0.0.beta.8'
 gem 'neat'
+
+# Cross Origin Resource Sharing // CORS
+gem 'rack-cors', :require => 'rack/cors'
