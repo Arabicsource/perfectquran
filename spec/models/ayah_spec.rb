@@ -28,4 +28,5 @@ RSpec.describe Ayah, type: :model do
 
   specify { expect(@ayah).to belong_to :surah }
   specify { expect(@ayah).to have_many :texts }
+  specify { expect(@ayah).to have_many :favorites }
 end

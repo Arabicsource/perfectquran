@@ -15,4 +15,5 @@
 class Ayah < ApplicationRecord
   belongs_to :surah
   has_many :texts
+  has_many :favorites
 end

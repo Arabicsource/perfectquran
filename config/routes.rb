@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resources :surahs, only: [ :index, :show ]
-      resources :ayahs, only: [ :index, :show ]
+      resources :ayahs, only: [ :index, :show ] do
+        resources :favorites
+      end
       get '/surah/:surah_id/ayah/:ayah_number', to: 'ayahs#show'
       get '/text/ayah/:ayah_id/quran/:quran_id', to: 'texts#show'
     end

@@ -21,8 +21,13 @@
 #  updated_at             :datetime         not null
 #
 
-require 'rails_helper'
+FactoryGirl.define do
+    factory :user do
+        email "example@example.com"
+        password "password"
 
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+        trait :confirmed do
+            confirmed_at Time.now
+        end
+    end
 end

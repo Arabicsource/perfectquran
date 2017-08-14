@@ -71,3 +71,6 @@ gem 'neat'
 
 # Cross Origin Resource Sharing // CORS
 gem 'rack-cors', :require => 'rack/cors'
+
+# jQuery
+gem 'jquery-rails'

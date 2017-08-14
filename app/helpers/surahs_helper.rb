@@ -13,5 +13,9 @@ module SurahsHelper
       previous_next_links = link_to("Previous", surah.previous.permalink, class: "button") + "\n"
       previous_next_links += link_to "Next", surah.next.permalink, class: "button"
     end
-  end
+	end
+	
+	def ayah_is_favorited?(user, ayah)
+		Favorite.find_by(user_id: user.id, ayah_id: ayah.id) unless user.nil?
+	end
 end

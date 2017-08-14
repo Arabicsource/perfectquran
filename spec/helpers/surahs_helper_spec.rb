@@ -32,4 +32,16 @@ RSpec.describe SurahsHelper, type: :helper do
       expect(previous_next_links).to have_link "Next"
     end
   end
+
+  describe "#ayah_is_favorited?" do
+    specify do
+      favorite = FactoryGirl.create(:favorite)
+      expect(helper.ayah_is_favorited?(favorite.user,  favorite.ayah)).to be_truthy
+    end
+
+    specify "when user is nil the result is falsey" do
+      favorite = FactoryGirl.create(:favorite)
+      expect(helper.ayah_is_favorited?(nil, favorite.ayah)).to be_falsey
+    end
+  end
 end
