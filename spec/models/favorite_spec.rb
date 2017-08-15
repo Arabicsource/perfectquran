@@ -19,6 +19,6 @@ RSpec.describe Favorite, type: :model do
   specify { expect(@favorite).to respond_to(:user) }
   specify { expect(@favorite).to respond_to(:ayah) }
   specify { expect(@favorite).to belong_to(:user) }
-  specify { expect(@favorite).to belong_to(:ayah) }
+  specify { expect(@favorite).to belong_to(:ayah).counter_cache(true) }
 
 end
