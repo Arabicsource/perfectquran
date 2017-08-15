@@ -12,5 +12,13 @@
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before { @favorite = FactoryGirl.build(:favorite) }
+
+  specify { expect(@favorite).to be_valid }
+
+  specify { expect(@favorite).to respond_to(:user) }
+  specify { expect(@favorite).to respond_to(:ayah) }
+  specify { expect(@favorite).to belong_to(:user) }
+  specify { expect(@favorite).to belong_to(:ayah) }
+
 end
