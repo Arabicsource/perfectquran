@@ -23,7 +23,7 @@
 
 FactoryGirl.define do
     factory :user do
-        email "example@example.com"
+        sequence(:email) {|n| "eample#{n}@example.com" }    
         password "password"
 
         trait :confirmed do

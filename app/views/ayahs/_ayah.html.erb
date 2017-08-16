@@ -1,4 +1,4 @@
-<article class="ayah">
+<article id="ayah-<%= ayah.id %>" class="ayah">
   <h1><%= "#{@surah.id}:#{ayah.number}" %></h1>
 
   <% ayah.texts.ordered_by_quran_id.each do |text| %>

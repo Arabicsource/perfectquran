@@ -19,5 +19,16 @@ FactoryGirl.define do
     percent_of_total 0.1
     percent_of_surah 0.1
     surah
+
+    trait :with_favorites do
+      
+      transient do
+        number_of_favorites 3
+      end
+
+      after :create do |ayah, evaluator|
+        FactoryGirl.create_list :favorite, evaluator.number_of_favorites, ayah: ayah
+      end
+    end
   end
 end
