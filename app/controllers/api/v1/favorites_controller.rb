@@ -8,7 +8,7 @@ class Api::V1::FavoritesController < ApplicationController
 
     def destroy
         favorite = Favorite.find(params[:id])
-        favorite.delete
+        favorite.destroy
         render json: { message: "Successfully Deleted" }
     end
 end
