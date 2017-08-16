@@ -1,24 +1,9 @@
-# README
+# PerfectQuran
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bismillah ar-Rahman ar-Rahim
 
-Things you may want to cover:
+The Quran is a book that judges between the good and bad. [Quran 25:1](https://perfectquran.co/al-furqan). Therefore, by following its commands and abstaining from what it prohibits, we can adhere to the middle-path that was chosen for us by our Lord.
 
-* Ruby version
+The PerfectQuran project has been around in a number of forms, however, the main goal of the project has always been to help facilitate learning the Quran as a means of benefit for Muslims and a way to keep them from following one of the many evil paths of extremism.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The evil of ISIS' theology and methodology cannot find a handhold in any heart where there is understanding of the Divine message of the Quran.
