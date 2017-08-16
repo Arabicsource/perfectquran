@@ -74,3 +74,6 @@ gem 'rack-cors', :require => 'rack/cors'
 
 # jQuery
 gem 'jquery-rails'
+
+# font awesome icons
+gem "font-awesome-rails"

@@ -10,8 +10,8 @@ module SurahsHelper
 
   def previous_next_links(surah)
     content_tag(:nav) do
-      previous_next_links = link_to("Previous", surah.previous.permalink, class: "button") + "\n"
-      previous_next_links += link_to "Next", surah.next.permalink, class: "button"
+      previous_next_links = link_to("Previous", surah.previous.permalink, class: "button button-primary") + "\n"
+      previous_next_links += link_to "Next", surah.next.permalink, class: "button button-primary"
     end
 	end
 	

@@ -1,31 +1,16 @@
-$_button-background-color: $pq-orange;
-$_button-background-color-hover: shade($pq-orange, 20%);
-
-#{$all-buttons}, .button {
-  appearance: none;
-  background-color: $_button-background-color;
+.button {
   border: 0;
   border-radius: $base-border-radius;
-  color: contrast-switch($_button-background-color);
-  cursor: pointer;
   display: inline-block;
   font-family: $base-font-family;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  font-weight: 600;
-  line-height: 1;
+  font-size: 1em;
+  font-weight: 600px;
   padding: $small-spacing $base-spacing;
   text-align: center;
   text-decoration: none;
-  transition: background-color $base-duration $base-timing;
-  user-select: none;
-  vertical-align: middle;
   white-space: nowrap;
-
-  &:hover {
-    background-color: $_button-background-color-hover;
-    color: contrast-switch($_button-background-color-hover);
-  }
+  line-height: 1;
+  vertical-align: middle;
 
   &:focus {
     outline: $focus-outline;
@@ -35,9 +20,44 @@ $_button-background-color-hover: shade($pq-orange, 20%);
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+  }
+}
 
+.button-default {
+  background-color: $light-gray;
+  color: contrast-switch($light-gray);
+
+  &:hover {
+    $button-hover-background-color: shade($light-gray, 20%);
+    background-color: $button-hover-background-color;
+    color: contrast-switch($button-hover-background-color);
+  }
+
+  &:disabled {
     &:hover {
-      background-color: $_button-background-color;
+      background-color: $light-gray;
     }
   }
+}
+
+.button-primary {
+  background-color: $pq-orange;
+  color: contrast-switch($pq-orange);
+
+  &:hover {
+    $button-hover-background-color: shade($pq-orange, 20%);
+    background-color: $button-hover-background-color;
+    color: contrast-switch($button-hover-background-color);
+  }
+
+  &:disabled {
+    &:hover {
+      background-color: $pq-orange;
+    }
+  }
+}
+
+.button-small {
+  padding: $small-spacing;
+  font-size: 0.9em;
 }
