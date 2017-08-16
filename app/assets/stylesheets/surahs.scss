@@ -77,7 +77,15 @@ body#surahs {
   	.ayah {
   		border-bottom: 2px solid $light-gray;
   		padding: 10px;
-  		margin-bottom: 30px;
+      margin-bottom: 30px;
+      
+      h1 {
+        @include grid-column(1);
+      }
+
+      .button-group {
+        @include grid-column(11);
+      }
 
   		.arabic {
   			text-align: right;

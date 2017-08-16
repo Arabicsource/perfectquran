@@ -1,19 +1,18 @@
 <article id="ayah-<%= ayah.id %>" class="ayah">
   <h1><%= "#{@surah.id}:#{ayah.number}" %></h1>
-
+  <% if user_signed_in? %>
+    <div class="button-group">
+      <% if favorite = ayah_is_favorited?(current_user, ayah) %>      
+        <div class="favorite" data-favoriteid="<%= favorite.id %>" data-favorited="true" data-ayahid="<%= ayah.id %>"></div>
+      <% else %>
+        <div class="favorite" data-favoriteid="0" data-favorited="false" data-ayahid="<%= ayah.id %>"></div>      
+      <% end %>
+    </div>
+  <% end %>
   <% ayah.texts.ordered_by_quran_id.each do |text| %>
     <section>
       <h2<%= ' class="hidden"'.html_safe if text.quran_id == 1 %>><%= text.quran.name %></h2>
       <p<%= ' class="arabic"'.html_safe if text.quran_id == 1 %>><%= text.content.html_safe %></p>
     </section>
-  <% end %>
-  <% if user_signed_in? %>
-  <footer>
-    <% if favorite = ayah_is_favorited?(current_user, ayah) %>      
-      <div class="favorite" data-favoriteid="<%= favorite.id %>" data-favorited="true" data-ayahid="<%= ayah.id %>"></div>
-    <% else %>
-      <div class="favorite" data-favoriteid="0" data-favorited="false" data-ayahid="<%= ayah.id %>"></div>      
-    <% end %>
-  </footer>
   <% end %>
 </article>
