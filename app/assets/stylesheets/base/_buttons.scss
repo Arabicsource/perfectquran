@@ -61,3 +61,13 @@
   padding: $small-spacing;
   font-size: 0.9em;
 }
+
+.button-favorited {
+  background-color: gold;
+  color: lighten(gold, 40%);
+
+  &:hover {
+    background-color: shade(gold, 20%);
+    color: shade(lighten(gold, 40%), 20%);
+  }
+}

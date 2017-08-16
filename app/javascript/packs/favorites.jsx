@@ -24,8 +24,10 @@ class FavoriteButton extends React.Component {
     }
 
     render() {
+        let buttonClasses = "button button-default button-small";
+        if (this.state.favorited) buttonClasses += " button-favorited";
         return (
-            <a className="button button-default button-small" onClick={this.onButtonChange}>
+            <a className={buttonClasses} onClick={this.onButtonChange}>
                 {this.state.buttonName}
             </a>
         );
