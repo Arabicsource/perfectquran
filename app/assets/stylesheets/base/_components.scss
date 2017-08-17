@@ -9,7 +9,7 @@
 
 //
 // MOST FAVORITED AYAHS
-.most-favorited-ayahs {
+.most-favorited-ayahs, .most-memorized-ayahs {
   align-self: stretch;
   background: #fff;
   border-radius: 3px;
@@ -19,6 +19,7 @@
   transition: all 0.2s ease-in-out;
   border-top: 6px solid $pq-brown;
   text-align: center;
+  margin-bottom: 30px;
 
   h1 {
     color: transparentize(#333, 0.3);

@@ -7,6 +7,11 @@
       <% else %>
         <div class="favorite" data-favoriteid="0" data-favorited="false" data-ayahid="<%= ayah.id %>"></div>      
       <% end %>
+      <% if memory = ayah_is_memorized?(current_user, ayah) %>
+        <div class="memory" data-memoryid="<%= memory.id %>" data-memorized="true" data-ayahid="<%= ayah.id %>"></div>
+      <% else %>  
+        <div class="memory" data-memoryid="0" data-memorized="false" data-ayahid="<%= ayah.id %>"></div>      
+      <% end %>        
     </div>
   <% end %>
   <% ayah.texts.ordered_by_quran_id.each do |text| %>

@@ -44,4 +44,16 @@ RSpec.describe SurahsHelper, type: :helper do
       expect(helper.ayah_is_favorited?(nil, favorite.ayah)).to be_falsey
     end
   end
+
+  describe "#ayah_is_memorized?" do
+    before { @memory = FactoryGirl.create(:memory) }
+
+    specify do
+      expect(helper.ayah_is_memorized?(@memory.user,  @memory.ayah)).to be_truthy
+    end
+
+    specify "when user is nil the result is falsey" do
+      expect(helper.ayah_is_memorized?(nil, @memory.ayah)).to be_falsey
+    end
+  end
 end

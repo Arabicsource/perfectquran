@@ -10,6 +10,7 @@
 #  surah_id         :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  favorites_count  :integer          default(0)
 #
 
 require 'rails_helper'
@@ -29,4 +30,5 @@ RSpec.describe Ayah, type: :model do
   specify { expect(@ayah).to belong_to :surah }
   specify { expect(@ayah).to have_many :texts }
   specify { expect(@ayah).to have_many :favorites }
+  specify { expect(@ayah).to have_many :memories }
 end

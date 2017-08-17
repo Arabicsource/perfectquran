@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815085314) do
+ActiveRecord::Schema.define(version: 20170817071427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170815085314) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "favorites_count", default: 0
+    t.integer "memories_count", default: 0
     t.index ["surah_id"], name: "index_ayahs_on_surah_id"
   end
 
@@ -52,6 +53,16 @@ ActiveRecord::Schema.define(version: 20170815085314) do
     t.index ["ayah_id"], name: "index_likes_on_ayah_id"
     t.index ["user_id", "ayah_id"], name: "index_likes_on_user_id_and_ayah_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "memories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "ayah_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ayah_id"], name: "index_memories_on_ayah_id"
+    t.index ["user_id", "ayah_id"], name: "index_memories_on_user_id_and_ayah_id", unique: true
+    t.index ["user_id"], name: "index_memories_on_user_id"
   end
 
   create_table "qurans", force: :cascade do |t|
@@ -113,6 +124,8 @@ ActiveRecord::Schema.define(version: 20170815085314) do
   add_foreign_key "favorites", "users"
   add_foreign_key "likes", "ayahs"
   add_foreign_key "likes", "users"
+  add_foreign_key "memories", "ayahs"
+  add_foreign_key "memories", "users"
   add_foreign_key "qurans", "languages"
   add_foreign_key "texts", "ayahs"
   add_foreign_key "texts", "qurans"

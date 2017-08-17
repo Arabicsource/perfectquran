@@ -18,4 +18,8 @@ module SurahsHelper
 	def ayah_is_favorited?(user, ayah)
 		Favorite.find_by(user_id: user.id, ayah_id: ayah.id) unless user.nil?
 	end
+
+	def ayah_is_memorized?(user, ayah)
+		Memory.find_by(user_id: user.id, ayah_id: ayah.id) unless user.nil?
+	end
 end

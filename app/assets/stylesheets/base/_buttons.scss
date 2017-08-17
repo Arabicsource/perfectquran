@@ -1,3 +1,11 @@
+.button-group {
+  a {
+    display: block;
+    margin-right: 10px;
+    float: left;
+  }
+}
+
 .button {
   border: 0;
   border-radius: $base-border-radius;
@@ -69,5 +77,15 @@
   &:hover {
     background-color: shade(gold, 20%);
     color: shade(lighten(gold, 40%), 20%);
+  }
+}
+
+.button-memorized {
+  background-color: tomato;
+  color: lighten(tomato, 40%);
+
+  &:hover {
+    background-color: shade(tomato, 20%);
+    color: shade(lighten(tomato, 40%), 20%);
   }
 }

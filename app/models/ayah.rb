@@ -10,10 +10,12 @@
 #  surah_id         :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  favorites_count  :integer          default(0)
 #
 
 class Ayah < ApplicationRecord
   belongs_to :surah
   has_many :texts
   has_many :favorites
+  has_many :memories
 end

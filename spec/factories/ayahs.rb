@@ -10,6 +10,7 @@
 #  surah_id         :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  favorites_count  :integer          default(0)
 #
 
 FactoryGirl.define do
