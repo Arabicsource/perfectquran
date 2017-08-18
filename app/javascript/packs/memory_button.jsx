@@ -8,10 +8,10 @@ class MemoryButton extends React.Component {
     constructor(props) {
         super(props);
 
-        let name = <i className="fa fa-heart-o"></i>;
+        let name = <i className="fa fa-heart-o"> memorize</i>;
 
         if (props.memorized) {
-            name = <i className="fa fa-heart"></i>;
+            name = <i className="fa fa-heart"> memorized</i> ;
         }
 
         this.state = {
@@ -24,7 +24,7 @@ class MemoryButton extends React.Component {
     }
 
     render() {
-        let buttonClasses = "button button-default button-small";
+        let buttonClasses = "button button-default button-small button-block";
         if (this.state.memorized) buttonClasses += " button-memorized";
         return (
             <a className={buttonClasses} onClick={this.onButtonChange}>
@@ -44,7 +44,7 @@ class MemoryButton extends React.Component {
               })
               .done(function(data){
                 that.state.memoryId = data.id;
-                that.state.buttonName = <i className="fa fa-heart"></i>;
+                that.state.buttonName = <i className="fa fa-heart"> memorized</i>;
                 that.setState(that.state);
               });
         } else {
@@ -54,7 +54,7 @@ class MemoryButton extends React.Component {
             })
             .done(function(data){
                 that.state.memoryId = 0;
-                that.state.buttonName = <i className="fa fa-heart-o"></i>;
+                that.state.buttonName = <i className="fa fa-heart-o"> memorize</i>;
                 that.setState(that.state);
             });
         }

@@ -1,6 +1,5 @@
-<article id="surah">
+<div id="surah">
 	
-
 	<header>
 		<h1><%= @surah.transliterated_name %></h1>
 		<%= breadcrumb(@surah) %>
@@ -15,37 +14,10 @@
 		<%= previous_next_links(@surah) %>
 	</footer>
 
-</article>
+</div>
 
-<% content_for(:aside) do %>
-	<table>
-		<tbody>
-			<tr>
-				<td>Number of Ayahs</td>
-				<td><%= @surah.number_of_ayahs %></td>
-			</tr>
-			<tr>
-				<td>Order of Revelation</td>
-				<td><%= @surah.order_of_revelation.ordinalize %></td>
-			</tr>
-			<tr>
-				<td>Revelation Type</td>
-				<td><%= @surah.revelation_type.capitalize %></td>
-			</tr>
-			<tr>
-				<td>Arabic Name</td>
-				<td><%= @surah.arabic_name %></td>
-			</tr>
-			<tr>
-				<td>Transliterated Name</td>
-				<td><%= @surah.transliterated_name %></td>
-			</tr>
-			<tr>
-				<td>English Name</td>
-				<td><%= @surah.english_name %></td>
-			</tr>
-		</tbody>
-	</table>
+<% content_for(:sidebar) do %>
+		<%= render "shared/surah_information" %>
 <% end %>
 
 <%= javascript_pack_tag 'favorites' %>

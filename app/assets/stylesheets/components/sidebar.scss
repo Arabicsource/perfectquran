@@ -1,0 +1,44 @@
+#sidebar {
+
+  section {
+    background: #ffffff;
+    border-radius: 1px;
+    color: $dark-gray;
+    box-shadow: 1px 1px 4px $dark-gray;
+    padding: $small-spacing;  
+    border-left: 3px solid #cccccc;
+    margin-bottom: $small-spacing;
+
+    h1 {
+      font-size: 1.2em;
+      margin-bottom: $small-spacing / 2;      
+    }
+
+    table {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 0.9em;
+
+      tr:hover {
+        background-color: lighten($red, 40%);
+      }
+
+      tr:last-of-type {
+        border: none;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $dark-gray;
+      display: block;
+      padding-bottom: $small-spacing / 2;
+      padding-top: $small-spacing / 2;
+      font-size: 0.9em;
+
+      &:hover {
+        background-color: lighten($red, 40%);
+      }
+    }
+  }
+}

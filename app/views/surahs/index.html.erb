@@ -4,22 +4,20 @@
   <% @surahs.each do | surah | %>
     <li>
       <%= link_to surah.permalink do %>
-        <div>
-          <h2>
-            <span class="surah-id"><%= surah.id %></span>
-            <span class="transliteration"><%= surah.transliterated_name %></span>
-            <span class="arabic"><%= surah.arabic_name %></span>
-          </h2>
-          <p>
-            <%= "#{surah.english_name}. #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}." %>
-          </p>
-        </div>
+        <h2>
+          <span class="surah-id"><%= surah.id %></span>
+          <span class="transliteration"><%= surah.transliterated_name %></span>
+          <span class="arabic"><%= surah.arabic_name %></span>
+        </h2>
+        <p>
+          <%= "#{surah.english_name}. #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}." %>
+        </p>
       <% end %>
     </li>
   <% end %>
 </ol>
 
-<% content_for(:aside) do %>
+<% content_for(:sidebar) do %>
   <%= render "shared/most_memorized_ayahs" %>
-  <%= most_favorited_ayahs %>
+  <%= render "shared/most_favorited_ayahs" %>
 <% end %>

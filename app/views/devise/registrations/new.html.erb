@@ -24,12 +24,12 @@
       </div>
 
       <div>
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Sign up", class: "button button-primary" %>
       </div>
     <% end %>
   </div>
 </article>
 
-<% content_for(:aside) do %>
+<% content_for(:sidebar) do %>
   <%= render "devise/shared/links" %>
 <% end %>

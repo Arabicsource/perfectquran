@@ -1,7 +1,8 @@
 @import "normalize";
 @import "bourbon";
 @import "neat";
-@import "base/base";
-@import "modules/modules";
-@import "surahs";
 @import "font-awesome";
+@import "variables";
+@import "base";
+@import "controllers/controllers";
+@import "components/components";

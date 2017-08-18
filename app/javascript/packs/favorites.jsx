@@ -8,10 +8,10 @@ class FavoriteButton extends React.Component {
     constructor(props) {
         super(props);
 
-        let name = <i className="fa fa-star-o"></i>;
+        let name = <i className="fa fa-star-o"> favorite</i>;
 
         if (props.favorited) {
-            name = <i className="fa fa-star"></i>;
+            name = <i className="fa fa-star"> favorited</i>;
         }
 
         this.state = {
@@ -24,7 +24,7 @@ class FavoriteButton extends React.Component {
     }
 
     render() {
-        let buttonClasses = "button button-default button-small";
+        let buttonClasses = "button button-default button-small button-block";
         if (this.state.favorited) buttonClasses += " button-favorited";
         return (
             <a className={buttonClasses} onClick={this.onButtonChange}>
@@ -44,7 +44,7 @@ class FavoriteButton extends React.Component {
               })
               .done(function(data){
                 that.state.favoriteId = data.id;
-                that.state.buttonName = <i className="fa fa-star"></i>;
+                that.state.buttonName = <i className="fa fa-star"> favorited</i>;
                 that.setState(that.state);
               });
         } else {
@@ -54,7 +54,7 @@ class FavoriteButton extends React.Component {
             })
             .done(function(data){
                 that.state.favoriteId = 0;
-                that.state.buttonName = <i className="fa fa-star-o"></i>;
+                that.state.buttonName = <i className="fa fa-star-o"> favorite</i>;
                 that.setState(that.state);
             });
         }

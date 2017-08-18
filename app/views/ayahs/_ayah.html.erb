@@ -1,7 +1,7 @@
 <article id="ayah-<%= ayah.id %>" class="ayah">
+  <header>
   <h1><%= "#{@surah.id}:#{ayah.number}" %></h1>
   <% if user_signed_in? %>
-    <div class="button-group">
       <% if favorite = ayah_is_favorited?(current_user, ayah) %>      
         <div class="favorite" data-favoriteid="<%= favorite.id %>" data-favorited="true" data-ayahid="<%= ayah.id %>"></div>
       <% else %>
@@ -12,12 +12,12 @@
       <% else %>  
         <div class="memory" data-memoryid="0" data-memorized="false" data-ayahid="<%= ayah.id %>"></div>      
       <% end %>        
-    </div>
   <% end %>
+  </header>
+  <section>
   <% ayah.texts.ordered_by_quran_id.each do |text| %>
-    <section>
       <h2<%= ' class="hidden"'.html_safe if text.quran_id == 1 %>><%= text.quran.name %></h2>
       <p<%= ' class="arabic"'.html_safe if text.quran_id == 1 %>><%= text.content.html_safe %></p>
-    </section>
   <% end %>
+  </section>
 </article>

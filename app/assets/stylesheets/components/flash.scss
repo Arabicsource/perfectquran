@@ -26,3 +26,10 @@ $flashes: (
     }
   }
 }
+
+#error_explanation {
+  background: #fbe3e4;
+  padding: $small-spacing;
+  margin-bottom: $small-spacing;
+  color: darken(#fbe3e4, 30%);
+}
