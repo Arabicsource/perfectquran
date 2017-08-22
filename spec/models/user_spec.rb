@@ -31,4 +31,5 @@ RSpec.describe User, type: :model do
   specify { expect(@user).to respond_to :username }
   specify { expect(@user).to validate_presence_of(:name) }
   specify { expect(@user).to validate_presence_of(:username) }
+  specify { expect(@user).to validate_uniqueness_of(:username).case_insensitive }
 end

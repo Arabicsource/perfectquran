@@ -28,5 +28,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: { case_sensitive: false }
 end
