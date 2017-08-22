@@ -87,4 +87,23 @@ feature "Registration" do
       expect(page).to have_text 'Name is too short (minimum is 3 characters)'
     end
   end
+
+  scenario 'submission with a name that is too long' do
+    # When the guest submits a form with a name that is too long
+    fill_in 'Name', with: 'a' * 51
+    fill_in 'Username', with: @guest.username
+    fill_in 'Email', with: @guest.email
+    fill_in 'Password', with: @guest.password
+    fill_in 'Password confirmation', with: @guest.password
+    click_on 'Register'
+
+    # Then expect to be on the registration page
+    expect(page).to have_css :h1, text: 'Register'
+    expect(page).to have_title 'Register'
+
+    # And expect to have an error message
+    within '#error_explanation' do
+      expect(page).to have_text 'Name is too long (maximum is 50 characters)'
+    end
+  end
 end
