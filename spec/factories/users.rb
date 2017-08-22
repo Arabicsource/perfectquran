@@ -22,12 +22,20 @@
 #
 
 FactoryGirl.define do
-    factory :user do
-        sequence(:email) {|n| "eample#{n}@example.com" }    
-        password "password"
+    
+  factory :guest, class: User do
+    name "Gues McGuest"
+    username 'guest_mcguest'
+    sequence(:email) { |n| "example#{n}@example.com" }
+    password "password"
+  end
 
-        trait :confirmed do
-            confirmed_at Time.now
-        end
+  factory :user do
+    sequence(:email) {|n| "eample#{n}@example.com" }    
+    password "password"
+
+    trait :confirmed do
+      confirmed_at Time.now
     end
+  end
 end

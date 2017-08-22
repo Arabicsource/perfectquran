@@ -27,4 +27,6 @@ RSpec.describe User, type: :model do
   before { @user = FactoryGirl.build(:user) }
   
   specify { expect(@user).to be_valid }
+  specify { expect(@user).to respond_to :name }
+  specify { expect(@user).to respond_to :username }
 end
