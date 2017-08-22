@@ -2,22 +2,24 @@ require 'rails_helper'
 
 feature "Registration" do
 
-  scenario "Successful submission" do
+  before do
     # Given we have a guest
-    guest = FactoryGirl.build(:guest)
+    @guest = FactoryGirl.build(:guest)
 
     # And the guest in on the registration page
     visit new_user_registration_path
     expect(page).to have_css :h1, text: 'Register'
     expect(page).to have_title 'Register'
     expect(current_url).to match '/register'
+  end
 
+  scenario "Successful submission" do
     # When the guest completes the form
-    fill_in 'Name', with: guest.name
-    fill_in 'Username', with: guest.username
-    fill_in 'Email', with: guest.email
-    fill_in 'Password', with: guest.password
-    fill_in 'Password confirmation', with: guest.password
+    fill_in 'Name', with: @guest.name
+    fill_in 'Username', with: @guest.username
+    fill_in 'Email', with: @guest.email
+    fill_in 'Password', with: @guest.password
+    fill_in 'Password confirmation', with: @guest.password
 
     # And submits the form
     click_on 'Register'
@@ -29,5 +31,19 @@ feature "Registration" do
 
     # And expect to have a success message
     expect(page).to have_css '.flash-notice', text: I18n.t('devise.registrations.signed_up_but_unconfirmed')
+  end
+
+  scenario "incomplete submission" do
+    # When the guest submits an incomplete form
+    click_on 'Register'
+
+    # Then expect to be on the registration page
+    expect(page).to have_css :h1, text: 'Register'
+    expect(page).to have_title 'Register'
+
+    # And expect to have an error message
+    within '#error_explanation' do
+      expect(page).to have_text '4 errors prohibited this user from being saved:'
+    end
   end
 end

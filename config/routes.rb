@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, path: '', path_names: { sign_up: 'register' }
+  devise_for :users, path: '', path_names: { sign_up: 'register' }, controllers: { registrations: 'registrations' }
   
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do

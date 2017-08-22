@@ -29,4 +29,6 @@ RSpec.describe User, type: :model do
   specify { expect(@user).to be_valid }
   specify { expect(@user).to respond_to :name }
   specify { expect(@user).to respond_to :username }
+  specify { expect(@user).to validate_presence_of(:name) }
+  specify { expect(@user).to validate_presence_of(:username) }
 end
