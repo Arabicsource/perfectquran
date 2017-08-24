@@ -1,74 +1,63 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
-
+import '../memory_button/styles'
 
 class MemoryButton extends React.Component {
 
-    constructor(props) {
-        super(props);
+  state = {
+    id: this.props.id,
+    buttonName: 'Memorize',
+    memorized: this.props.memorized,
+    buttonClass: this.props.memorized ? "memory-button button-memorized" : 'memory-button'
+  }
 
-        let name = <i className="fa fa-heart-o"> memorize</i>;
-
-        if (props.memorized) {
-            name = <i className="fa fa-heart"> memorized</i> ;
-        }
-
-        this.state = {
-            buttonName: name,
-            memorized: props.memorized,
-            memoryId: props.memoryid,
-        };
-
-        this.onButtonChange = this.onButtonChange.bind(this);
+  toggleMemory() {
+    const that = this
+    const { id, memorized, buttonClass } = this.state
+    
+    if(memorized) {
+      $.ajax({
+        type: 'DELETE',
+        url: '/api/v1/ayahs/' + this.props.ayahId + '/memories/' + id,
+      })
+        .done(function(){
+          that.setState({
+            id: 0,
+            buttonName: 'Memorize',
+            memorized: false,
+            buttonClass: 'memory-button'
+          })
+        });
+    } else {
+      $.ajax({
+        type: 'POST',
+        url: '/api/v1/ayahs/' + this.props.ayahId + '/memories',
+      })
+      .done(function(data){
+        that.setState({
+          id: data.id,
+          buttonName: 'Memorized',
+          memorized: true,
+          buttonClass: buttonClass + ' button-memorized'
+        })
+      });
     }
+  }
 
-    render() {
-        let buttonClasses = "button button-default button-small button-block";
-        if (this.state.memorized) buttonClasses += " button-memorized";
-        return (
-            <a className={buttonClasses} onClick={this.onButtonChange}>
-                {this.state.buttonName}
-            </a>
-        );
-    }
+  render() {
+    const { buttonName, buttonClass } = this.state  
 
-    onButtonChange(e) {
-        var that = this;
-        this.state.memorized = !this.state.memorized;
-
-        if (this.state.memorized) {
-            $.ajax({
-                type: 'POST',
-                url: '/api/v1/ayahs/' + this.props.ayahid + '/memories',
-              })
-              .done(function(data){
-                that.state.memoryId = data.id;
-                that.state.buttonName = <i className="fa fa-heart"> memorized</i>;
-                that.setState(that.state);
-              });
-        } else {
-            $.ajax({
-                type: 'DELETE',
-                url: '/api/v1/ayahs/' + this.props.ayahid + '/memories/' + this.state.memoryId,
-            })
-            .done(function(data){
-                that.state.memoryId = 0;
-                that.state.buttonName = <i className="fa fa-heart-o"> memorize</i>;
-                that.setState(that.state);
-            });
-        }
-    }
+    return (
+      <a className={buttonClass} onClick={() => this.toggleMemory()}>
+        <i className="fa fa-heart"></i> {buttonName}
+      </a>
+    )
+  }
 }
-
-MemoryButton.propTypes = {
-    memorized: PropTypes.bool.isRequired,
-};
-
 
 let htmlCollection = document.getElementsByClassName('memory');
 let elements = Array.from(htmlCollection);
 
 elements.forEach(function(e){
-    ReactDOM.render(<MemoryButton memoryid={e.dataset.memoryid} memorized={e.dataset.memorized === "true"} ayahid={e.dataset.ayahid}/>, e);
+  ReactDOM.render(<MemoryButton id={e.dataset.id} ayahId={e.dataset.ayah} memorized={e.dataset.memorized === 'true'}/>,  e);
 });

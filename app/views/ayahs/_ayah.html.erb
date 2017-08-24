@@ -8,9 +8,9 @@
         <div class="favorite" data-favoriteid="0" data-favorited="false" data-ayahid="<%= ayah.id %>"></div>      
       <% end %>
       <% if memory = ayah_is_memorized?(current_user, ayah) %>
-        <div class="memory" data-memoryid="<%= memory.id %>" data-memorized="true" data-ayahid="<%= ayah.id %>"></div>
+        <div class="memory" data-id="<%= memory.id %>" data-memorized="true" data-ayah="<%= ayah.id %>"></div>
       <% else %>  
-        <div class="memory" data-memoryid="0" data-memorized="false" data-ayahid="<%= ayah.id %>"></div>      
+        <div class="memory" data-id="0" data-memorized="false" data-ayah="<%= ayah.id %>"></div>      
       <% end %>        
   <% end %>
   </header>
