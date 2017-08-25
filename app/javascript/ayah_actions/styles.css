@@ -1,4 +1,4 @@
-.memory-button {
+.ayah-action-button {
   border: 0;
   border-radius: 3px;
   display: block;
@@ -14,17 +14,27 @@
   color: #333333;
 }
 
-.memory-button:hover {
+.ayah-action-button:hover {
   background-color: #777777;
   color: #222222;
 }
 
-.button-memorized {
+a.memorized {
   background-color: #f24632;
   color: #ffffff;
 }
 
-.button-memorized:hover {
+a.memorized:hover {
   background-color: #BF1300;
+  color: #ffffff;
+}
+
+a.favorited {
+  background-color: #D4AF37;
+  color: #ffffff;
+}
+
+a.favorited:hover {
+  background-color: #A17C04;
   color: #ffffff;
 }

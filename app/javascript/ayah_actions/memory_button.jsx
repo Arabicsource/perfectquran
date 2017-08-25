@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 export default class MemoryButton extends React.Component {
-
+  
   state = {
     id: this.props.id,
     buttonName: 'Memorize',
     memorized: this.props.memorized,
-    buttonClass: this.props.memorized ? "memory-button button-memorized" : 'memory-button'
+    buttonClass: this.props.memorized ? "ayah-action-button memorized" : 'ayah-action-button'
   }
 
   toggleMemory() {
@@ -24,7 +24,7 @@ export default class MemoryButton extends React.Component {
             id: 0,
             buttonName: 'Memorize',
             memorized: false,
-            buttonClass: 'memory-button'
+            buttonClass: 'ayah-action-button'
           })
         });
     } else {
@@ -37,7 +37,7 @@ export default class MemoryButton extends React.Component {
           id: data.id,
           buttonName: 'Memorized',
           memorized: true,
-          buttonClass: buttonClass + ' button-memorized'
+          buttonClass: buttonClass + ' memorized'
         })
       });
     }

@@ -2,23 +2,25 @@
   <header>
   <h1><%= "#{@surah.id}:#{ayah.number}" %></h1>
   <% if user_signed_in? %>
-      <div 
-        class='ayah-actions' 
-        data-ayah-id="<%= ayah.id %>" 
-        <% if memory = ayah_is_memorized?(current_user, ayah) %>
-          data-memory-id="<%= memory.id %>"
-          data-memorized='true'
-        <% else %>
-          data-memory-id="0"
-          data-memorized='false'
-        <% end %>
-      >
-      </div>
-      <% if favorite = ayah_is_favorited?(current_user, ayah) %>      
-        <div class="favorite" data-favoriteid="<%= favorite.id %>" data-favorited="true" data-ayahid="<%= ayah.id %>"></div>
+    <div 
+      class='ayah-actions' 
+      data-ayah-id="<%= ayah.id %>" 
+      <% if memory = ayah_is_memorized?(current_user, ayah) %>
+        data-memory-id="<%= memory.id %>"
+        data-memorized='true'
       <% else %>
-        <div class="favorite" data-favoriteid="0" data-favorited="false" data-ayahid="<%= ayah.id %>"></div>      
+        data-memory-id="0"
+        data-memorized='false'
       <% end %>
+      <% if favorite = ayah_is_favorited?(current_user, ayah) %>
+        data-favorite-id="<%= favorite.id %>"
+        data-favorited='true'
+      <% else %>
+        data-favorite-id="0"
+        data-favorited='false'
+      <% end %>
+    >
+    </div>
   <% end %>
   </header>
   <section>

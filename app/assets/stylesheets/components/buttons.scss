@@ -39,17 +39,7 @@
   }
 }
 
-.button-favorited {
-  background-color: shade(gold, 5%);
-  color: #ffffff;
-
-  &:hover {
-    background-color: shade(gold, 20%);
-    color: #ffffff;
-  }
-}
-
-.button-memorized, .button-primary {
+.button-primary {
   background-color: $red;
   color: #ffffff;
 
