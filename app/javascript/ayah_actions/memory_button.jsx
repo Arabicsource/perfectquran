@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import '../memory_button/styles'
 
-class MemoryButton extends React.Component {
+export default class MemoryButton extends React.Component {
 
   state = {
     id: this.props.id,
@@ -54,10 +53,3 @@ class MemoryButton extends React.Component {
     )
   }
 }
-
-let htmlCollection = document.getElementsByClassName('memory');
-let elements = Array.from(htmlCollection);
-
-elements.forEach(function(e){
-  ReactDOM.render(<MemoryButton id={e.dataset.id} ayahId={e.dataset.ayah} memorized={e.dataset.memorized === 'true'}/>,  e);
-});
