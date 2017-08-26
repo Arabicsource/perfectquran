@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><%= page_title(yield(:page_title)) %></title>
+    <title><%= page_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -18,7 +18,14 @@
 
     <main>
       <div class='container'>
-        <%= yield %>        
+        <div id="content">
+          <%= yield %>
+        </div>
+        <% if content_for?(:sidebar) %>
+          <div id='sidebar'>
+            <%= yield :sidebar %>
+          </div>
+        <% end %>
       </div>
     </main>
     

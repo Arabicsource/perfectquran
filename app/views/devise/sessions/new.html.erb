@@ -1,26 +1,26 @@
-<article id="sign-in">
-  <h1>Sign In</h1>
+<% provide :title, 'Login' %>
+  
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+  <div class='form-group'>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+  </div>
+  
+  <div class='form-group'>
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+  </div>
 
-  <div id="sign-in-form">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div>
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true %>
-      </div>
-      <div>
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-      <div class="check-box-field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me, class: "check-box" %>
-      </div>
-      <div>
-        <%= f.submit "Sign in", class: "button button-primary" %>
-      </div>
+  <div class="form-check">
+    <%= f.label :remember_me, class: 'form-check-label' do %>
+      <%= f.check_box :remember_me, class: 'form-check-input' %>
+      Remember me?
     <% end %>
   </div>
-</article>
+
+  <%= f.submit "Login", class: "btn btn-secondary" %>
+<% end %>
 
 <% content_for(:sidebar) do %>
   <%= render "devise/shared/links" %>

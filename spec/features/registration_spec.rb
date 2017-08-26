@@ -22,7 +22,9 @@ feature "Registration" do
     fill_in 'Password confirmation', with: @guest.password
 
     # And submits the form
-    click_on 'Register'
+    within('form') do
+      click_on 'Register'
+    end
 
     # Then expect to be on the root page
     expect(page).to have_css :h1, text: 'PerfectQuran'
@@ -30,12 +32,14 @@ feature "Registration" do
     expect(page).to_not have_title  '|'
 
     # And expect to have a success message
-    expect(page).to have_css '.flash-notice', text: I18n.t('devise.registrations.signed_up_but_unconfirmed')
+    expect(page).to have_css '.alert-notice', text: I18n.t('devise.registrations.signed_up_but_unconfirmed')
   end
 
   scenario "incomplete submission" do
     # When the guest submits an incomplete form
-    click_on 'Register'
+    within('form') do
+      click_on 'Register'
+    end
 
     # Then expect to be on the registration page
     expect(page).to have_css :h1, text: 'Register'
@@ -57,7 +61,10 @@ feature "Registration" do
     fill_in 'Email', with: @guest.email
     fill_in 'Password', with: @guest.password
     fill_in 'Password confirmation', with: @guest.password
-    click_on 'Register'
+
+    within('form') do
+      click_on 'Register'
+    end
 
     # Then expect to be on the registration page
     expect(page).to have_css :h1, text: 'Register'
@@ -76,7 +83,10 @@ feature "Registration" do
     fill_in 'Email', with: @guest.email
     fill_in 'Password', with: @guest.password
     fill_in 'Password confirmation', with: @guest.password
-    click_on 'Register'
+    
+    within('form') do
+      click_on 'Register'
+    end
 
     # Then expect to be on the registration page
     expect(page).to have_css :h1, text: 'Register'
@@ -95,7 +105,10 @@ feature "Registration" do
     fill_in 'Email', with: @guest.email
     fill_in 'Password', with: @guest.password
     fill_in 'Password confirmation', with: @guest.password
-    click_on 'Register'
+
+    within('form') do
+      click_on 'Register'
+    end
 
     # Then expect to be on the registration page
     expect(page).to have_css :h1, text: 'Register'
