@@ -1,23 +1,13 @@
-<h1 class="hidden">Suwar</h1>
-
-<ol>
   <% @surahs.each do | surah | %>
-    <li>
-      <%= link_to surah.permalink do %>
-        <h2>
-          <span class="surah-id"><%= surah.id %></span>
-          <span class="transliteration"><%= surah.transliterated_name %></span>
-          <span class="arabic"><%= surah.arabic_name %></span>
-        </h2>
-        <p>
-          <%= "#{surah.english_name}. #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}." %>
-        </p>
-      <% end %>
-    </li>
-  <% end %>
-</ol>
-
-<% content_for(:sidebar) do %>
-  <%= render "shared/most_memorized_ayahs" %>
-  <%= render "shared/most_favorited_ayahs" %>
+    <%= link_to surah.permalink, class: 'surah-link' do%>
+    <section>
+      <h2>
+        <%= "#{surah.id} #{surah.transliterated_name}" %>
+        <span class='arabic'><%= surah.arabic_name %></span>  
+      </h2>
+      <p>
+        <%= "#{surah.english_name}. #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}." %>
+      </p>
+    </section>
+    <% end %>
 <% end %>

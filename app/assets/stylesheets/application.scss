@@ -1,8 +1,80 @@
-@import "normalize";
-@import "bourbon";
-@import "neat";
+@import 'variables';
+@import "bootstrap";
 @import "font-awesome";
-@import "variables";
-@import "base";
-@import "controllers/controllers";
-@import "components/components";
+
+html {
+  font-size: 14px;
+}
+
+body {
+  color: $pq-primary-text-color;
+}
+
+body>header {
+  background-color: $pq-primary-color;
+  padding: $spacer 0;
+  color: $white;
+  margin-bottom: $spacer;
+}
+
+body>footer {
+  background-color: $pq-primary-text-color;
+  color: $pq-secondary-text-color;
+  padding: $spacer 0;
+
+  a {
+    color: $pq-secondary-text-color;
+  }
+}
+
+#surahs {
+
+  a.surah-link { 
+    color: $pq-primary-text-color;
+    text-decoration: none;
+
+    section {
+      padding: $spacer 0;
+      border-bottom: 1px solid $pq-divider-color;
+      margin: $spacer 0;
+  
+      h2 {
+        font-size: 1.2rem;
+      }
+  
+      p {
+        font-size: 0.9rem;
+      }
+  
+      .arabic {
+        float: right;
+        color: $pq-secondary-color;
+        text-align: center;
+      }
+    }
+  }
+}
+
+article.ayah {
+  padding: $spacer 0;
+  border-bottom: 1px solid $pq-divider-color;
+
+  h1 {
+    font-size: 1.2em;
+  }
+
+  h2 {
+    font-size: 1.1em;
+    color: $pq-secondary-text-color;
+  }
+
+  section {
+    padding: ($spacer / 2) 0;
+  }
+
+  p.arabic {
+    text-align: right;
+    font-size: 2em;
+    line-height: 1.8; 
+  }
+}

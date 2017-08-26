@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title><%= page_title(yield(:page_title)) %></title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body id="<%= params["controller"] %>">
-
     <%= render '/layouts/shared/analytics' %>
     <%= render '/layouts/application/navigation' %>
+    <%= render '/layouts/application/header' %>
     <%= render '/layouts/shared/flash' %>
 
-    <div class="container">
-      <div id="sidebar">
-        <%= yield(:sidebar) if content_for?(:sidebar) %>
+    <main>
+      <div class='container'>
+        <%= yield %>        
       </div>
-      <main>
-        <%= yield %>
-      </main>
-    </div>
+    </main>
     
     <footer>
+      <div class='container'>
       <p>
         <%= link_to "Issues", "https://github.com/imabusabah/perfectquran/issues" %>
         <%= link_to "API", "https://imabusabah.github.io/perfectquran-documentation/#introduction" %>
       </p>
       <p>Copyright &copy; <%= Time.now.year %> PerfectQuran.</p>
+      </div>
     </footer>
   </body>
 </html>

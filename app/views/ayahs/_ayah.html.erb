@@ -1,32 +1,11 @@
 <article id="ayah-<%= ayah.id %>" class="ayah">
   <header>
-  <h1><%= "#{@surah.id}:#{ayah.number}" %></h1>
-  <% if user_signed_in? %>
-    <div 
-      class='ayah-actions' 
-      data-ayah-id="<%= ayah.id %>" 
-      <% if memory = ayah_is_memorized?(current_user, ayah) %>
-        data-memory-id="<%= memory.id %>"
-        data-memorized='true'
-      <% else %>
-        data-memory-id="0"
-        data-memorized='false'
-      <% end %>
-      <% if favorite = ayah_is_favorited?(current_user, ayah) %>
-        data-favorite-id="<%= favorite.id %>"
-        data-favorited='true'
-      <% else %>
-        data-favorite-id="0"
-        data-favorited='false'
-      <% end %>
-    >
-    </div>
-  <% end %>
+    <h1><%= "#{@surah.id}:#{ayah.number}" %></h1>
   </header>
-  <section>
   <% ayah.texts.ordered_by_quran_id.each do |text| %>
-      <h2<%= ' class="hidden"'.html_safe if text.quran_id == 1 %>><%= text.quran.name %></h2>
+    <section>
+      <h2<%= ' class="d-none"'.html_safe if text.quran_id == 1 %>><%= text.quran.name %></h2>
       <p<%= ' class="arabic"'.html_safe if text.quran_id == 1 %>><%= text.content.html_safe %></p>
+    </section>
   <% end %>
-  </section>
 </article>

@@ -1,24 +1,22 @@
+<% provide(:title, @surah.transliterated_name) %>
+
 <div id="surah">
-	
-	<header>
-		<h1><%= @surah.transliterated_name %></h1>
-		<%= breadcrumb(@surah) %>
-		<%= previous_next_links(@surah) %>
-	</header>
+	<div class='row'>
+		<div class='col-8'>
+			<%= breadcrumb(@surah) %>	
+		</div>
+		<div class='col-4' style='text-align: right;'>
+			<%= link_to @surah.previous.permalink, class: 'btn btn-secondary' do %>
+				<%= fa_icon 'chevron-left' %>
+			<% end %>
+			<%= link_to @surah.next.permalink, class: 'btn btn-secondary' do %>
+				<%= fa_icon 'chevron-right' %>
+			<% end %>
+		</div>
+	</div>
 
 	<div id="ayahs">
 		<%= render @surah.ayahs %>
 	</div>
 
-	<footer>
-		<%= previous_next_links(@surah) %>
-	</footer>
-
 </div>
-
-<% content_for(:sidebar) do %>
-		<%= render "shared/surah_information" %>
-<% end %>
-
-<%= javascript_pack_tag 'ayah_actions' %>
-<%= stylesheet_pack_tag 'ayah_actions' %>

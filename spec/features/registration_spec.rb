@@ -25,7 +25,7 @@ feature "Registration" do
     click_on 'Register'
 
     # Then expect to be on the root page
-    expect(page).to have_css :h1, text: 'Suwar'
+    expect(page).to have_css :h1, text: 'PerfectQuran'
     expect(page).to have_title 'Perfect Quran'
     expect(page).to_not have_title  '|'
 
