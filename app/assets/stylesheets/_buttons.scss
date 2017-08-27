@@ -1,0 +1,17 @@
+.btn-ayah-action {
+  @extend .btn;
+  @extend .btn-light;
+  @extend .btn-block;
+}
+
+.btn-ayah-action-memorized {
+  @extend .btn-ayah-action;
+  @include button-variant(#f24632, #f24632);
+  color: $white !important;
+}
+
+.btn-ayah-action-favorited {
+  @extend .btn-ayah-action;
+  @include button-variant(#D4AF37, #D4AF37);
+  color: $white !important;
+}

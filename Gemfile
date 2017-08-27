@@ -72,3 +72,5 @@ gem 'bootstrap', '~> 4.0.0.beta'
 
 # fontawesome icons
 gem "font-awesome-rails"
+
+gem 'jquery-rails'

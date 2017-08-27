@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import MemoryButton from '../ayah_actions/memory_button'
 import FavoriteButton from '../ayah_actions/favorite_button'
-import '../ayah_actions/styles'
 
 class AyahActions extends React.Component {
 

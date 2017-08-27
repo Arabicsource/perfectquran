@@ -5,14 +5,13 @@ export default class MemoryButton extends React.Component {
   
   state = {
     id: this.props.id,
-    buttonName: 'Memorize',
     memorized: this.props.memorized,
-    buttonClass: this.props.memorized ? "ayah-action-button memorized" : 'ayah-action-button'
+    buttonClass: this.props.memorized ? 'btn-ayah-action-memorized' : 'btn-ayah-action' 
   }
 
   toggleMemory() {
     const that = this
-    const { id, memorized, buttonClass } = this.state
+    const { id, memorized } = this.state
     
     if(memorized) {
       $.ajax({
@@ -22,9 +21,8 @@ export default class MemoryButton extends React.Component {
         .done(function(){
           that.setState({
             id: 0,
-            buttonName: 'Memorize',
             memorized: false,
-            buttonClass: 'ayah-action-button'
+            buttonClass: 'btn-ayah-action'
           })
         });
     } else {
@@ -35,20 +33,19 @@ export default class MemoryButton extends React.Component {
       .done(function(data){
         that.setState({
           id: data.id,
-          buttonName: 'Memorized',
           memorized: true,
-          buttonClass: buttonClass + ' memorized'
+          buttonClass: 'btn-ayah-action-memorized'
         })
       });
     }
   }
 
   render() {
-    const { buttonName, buttonClass } = this.state  
+    const { buttonClass } = this.state
 
     return (
       <a className={buttonClass} onClick={() => this.toggleMemory()}>
-        <i className="fa fa-heart"></i> {buttonName}
+        <i className="fa fa-heart"></i>
       </a>
     )
   }
