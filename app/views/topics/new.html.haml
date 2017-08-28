@@ -1,0 +1,13 @@
+= form_for [@ayah, Topic.new] do |f|
+
+  .form-group
+    = f.label :subject
+    = f.text_field :subject, autofocus: true, class: 'form-control'
+
+  .form-group
+    = f.label :content
+    = f.text_area :content, class: 'form-control'
+
+  = f.submit 'Add Topic', class: 'btn btn-secondary'
+
+- provide :title, 'New Topic'

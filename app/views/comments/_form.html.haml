@@ -1,0 +1,7 @@
+= form_for [@topic, Comment.new] do |f|
+  
+  .form-group
+    = f.label :content
+    = f.text_area :content, class: 'form-control'
+  
+  = f.submit 'Add Comment', class: 'btn btn-secondary'

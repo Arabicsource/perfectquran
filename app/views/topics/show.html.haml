@@ -1,0 +1,14 @@
+%div
+  = @topic.content
+.comments
+  %h2 Comments
+  - unless @topic.comments.empty?
+    - @topic.comments.each do |comment|
+      .comment
+        = comment.content
+  - else
+    .alert.alert-info
+      No comment
+  %h3 New Comment
+  = render 'comments/form'
+- provide :title, @topic.subject

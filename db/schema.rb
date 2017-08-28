@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822140735) do
+ActiveRecord::Schema.define(version: 20170828075854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20170822140735) do
     t.integer "favorites_count", default: 0
     t.integer "memories_count", default: 0
     t.index ["surah_id"], name: "index_ayahs_on_surah_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_comments_on_topic_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -98,6 +108,18 @@ ActiveRecord::Schema.define(version: 20170822140735) do
     t.index ["quran_id"], name: "index_texts_on_quran_id"
   end
 
+  create_table "topics", force: :cascade do |t|
+    t.string "subject"
+    t.text "content"
+    t.string "discussable_type"
+    t.bigint "discussable_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discussable_type", "discussable_id"], name: "index_topics_on_discussable_type_and_discussable_id"
+    t.index ["user_id"], name: "index_topics_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -123,6 +145,8 @@ ActiveRecord::Schema.define(version: 20170822140735) do
   end
 
   add_foreign_key "ayahs", "surahs"
+  add_foreign_key "comments", "topics"
+  add_foreign_key "comments", "users"
   add_foreign_key "favorites", "ayahs"
   add_foreign_key "favorites", "users"
   add_foreign_key "likes", "ayahs"
@@ -132,4 +156,5 @@ ActiveRecord::Schema.define(version: 20170822140735) do
   add_foreign_key "qurans", "languages"
   add_foreign_key "texts", "ayahs"
   add_foreign_key "texts", "qurans"
+  add_foreign_key "topics", "users"
 end

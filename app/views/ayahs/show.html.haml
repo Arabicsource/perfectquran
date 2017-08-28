@@ -1,0 +1,24 @@
+= render @ayah
+
+.discussions
+  .row
+    .col-8
+      %h2 Discussions
+    .col-4.text-right
+      = link_to new_ayah_topic_path(@ayah), class: 'btn btn-secondary' do
+        = fa_icon 'plus'
+  - unless @ayah.topics.empty?
+    %table.table
+      %thead
+        %tr
+          %th Topic
+      %tbody
+        - @ayah.topics.each do |topic|
+          %tr
+            %td
+              = link_to topic.subject, topic_path(topic)
+  - else
+    .alert.alert-info
+      No-one has started a discussion. Why not be the first?
+
+- provide :title, "#{@surah.transliterated_name}:#{@ayah.number}"

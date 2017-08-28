@@ -18,4 +18,5 @@ class Ayah < ApplicationRecord
   has_many :texts
   has_many :favorites
   has_many :memories
+  has_many :topics, as: :discussable
 end
