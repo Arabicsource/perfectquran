@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
 
   def new
     @ayah = Ayah.find(params[:ayah_id])
+    @topic = Topic.new
   end
 
   def create
@@ -14,7 +15,7 @@ class TopicsController < ApplicationController
     @topic.user = current_user
     
     if @topic.save
-      flash[:success] = 'Topic created'
+      flash[:success] = t 'topic.created'
       redirect_to "/#{@ayah.surah.id}/#{@ayah.number}"
     else
       render :new

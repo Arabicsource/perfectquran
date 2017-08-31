@@ -1,4 +1,6 @@
-= form_for [@ayah, Topic.new] do |f|
+= form_for [@ayah, @topic] do |f|
+
+  = render 'shared/error_messages', object: @topic
 
   .form-group
     = f.label :subject
