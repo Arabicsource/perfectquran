@@ -1,4 +1,10 @@
-%div
+.alert.alert-light
+  Posted in
+  = link_to "#{@topic.discussable.surah.transliterated_name}:#{@topic.discussable.number}", ayah_by_number_path(@topic.discussable.surah.id, @topic.discussable.number)
+  = @topic.created_at.strftime('on %b %e, %Y')
+  = "by #{@topic.user.name}"
+
+.content
   = @topic.content
 
 .comments
@@ -8,12 +14,18 @@
   - unless @topic.comments.empty?
     - @topic.comments.each do |comment|
       .comment
-        = comment.content
+        .alert.alert-light
+          = @topic.user.name
+          = time_ago_in_words(comment.created_at)
+          ago  
+        .comment-content
+          = comment.content
   
   - else
     .alert.alert-info
       No comment
-  
+
+.new-comment
   %h3 New Comment
 
   - if user_signed_in?

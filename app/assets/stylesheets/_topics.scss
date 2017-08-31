@@ -1,0 +1,29 @@
+#topics {
+  .content {
+    padding: $spacer 0;    
+    margin-bottom: $spacer;
+    font-size: 1.2em;
+    border-bottom: 1px solid $pq-divider-color;    
+  }
+
+  .comments {
+    padding: $spacer 0;    
+    margin-bottom: $spacer;
+
+    h2 {
+      font-size: 1.1em;
+    }
+  }
+
+  .comment {
+    padding: $spacer 0;    
+    margin-bottom: $spacer;
+    border-bottom: 1px solid $pq-divider-color;
+  }
+
+  .new-comment {
+    h3 {
+      font-size: 1em;
+    }
+  }
+}
