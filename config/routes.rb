@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'surahs#index'
 
   devise_for :users, path: '', path_names: { sign_up: 'register' }, controllers: { registrations: 'registrations' }
   
@@ -25,4 +24,6 @@ Rails.application.routes.draw do
 
   get '/:surah_id/:number', to: 'ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'surahs#show', as: :surah
+
+  root to: 'surahs#index'  
 end
