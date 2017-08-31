@@ -5,8 +5,9 @@
     .col-8
       %h2 Discussions
     .col-4.text-right
-      = link_to new_ayah_topic_path(@ayah), class: 'btn btn-secondary' do
-        = fa_icon 'plus'
+      - if user_signed_in?
+        = link_to new_ayah_topic_path(@ayah), class: 'btn btn-secondary' do
+          = fa_icon 'plus'
   - unless @ayah.topics.empty?
     %table.table
       %thead
