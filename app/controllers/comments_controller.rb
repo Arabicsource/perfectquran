@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user    
 
     if @comment.save
-      flash[:success] = 'Comment created'
+      flash[:success] = t 'comment.created'
       redirect_to @topic
     else
       render 'topics/show'

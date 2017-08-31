@@ -32,7 +32,7 @@ FactoryGirl.define do
 
   factory :user do
     name 'FirstName SecondName'
-    username 'username'
+    sequence(:username) { |n| "username_#{n}" }
     sequence(:email) {|n| "eample#{n}@example.com" }    
     password "password"
     confirmed_at Time.now
