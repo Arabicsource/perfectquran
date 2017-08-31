@@ -1,0 +1,7 @@
+%header
+  .container
+    %h1
+      = content_for?(:title) ? yield(:title) : 'PerfectQuran'
+      - if content_for?(:sub_title)
+        %small
+          = yield(:sub_title)

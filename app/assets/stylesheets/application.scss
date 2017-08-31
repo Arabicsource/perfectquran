@@ -21,6 +21,15 @@ body>header {
   padding: $spacer 0;
   color: $white;
   margin-bottom: $spacer;
+
+  h1 {
+    font-size: 2em;
+
+    small {
+      color: $pq-primary-color-light;
+      font-size: 0.7em;
+    }
+  }
 }
 
 body>footer {
