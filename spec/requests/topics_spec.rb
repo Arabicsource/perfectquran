@@ -5,6 +5,7 @@ describe 'Topic management', type: :request do
   let(:user) { FactoryGirl.create(:user) }
   let(:ayah) { FactoryGirl.create(:ayah) }
   let(:topic) { FactoryGirl.create(:topic) }
+  let(:topic_attributes) { FactoryGirl.attributes_for(:topic) }
 
   describe 'page access' do
 
@@ -33,6 +34,15 @@ describe 'Topic management', type: :request do
         end
         specify { expect(response).to be_successful }
         specify { expect(response.body).to include 'topic-form' }
+      end
+    end
+
+    describe 'POST topics#create' do
+      
+      # Guests should be redireted to the login page
+      context 'guest' do
+        before { post "/topics" }
+        specify { expect(response).to redirect_to new_user_session_path }
       end
     end
   end
