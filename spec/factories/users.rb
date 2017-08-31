@@ -35,9 +35,6 @@ FactoryGirl.define do
     username 'username'
     sequence(:email) {|n| "eample#{n}@example.com" }    
     password "password"
-
-    trait :confirmed do
-      confirmed_at Time.now
-    end
+    confirmed_at Time.now
   end
 end

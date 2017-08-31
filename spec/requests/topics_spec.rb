@@ -4,10 +4,20 @@ describe 'Topic management', type: :request do
 
   let(:user) { FactoryGirl.create(:user) }
   let(:ayah) { FactoryGirl.create(:ayah) }
+  let(:topic) { FactoryGirl.create(:topic) }
 
   describe 'page access' do
 
-    describe 'GET /topics/new'
+    describe 'GET topics#show' do
+      
+      # Guests should have access
+      context 'guest' do
+        before { get topic_path(topic) }
+        specify { expect(response).to be_successful }
+      end
+    end
+
+    describe 'GET /topics/new' do
 
       # Guests should be redirected to the login page
       context 'geust' do
@@ -18,12 +28,12 @@ describe 'Topic management', type: :request do
       # Users should be able to access the new topic page
       context 'user' do
         before do
-          user.confirm
           login_as user
           get new_ayah_topic_path(ayah)
         end
         specify { expect(response).to be_successful }
         specify { expect(response.body).to include 'topic-form' }
       end
+    end
   end
 end
