@@ -1,14 +1,25 @@
 %div
   = @topic.content
+
 .comments
+ 
   %h2 Comments
+  
   - unless @topic.comments.empty?
     - @topic.comments.each do |comment|
       .comment
         = comment.content
+  
   - else
     .alert.alert-info
       No comment
+  
   %h3 New Comment
-  = render 'comments/form'
+
+  - if user_signed_in?
+    = render 'comments/form'
+  - else
+    .alert.alert-info
+      = t 'comment.alert.must_be_logged_in'
+
 - provide :title, @topic.subject
