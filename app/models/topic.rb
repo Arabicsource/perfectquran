@@ -4,6 +4,6 @@ class Topic < ApplicationRecord
 
   has_many :comments
 
-  validates :subject, presence: true
-  validates :content, presence: true
+  validates :subject, presence: true, length: { minimum: 3, maximum: 100 }
+  validates :content, presence: true, length: { minimum: 3 }
 end
