@@ -5,7 +5,7 @@
   = "by #{@topic.user.name}"
 
 .content
-  = @topic.content
+  = markdown @topic.content
 
 .comments
  
@@ -19,7 +19,7 @@
           = time_ago_in_words(comment.created_at)
           ago  
         .comment-content
-          = comment.content
+          = markdown comment.content
   
   - else
     .alert.alert-info
