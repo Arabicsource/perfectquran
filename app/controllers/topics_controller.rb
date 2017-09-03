@@ -18,7 +18,7 @@ class TopicsController < ApplicationController
     
     if @topic.save
       flash[:success] = t 'topic.created'
-      redirect_to "/#{@ayah.surah.id}/#{@ayah.number}"
+      redirect_to ayah_by_number_path(@ayah.surah.id, @ayah.number)
     else
       render :new
     end
