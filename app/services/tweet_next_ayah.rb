@@ -33,7 +33,7 @@ class TweetNextAyah
     text = text.gsub(' ,', ',')
     text = text.gsub('  ', ' ')
     text = text.gsub(',,', ',')
-    text = text.gsub('&#8217;', "''")
+    text = text.gsub('&#8217;', "'")
     text = text.truncate(100)
     text + ' ' + next_ayah_reference + ' ' + next_ayah_url
   end
