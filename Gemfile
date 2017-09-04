@@ -78,3 +78,4 @@ gem 'jquery-rails'
 
 gem 'haml'
 gem 'redcarpet'
+gem 'twitter'
