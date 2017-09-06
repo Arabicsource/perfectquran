@@ -37,4 +37,11 @@ RSpec.describe User, type: :model do
   specify { expect(@user).to validate_uniqueness_of(:username).case_insensitive }
   specify { expect(@user).to have_many(:rolings) }
   specify { expect(@user).to have_many(:roles).through(:rolings) }
+
+  describe '#has_role?(:role)' do
+    let(:admin) { FactoryGirl.create(:user, :admin) }
+    let(:user) { FactoryGirl.create(:user) }
+    specify { expect(admin.has_role?(:admin)).to be_truthy }
+    specify { expect(user.has_role?(:admin)).to be_falsey }
+  end
 end

@@ -34,4 +34,8 @@ class User < ApplicationRecord
 
   has_many :rolings
   has_many :roles, through: :rolings
+
+  def has_role?(role)
+    roles.where(name: role).first
+  end
 end
