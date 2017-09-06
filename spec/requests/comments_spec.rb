@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Comment management', type: :request do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user, :confirmed) }
   let(:topic) { FactoryGirl.create(:topic) }
   let(:comment_attributes) { FactoryGirl.attributes_for(:comment) }
   let(:params) { { comment: comment_attributes } }

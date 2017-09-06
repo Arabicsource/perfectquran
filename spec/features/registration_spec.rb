@@ -4,7 +4,7 @@ feature "Registration" do
 
   before do
     # Given we have a guest
-    @guest = FactoryGirl.build(:guest)
+    @guest = FactoryGirl.build(:user)
 
     # And the guest in on the registration page
     visit new_user_registration_path

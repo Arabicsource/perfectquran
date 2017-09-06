@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Topic management', type: :request do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user, :confirmed) }
   let(:ayah) { FactoryGirl.create(:ayah) }
   let(:topic) { FactoryGirl.create(:topic) }
   let(:topic_attributes) { FactoryGirl.attributes_for(:topic) }

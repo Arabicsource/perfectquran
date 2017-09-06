@@ -4,7 +4,7 @@ include Warden::Test::Helpers
 feature "Discussion" do
 
   let(:topic_attribtes) { FactoryGirl.attributes_for(:topic) }
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user, :confirmed) }
   let(:ayah) { FactoryGirl.create(:ayah) }
   let(:topic) { FactoryGirl.create(:topic) }
   let(:comment_attributes) { FactoryGirl.attributes_for(:comment) }
