@@ -19,6 +19,8 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string
+#  username               :string
 #
 
 class User < ApplicationRecord
