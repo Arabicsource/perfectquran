@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :manage do
+    resources :users
+  end
+
   resources :ayahs do
     resources :topics
   end
