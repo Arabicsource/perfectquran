@@ -2,6 +2,8 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 feature "User Management" do
+  let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
+  before { login_as admin }
   
   describe 'listing' do
     scenario "successfully" do

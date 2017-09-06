@@ -33,4 +33,6 @@ RSpec.describe User, type: :model do
   specify { expect(@user).to validate_length_of(:name).is_at_least(3).is_at_most(50) }
   specify { expect(@user).to validate_presence_of(:username) }
   specify { expect(@user).to validate_uniqueness_of(:username).case_insensitive }
+  specify { expect(@user).to have_many(:rolings) }
+  specify { expect(@user).to have_many(:roles).through(:rolings) }
 end

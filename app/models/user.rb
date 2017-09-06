@@ -29,4 +29,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 3, maximum: 50 }
   validates :username, presence: true, uniqueness: { case_sensitive: false }
+
+  has_many :rolings
+  has_many :roles, through: :rolings
 end

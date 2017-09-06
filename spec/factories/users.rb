@@ -32,5 +32,11 @@ FactoryGirl.define do
     trait :confirmed do
       confirmed_at Time.now
     end
+
+    trait :admin do
+      after(:create) do |user|
+        user.roles << create(:role, :admin)
+      end
+    end
   end
 end
