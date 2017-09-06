@@ -47,7 +47,7 @@ feature "Registration" do
 
     # And expect to have an error message
     within '#error_explanation' do
-      expect(page).to have_text '5 errors prohibited this user from being saved:'
+      expect(page).to have_text '6 errors prohibited this user from being saved:'
     end
   end
 
