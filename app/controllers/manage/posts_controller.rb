@@ -3,6 +3,11 @@ class Manage::PostsController < Manage::BaseController
     authorize [:manage, Post]
     @posts = Post.all
   end
+
+  def show
+    @post = Post.find(params[:id])
+    authorize [:manage, Post]
+  end
   
   def new
     @post = Post.new
