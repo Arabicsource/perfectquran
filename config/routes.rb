@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     resources :users, :posts
   end
 
+  namespace :blog do
+    resources :posts
+  end
+
   resources :ayahs do
     resources :topics
   end
