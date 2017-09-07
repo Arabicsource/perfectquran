@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :manage do
-    resources :users
+    resources :users, :posts
   end
 
   resources :ayahs do
