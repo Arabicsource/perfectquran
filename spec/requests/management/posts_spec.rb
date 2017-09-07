@@ -54,4 +54,29 @@ describe 'Post management', type: :request do
       specify { expect(response.body).to include post.content }      
     end
   end
+
+  describe 'GET #new' do
+
+    context 'geust' do
+      before { get new_manage_post_path }
+      specify { expect(response).to redirect_to new_user_session_path }
+    end
+
+    context 'non-admin user' do
+      before do
+        login_as FactoryGirl.create(:user, :confirmed)
+        get new_manage_post_path
+      end
+      specify { expect(response).to redirect_to root_path }
+    end
+
+    context 'admin user' do
+      before do
+        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        get new_manage_post_path
+      end
+      specify { expect(response).to be_successful }
+      specify { expect(response.body).to include 'new_post' }
+    end
+  end
 end

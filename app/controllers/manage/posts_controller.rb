@@ -11,6 +11,7 @@ class Manage::PostsController < Manage::BaseController
   
   def new
     @post = Post.new
+    authorize [:manage, Post]
   end
 
   def create
