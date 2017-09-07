@@ -1,5 +1,7 @@
 = form_for [:manage, @post] do |f|
 
+  = render 'shared/error_messages', object: @post
+
   .form-group
     = f.label :title
     = f.text_field :title, class: 'form-control'

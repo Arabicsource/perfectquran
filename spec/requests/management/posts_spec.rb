@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe 'Post management', type: :request do
+  let(:post_attributes) { FactoryGirl.attributes_for(:post) }
+  let(:params) { { post: post_attributes } }
 
   describe 'GET #index' do
 
@@ -77,6 +79,41 @@ describe 'Post management', type: :request do
       end
       specify { expect(response).to be_successful }
       specify { expect(response.body).to include 'new_post' }
+    end
+  end
+
+  describe 'POST #create' do
+    context 'guest' do
+      before { post "/manage/posts" }
+      specify { expect(response).to redirect_to new_user_session_path }
+    end
+
+    context 'non-admin user' do
+      before do
+        login_as FactoryGirl.create(:user, :confirmed)
+        post '/manage/posts'
+      end
+      specify { expect(response).to redirect_to root_path }
+    end
+
+    context 'admin' do
+      before { login_as FactoryGirl.create(:user, :confirmed, :admin) }
+      
+      describe 'successful submission' do
+        specify do
+          expect { post "/manage/posts", { params: params } }.to change(Post, :count)
+          expect(response).to redirect_to manage_posts_path
+        end
+      end
+      
+      describe 'empty submission' do
+        specify do
+          empty_params  = { post: {title: '', content: ''} } 
+          expect { post '/manage/posts', { params: empty_params } }.not_to change(Post, :count)
+          expect(response.body).to include 'Title can&#39;t be blank'
+          expect(response.body).to include 'Content can&#39;t be blank'
+        end
+      end
     end
   end
 end

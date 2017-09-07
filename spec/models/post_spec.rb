@@ -13,5 +13,12 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:post) { FactoryGirl.build(:post) }
+  subject { post }
+
+  it { is_expected.to be_valid }
+  it { is_expected.to respond_to :title }
+  it { is_expected.to respond_to :content }
+  it { is_expected.to validate_presence_of :title }
+  it { is_expected.to validate_presence_of :content }
 end
