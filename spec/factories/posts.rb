@@ -12,5 +12,7 @@
 
 FactoryGirl.define do
   factory :post do
+    sequence(:title) { |n| "PostTitle#{n}" }
+    user
   end
 end

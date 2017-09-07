@@ -1,5 +1,7 @@
 class Manage::PostsController < Manage::BaseController
   def index
+    authorize [:manage, Post]
+    @posts = Post.all
   end
   
   def new
