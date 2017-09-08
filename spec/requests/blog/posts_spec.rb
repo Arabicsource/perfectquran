@@ -1,14 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Posts' do
   let(:post) { FactoryGirl.create(:post) }
 
   describe 'GET #index' do
-
     context 'geust' do
-      before do 
+      before do
         post
-        get blog_path 
+        get blog_path
       end
       specify { expect(response).to be_successful }
       specify { expect(response.body).to include post.title }

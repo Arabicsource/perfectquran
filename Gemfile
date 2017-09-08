@@ -54,6 +54,7 @@ group :development do
   gem 'capistrano-passenger', '~> 0.2.0'
   gem 'capistrano-rvm'
   gem 'brakeman', :require => false
+  gem 'rubocop', '~> 0.49.1', require: false
 end
 
 group :test do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Post management', type: :request do
@@ -5,7 +7,6 @@ describe 'Post management', type: :request do
   let(:params) { { post: post_attributes } }
 
   describe 'GET #index' do
-
     context 'guest' do
       before { get manage_posts_path }
       specify { expect(response).to redirect_to new_user_session_path }
@@ -53,12 +54,11 @@ describe 'Post management', type: :request do
       end
       specify { expect(response).to be_successful }
       specify { expect(response.body).to include post.title }
-      specify { expect(response.body).to include post.content }      
+      specify { expect(response.body).to include post.content }
     end
   end
 
   describe 'GET #new' do
-
     context 'geust' do
       before { get new_manage_post_path }
       specify { expect(response).to redirect_to new_user_session_path }
@@ -84,7 +84,7 @@ describe 'Post management', type: :request do
 
   describe 'POST #create' do
     context 'guest' do
-      before { post "/manage/posts" }
+      before { post '/manage/posts' }
       specify { expect(response).to redirect_to new_user_session_path }
     end
 
@@ -98,18 +98,20 @@ describe 'Post management', type: :request do
 
     context 'admin' do
       before { login_as FactoryGirl.create(:user, :confirmed, :admin) }
-      
+
       describe 'successful submission' do
         specify do
-          expect { post "/manage/posts", { params: params } }.to change(Post, :count)
+          expect { post '/manage/posts', params: params }
+            .to change(Post, :count)
           expect(response).to redirect_to manage_posts_path
         end
       end
-      
+
       describe 'empty submission' do
         specify do
-          empty_params  = { post: {title: '', content: ''} } 
-          expect { post '/manage/posts', { params: empty_params } }.not_to change(Post, :count)
+          empty_params = { post: { title: '', content: '' } }
+          expect { post '/manage/posts', params: empty_params }
+            .not_to change(Post, :count)
           expect(response.body).to include 'Title can&#39;t be blank'
           expect(response.body).to include 'Content can&#39;t be blank'
         end

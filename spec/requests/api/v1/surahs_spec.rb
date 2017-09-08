@@ -1,27 +1,20 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe "Surahs API", type: :request do
+require 'rails_helper'
 
-  it "gets a list of all surahs" do
-    # Given we have a list of surahs
+RSpec.describe 'Surahs API', type: :request do
+  it 'gets a list of all surahs' do
     FactoryGirl.create_list(:surah, 10)
-    # When I visit surahs api 
     get '/api/v1/surahs'
-    # Then I expect a successful response
     expect(response).to be_success
-    # And the number of surahs returned is equal to the number of surahs in the database
     expect(JSON.parse(response.body).length).to eq(10)
   end
 
-  it "gets a specific surah" do
-    # Given there is a surah
+  it 'gets a specific surah' do
     surah = FactoryGirl.create(:surah)
-    # When I visit that  surah's api endpoint
     get "/api/v1/surahs/#{surah.id}"
     json = JSON.parse(response.body)
-    # Then I expect the response to be successful
     expect(response).to be_success
-    # And that the response body equals the surah
     expect(json['id']).to eq(surah.id)
     expect(json['number_of_ayahs']).to eq(surah.number_of_ayahs)
     expect(json['order_of_revelation']).to eq(surah.order_of_revelation)
