@@ -8,7 +8,7 @@ describe 'Posts' do
     context 'geust' do
       before do 
         post
-        get blog_posts_path 
+        get blog_path 
       end
       specify { expect(response).to be_successful }
       specify { expect(response.body).to include post.title }
