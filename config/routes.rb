@@ -18,10 +18,6 @@ Rails.application.routes.draw do
     resources :users, :posts
   end
 
-  namespace :blog do
-    resources :posts
-  end
-
   resources :ayahs do
     resources :topics
   end
@@ -30,6 +26,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get '/blog', to: 'blog/posts#index', as: :blog
   get '/:surah_id/:number', to: 'ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'surahs#show', as: :surah
 
