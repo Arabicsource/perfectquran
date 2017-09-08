@@ -1,3 +1,9 @@
+%ul.nav.nav-tabs
+  %li.nav-item
+    = link_to 'Index', manage_posts_path, class: 'nav-link'
+  %li.nav-item
+    = link_to 'New', new_manage_post_path, class: 'nav-link active'
+
 = form_for [:manage, @post] do |f|
 
   = render 'shared/error_messages', object: @post
@@ -8,7 +14,7 @@
 
   .form-group
     = f.label :content
-    = f.text_area :content, class: 'form-control'
+    = f.text_area :content, rows: 30, class: 'form-control'
 
   = f.submit 'Create Post', class: 'btn btn-secondary'
    

@@ -1,5 +1,11 @@
-%table.table
-  %thead
+%ul.nav.nav-tabs
+  %li.nav-item
+    = link_to 'Index', manage_posts_path, class: 'nav-link active'
+  %li.nav-item
+    = link_to 'New', new_manage_post_path, class: 'nav-link'
+
+%table.table.table-bordered.table-sm
+  %thead.thead-default
     %tr
       %th #
       %th Title
