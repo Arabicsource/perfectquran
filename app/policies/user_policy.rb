@@ -3,6 +3,6 @@
 # :nodoc:
 class UserPolicy < ApplicationPolicy
   def index?
-    user.has_role?(:admin)
+    user.role?(:admin)
   end
 end
