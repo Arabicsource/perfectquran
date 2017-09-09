@@ -19,45 +19,44 @@
 require 'rails_helper'
 
 RSpec.describe Surah, type: :model do
-  
-  before { @surah = FactoryGirl.build(:surah) }
+  let(:surah) { FactoryGirl.build(:surah) }
+  subject { surah }  
 
-  specify { expect(@surah).to be_valid }
-  specify { expect(@surah).to respond_to :number_of_ayahs }
-  specify { expect(@surah).to respond_to :order_of_revelation }
-  specify { expect(@surah).to respond_to :revelation_type }
-  specify { expect(@surah).to respond_to :permalink }
-  specify { expect(@surah).to respond_to :transliterated_name }
-  specify { expect(@surah).to respond_to :arabic_name }
-  specify { expect(@surah).to respond_to :english_name }
-  specify { expect(@surah).to respond_to :character_length }
-  specify { expect(@surah).to respond_to :percent_of_total }
-  specify { expect(@surah).to respond_to :ayahs }
+  it { is_expected.to be_valid }
+  it { is_expected.to respond_to :number_of_ayahs }
+  it { is_expected.to respond_to :order_of_revelation }
+  it { is_expected.to respond_to :revelation_type }
+  it { is_expected.to respond_to :permalink }
+  it { is_expected.to respond_to :transliterated_name }
+  it { is_expected.to respond_to :arabic_name }
+  it { is_expected.to respond_to :english_name }
+  it { is_expected.to respond_to :character_length }
+  it { is_expected.to respond_to :percent_of_total }
+  it { is_expected.to respond_to :ayahs }
+  it { is_expected.to have_many(:ayahs).order('id asc') }
+  it { is_expected.to define_enum_for(:revelation_type).with([:meccan, :medinan]) }
 
-  specify { expect(@surah).to have_many(:ayahs).order('id asc') }
-  specify { expect(@surah).to define_enum_for(:revelation_type).with([:meccan, :medinan]) }
-
-  describe "#next" do
+  describe '#next' do
     before { @surahs = FactoryGirl.create_list(:surah, 5) }
-    specify "returns the next surah" do 
+    specify 'returns the next surah' do
       first_surah = @surahs.first
       expect(first_surah.next).to eq(@surahs[1])
     end
 
-    specify "returns first surah if current surah is last" do
+    specify 'returns first surah if current surah is last' do
       expect(@surahs.last.next).to eq(@surahs[0])
     end
   end
 
-  describe "#previous" do
+  describe '#previous' do
     before { @surahs = FactoryGirl.create_list(:surah, 3) }
 
-    specify "returns the previous surah" do
+    specify 'returns the previous surah' do
       expect(@surahs.last.previous).to eq(@surahs[1])
     end
 
-    specify "returns the last surah if the current surah is first" do
+    specify 'returns the last surah if the current surah is first' do
       expect(@surahs.first.previous).to eq(@surahs.last)
     end
- end
+  end
 end

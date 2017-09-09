@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: texts
@@ -13,7 +15,6 @@
 require 'rails_helper'
 
 RSpec.describe Text, type: :model do
-  
   before { @text = FactoryGirl.build(:text) }
 
   specify { expect(@text).to be_valid }

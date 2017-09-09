@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -26,22 +28,22 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before { @user = FactoryGirl.build(:user) }
-  subject { @user }
-  
-  specify { expect(@user).to be_valid }
-  specify { expect(@user).to respond_to :name }
-  specify { expect(@user).to respond_to :username }
-  specify { expect(@user).to validate_presence_of(:name) }
-  specify { expect(@user).to validate_length_of(:name).is_at_least(3).is_at_most(50) }
-  specify { expect(@user).to validate_presence_of(:username) }
-  specify { expect(@user).to validate_uniqueness_of(:username).case_insensitive }
-  specify { expect(@user).to allow_value('username').for(:username) }
-  it { is_expected.to allow_value('username1').for(:username) }
-  it { is_expected.to allow_value('user_name').for(:username) }
-  it { is_expected.to_not allow_value('user name').for(:username) }
-  specify { expect(@user).to have_many(:rolings) }
-  specify { expect(@user).to have_many(:roles).through(:rolings) }
+  let(:user) { FactoryGirl.build(:user) }
+  subject { user }
+
+  it { is_expected.to be_valid }
+  it { is_expected.to respond_to :name }
+  it { is_expected.to respond_to :username }
+  it { is_expected.to validate_presence_of :name }
+  it { is_expected.to validate_length_of(:name).is_at_least(3).is_at_most(50) }
+  it { is_expected.to validate_presence_of :username }
+  it { is_expected.to validate_uniqueness_of(:username).case_insensitive }
+  it { is_expected.to allow_value('username').for :username }
+  it { is_expected.to allow_value('username1').for :username }
+  it { is_expected.to allow_value('user_name').for :username }
+  it { is_expected.to_not allow_value('user name').for :username }
+  it { is_expected.to have_many :rolings }
+  it { is_expected.to have_many(:roles).through :rolings }
 
   describe '#has_role?(:role)' do
     let(:admin) { FactoryGirl.create(:user, :admin) }
