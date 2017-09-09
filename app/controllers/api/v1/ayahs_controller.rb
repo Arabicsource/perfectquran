@@ -9,11 +9,14 @@ module Api
       end
 
       def show
-        ayah = Ayah.find(params[:id]) ||
-               Ayah.find_by!(
-                 surah_id: params[:surah_id],
-                 number: params[:ayah_number]
-               )
+        ayah = if params[:id]
+                 Ayah.find(params[:id])
+               else
+                 Ayah.find_by!(
+                   surah_id: params[:surah_id],
+                   number: params[:ayah_number]
+                 )
+               end
         render json: ayah
       end
     end
