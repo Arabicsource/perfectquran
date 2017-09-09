@@ -45,10 +45,10 @@ RSpec.describe User, type: :model do
   it { is_expected.to have_many :rolings }
   it { is_expected.to have_many(:roles).through :rolings }
 
-  describe '#has_role?(:role)' do
+  describe '#role?(:role)' do
     let(:admin) { FactoryGirl.create(:user, :admin) }
     let(:user) { FactoryGirl.create(:user) }
-    specify { expect(admin.has_role?(:admin)).to be_truthy }
-    specify { expect(user.has_role?(:admin)).to be_falsey }
+    specify { expect(admin.role?(:admin)).to be_truthy }
+    specify { expect(user.role?(:admin)).to be_falsey }
   end
 end
