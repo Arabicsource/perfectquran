@@ -3,7 +3,7 @@
 module Api
   module V1
     # :nodoc:
-    class AFavoritesController < ApplicationController
+    class FavoritesController < ApplicationController
       def create
         ayah = Ayah.find(params[:ayah_id])
         favorite = ayah.favorites.build(user_id: current_user.id)
