@@ -1,5 +1,22 @@
+AllCops:
+  Exclude:
+    - 'node_modules/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*.rb'
+    - 'config/spring.rb'
+    - 'config/puma.rb'
+    - 'config/initializers/*.rb'
+    - 'config/environments/*.rb'
+    - 'config/environment.rb'
+    - 'config/deploy.rb'
+    - 'config/deploy/*.rb'
+    - 'config/boot.rb'
+    - 'config/application.rb'
+    - 'bin/**'
+    - 'app/services/tweet_next_ayah.rb'
+    - 'Rakefile'
+    - 'Guardfile'
 Style/BlockLength:
   Exclude:
-    - 'Rakefile'
-    - '**/*.rake'
+    - 'config/routes.rb'
     - 'spec/**/*.rb'

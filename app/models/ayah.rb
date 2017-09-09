@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: ayahs
@@ -13,7 +15,6 @@
 #  favorites_count  :integer          default(0)
 #  memories_count   :integer          default(0)
 #
-
 class Ayah < ApplicationRecord
   belongs_to :surah
   has_many :texts

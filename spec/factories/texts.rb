@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: texts
@@ -12,7 +14,7 @@
 
 FactoryGirl.define do
   factory :text do
-    content "string"
+    content 'string'
     quran
     ayah
   end

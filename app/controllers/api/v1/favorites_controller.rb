@@ -1,14 +1,21 @@
-class Api::V1::FavoritesController < ApplicationController
-    def create
+# frozen_string_literal: true
+
+module Api
+  module V1
+    # :nodoc:
+    class AFavoritesController < ApplicationController
+      def create
         ayah = Ayah.find(params[:ayah_id])
         favorite = ayah.favorites.build(user_id: current_user.id)
         favorite.save
         render json: favorite
-    end    
+      end
 
-    def destroy
+      def destroy
         favorite = Favorite.find(params[:id])
         favorite.destroy
-        render json: { message: "Successfully Deleted" }
+        render json: { message: 'Successfully Deleted' }
+      end
     end
+  end
 end

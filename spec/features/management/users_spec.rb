@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 include Warden::Test::Helpers
 
-feature "User Management" do
+feature 'User Management' do
   let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
   before { login_as admin }
-  
+
   describe 'listing' do
-    scenario "successfully" do
+    scenario 'successfully' do
       users = FactoryGirl.create_list(:user, 5)
       visit manage_users_path
       expect(current_url).to match '/manage/users'

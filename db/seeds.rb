@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 unless Surah.first
   surahs = YAML.load_file("#{Rails.root}/db/seeds/surahs.yml")
   surahs.each do |surah|
     Surah.find_or_create_by!(id: surah['id']) do |s|
       s.id = surah['id']
-      s.number_of_ayahs = surah['number_of_ayahs'] 
+      s.number_of_ayahs = surah['number_of_ayahs']
       s.order_of_revelation = surah['order_of_revelation']
       s.revelation_type = surah['revelation_type']
       s.permalink = surah['permalink']

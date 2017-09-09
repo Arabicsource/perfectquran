@@ -1,21 +1,26 @@
-class Manage::BasePolicy < ApplicationPolicy
-  def index?
-    user.has_role?(:admin)
-  end
+# frozen_string_literal: true
 
-  def show?
-    user.has_role?(:admin)
-  end
+module Manage
+  # A base policy that only permits admin users
+  class BasePolicy < ApplicationPolicy
+    def index?
+      user.has_role?(:admin)
+    end
 
-  def create?
-    user.has_role?(:admin)
-  end
+    def show?
+      user.has_role?(:admin)
+    end
 
-  def update?
-    user.has_role?(:admin)
-  end
+    def create?
+      user.has_role?(:admin)
+    end
 
-  def destroy?
-    user.has_role?(:admin)
+    def update?
+      user.has_role?(:admin)
+    end
+
+    def destroy?
+      user.has_role?(:admin)
+    end
   end
 end

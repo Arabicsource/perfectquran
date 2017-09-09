@@ -1,4 +1,6 @@
- # == Schema Information
+# frozen_string_literal: true
+
+# == Schema Information
 #
 # Table name: texts
 #
@@ -9,7 +11,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-
 class Text < ApplicationRecord
   belongs_to :quran
   belongs_to :ayah

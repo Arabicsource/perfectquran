@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -24,11 +26,10 @@
 #
 
 FactoryGirl.define do
-
   factory :user do
     name 'FirstName LastName'
     sequence(:username) { |n| "username_#{n}" }
-    sequence(:email) {|n| "eample#{n}@example.com" }
+    sequence(:email) { |n| "eample#{n}@example.com" }
     password 'password'
 
     trait :confirmed do

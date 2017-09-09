@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: surahs
@@ -20,7 +22,7 @@ require 'rails_helper'
 
 RSpec.describe Surah, type: :model do
   let(:surah) { FactoryGirl.build(:surah) }
-  subject { surah }  
+  subject { surah }
 
   it { is_expected.to be_valid }
   it { is_expected.to respond_to :number_of_ayahs }
@@ -34,7 +36,9 @@ RSpec.describe Surah, type: :model do
   it { is_expected.to respond_to :percent_of_total }
   it { is_expected.to respond_to :ayahs }
   it { is_expected.to have_many(:ayahs).order('id asc') }
-  it { is_expected.to define_enum_for(:revelation_type).with([:meccan, :medinan]) }
+  it do
+    is_expected.to define_enum_for(:revelation_type).with(%i[meccan medinan])
+  end
 
   describe '#next' do
     before { @surahs = FactoryGirl.create_list(:surah, 5) }

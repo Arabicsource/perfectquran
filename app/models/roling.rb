@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: rolings
@@ -8,7 +10,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-
 class Roling < ApplicationRecord
   belongs_to :user
   belongs_to :role

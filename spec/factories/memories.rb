@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: memories
@@ -10,8 +12,8 @@
 #
 
 FactoryGirl.define do
-    factory :memory do
-      ayah
-      user
-    end
+  factory :memory do
+    ayah
+    user
   end
+end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: qurans
@@ -13,7 +15,6 @@
 require 'rails_helper'
 
 RSpec.describe Quran, type: :model do
-  
   before { @quran = FactoryGirl.build(:quran) }
 
   specify { expect(@quran).to be_valid }

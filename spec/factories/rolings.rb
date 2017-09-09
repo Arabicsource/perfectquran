@@ -2,20 +2,18 @@
 
 # == Schema Information
 #
-# Table name: posts
+# Table name: rolings
 #
 #  id         :integer          not null, primary key
-#  title      :string
-#  content    :text
 #  user_id    :integer
+#  role_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 FactoryGirl.define do
-  factory :post do
-    sequence(:title) { |n| "PostTitle#{n}" }
-    content 'PostContent'
+  factory :roling do
     user
+    role
   end
 end

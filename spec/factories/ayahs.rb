@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: ayahs
@@ -23,13 +25,12 @@ FactoryGirl.define do
     surah
 
     trait :with_favorites do
-      
       transient do
         number_of_favorites 3
       end
 
-      after :create do |ayah, evaluator|
-        FactoryGirl.create_list :favorite, evaluator.number_of_favorites, ayah: ayah
+      after :create do |ayah, eval|
+        FactoryGirl.create_list :favorite, eval.number_of_favorites, ayah: ayah
       end
     end
   end

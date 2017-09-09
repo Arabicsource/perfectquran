@@ -1,83 +1,56 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.2'
-# Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
-# Use Puma as the app server
-gem 'puma', '~> 3.7'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use CoffeeScript for .coffee assets and views
+gem 'bootstrap', '~> 4.0.0.beta'
 gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Devise for authentication
 gem 'devise'
+gem 'font-awesome-rails'
+gem 'haml'
+gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.7'
+gem 'pundit'
+gem 'rack-cors', require: 'rack/cors'
+gem 'rails', '~> 5.1.2'
+gem 'redcarpet'
+gem 'sass-rails', '~> 5.0'
+gem 'turbolinks', '~> 5'
+gem 'twitter'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'uglifier', '>= 1.3.0'
+gem 'webpacker'
 
 group :development, :test do
-  gem 'spring-commands-rspec'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 3.5'
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'spring-commands-rspec'
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
+  gem 'annotate'
+  gem 'brakeman', require: false
+  gem 'capistrano', '~> 3.7', '>= 3.7.1'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-rvm'
+  gem 'guard-rspec', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'rubocop', '~> 0.49.1', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'guard-rspec', require: false
-  # Annotates specs/models etc with scheme information
-  gem 'annotate'
-  gem 'capistrano', '~> 3.7', '>= 3.7.1'
-  gem 'capistrano-rails', '~> 1.2'
-  gem 'capistrano-passenger', '~> 0.2.0'
-  gem 'capistrano-rvm'
-  gem 'brakeman', :require => false
-  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers'
   gem 'launchy'
+  gem 'shoulda-matchers'
 end
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Cross Origin Resource Sharing // CORS
-gem 'rack-cors', :require => 'rack/cors'
-
-# bootstrap
-gem 'bootstrap', '~> 4.0.0.beta'
-
-# fontawesome icons
-gem "font-awesome-rails"
-
-gem 'jquery-rails'
-
-gem 'haml'
-gem 'redcarpet'
-gem 'twitter'
-gem 'pundit'

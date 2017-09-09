@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: surahs
@@ -24,8 +26,8 @@ FactoryGirl.define do
     percent_of_total 0.1
     revelation_type :meccan
     transliterated_name 'string'
-    arabic_name "string"
-    english_name "string"
-    permalink "string"
+    arabic_name 'string'
+    english_name 'string'
+    permalink 'string'
   end
 end

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature "Registration" do
-
+feature 'Registration' do
   before do
     # Given we have a guest
     @guest = FactoryGirl.build(:user)
@@ -13,7 +14,7 @@ feature "Registration" do
     expect(current_url).to match '/register'
   end
 
-  scenario "Successful submission" do
+  scenario 'Successful submission' do
     # When the guest completes the form
     fill_in 'Name', with: @guest.name
     fill_in 'Username', with: @guest.username
@@ -29,13 +30,16 @@ feature "Registration" do
     # Then expect to be on the root page
     expect(page).to have_css :h1, text: 'PerfectQuran'
     expect(page).to have_title 'Perfect Quran'
-    expect(page).to_not have_title  '|'
+    expect(page).to_not have_title '|'
 
     # And expect to have a success message
-    expect(page).to have_css '.alert-notice', text: I18n.t('devise.registrations.signed_up_but_unconfirmed')
+    expect(page)
+      .to have_css '.alert-notice',
+                   text: I18n
+                     .t('devise.registrations.signed_up_but_unconfirmed')
   end
 
-  scenario "incomplete submission" do
+  scenario 'incomplete submission' do
     # When the guest submits an incomplete form
     within('form') do
       click_on 'Register'
@@ -47,7 +51,7 @@ feature "Registration" do
 
     # And expect to have an error message
     within '#error_explanation' do
-      expect(page).to have_text '6 errors prohibited this user from being saved:'
+      expect(page).to have_text '6 errors'
     end
   end
 
@@ -83,7 +87,7 @@ feature "Registration" do
     fill_in 'Email', with: @guest.email
     fill_in 'Password', with: @guest.password
     fill_in 'Password confirmation', with: @guest.password
-    
+
     within('form') do
       click_on 'Register'
     end

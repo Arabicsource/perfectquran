@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -22,7 +24,6 @@
 #  name                   :string
 #  username               :string
 #
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -30,12 +31,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true, length: { minimum: 3, maximum: 50 }
-  validates :username, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A\w+\z/, message: 'only Letters, numbers and underscores' }
+  validates :username,
+            presence: true,
+            uniqueness: { case_sensitive: false },
+            format: {
+              with: /\A\w+\z/,
+              message: 'only Letters, numbers and underscores'
+            }
 
   has_many :rolings
   has_many :roles, through: :rolings
 
-  def has_role?(role)
+  def role?(role)
     roles.where(name: role).first
   end
 end

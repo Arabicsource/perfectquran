@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: languages
@@ -12,7 +14,6 @@
 require 'rails_helper'
 
 RSpec.describe Language, type: :model do
-  
   before { @language = FactoryGirl.build(:language) }
 
   specify { expect(@language).to be_valid }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: topics
@@ -11,7 +13,6 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
-
 class Topic < ApplicationRecord
   belongs_to :discussable, polymorphic: true
   belongs_to :user

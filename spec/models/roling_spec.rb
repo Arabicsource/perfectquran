@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: rolings
@@ -12,5 +14,8 @@
 require 'rails_helper'
 
 RSpec.describe Roling, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:roling) { FactoryGirl.build(:roling) }
+  subject { roling }
+
+  it { is_expected.to be_valid }
 end

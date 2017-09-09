@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: shares
@@ -11,5 +13,8 @@
 require 'rails_helper'
 
 RSpec.describe Share, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:share) { FactoryGirl.build(:share) }
+  subject { share }
+
+  it { is_expected.to be_valid }
 end

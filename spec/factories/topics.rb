@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: topics
@@ -16,7 +18,7 @@ FactoryGirl.define do
   factory :topic do |topic|
     subject 'TopicSubject'
     content 'TopicContent'
-    topic.discussable { |topic| topic.association(:ayah) }
+    topic.discussable { |t| t.association(:ayah) }
     user
   end
 end

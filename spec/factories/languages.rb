@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: languages
@@ -11,7 +13,7 @@
 
 FactoryGirl.define do
   factory :language do
-    name "string"
-    direction "string"
+    name 'string'
+    direction 'string'
   end
 end

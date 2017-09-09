@@ -1,15 +1,21 @@
-class Api::V1::AyahsController < ApplicationController
+# frozen_string_literal: true
 
-  def index
-    render json: Ayah.all
-  end
+module Api
+  module V1
+    # :nodoc:
+    class AyahsController < ApplicationController
+      def index
+        render json: Ayah.all
+      end
 
-  def show
-    if params[:id]
-      ayah = Ayah.find(params[:id])
-    else
-      ayah = Ayah.find_by!(surah_id: params[:surah_id], number: params[:ayah_number])
+      def show
+        ayah = Ayah.find(params[:id]) ||
+               Ayah.find_by!(
+                 surah_id: params[:surah_id],
+                 number: params[:ayah_number]
+               )
+        render json: ayah
+      end
     end
-    render json: ayah
   end
 end

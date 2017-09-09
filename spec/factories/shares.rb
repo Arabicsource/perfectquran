@@ -2,20 +2,16 @@
 
 # == Schema Information
 #
-# Table name: posts
+# Table name: shares
 #
 #  id         :integer          not null, primary key
-#  title      :string
-#  content    :text
-#  user_id    :integer
+#  ayah_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 FactoryGirl.define do
-  factory :post do
-    sequence(:title) { |n| "PostTitle#{n}" }
-    content 'PostContent'
-    user
+  factory :share do
+    ayah
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: memories
@@ -13,7 +15,7 @@ require 'rails_helper'
 
 RSpec.describe Memory, type: :model do
   before { @memory = FactoryGirl.build(:memory) }
-  
+
   specify { expect(@memory).to be_valid }
   specify { expect(@memory).to respond_to(:user) }
   specify { expect(@memory).to respond_to(:ayah) }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: qurans
@@ -12,8 +14,8 @@
 
 FactoryGirl.define do
   factory :quran do
-    name "string"
-    description "string"
+    name 'string'
+    description 'string'
     language
   end
 end

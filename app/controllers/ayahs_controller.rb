@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc:
 class AyahsController < ApplicationController
   def show
     @surah = Surah.find(params[:surah_id])

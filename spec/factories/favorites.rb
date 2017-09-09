@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: favorites
@@ -10,8 +12,8 @@
 #
 
 FactoryGirl.define do
-    factory :favorite do
-      ayah
-      user
-    end
+  factory :favorite do
+    ayah
+    user
   end
+end

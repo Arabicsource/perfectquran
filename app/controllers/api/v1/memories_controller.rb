@@ -1,15 +1,21 @@
-class Api::V1::MemoriesController < ApplicationController
+# frozen_string_literal: true
 
-    def create
+module Api
+  module V1
+    # :nodoc:
+    class MemoriesController < ApplicationController
+      def create
         ayah = Ayah.find(params[:ayah_id])
         memory = ayah.memories.build(user_id: current_user.id)
         memory.save
         render json: memory
-    end
+      end
 
-    def destroy
-        memory= Memory.find(params[:id])
+      def destroy
+        memory = Memory.find(params[:id])
         memory.destroy
-        render json: { message: "Successfully Deleted" }
+        render json: { message: 'Successfully Deleted' }
+      end
     end
+  end
 end

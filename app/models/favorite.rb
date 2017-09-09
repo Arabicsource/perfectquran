@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: favorites
@@ -8,7 +10,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-
 class Favorite < ApplicationRecord
   belongs_to :ayah, counter_cache: true
   belongs_to :user

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: ayahs
@@ -17,7 +19,6 @@
 require 'rails_helper'
 
 RSpec.describe Ayah, type: :model do
-  
   before { @ayah = FactoryGirl.build(:ayah) }
 
   specify { expect(@ayah).to be_valid }
@@ -27,7 +28,6 @@ RSpec.describe Ayah, type: :model do
   specify { expect(@ayah).to respond_to :percent_of_surah }
   specify { expect(@ayah).to respond_to :surah }
   specify { expect(@ayah).to respond_to :texts }
-
   specify { expect(@ayah).to belong_to :surah }
   specify { expect(@ayah).to have_many :texts }
   specify { expect(@ayah).to have_many :favorites }

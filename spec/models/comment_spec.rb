@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: comments
@@ -17,6 +19,6 @@ RSpec.describe Comment, type: :model do
 
   specify { expect(@comment).to be_valid }
   specify { expect(@comment).to respond_to :content }
-  specify { expect(@comment).to validate_presence_of(:content) }  
+  specify { expect(@comment).to validate_presence_of(:content) }
   specify { expect(@comment).to validate_length_of(:content).is_at_least(3) }
 end
