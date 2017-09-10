@@ -6,6 +6,7 @@ describe 'Post management', type: :request do
   let(:post_obj) { FactoryGirl.create(:post) }
   let(:post_attributes) { FactoryGirl.attributes_for(:post) }
   let(:params) { { post: post_attributes } }
+  let(:update_params) { { post: { title: 'UpdatedTitle', content: 'UpdatedContent' } } }
 
   describe 'GET #index' do
     context 'guest' do
@@ -141,6 +142,45 @@ describe 'Post management', type: :request do
       end
       specify { expect(response).to be_successful }
       specify { expect(response.body).to include 'edit_post' }
+    end
+  end
+
+  describe 'PATCH #update' do
+    context 'guest' do
+      before { patch '/manage/posts/' + post_obj.id.to_s }
+      specify { expect(response).to redirect_to new_user_session_path }
+    end
+
+    context 'non-admin user' do
+      before do
+        login_as FactoryGirl.create(:user, :confirmed)
+        patch '/manage/posts/' + post_obj.id.to_s, params: { post: post_attributes }
+      end
+      specify { expect(response).to redirect_to root_path }
+    end
+
+    context 'admin' do
+      before { login_as FactoryGirl.create(:user, :confirmed, :admin) }
+
+      describe 'successful submission' do
+        before do 
+          patch '/manage/posts/' + post_obj.id.to_s, params: update_params
+          post_obj.reload
+        end
+        specify { expect(response).to redirect_to manage_posts_path }
+        specify { expect(post_obj.title).to eq update_params[:post][:title] }
+        specify { expect(post_obj.content).to eq update_params[:post][:content] }        
+      end
+
+      describe 'empty submission' do
+        before do
+          empty_params = { post: { title: '', content: '' } }
+          patch '/manage/posts/' + post_obj.id.to_s, params: empty_params
+          post_obj.reload
+        end
+        specify { expect(response.body).to include 'Title can&#39;t be blank' }
+        specify { expect(response.body).to include 'Content can&#39;t be blank' }
+      end
     end
   end
 end

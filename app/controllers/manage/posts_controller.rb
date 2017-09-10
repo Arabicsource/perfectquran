@@ -37,11 +37,14 @@ module Manage
     end
 
     def update
+      authorize [:manage, Post]
       @post = Post.find(params[:id])
 
       if @post.update_attributes(post_params)
         flash[:success] = t 'manage.post.edited'
         redirect_to manage_posts_path
+      else
+        render :edit
       end
     end
 
