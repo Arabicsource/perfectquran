@@ -26,7 +26,8 @@ feature 'Post management' do
       visit edit_manage_post_path(post)
       fill_in 'Title', with: 'ModifiedPostTitle'
       click_on 'Edit Post'
-      expect(page).to have_css '.alert-success', text: I18n.t('manage.post.edited')
+      expect(page).to have_css '.alert-success',
+                               text: I18n.t('manage.post.edited')
       expect(page).to have_text 'ModifiedPostTitle'
     end
   end
