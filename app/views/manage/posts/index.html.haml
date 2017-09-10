@@ -9,12 +9,12 @@
     %tr
       %th #
       %th Title
+      %th Actions
   %tbody
     - @posts.each do |post|
       %tr
-        %td
-          = post.id
-        %td
-          = post.title
+        %td= post.id
+        %td= post.title
+        %td= link_to 'Edit', edit_manage_post_path(post)
           
 - provide :title, 'Posts'
