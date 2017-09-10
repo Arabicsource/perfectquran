@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 describe 'Post management', type: :request do
+  let(:post_obj) { FactoryGirl.create(:post) }
   let(:post_attributes) { FactoryGirl.attributes_for(:post) }
   let(:params) { { post: post_attributes } }
 
@@ -116,6 +117,30 @@ describe 'Post management', type: :request do
           expect(response.body).to include 'Content can&#39;t be blank'
         end
       end
+    end
+  end
+
+  describe 'Get #edit' do
+    context 'guest' do
+      before { get edit_manage_post_path(post_obj) }
+      specify { expect(response).to redirect_to new_user_session_path }
+    end
+
+    context 'non-admin user' do
+      before do
+        login_as FactoryGirl.create(:user, :confirmed)
+        get edit_manage_post_path(post_obj)
+      end
+      specify { expect(response).to redirect_to root_path }
+    end
+
+    context 'admin user' do
+      before do
+        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        get edit_manage_post_path(post_obj)
+      end
+      specify { expect(response).to be_successful }
+      specify { expect(response.body).to include 'edit_post' }
     end
   end
 end

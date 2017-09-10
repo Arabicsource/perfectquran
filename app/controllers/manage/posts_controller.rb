@@ -32,6 +32,7 @@ module Manage
     end
 
     def edit
+      authorize [:manage, Post]
       @post = Post.find(params[:id])
     end
 
