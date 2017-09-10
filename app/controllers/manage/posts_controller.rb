@@ -31,6 +31,19 @@ module Manage
       end
     end
 
+    def edit
+      @post = Post.find(params[:id])
+    end
+
+    def update
+      @post = Post.find(params[:id])
+
+      if @post.update_attributes(post_params)
+        flash[:success] = t 'manage.post.edited'
+        redirect_to manage_posts_path
+      end
+    end
+
     private def post_params
       params.require(:post).permit(:title, :content)
     end

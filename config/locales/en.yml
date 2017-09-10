@@ -40,3 +40,4 @@ en:
   manage:
     post:
       created: 'The post was created'
+      edited: 'The post was edited'

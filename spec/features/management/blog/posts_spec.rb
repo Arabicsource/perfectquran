@@ -6,6 +6,7 @@ include Warden::Test::Helpers
 feature 'Post management' do
   let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
   let(:post_attributes) { FactoryGirl.attributes_for(:post) }
+  let(:post) { FactoryGirl.create(:post) }
   before { login_as admin }
 
   describe 'create' do
@@ -17,6 +18,16 @@ feature 'Post management' do
       expect(page).to have_css '.alert-success',
                                text: I18n.t('manage.post.created')
       expect(page).to have_text post_attributes[:title]
+    end
+  end
+
+  describe 'edit' do
+    scenario 'successfully' do
+      visit edit_manage_post_path(post)
+      fill_in 'Title', with: 'ModifiedPostTitle'
+      click_on 'Edit Post'
+      expect(page).to have_css '.alert-success', text: I18n.t('manage.post.edited')
+      expect(page).to have_text 'ModifiedPostTitle'
     end
   end
 end
