@@ -15,4 +15,8 @@ class Text < ApplicationRecord
   belongs_to :quran
   belongs_to :ayah
   scope :ordered_by_quran_id, -> { joins(:quran).order('qurans.id') }
+
+  def uthmani?
+    quran_id == 1
+  end
 end

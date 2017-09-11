@@ -19,6 +19,7 @@
 require 'rails_helper'
 
 RSpec.describe Ayah, type: :model do
+  let(:ayahs) { FactoryGirl.create_list(:ayah, 5) }
   before { @ayah = FactoryGirl.build(:ayah) }
 
   specify { expect(@ayah).to be_valid }
@@ -32,4 +33,40 @@ RSpec.describe Ayah, type: :model do
   specify { expect(@ayah).to have_many :texts }
   specify { expect(@ayah).to have_many :favorites }
   specify { expect(@ayah).to have_many :memories }
+
+  describe '#previous?' do
+    it 'is false if ayah number is one' do
+      @ayah.number = 1
+      expect(@ayah.previous?).to be_falsey
+    end
+
+    it 'is true if ayah number is greater than one' do
+      @ayah.number = 2
+      expect(@ayah.previous?).to be_truthy
+    end
+  end
+
+  describe '#previous' do
+    it 'returns the previous ayah' do
+      expect(ayahs.second.previous).to eq(ayahs.first)
+    end
+  end
+
+  describe '#next?' do
+    it 'is false if ayah number is equal to number of ayahs in surah' do
+      @ayah.number = @ayah.surah.number_of_ayahs
+      expect(@ayah.next?).to be_falsey
+    end
+
+    it 'is true if ayah number is less than the number of ayahs in surah' do
+      @ayah.number = @ayah.surah.number_of_ayahs - 1
+      expect(@ayah.next?).to be_truthy
+    end
+  end
+
+  describe '#next' do
+    it 'returns the next ayah' do
+      expect(ayahs.second.next).to eq(ayahs.third)
+    end
+  end
 end

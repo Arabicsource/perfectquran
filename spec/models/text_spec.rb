@@ -24,4 +24,16 @@ RSpec.describe Text, type: :model do
 
   specify { expect(@text).to belong_to(:quran) }
   specify { expect(@text).to belong_to :ayah }
+
+  describe '#uthmani?' do
+    it 'is false if text.quran is not uthmani' do
+      @text.quran_id = 2
+      expect(@text.uthmani?).to be_falsey
+    end
+
+    it 'is true if text.quran is uthmani' do
+      @text.quran_id = 1
+      expect(@text.uthmani?).to be_truthy
+    end
+  end
 end

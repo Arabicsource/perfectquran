@@ -1,0 +1,29 @@
+!!!5
+%html{ html_attrs('en') }
+  %head
+    %meta{ charset: 'utf-8' }
+    %meta{ name: 'viewport', content: 'width=device-width; initial-scale=1; shrink-to-fit=no;' }
+    %title= page_title(yield(:title))
+    = csrf_meta_tags
+    = stylesheet_link_tag 'ayahs', media: 'all', data: { turbolinks_track: 'reload' }
+    = javascript_include_tag 'ayahs', data: { turbolinks_track: 'reload' }
+  %body#ayahs
+
+    = render 'layouts/shared/navbar'
+    = render 'layouts/shared/flash'
+
+    .container
+      .row
+        = render 'layouts/shared/aside'
+
+        #content.col-lg-8.mr-lg-auto
+          = yield 
+
+    %footer
+      .container
+        %p
+          Copyright &copy; 
+          = Time.now.year 
+          PerfectQuran.
+          = link_to "Issues", "https://github.com/imabusabah/perfectquran/issues"
+          = link_to "API", "https://imabusabah.github.io/perfectquran-documentation/#introduction"

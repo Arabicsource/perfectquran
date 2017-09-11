@@ -1,13 +1,26 @@
-= render partial: 'ayah', object: @ayah
+- if @ayah.previous?
+  .previous-ayah
+    = @ayah.previous.texts.last.content.html_safe
+    = link_to ayah_by_number_path(@ayah.previous.surah.id, @ayah.previous.number) do
+      = "(#{@ayah.previous.surah.id}:#{@ayah.previous.number})"
 
-.discussions
-  .row
-    .col-8
-      %h2 Discussions
-    .col-4.text-right
-      - if user_signed_in?
-        = link_to new_ayah_topic_path(@ayah), class: 'btn btn-secondary' do
-          = fa_icon 'plus'
+%article.current-ayah
+  %h1= "#{@surah.transliterated_name} #{@ayah.number}"
+
+  - @ayah.texts.ordered_by_quran_id.each do |text|
+    .ayah-text
+      %h2{class: ('d-none' if text.uthmani?)}= text.quran.name
+      %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
+
+- if @ayah.next?
+  .next-ayah
+    = @ayah.next.texts.last.content.html_safe
+    = link_to ayah_by_number_path(@ayah.next.surah.id, @ayah.next.number) do
+      = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
+
+%section.discussions
+  %h1 Discussions
+
   - unless @ayah.topics.empty?
     %table.table
       %thead

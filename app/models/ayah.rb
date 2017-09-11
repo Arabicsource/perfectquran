@@ -21,4 +21,20 @@ class Ayah < ApplicationRecord
   has_many :favorites
   has_many :memories
   has_many :topics, as: :discussable
+
+  def previous?
+    number > 1
+  end
+
+  def previous
+    self.class.find(id - 1)
+  end
+
+  def next?
+    number < surah.number_of_ayahs
+  end
+
+  def next
+    self.class.find(id + 1)
+  end
 end
