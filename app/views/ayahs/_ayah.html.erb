@@ -22,9 +22,6 @@
           <% end %>
         ></div>
       <% end %>
-      <%= link_to ayah_by_number_path(@surah.id, ayah.number), class: 'btn-ayah-action' do %>
-        <%= fa_icon('comments') %>
-      <% end %>
     </header>
     <div class='col-9'>
       <% ayah.texts.ordered_by_quran_id.each do |text| %>

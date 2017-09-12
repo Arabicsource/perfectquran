@@ -7,31 +7,5 @@
 .content
   = markdown @topic.content
 
-.comments
- 
-  %h2 Comments
-  
-  - unless @topic.comments.empty?
-    - @topic.comments.each do |comment|
-      .comment
-        .alert.alert-light
-          = @topic.user.name
-          = "#{time_ago_in_words(comment.created_at)} ago" unless comment.created_at.blank?
-        .comment-content
-          = markdown comment.content
-  
-  - else
-    .alert.alert-info
-      No comment
-
-.new-comment
-  %h3 New Comment
-
-  - if user_signed_in?
-    = render 'comments/form'
-  - else
-    .alert.alert-info
-      = t 'comment.alert.must_be_logged_in'
-
 - provide :title, @topic.subject
 - provide :sub_title, "#{@topic.discussable.surah.transliterated_name}:#{@topic.discussable.number}"
