@@ -18,21 +18,4 @@
     = link_to ayah_by_number_path(@ayah.next.surah.id, @ayah.next.number) do
       = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
 
-%section.discussions
-  %h1 Discussions
-
-  - unless @ayah.topics.empty?
-    %table.table
-      %thead
-        %tr
-          %th Topic
-      %tbody
-        - @ayah.topics.each do |topic|
-          %tr
-            %td
-              = link_to topic.subject, topic_path(topic)
-  - else
-    .alert.alert-info
-      No-one has started a discussion. Why not be the first?
-
 - provide :title, "#{@surah.transliterated_name}:#{@ayah.number}"

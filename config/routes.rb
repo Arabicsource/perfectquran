@@ -22,13 +22,7 @@ Rails.application.routes.draw do
     resources :users, :posts
   end
 
-  resources :ayahs do
-    resources :topics
-  end
-
-  resources :topics do
-    resources :comments
-  end
+  resources :ayahs
 
   get '/blog', to: 'blog/posts#index', as: :blog
   get '/:surah_id/:number', to: 'ayahs#show', as: :ayah_by_number

@@ -31,12 +31,6 @@
 
 en:
   hello: "Hello world"
-  topic:
-    created: 'Alhamdulillah, your topic was created.'
-  comment:
-    created: 'Alhamdulillah, your comment was created'
-    alert:
-      must_be_logged_in: 'You must be logged in to comment'
   manage:
     post:
       created: 'The post was created'
