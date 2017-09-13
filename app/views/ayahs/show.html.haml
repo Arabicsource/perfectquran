@@ -11,6 +11,10 @@
     .ayah-text
       %h2{class: ('d-none' if text.uthmani?)}= text.quran.name
       %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
+  
+  - if user_signed_in?
+    %section.d-lg-none
+      .ayah-actions{data: {'ayah-id' => @ayah.id, 'memory-id' => @memory.id, 'memorized' => @memory.persisted?.to_s, 'memory-count' => @ayah.memories.count, 'favorite-id' => @favorite.id, 'favorited' => @favorite.persisted?.to_s, 'favorite-count' => @ayah.favorites.count}}    
 
 - if @ayah.next?
   .next-ayah
@@ -19,3 +23,10 @@
       = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
 
 - provide :title, "#{@surah.transliterated_name}:#{@ayah.number}"
+
+- content_for :aside do
+  - if user_signed_in?
+    %section#ayah-actions
+      .ayah-actions{data: {'ayah-id' => @ayah.id, 'memory-id' => @memory.id, 'memorized' => @memory.persisted?.to_s, 'memory-count' => @ayah.memories.count, 'favorite-id' => @favorite.id, 'favorited' => @favorite.persisted?.to_s, 'favorite-count' => @ayah.favorites.count}}
+
+= javascript_pack_tag 'ayah_actions'

@@ -2,6 +2,7 @@ $primary-color: #E91E63
 $link-color: $primary-color
 
 @import "bootstrap"
+@import "font-awesome"
 
 body
   background-color: $gray-100
@@ -61,3 +62,39 @@ footer
   h1
     margin-bottom: $spacer
     font-size: 1.1rem
+
+.current-ayah
+  section
+    div
+      margin-right: $spacer
+      display: inline
+      color: $gray-500
+
+    a
+      margin-right: $spacer / 2
+
+    a.memorized
+      color: red
+
+    a.favorited
+      color: gold
+
+.aside
+  #ayah-actions
+    float: right
+    text-align: center  
+    
+    div
+      color: $gray-400
+      margin-bottom: $spacer
+
+    a
+      color: $gray-500
+      font-size: 4rem
+      cursor: pointer
+
+    a.memorized
+      color: red
+    
+    a.favorited
+      color: gold

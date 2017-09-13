@@ -8,8 +8,8 @@ class AyahActions extends React.Component {
   render() {
     return (
       <div>
-        <MemoryButton id={this.props.memoryId} ayahId={this.props.ayahId} memorized={this.props.memorized}/>
-        <FavoriteButton id={this.props.favoriteId} ayahId={this.props.ayahId} favorited={this.props.favorited}/>        
+        <MemoryButton id={this.props.memoryId} ayahId={this.props.ayahId} memorized={this.props.memorized} count={this.props.memoryCount}/>
+        <FavoriteButton id={this.props.favoriteId} ayahId={this.props.ayahId} favorited={this.props.favorited} count={this.props.favoriteCount}/>        
       </div>
     )
   }
@@ -24,8 +24,10 @@ elements.forEach(function(e){
       ayahId={e.dataset.ayahId} 
       memoryId={e.dataset.memoryId}
       memorized={e.dataset.memorized === 'true'}
+      memoryCount={e.dataset.memoryCount}
       favoriteId={e.dataset.favoriteId}
       favorited={e.dataset.favorited === 'true'}
+      favoriteCount={e.dataset.favoriteCount}
     />,  
   e);
 });

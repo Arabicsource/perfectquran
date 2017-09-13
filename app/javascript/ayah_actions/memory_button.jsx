@@ -2,11 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 export default class MemoryButton extends React.Component {
-  
+
   state = {
     id: this.props.id,
     memorized: this.props.memorized,
-    buttonClass: this.props.memorized ? 'btn-ayah-action-memorized' : 'btn-ayah-action' 
+    buttonClass: this.props.memorized ? 'memorized' : '',
+    icon: this.props.memorized ? 'fa fa-heart' : 'fa fa-heart-o',
+    count: this.props.count
   }
 
   toggleMemory() {
@@ -22,7 +24,9 @@ export default class MemoryButton extends React.Component {
           that.setState({
             id: 0,
             memorized: false,
-            buttonClass: 'btn-ayah-action'
+            buttonClass: '',
+            icon: 'fa fa-heart-o',
+            count: (Number.parseInt(that.state.count) - 1).toString()
           })
         });
     } else {
@@ -34,19 +38,24 @@ export default class MemoryButton extends React.Component {
         that.setState({
           id: data.id,
           memorized: true,
-          buttonClass: 'btn-ayah-action-memorized'
+          buttonClass: 'memorized',
+          icon: 'fa fa-heart',
+          count: (Number.parseInt(that.state.count) + 1).toString()
         })
       });
     }
   }
 
   render() {
-    const { buttonClass } = this.state
+    const { buttonClass, icon, count } = this.state
 
     return (
-      <a className={buttonClass} onClick={() => this.toggleMemory()}>
-        <i className="fa fa-heart"></i>
-      </a>
+      <div>
+        <a className={buttonClass} onClick={() => this.toggleMemory()}>
+          <i className={icon}></i>
+        </a>
+        <div>Memories {count}</div>
+      </div>
     )
   }
 }

@@ -6,7 +6,9 @@ export default class FavoriteButton extends React.Component {
   state = {
     id: this.props.id,
     favorited: this.props.favorited,
-    buttonClass: this.props.favorited ? "btn-ayah-action-favorited" : 'btn-ayah-action'
+    buttonClass: this.props.favorited ? "favorited" : '',
+    icon: this.props.favorited ? 'fa fa-star' : 'fa fa-star-o',
+    count: this.props.count
   }
 
   toggleFavorite() {
@@ -22,7 +24,9 @@ export default class FavoriteButton extends React.Component {
           that.setState({
             id: 0,
             favorited: false,
-            buttonClass: 'btn-ayah-action'
+            buttonClass: '',
+            icon: 'fa fa-star-o',
+            count: (Number.parseInt(that.state.count) - 1).toString()
           })
         });
     } else {
@@ -34,19 +38,24 @@ export default class FavoriteButton extends React.Component {
         that.setState({
           id: data.id,
           favorited: true,
-          buttonClass: 'btn-ayah-action-favorited'
+          buttonClass: 'favorited',
+          icon: 'fa fa-star',
+          count: (Number.parseInt(that.state.count) + 1).toString()
         })
       });
     }
   }
 
   render() {
-    const { buttonClass } = this.state  
+    const { buttonClass, icon, count } = this.state  
 
     return (
-      <a className={buttonClass} onClick={() => this.toggleFavorite()}>
-        <i className="fa fa-star"></i>
-      </a>
+      <div>
+        <a className={buttonClass} onClick={() => this.toggleFavorite()}>
+          <i className={icon}></i>
+        </a>
+        <div>Favorites {count}</div>
+      </div>
     )
   }
 }

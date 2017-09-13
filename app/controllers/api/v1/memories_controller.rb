@@ -3,7 +3,9 @@
 module Api
   module V1
     # :nodoc:
-    class MemoriesController < ApplicationController
+    class MemoriesController < Api::V1::BaseController
+      skip_before_action :verify_authenticity_token
+
       def create
         ayah = Ayah.find(params[:ayah_id])
         memory = ayah.memories.build(user_id: current_user.id)
