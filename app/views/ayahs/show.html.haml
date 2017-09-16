@@ -1,6 +1,6 @@
 %ol.breadcrumb
   %li.breadcrumb-item= link_to 'Home', root_path
-  %li.breadcrumb-item= link_to @ayah.surah_name, @ayah.surah_permalink
+  %li.breadcrumb-item= link_to @ayah.surah_name, surah_path(@ayah.surah_permalink)
   %li.breadcrumb-item= @ayah.number
 
 .ayah
