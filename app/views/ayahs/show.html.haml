@@ -1,6 +1,6 @@
 %ol.breadcrumb
   %li.breadcrumb-item= link_to 'Home', root_path
-  %li.breadcrumb-item= link_to @surah.transliterated_name, @surah.permalink
+  %li.breadcrumb-item= link_to @ayah.surah_name, @ayah.surah_permalink
   %li.breadcrumb-item= @ayah.number
 
 .ayah
@@ -11,16 +11,16 @@
         = "(#{@ayah.previous.surah.id}:#{@ayah.previous.number})"
 
   %article.current-ayah
-    %h1= "#{@surah.transliterated_name} #{@ayah.number}"
+    %h1= "#{@ayah.surah_name} #{@ayah.number}"
 
-    - @ayah.texts.ordered_by_quran_id.each do |text|
+    - @ayah.texts.each do |text|
       .ayah-text
         %h2{class: ('d-none' if text.uthmani?)}= text.quran.name
         %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
     
     - if user_signed_in?
       %section.d-lg-none
-        .ayah-actions{data: {'ayah-id' => @ayah.id, 'memory-id' => @memory.id, 'memorized' => @memory.persisted?.to_s, 'memory-count' => @ayah.memories.count, 'favorite-id' => @favorite.id, 'favorited' => @favorite.persisted?.to_s, 'favorite-count' => @ayah.favorites.count}}    
+        = render 'shared/ayah_actions', ayah: @ayah
 
   - if @ayah.next?
     .next-ayah
@@ -28,11 +28,11 @@
       = link_to ayah_by_number_path(@ayah.next.surah.id, @ayah.next.number) do
         = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
 
-- provide :title, "#{@surah.transliterated_name}:#{@ayah.number}"
+- provide :title, "#{@ayah.surah_name}:#{@ayah.number}"
 
 - content_for :aside do
   - if user_signed_in?
     %section#ayah-actions
-      .ayah-actions{data: {'ayah-id' => @ayah.id, 'memory-id' => @memory.id, 'memorized' => @memory.persisted?.to_s, 'memory-count' => @ayah.memories.count, 'favorite-id' => @favorite.id, 'favorited' => @favorite.persisted?.to_s, 'favorite-count' => @ayah.favorites.count}}
+      = render 'shared/ayah_actions', ayah: @ayah
 
 = javascript_pack_tag 'ayah_actions'
