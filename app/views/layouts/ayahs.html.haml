@@ -8,7 +8,7 @@
     = stylesheet_link_tag 'ayahs', media: 'all', data: { turbolinks_track: 'reload' }
     = javascript_include_tag 'ayahs', data: { turbolinks_track: 'reload' }
   %body#ayahs
-
+    = render '/layouts/shared/analytics'
     = render 'layouts/shared/navbar'
     = render 'layouts/shared/flash'
 
