@@ -78,6 +78,6 @@ class AyahFacade
   end
 
   def texts
-    @ayah.texts.ordered_by_quran_id
+    @ayah.texts.includes(:quran).ordered_by_quran_id
   end
 end
