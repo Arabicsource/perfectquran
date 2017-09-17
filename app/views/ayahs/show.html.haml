@@ -1,7 +1,33 @@
-%ol.breadcrumb
-  %li.breadcrumb-item= link_to 'Home', root_path
-  %li.breadcrumb-item= link_to @ayah.surah_name, surah_path(@ayah.surah_permalink)
-  %li.breadcrumb-item= @ayah.number
+
+
+.prev-next
+  .row
+    
+    .col-12.col-lg-10
+      %ol.breadcrumb
+        %li.breadcrumb-item= link_to 'Home', root_path
+        %li.breadcrumb-item= link_to @ayah.surah_name, surah_path(@ayah.surah_permalink)
+        %li.breadcrumb-item= @ayah.number
+
+    .col-6.col-lg-1
+      - if @ayah.previous?
+        = link_to ayah_by_number_path(@ayah.previous.surah.id, @ayah.previous.number), class: 'prev-next-link' do
+          %span.sr-only Previous
+          = fa_icon 'chevron-circle-left'
+      - else
+        = link_to '#', class: 'prev-next-link float-right text-secondary' do
+          %span.sr-only Next
+          = fa_icon 'times-circle'
+    
+    .col-6.col-lg-1
+      - if @ayah.next?
+        = link_to ayah_by_number_path(@ayah.next.surah.id, @ayah.next.number), class: 'prev-next-link float-right' do
+          %span.sr-only Next
+          = fa_icon 'chevron-circle-right'
+      - else
+        = link_to '#', class: 'prev-next-link float-right text-secondary' do
+          %span.sr-only Next
+          = fa_icon 'times-circle'
 
 .ayah
   - if @ayah.previous?
