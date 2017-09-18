@@ -1,0 +1,27 @@
+.prev-next
+  .row
+    .col-12.col-lg-10
+      %ol.breadcrumb
+        %li.breadcrumb-item= link_to 'Index', root_path
+        %li.breadcrumb-item= @surah.transliterated_name
+
+    .col-6.col-lg-1
+      = link_to surah_path(@surah.previous.permalink), class: 'prev-next-link' do
+        %span.sr-only Previous
+        = fa_icon 'chevron-circle-left'
+    
+    .col-6.col-lg-1
+      = link_to surah_path(@surah.next.permalink), class: 'prev-next-link float-right' do
+        %span.sr-only Next
+        = fa_icon 'chevron-circle-right'
+          
+#surah
+  - @surah.ayahs.each do |ayah|
+    .ayah
+      %h1= "#{@surah.transliterated_name} #{ayah.number}"
+      - ayah.texts.ordered_by_quran_id.each do |text|
+        .ayah-text
+          %h2{class: ('d-none' if text.uthmani?)}= text.quran.name
+          %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
+
+- provide :title, @surah.transliterated_name

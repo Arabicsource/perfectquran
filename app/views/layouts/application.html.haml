@@ -5,14 +5,15 @@
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }
     %title= page_title(yield(:title))
     = csrf_meta_tags
-    = stylesheet_link_tag 'ayahs', media: 'all', data: { turbolinks_track: 'reload' }
-    = javascript_include_tag 'ayahs', data: { turbolinks_track: 'reload' }
-  %body#ayahs
+    = stylesheet_link_tag 'application', media: 'all', data: { turbolinks_track: 'reload' }
+    = javascript_include_tag 'application', data: { turbolinks_track: 'reload' }
+  %body{id: params[:controller].gsub('/', '-') }
     = render '/layouts/shared/analytics'
     = render 'layouts/shared/navbar'
-    = render 'layouts/shared/flash'
 
     .container
+      = render 'layouts/shared/flash'    
+      
       .row
         = render 'layouts/shared/aside'
 

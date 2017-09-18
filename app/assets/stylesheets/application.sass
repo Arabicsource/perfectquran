@@ -6,6 +6,29 @@ $breadcrumb-bg: $white
 @import "bootstrap"
 @import "font-awesome"
 
+.component
+  padding: $spacer
+  background-color: $white
+  border: 1px solid $gray-200
+  border-radius: $border-radius
+
+.alert-alert
+  @extend .alert-danger
+
+.alert-notice
+  @extend .alert-success
+
+#error_explanation
+  @extend .alert
+  @extend .alert-danger
+
+  h2
+    font-size: 1.2rem
+
+@import "controllers/ayahs"
+@import "controllers/surahs"
+@import "controllers/posts"
+
 html
   position: relative
   min-height: 100%
@@ -14,49 +37,15 @@ body
   background-color: $gray-100
   margin-bottom: 60px
 
+form
+  @extend .component
+
 .navbar
   margin-bottom: 20px
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1)
 
 #content
   margin-bottom: $spacer
-
-.ayah
-  background-color: $white
-  border: 1px solid $gray-200
-  border-radius: $border-radius
-
-  .previous-ayah, .next-ayah
-    color: $gray-600
-    padding: $spacer
-    font-size: 0.9rem
-
-  .previous-ayah
-    border-bottom: 1px solid $gray-200
-
-  .next-ayah, 
-    border-top: 1px solid $gray-200
-
-  article.current-ayah
-    padding: $spacer
-    margin: $spacer 0
-
-    h1
-      margin-bottom: $spacer
-      font-size: 1.1rem
-    
-    h2
-      color: $primary-color
-      font-size: 1.1rem
-    
-    p
-      margin-bottom: $spacer
-      font-size: 1.1rem
-
-      &.arabic
-        line-height: 1.55
-        font-size: 1.5rem
-        text-align: right
 
 footer
   font-size: 0.8rem

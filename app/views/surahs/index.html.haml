@@ -1,0 +1,8 @@
+#suwar-index
+  .row
+    - @surahs.each do |surah|
+      .col-12.col-lg-6.surah{id: "surah-#{surah.id}"}
+        %h2
+          = link_to surah.permalink do
+            = "#{surah.id} #{surah.transliterated_name} #{surah.arabic_name}"  
+        %p= "#{surah.english_name}. #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}."
