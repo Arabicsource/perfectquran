@@ -1,20 +1,23 @@
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-group
-    = f.label :email
-    = f.email_field :email, autofocus: true, class: 'form-control'
+.component
+  %h1 Login
 
-  .form-group
-    = f.label :password
-    = f.password_field :password, autocomplete: "off", class: 'form-control'
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: 'form-control'
 
-  .form-check
-    = f.label :remember_me, class: 'form-check-label' do
-      = f.check_box :remember_me, class: 'form-check-input'
-      Remember me?
+    .form-group
+      = f.label :password
+      = f.password_field :password, autocomplete: "off", class: 'form-control'
 
-  = f.submit "Login", class: "btn btn-secondary"
+    .form-check
+      = f.label :remember_me, class: 'form-check-label' do
+        = f.check_box :remember_me, class: 'form-check-input'
+        Remember me?
 
-- content_for(:aside) do
-  = render "devise/shared/links"
-  
-- provide :title, 'Login'
+    = f.submit "Login", class: "btn btn-secondary"
+
+  - content_for(:aside) do
+    = render "devise/shared/links"
+    
+  - provide :title, 'Login'
