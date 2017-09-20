@@ -19,7 +19,7 @@
   - @surah.ayahs.each do |ayah|
     .ayah
       %h1= "#{@surah.transliterated_name} #{ayah.number}"
-      - ayah.texts.ordered_by_quran_id.each do |text|
+      - ayah.texts.includes(:quran).ordered_by_quran_id.each do |text|
         .ayah-text
           %h2{class: ('d-none' if text.uthmani?)}= text.quran.name
           %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
