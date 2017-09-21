@@ -4,22 +4,18 @@ module Manage
   # :nodoc:
   class PostsController < Manage::BaseController
     def index
-      authorize [:manage, Post]
       @posts = Post.all
     end
 
     def show
       @post = Post.find(params[:id])
-      authorize [:manage, Post]
     end
 
     def new
       @post = Post.new
-      authorize [:manage, Post]
     end
 
     def create
-      authorize [:manage, Post]
       @post = Post.new(post_params)
       @post.user = current_user
 
@@ -32,12 +28,10 @@ module Manage
     end
 
     def edit
-      authorize [:manage, Post]
       @post = Post.find(params[:id])
     end
 
     def update
-      authorize [:manage, Post]
       @post = Post.find(params[:id])
 
       if @post.update_attributes(post_params)
