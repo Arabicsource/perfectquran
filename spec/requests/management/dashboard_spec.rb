@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 describe 'Management Dashboard', type: :request do
-
   describe 'GET #index' do
     context 'guest' do
       before { get manage_dashboards_path }

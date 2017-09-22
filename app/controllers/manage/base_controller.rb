@@ -6,9 +6,7 @@ module Manage
     before_action :authenticate_user!, :authorize_user!
 
     private def authorize_user!
-      unless current_user && current_user.role?(:admin)
-        redirect_to root_url
-      end
+      redirect_to root_url unless current_user && current_user.role?(:admin)
     end
   end
 end
