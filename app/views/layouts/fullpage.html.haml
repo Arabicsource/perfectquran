@@ -1,0 +1,13 @@
+!!!5
+%html{ html_attrs('en') }
+  = render 'layouts/shared/head'
+
+  %body.fullpage{id: params[:controller].gsub('/', '-') }
+    = render '/layouts/shared/analytics'
+    = render 'layouts/shared/navbar'
+
+    .container
+      = render 'layouts/shared/flash'      
+      = yield
+
+    = render 'layouts/shared/footer'

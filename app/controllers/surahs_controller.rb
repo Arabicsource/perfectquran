@@ -4,6 +4,7 @@
 class SurahsController < ApplicationController
   def index
     @surahs = Surah.all
+    render layout: 'fullpage'
   end
 
   def show
