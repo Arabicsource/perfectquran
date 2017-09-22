@@ -33,22 +33,27 @@
   #suwar-index
     @extend .component
     padding-bottom: 0
+        
+    ol
+      list-style: none
+      padding: 0
+
+      @media (min-width: 768px)
+        column-count: 2
+
+      @media (min-width: 992px)
+        column-count: 3
+
+      @media (min-width: 1200px)
+        column-count: 4
 
     .surah
+      display: inline-block
       border-bottom: 1px solid $gray-200
       margin-bottom: $spacer
 
-      h2
-        font-size: 1.2rem
+    h2
+      font-size: 1.2rem
 
-      p
-        margin-bottom: $spacer
-
-    #surah-114
-      border: 0
-      margin-bottom: 0
-
-    #surah-113
-      @media (min-width: 992px)
-        border-bottom: 0 !important
-        margin-bottom: 0
+    p
+      margin-bottom: $spacer
