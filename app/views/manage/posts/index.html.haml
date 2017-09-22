@@ -18,3 +18,6 @@
         %td= link_to 'Edit', edit_manage_post_path(post)
           
 - provide :title, 'Posts'
+
+- content_for :aside do
+  = render 'manage/shared/nav'
