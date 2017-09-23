@@ -35,3 +35,6 @@ en:
     post:
       created: 'The post was created'
       edited: 'The post was edited'
+    page:
+      created: 'The page was created'
+      edited: 'The page was edited'

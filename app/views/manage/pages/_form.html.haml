@@ -1,0 +1,13 @@
+= form_for [:manage, @page] do |f|
+  
+  = render 'shared/error_messages', object: @page
+
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.label :content
+    = f.text_area :content, rows: 30, class: 'form-control'
+
+  = f.submit 'Edit Page', class: 'btn btn-secondary'

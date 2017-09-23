@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907085314) do
+ActiveRecord::Schema.define(version: 20170923095415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20170907085314) do
     t.datetime "updated_at", null: false
     t.index ["topic_id"], name: "index_comments_on_topic_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "discussions", force: :cascade do |t|
+    t.string "subject"
+    t.text "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -73,6 +82,15 @@ ActiveRecord::Schema.define(version: 20170907085314) do
     t.index ["ayah_id"], name: "index_memories_on_ayah_id"
     t.index ["user_id", "ayah_id"], name: "index_memories_on_user_id_and_ayah_id", unique: true
     t.index ["user_id"], name: "index_memories_on_user_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pages_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -179,12 +197,14 @@ ActiveRecord::Schema.define(version: 20170907085314) do
   add_foreign_key "ayahs", "surahs"
   add_foreign_key "comments", "topics"
   add_foreign_key "comments", "users"
+  add_foreign_key "discussions", "users"
   add_foreign_key "favorites", "ayahs"
   add_foreign_key "favorites", "users"
   add_foreign_key "likes", "ayahs"
   add_foreign_key "likes", "users"
   add_foreign_key "memories", "ayahs"
   add_foreign_key "memories", "users"
+  add_foreign_key "pages", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "qurans", "languages"
   add_foreign_key "rolings", "roles"

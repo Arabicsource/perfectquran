@@ -1,0 +1,21 @@
+%ul.nav.nav-tabs
+  %li.nav-item
+    = link_to 'Index', manage_pages_path, class: 'nav-link'
+  %li.nav-item
+    = link_to 'New', new_manage_page_path, class: 'nav-link active'
+
+= form_for [:manage, @page] do |f|
+
+  = render 'shared/error_messages', object: @page
+
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.label :content
+    = f.text_area :content, rows: 30, class: 'form-control'
+
+  = f.submit 'Create Page', class: 'btn btn-secondary'
+   
+- provide :title, 'New Page'

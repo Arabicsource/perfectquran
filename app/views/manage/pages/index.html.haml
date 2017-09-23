@@ -1,0 +1,23 @@
+%ul.nav.nav-tabs
+  %li.nav-item
+    = link_to 'Index', manage_pages_path, class: 'nav-link active'
+  %li.nav-item
+    = link_to 'New', new_manage_page_path, class: 'nav-link'
+
+%table.table.table-bordered.table-sm
+  %thead.thead-default
+    %tr
+      %th #
+      %th Title
+      %th Actions
+  %tbody
+    - @pages.each do |page|
+      %tr
+        %td= page.id
+        %td= page.title
+        %td= link_to 'Edit', edit_manage_page_path(page)
+          
+- provide :title, 'Pages'
+
+- content_for :aside do
+  = render 'manage/shared/nav'
