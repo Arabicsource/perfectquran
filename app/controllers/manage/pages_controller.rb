@@ -43,7 +43,7 @@ module Manage
     end
 
     private def page_params
-      params.require(:page).permit(:title, :content)
+      params.require(:page).permit(:title, :permalink, :content)
     end
   end
 end

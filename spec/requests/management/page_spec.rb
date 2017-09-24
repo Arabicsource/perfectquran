@@ -8,7 +8,7 @@ describe 'Page management', type: :request do
   let(:page_attributes) { FactoryGirl.attributes_for(:page) }
   let(:params) { { page: page_attributes } }
   let(:update_params) do
-    { page: { title: 'UpdatedTitle', content: 'UpdatedContent' } }
+    { page: { title: 'UpdatedTitle', permalink: 'updatedtitle', content: 'UpdatedContent' } }
   end
 
   describe 'GET #index' do
