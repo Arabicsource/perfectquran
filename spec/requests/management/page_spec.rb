@@ -3,11 +3,12 @@
 require 'rails_helper'
 
 describe 'Page management', type: :request do
+  let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
   let(:page) { FactoryGirl.create(:page) }
   let(:page_attributes) { FactoryGirl.attributes_for(:page) }
   let(:params) { { page: page_attributes } }
   let(:update_params) do
-    { page: { title: 'UpdatedTitle', content: 'UpdatedContent' } }
+    { page: { title: 'UpdatedTitle', permalink: 'updatedtitle', content: 'UpdatedContent' } }
   end
 
   describe 'GET #index' do
@@ -27,7 +28,7 @@ describe 'Page management', type: :request do
     context 'admin user' do
       before do
         page
-        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        login_as admin
         get manage_pages_path
       end
       specify { expect(response).to be_successful }
@@ -51,7 +52,7 @@ describe 'Page management', type: :request do
 
     context 'admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        login_as admin
         get manage_page_path(page)
       end
       specify { expect(response).to be_successful }
@@ -76,7 +77,7 @@ describe 'Page management', type: :request do
 
     context 'admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        login_as admin
         get new_manage_page_path
       end
       specify { expect(response).to be_successful }
@@ -99,7 +100,7 @@ describe 'Page management', type: :request do
     end
 
     context 'admin' do
-      before { login_as FactoryGirl.create(:user, :confirmed, :admin) }
+      before { login_as admin }
 
       describe 'successful submission' do
         specify do
@@ -137,7 +138,7 @@ describe 'Page management', type: :request do
 
     context 'admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        login_as admin
         get edit_manage_page_path(page)
       end
       specify { expect(response).to be_successful }
@@ -161,7 +162,7 @@ describe 'Page management', type: :request do
     end
 
     context 'admin' do
-      before { login_as FactoryGirl.create(:user, :confirmed, :admin) }
+      before { login_as admin }
 
       describe 'successful submission' do
         before do

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :ayahs
+  resources :pages, only: :show
 
   get '/blog', to: 'blog/posts#index', as: :blog
   get '/:surah_id/:number', to: 'ayahs#show', as: :ayah_by_number
