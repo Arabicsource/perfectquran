@@ -5,6 +5,12 @@ module Api
     # :nodoc:
     class MemoriesController < Api::V1::BaseController
       skip_before_action :verify_authenticity_token
+      before_action :authenticate_user!, only: :create
+
+      def index
+        ayah = Ayah.find(params[:ayah_id])
+        render json: ayah.memories
+      end
 
       def create
         ayah = Ayah.find(params[:ayah_id])

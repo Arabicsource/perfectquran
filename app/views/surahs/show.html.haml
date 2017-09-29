@@ -18,7 +18,10 @@
 #surah
   - @surah.ayahs.each do |ayah|
     .ayah
-      %h1= "#{@surah.transliterated_name} #{ayah.number}"
+      %h1
+        = link_to ayah_by_number_path(@surah.id, ayah.number) do 
+          = "#{@surah.transliterated_name} #{ayah.number}"
+
       - ayah.texts.includes(:quran).ordered_by_quran_id.each do |text|
         .ayah-text
           %h2{class: ('d-none' if text.uthmani?)}= text.quran.name

@@ -368,6 +368,7 @@ DEPENDENCIES
   launchy
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
+  popper_js (~> 1.11.1)
   puma (~> 3.7)
   pundit
   rack-cors

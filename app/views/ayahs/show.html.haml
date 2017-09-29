@@ -44,9 +44,8 @@
         %h2{class: ('d-none' if text.uthmani?)}= text.quran.name
         %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
     
-    - if user_signed_in?
-      %section.d-lg-none
-        = render 'shared/ayah_actions', ayah: @ayah
+    %section.d-lg-none
+      = render 'shared/ayah_actions', ayah: @ayah, inline: true
 
   - if @ayah.next?
     .next-ayah
@@ -57,8 +56,5 @@
 - provide :title, "#{@ayah.surah_name}:#{@ayah.number}"
 
 - content_for :aside do
-  - if user_signed_in?
-    %section#ayah-actions
-      = render 'shared/ayah_actions', ayah: @ayah
-
-= javascript_pack_tag 'ayah_actions'
+  %section#ayah-actions
+    = render 'shared/ayah_actions', ayah: @ayah, inline: false

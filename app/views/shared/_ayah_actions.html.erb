@@ -1,9 +1,30 @@
-<div class='ayah-actions'
-      data-ayah-id='<%= ayah.id %>'
-      data-memory-id='<%= ayah.memory_id %>'
-      data-memorized='<%= ayah.memorized? %>'
-      data-memory-count='<%= ayah.memory_count %>'
-      data-favorite-id='<%= ayah.favorite_id %>'
-      data-favorited='<%= ayah.favorited? %>'
-      data-favorite-count='<%= ayah.favorite_count %>'
-></div>
+<% if user_signed_in? %>
+  <div class='ayah-actions'
+       data-ayah-id='<%= ayah.id %>'
+       data-inline-actions='<%= inline %>'
+       data-memory-id='<%= ayah.memory_id %>'
+       data-memorized='<%= ayah.memorized? %>'
+       data-memory-count='<%= ayah.memory_count %>'
+       data-favorite-id='<%= ayah.favorite_id %>'
+       data-favorited='<%= ayah.favorited? %>'
+       data-favorite-count='<%= ayah.favorite_count %>'
+  ></div>
+  <%= javascript_pack_tag 'ayah_actions' %>
+<% else %>
+  <div class='ayah-action'
+    data-toggle='tooltip' 
+    data-placement='top'
+    title='You must be logged in to record a memory or favorite an ayah'
+  >
+    <div>
+      <%= fa_icon 'heart-o' %>
+      <%= 'memories' unless inline %>
+      <%= ayah.memory_count %>
+    </div>
+    <div>
+      <%= fa_icon 'star-o' %>
+      <%= 'favorites' unless inline %>
+      <%= ayah.favorite_count %>
+    </div>
+  </div>
+<% end %>

@@ -11,7 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require popper
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+})

@@ -48,13 +48,18 @@ export default class MemoryButton extends React.Component {
 
   render() {
     const { buttonClass, icon, count } = this.state
+    let countEle = <div>Memories {count}</div>
+    
+    if (this.props.inlineActions) {
+      countEle = <div>{count}</div>
+    }
 
     return (
       <div>
         <a className={buttonClass} onClick={() => this.toggleMemory()}>
           <i className={icon}></i>
         </a>
-        <div>Memories {count}</div>
+        {countEle}
       </div>
     )
   }

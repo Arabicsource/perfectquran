@@ -33,5 +33,15 @@ FactoryGirl.define do
         FactoryGirl.create_list :favorite, eval.number_of_favorites, ayah: ayah
       end
     end
+
+    trait :with_memories do
+      transient do
+        number_of_memories 3
+      end
+
+      after :create do |ayah, eval|
+        FactoryGirl.create_list :memory, eval.number_of_memories, ayah: ayah
+      end
+    end
   end
 end
