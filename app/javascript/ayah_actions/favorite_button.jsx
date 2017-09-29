@@ -47,19 +47,14 @@ export default class FavoriteButton extends React.Component {
   }
 
   render() {
-    const { buttonClass, icon, count } = this.state  
-    let countEle = <div>Favorites {count}</div>
-    
-    if (this.props.inlineActions) {
-      countEle = <div>{count}</div>
-    }
+    const { buttonClass, icon, count } = this.state
 
     return (
       <div>
         <a className={buttonClass} onClick={() => this.toggleFavorite()}>
           <i className={icon}></i>
         </a>
-        {countEle}
+        <div><span className="d-none d-lg-inline">Favorites</span> {count}</div>
       </div>
     )
   }

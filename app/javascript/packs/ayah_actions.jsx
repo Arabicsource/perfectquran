@@ -6,12 +6,12 @@ import FavoriteButton from '../ayah_actions/favorite_button'
 class AyahActions extends React.Component {
 
   render() {
-    const { ayahId, inlineActions, memoryId, memorized, memoryCount } = this.props
+    const { ayahId, memoryId, memorized, memoryCount } = this.props
 
     return (
       <div>
-        <MemoryButton id={memoryId} ayahId={ayahId} inlineActions={inlineActions} memorized={memorized} count={memoryCount}/>
-        <FavoriteButton id={this.props.favoriteId} inlineActions={inlineActions} ayahId={this.props.ayahId} favorited={this.props.favorited} count={this.props.favoriteCount}/>        
+        <MemoryButton id={memoryId} ayahId={ayahId} memorized={memorized} count={memoryCount}/>
+        <FavoriteButton id={this.props.favoriteId} ayahId={this.props.ayahId} favorited={this.props.favorited} count={this.props.favoriteCount}/>        
       </div>
     )
   }
@@ -24,7 +24,6 @@ elements.forEach(function(e){
   ReactDOM.render(
     <AyahActions 
       ayahId={e.dataset.ayahId}
-      inlineActions={e.dataset.inlineActions == 'true'}
       memoryId={e.dataset.memoryId}
       memorized={e.dataset.memorized == 'true'}
       memoryCount={e.dataset.memoryCount}
