@@ -7,5 +7,6 @@
     %ul.nav
       %li= link_to "Issues", "https://github.com/imabusabah/perfectquran/issues", class: 'nav-link'
       %li= link_to "API", "https://imabusabah.github.io/perfectquran-documentation/#introduction", class: 'nav-link'
+      %li= link_to "Contact", new_contact_path, class: 'nav-link'          
       - Page.all.each do |page|
         %li= link_to page.title, page_path(page.permalink), class: 'nav-link'
