@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :users, :posts, :pages
   end
 
+  resources :searches
   resources :ayahs
   resources :pages, only: :show
 

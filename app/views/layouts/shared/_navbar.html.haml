@@ -2,14 +2,17 @@
   
   = link_to root_path, class: 'navbar-brand' do
     PerfectQuran
-  
+
   %button.navbar-toggler{ type: 'button', data: { toggle: 'collapse', target: '#mobile-nav' } }
     %span.navbar-toggler-icon
 
   #mobile-nav.collapse.navbar-collapse
+    
+    = form_with url: searches_path, local: true, class: 'form-inline col-8 mr-auto' do |f|
+      = f.text_field :terms, class: 'form-control col-10 mr-sm-2', value: params[:id] || ''
+      = f.submit 'Search', class: 'btn btn-outline-success'
+
     %ul.navbar-nav
-      %li.nav-item
-        = link_to 'Blog', blog_path, class: 'nav-link'
       - if user_signed_in?
         %li.nav-item
           = link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link'
@@ -18,3 +21,17 @@
           = link_to 'Login', new_user_session_path, class: 'nav-link'
         %li.nav-item
           = link_to 'Register', new_user_registration_path, class: 'nav-link'
+
+-# %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+-#   %a.navbar-brand
+-#     Navbar
+
+-#   .collapse.navbar-collapse
+-#     %ul.navbar-nav.mr-auto
+-#       %li.nav-item
+-#         %a.nav-link
+-#           Home
+-#     %form.form-inline.my-2.my-lg-0
+-#       %input.form-control.mr-sm-2
+-#       %button.btn.btn-outline-success.my-2.my-sm-0
+-#         Search

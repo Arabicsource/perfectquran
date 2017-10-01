@@ -110,7 +110,7 @@ feature 'Registration' do
     fill_in 'Password', with: @guest.password
     fill_in 'Password confirmation', with: @guest.password
 
-    within('form') do
+    within('registration-form') do
       click_on 'Register'
     end
 
