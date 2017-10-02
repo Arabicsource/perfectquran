@@ -8,16 +8,20 @@
 
   #mobile-nav.collapse.navbar-collapse
     
-    = form_with url: searches_path, local: true, class: 'form-inline col-6' do |f|
-      = f.text_field :terms, class: 'form-control col-10 mr-sm-2', value: params[:id] || ''
+    = form_with url: searches_path, local: true, class: 'form-inline mr-lg-2' do |f|
+      = f.text_field :terms, class: 'form-control mr-lg-2', value: params[:id] || ''
       = f.submit 'Search', class: 'btn btn-outline-success'
 
-    = select_tag :surah_quick_find, options_from_collection_for_select(Surah.all, "permalink", "transliterated_name"), prompt: 'Select Surah', class: 'form-control'
+    = select_tag :surah_quick_find, options_from_collection_for_select(Surah.all, "permalink", "transliterated_name"), prompt: 'Select Surah', class: 'form-control col-lg-2 mr-auto'
 
     %ul.navbar-nav
       - if user_signed_in?
-        %li.nav-item
-          = link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link'
+        %li.nav-item.dropdown
+          = link_to '#', id: 'nav-user-dropdown', class: 'nav-link dropdown-toggle', data: { toggle: 'dropdown' } do
+            = current_user.name
+          .dropdown-menu
+            = link_to 'Profile', user_path(current_user.username), class: 'dropdown-item'
+            = link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item'
       - else
         %li.nav-item
           = link_to 'Login', new_user_session_path, class: 'nav-link'
