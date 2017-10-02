@@ -1,4 +1,6 @@
-- content_for :aside do
-  = render 'manage/shared/nav'
+%section
+  %h1 
+    Users
+    %span= User.count
 
 - provide :title, 'Management Dashboard'

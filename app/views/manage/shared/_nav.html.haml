@@ -1,10 +1,13 @@
-%nav.nav
-  = link_to manage_users_path, class: 'nav-link' do
-    = fa_icon :users
-    Users
-  = link_to manage_posts_path, class: 'nav-link' do
-    = fa_icon :empire
-    Posts
-    = link_to manage_pages_path, class: 'nav-link' do
-      = fa_icon :rebel
-      Pages
+%section
+  %h1 Manage
+  
+  %nav.nav.nav-pills.flex-column
+    = link_to manage_users_path, class: 'nav-link' do
+      = fa_icon :users
+      Users
+    = link_to manage_posts_path, class: 'nav-link' do
+      = fa_icon :empire
+      Posts
+      = link_to manage_pages_path, class: 'nav-link' do
+        = fa_icon :rebel
+        Pages
