@@ -20,5 +20,10 @@
 $(document).on('turbolinks:load', function() {
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
+
+    $('#surah_quick_find').change(function(){
+      const permalink = $(this).val();
+      window.location.href = "https://perfectquran.co/" + permalink;
+    });
   })
 })
