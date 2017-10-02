@@ -2,6 +2,9 @@
   %h1 Manage
   
   %nav.nav.nav-pills.flex-column
+    = link_to manage_dashboards_path, class: params[:controller].match?('manage/dashboards') ? 'nav-link active' : 'nav-link' do
+      = fa_icon :dashboard
+      Dashboard
     = link_to manage_users_path, class: params[:controller].match?('manage/users') ? 'nav-link active' : 'nav-link' do
       = fa_icon :users
       Users
