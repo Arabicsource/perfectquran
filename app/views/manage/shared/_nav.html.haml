@@ -2,12 +2,12 @@
   %h1 Manage
   
   %nav.nav.nav-pills.flex-column
-    = link_to manage_users_path, class: 'nav-link' do
+    = link_to manage_users_path, class: params[:controller].match?('manage/users') ? 'nav-link active' : 'nav-link' do
       = fa_icon :users
       Users
-    = link_to manage_posts_path, class: 'nav-link' do
+    = link_to manage_posts_path, class: params[:controller].match?('manage/posts') ? 'nav-link active' : 'nav-link' do
       = fa_icon :empire
       Posts
-      = link_to manage_pages_path, class: 'nav-link' do
+      = link_to manage_pages_path, class: params[:controller].match?('manage/pages') ? 'nav-link active' : 'nav-link' do
         = fa_icon :rebel
         Pages
