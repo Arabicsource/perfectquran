@@ -28,3 +28,6 @@
           %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
 
 - provide :title, @surah.transliterated_name
+
+- content_for :aside do
+  = render 'shared/surah_information'

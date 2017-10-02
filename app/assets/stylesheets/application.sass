@@ -6,7 +6,7 @@ $breadcrumb-bg: $white
 @import "bootstrap"
 @import "font-awesome"
 
-.component
+.component, .box
   padding: $spacer
   background-color: $white
   border: 1px solid $gray-200
@@ -61,14 +61,6 @@ footer
   p
     margin: 0
 
-.discussions
-  padding: $spacer
-  background-color: $white
-
-  h1
-    margin-bottom: $spacer
-    font-size: 1.1rem
-
 .current-ayah
   section
     div
@@ -86,24 +78,12 @@ footer
       color: gold
 
 .aside
-  #ayah-actions
-    float: right
-    text-align: center  
-    
-    div
-      color: $gray-400
+  section
+    @extend .box
+
+    h1
+      font-size: 1.1rem
       margin-bottom: $spacer
-
-    a
-      color: $gray-500
-      font-size: 4rem
-      cursor: pointer
-
-    a.memorized
-      color: red
-    
-    a.favorited
-      color: gold
 
 .breadcrumb
   border: 1px solid $gray-200
