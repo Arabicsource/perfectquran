@@ -16,6 +16,10 @@ class AyahFacade
     memory.id
   end
 
+  def surah
+    @surah ||= @ayah.surah
+  end
+
   def memory
     @memory ||= Memory.find_or_initialize_by(
       ayah_id: @ayah.id, user_id: @user.id

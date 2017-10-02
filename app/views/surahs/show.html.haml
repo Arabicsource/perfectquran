@@ -30,4 +30,4 @@
 - provide :title, @surah.transliterated_name
 
 - content_for :aside do
-  = render 'shared/surah_information'
+  = render 'shared/surah_information', surah: @surah
