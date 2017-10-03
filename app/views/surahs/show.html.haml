@@ -14,7 +14,11 @@
       = link_to surah_path(@surah.next.permalink), class: 'prev-next-link float-right' do
         %span.sr-only Next
         = fa_icon 'chevron-circle-right'
-          
+
+%audio{controls: true}
+  %source{src: surah_audio_file(@surah.id), type: "audio/mpeg"}
+  Your browser does not support the audio tag.
+        
 #surah
   - @surah.ayahs.each do |ayah|
     .ayah

@@ -27,4 +27,8 @@ module SurahsHelper
   def ayah_is_memorized?(user, ayah)
     Memory.find_by(user_id: user.id, ayah_id: ayah.id) unless user.nil?
   end
+
+  def surah_audio_file(surah_id)
+    '/audios/' + "%03d" % surah_id + '.mp3'
+  end
 end
