@@ -7,12 +7,14 @@
     = render 'layouts/shared/navbar'
 
     .container
-      = render 'layouts/shared/flash'    
+      = render 'layouts/shared/flash'
       
       .row
-        = render 'layouts/shared/aside'
+        .col-lg-4        
+          = render 'layouts/shared/aside'
+        
+          %footer
+            = render 'layouts/shared/footer'
 
         #content.col-lg-8.mr-lg-auto
-          = yield 
-    
-    = render 'layouts/shared/footer'
+          = yield

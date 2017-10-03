@@ -1,5 +1,3 @@
-
-
 .prev-next
   .row
     
@@ -33,14 +31,16 @@
   %source{src: ayah_audio_file(@ayah.surah.id, @ayah.number), type: "audio/mpeg"}
   Your browser does not support the audio tag.
 
-.ayah
+%article.ayah
   - if @ayah.previous?
     .previous-ayah
-      = @ayah.previous.texts.last.content.html_safe
-      = link_to ayah_by_number_path(@ayah.previous.surah.id, @ayah.previous.number) do
-        = "(#{@ayah.previous.surah.id}:#{@ayah.previous.number})"
+      %p
+        %small
+          = @ayah.previous.texts.last.content.html_safe
+          = link_to ayah_by_number_path(@ayah.previous.surah.id, @ayah.previous.number) do
+            = "(#{@ayah.previous.surah.id}:#{@ayah.previous.number})"
 
-  %article.current-ayah
+  .current-ayah
     %h1= "#{@ayah.surah_name} #{@ayah.number}"
 
     - @ayah.texts.each do |text|
@@ -48,14 +48,16 @@
         %h2{class: ('d-none' if text.uthmani?)}= text.quran.name
         %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
     
-    %section
+    .actions
       = render 'shared/ayah_actions', ayah: @ayah
 
   - if @ayah.next?
     .next-ayah
-      = @ayah.next.texts.last.content.html_safe
-      = link_to ayah_by_number_path(@ayah.next.surah.id, @ayah.next.number) do
-        = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
+      %p
+        %small
+          = @ayah.next.texts.last.content.html_safe
+          = link_to ayah_by_number_path(@ayah.next.surah.id, @ayah.next.number) do
+            = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
 
 - provide :title, "#{@ayah.surah_name}:#{@ayah.number}"
 

@@ -1,0 +1,36 @@
+#content, .navbar, .prev-next, .previous-ayah, .current-ayah
+  margin-bottom: $spacer
+
+.component, .box
+  padding: $spacer $spacer 0 $spacer
+  background-color: $white
+  border: 1px solid $gray-200
+  border-radius: $border-radius
+
+.alert-alert
+  @extend .alert-danger
+
+.alert-notice
+  @extend .alert-success
+
+#error_explanation
+  @extend .alert
+  @extend .alert-danger
+
+.navbar
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1)
+
+  form
+    margin-bottom: 0
+
+.breadcrumb
+  border: 1px solid $gray-200
+
+.prev-next-link
+  line-height: 3rem
+  font-size: 3rem
+
+.arabic
+  line-height: 1.55
+  font-size: 1.5rem
+  text-align: right
