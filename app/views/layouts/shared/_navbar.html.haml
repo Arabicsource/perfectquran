@@ -1,7 +1,10 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-white
   
-  = link_to root_path, class: 'navbar-brand' do
+  = link_to root_path, class: 'navbar-brand dropdown-toggle', data: { toggle: 'dropdown' } do
     PerfectQuran
+  .dropdown-menu
+    = link_to 'Surah Index', root_path, class: 'dropdown-item'
+    = link_to 'Blog', blog_path, class: 'dropdown-item'
 
   %button.navbar-toggler{ type: 'button', data: { toggle: 'collapse', target: '#mobile-nav' } }
     %span.navbar-toggler-icon
