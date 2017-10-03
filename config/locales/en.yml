@@ -32,6 +32,10 @@
 en:
   hello: "Hello world"
   manage:
+    category:
+      created: 'The category was created'
+      edited: 'The category was edited'
+      deleted: 'The category was deleted'
     post:
       created: 'The post was created'
       edited: 'The post was edited'

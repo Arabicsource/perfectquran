@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924070626) do
+ActiveRecord::Schema.define(version: 20171003184552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 20170924070626) do
     t.integer "favorites_count", default: 0
     t.integer "memories_count", default: 0
     t.index ["surah_id"], name: "index_ayahs_on_surah_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "permalink"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["permalink"], name: "index_categories_on_permalink", unique: true
   end
 
   create_table "comments", force: :cascade do |t|

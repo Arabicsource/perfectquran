@@ -1,0 +1,7 @@
+= form_with model: [:manage, @category] do |f|
+  
+  .form-group
+    = f.label :name
+    = f.text_field :name, id: :category_name, class: 'form-control'
+
+  = f.submit class: 'btn btn-primary'

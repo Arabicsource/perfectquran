@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   namespace :manage do
     resources :dashboards, only: :index
-    resources :users, :posts, :pages
+    resources :users, :posts, :pages, :categories
   end
 
   resources :searches
