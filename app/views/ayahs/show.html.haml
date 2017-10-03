@@ -29,6 +29,10 @@
           %span.sr-only Next
           = fa_icon 'times-circle'
 
+%audio{controls: true}
+  %source{src: ayah_audio_file(@ayah.surah.id, @ayah.number), type: "audio/mpeg"}
+  Your browser does not support the audio tag.
+
 .ayah
   - if @ayah.previous?
     .previous-ayah
