@@ -7,7 +7,7 @@ set :repo_url, "git@github.com:imabusabah/perfectquran.git"
 set :deploy_to, '/home/abdullah/perfectquran'
 
 append :linked_files, "config/database.yml", "config/secrets.yml"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads", "public/audios"
 
 
 # Default branch is :master
