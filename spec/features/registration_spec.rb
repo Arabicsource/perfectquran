@@ -23,7 +23,7 @@ feature 'Registration' do
     fill_in 'Password confirmation', with: @guest.password
 
     # And submits the form
-    within('form') do
+    within('.new_user') do
       click_on 'Register'
     end
 
@@ -41,7 +41,7 @@ feature 'Registration' do
 
   scenario 'incomplete submission' do
     # When the guest submits an incomplete form
-    within('form') do
+    within('.new_user') do
       click_on 'Register'
     end
 
@@ -66,7 +66,7 @@ feature 'Registration' do
     fill_in 'Password', with: @guest.password
     fill_in 'Password confirmation', with: @guest.password
 
-    within('form') do
+    within('.new_user') do
       click_on 'Register'
     end
 
@@ -88,7 +88,7 @@ feature 'Registration' do
     fill_in 'Password', with: @guest.password
     fill_in 'Password confirmation', with: @guest.password
 
-    within('form') do
+    within('.new_user') do
       click_on 'Register'
     end
 
@@ -110,7 +110,7 @@ feature 'Registration' do
     fill_in 'Password', with: @guest.password
     fill_in 'Password confirmation', with: @guest.password
 
-    within('registration-form') do
+    within '.new_user' do
       click_on 'Register'
     end
 
