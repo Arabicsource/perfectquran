@@ -10,11 +10,11 @@
       = render 'layouts/shared/flash'
       
       .row
+        #content.col-lg-8.mr-lg-auto
+          = yield
+          
         .col-lg-4        
           = render 'layouts/shared/aside'
         
           %footer
             = render 'layouts/shared/footer'
-
-        #content.col-lg-8.mr-lg-auto
-          = yield
