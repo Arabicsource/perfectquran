@@ -21,6 +21,8 @@ module Manage
       if @category.save
         flash[:success] = t 'manage.category.created'
         redirect_to manage_categories_path
+      else
+        render :new
       end
     end
 
@@ -34,6 +36,8 @@ module Manage
       if @category.update_attributes(category_params)
         flash[:success] = t 'manage.category.edited'
         redirect_to manage_categories_path
+      else
+        render :edit
       end
     end
 

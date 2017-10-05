@@ -1,4 +1,6 @@
-= form_with model: [:manage, @category] do |f|
+= form_with model: [:manage, @category], id: 'category-form' do |f|
+
+  = render 'shared/error_messages', object: @category
   
   .form-group
     = f.label :name
