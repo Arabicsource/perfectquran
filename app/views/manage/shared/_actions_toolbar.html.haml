@@ -1,0 +1,29 @@
+.btn-toolbar{role: "toolbar", aria: { label: "Toolbar with button groups"}}
+  
+  - unless params[:action].match? 'new'
+    .btn-group.mr-2{role: "group", aria: { label: "First group" } }
+      = link_to [:new, :manage, :category], class: 'btn btn-success' do
+        = fa_icon 'plus'
+        = "New #{object.class}"
+  
+  .btn-group.mr-2{role: "group", aria: { label: "First group" } }
+    - unless params[:action].match? 'index'
+      = link_to [:manage, object], class: 'btn btn-secondary' do
+        = fa_icon 'th-list'
+        Index
+
+    - if params[:action].match? 'show'
+      = link_to [:edit, :manage, object], class: 'btn btn-secondary' do
+        = fa_icon 'edit'
+        Edit
+
+    - if params[:action].match? 'edit'
+      = link_to [:manage, object], class: 'btn btn-secondary' do
+        = fa_icon 'binoculars'
+        Show
+
+  - if params[:action].match? 'show' or params[:action].match? 'edit'
+    .btn-group
+      = link_to [:manage, object], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
+        = fa_icon 'trash'
+        Delete

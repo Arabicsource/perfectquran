@@ -1,12 +1,17 @@
-%table.table
-  %thead
-    %tr
-      %th #
-      %th Name
-  %tbody
-    - @categories.each do |category|
+= render 'manage/shared/actions_toolbar', object: Category
+
+%section
+  %h1 Categories
+  
+  %table.table
+    %thead
       %tr
-        %td= category.id
-        %td= category.name
+        %th #
+        %th Name
+    %tbody
+      - @categories.each do |category|
+        %tr
+          %td= category.id
+          %td= link_to category.name, manage_category_path(category)
            
 - provide :title, 'Categories'

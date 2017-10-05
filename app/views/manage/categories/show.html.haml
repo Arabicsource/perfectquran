@@ -1,3 +1,26 @@
-= link_to 'Delete', manage_category_path(@category), method: :delete
+= render 'manage/shared/actions_toolbar', object: @category
+
+%section
+  %h1 
+    Category
+    %small= @category.name
+
+  %table.table
+    %tbody
+      %tr
+        %td #
+        %td= @category.id
+      %tr
+        %td Name
+        %td= @category.name
+      %tr
+        %td Permalink
+        %td= @category.permalink
+      %tr
+        %td Created At
+        %td= @category.created_at.to_formatted_s(:long)
+      %tr
+        %td Updated At
+        %td= @category.updated_at.to_formatted_s(:long)
 
 - provide :title, "Category: #{@category.name}"

@@ -11,6 +11,9 @@
     = link_to manage_posts_path, class: params[:controller].match?('manage/posts') ? 'nav-link active' : 'nav-link' do
       = fa_icon :empire
       Posts
-      = link_to manage_pages_path, class: params[:controller].match?('manage/pages') ? 'nav-link active' : 'nav-link' do
-        = fa_icon :rebel
-        Pages
+    = link_to manage_pages_path, class: params[:controller].match?('manage/pages') ? 'nav-link active' : 'nav-link' do
+      = fa_icon :rebel
+      Pages
+    = link_to manage_categories_path, class: params[:controller].match?('manage/categories') ? 'nav-link active' : 'nav-link' do
+      = fa_icon :list
+      Categories
