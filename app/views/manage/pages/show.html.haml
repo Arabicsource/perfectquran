@@ -1,7 +1,10 @@
-.page
-  %h2
-    = @page.title
-  .page-content
-    = @page.content
+= render 'manage/shared/actions_toolbar', object: @page
+
+%section
+  %h1 
+    Page
+    %small= @page.title
+
+  .page= markdown @page.content
 
 - provide :title, @page.title

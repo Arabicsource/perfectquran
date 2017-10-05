@@ -1,14 +1,14 @@
-.btn-toolbar{role: "toolbar", aria: { label: "Toolbar with button groups"}}
+.btn-toolbar
   
   - unless params[:action].match? 'new'
-    .btn-group.mr-2{role: "group", aria: { label: "First group" } }
-      = link_to [:new, :manage, :category], class: 'btn btn-success' do
+    .btn-group.mr-2
+      = link_to [:new, :manage, object.class.to_s.downcase.to_sym], class: 'btn btn-success' do
         = fa_icon 'plus'
         = "New #{object.class}"
   
-  .btn-group.mr-2{role: "group", aria: { label: "First group" } }
+  .btn-group.mr-2
     - unless params[:action].match? 'index'
-      = link_to [:manage, object], class: 'btn btn-secondary' do
+      = link_to [:manage, object.class], class: 'btn btn-secondary' do
         = fa_icon 'th-list'
         Index
 

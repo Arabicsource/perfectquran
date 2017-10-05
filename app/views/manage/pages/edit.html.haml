@@ -1,3 +1,10 @@
-= render 'form'
+= render 'manage/shared/actions_toolbar', object: @page
+
+%section
+  %h1
+    Edit Page
+    %small= @page.title
+
+  = render 'form'
 
 - provide :title, 'Edit Page'
