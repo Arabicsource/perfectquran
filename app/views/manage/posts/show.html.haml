@@ -1,7 +1,10 @@
-.post
-  %h2
-    = @post.title
-  .post-content
-    = @post.content
+= render 'manage/shared/actions_toolbar', object: @post
+
+%section
+  %h1 
+    Post
+    %small= @post.title
+
+  .content= markdown @post.content
 
 - provide :title, @post.title

@@ -1,20 +1,17 @@
-%ul.nav.nav-tabs
-  %li.nav-item
-    = link_to 'Index', manage_posts_path, class: 'nav-link active'
-  %li.nav-item
-    = link_to 'New', new_manage_post_path, class: 'nav-link'
+= render 'manage/shared/actions_toolbar', object: Post.new
 
-%table.table.table-bordered.table-sm
-  %thead.thead-default
-    %tr
-      %th #
-      %th Title
-      %th Actions
-  %tbody
-    - @posts.each do |post|
+%section
+  %h1 Posts
+
+  %table.table
+    %thead.thead-default
       %tr
-        %td= post.id
-        %td= post.title
-        %td= link_to 'Edit', edit_manage_post_path(post)
+        %th #
+        %th Title
+    %tbody
+      - @posts.each do |post|
+        %tr
+          %td= post.id
+          %td= link_to post.title, manage_post_path(post)
           
 - provide :title, 'Posts'
