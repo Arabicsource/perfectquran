@@ -25,7 +25,7 @@ feature 'Page management' do
     scenario 'successfully' do
       visit edit_manage_page_path(page_obj)
       fill_in 'Title', with: 'ModifiedPageTitle'
-      click_on 'Edit Page'
+      click_on 'Update Page'
       expect(page).to have_css '.alert-success',
                                text: I18n.t('manage.page.edited')
       expect(page).to have_text 'ModifiedPageTitle'

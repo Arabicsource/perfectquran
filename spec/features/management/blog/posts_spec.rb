@@ -25,7 +25,7 @@ feature 'Post management' do
     scenario 'successfully' do
       visit edit_manage_post_path(post)
       fill_in 'Title', with: 'ModifiedPostTitle'
-      click_on 'Edit Post'
+      click_on 'Update Post'
       expect(page).to have_css '.alert-success',
                                text: I18n.t('manage.post.edited')
       expect(page).to have_text 'ModifiedPostTitle'
