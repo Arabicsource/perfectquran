@@ -7,8 +7,8 @@
     = f.text_field :title, class: 'form-control'
 
   .form-group
-    = f.label :category_id
-    = f.collection_select :category_id, Category.order(:name), :id, :name, { include_blank: true }, class: 'form-control'
+    = f.label :category_name, 'Category'
+    = f.text_field :category_name, data: {autocomplete_source: Category.order(:name).map(&:name)}, class: 'form-control'
 
   .form-group
     = f.label :content

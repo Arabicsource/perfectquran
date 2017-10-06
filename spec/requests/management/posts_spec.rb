@@ -8,7 +8,7 @@ describe 'Post management', type: :request do
   let(:user) { FactoryGirl.create(:user, :confirmed) }
   let(:post_obj) { FactoryGirl.create(:post) }
   let(:post_attributes) { FactoryGirl.attributes_for(:post) }
-  let(:params) { { post: post_attributes.merge(category_id: category.id) } }
+  let(:params) { { post: post_attributes.merge(category_name: category.name) } }
   let(:update_params) do
     { post: { title: 'UpdatedTitle', content: 'UpdatedContent' } }
   end

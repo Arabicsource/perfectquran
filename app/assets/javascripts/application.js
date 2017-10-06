@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require popper
 //= require rails-ujs
 //= require turbolinks
@@ -25,5 +26,9 @@ $(document).on('turbolinks:load', function() {
       const permalink = $(this).val();
       window.location.href = "https://perfectquran.co/" + permalink;
     });
+
+    $('#post_category_name').autocomplete(
+      { source: $('#post_category_name').data('autocomplete-source') }
+    );
   })
 })

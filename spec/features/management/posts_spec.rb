@@ -14,7 +14,7 @@ feature 'Post management' do
     category
     visit new_manage_post_path
     fill_in 'Title', with: post_attributes[:title]
-    select category.name, from: 'Category'
+    fill_in 'Category', with: category.name
     fill_in 'Content', with: post_attributes[:content]
     click_on 'Create Post'
     expect(page).to have_css '.alert-success',
