@@ -12,3 +12,10 @@
       = markdown post.content
 
 - provide :title, 'Blog'
+
+- content_for :aside do
+  %section
+    %h4 Categories
+    %ul.nav
+      - Category.all.each do |category|
+        %li= link_to category.name, blog_category_path(category), class: 'nav-link'

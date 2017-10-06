@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     resources :users, :posts, :pages, :categories
   end
 
+  namespace :blog do
+    resources :categories, only: :show
+  end
+
   resources :searches
   resources :ayahs
   resources :pages, only: :show
