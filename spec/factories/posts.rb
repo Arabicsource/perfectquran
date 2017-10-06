@@ -16,6 +16,7 @@ FactoryGirl.define do
   factory :post do
     sequence(:title) { |n| "PostTitle#{n}" }
     content 'PostContent'
+    category
     user
   end
 end

@@ -5,6 +5,10 @@
     Post
     %small= @post.title
 
+  %p
+    Category
+    %small= @post.category.name
+
   .content= markdown @post.content
 
 - provide :title, @post.title

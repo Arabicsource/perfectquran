@@ -3,9 +3,12 @@
 require 'rails_helper'
 
 describe 'Post management', type: :request do
+  let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
+  let(:category) { FactoryGirl.create(:category) }
+  let(:user) { FactoryGirl.create(:user, :confirmed) }
   let(:post_obj) { FactoryGirl.create(:post) }
   let(:post_attributes) { FactoryGirl.attributes_for(:post) }
-  let(:params) { { post: post_attributes } }
+  let(:params) { { post: post_attributes.merge(category_id: category.id) } }
   let(:update_params) do
     { post: { title: 'UpdatedTitle', content: 'UpdatedContent' } }
   end
@@ -88,20 +91,20 @@ describe 'Post management', type: :request do
 
   describe 'POST #create' do
     context 'guest' do
-      before { post '/manage/posts' }
+      before { post '/manage/posts', params: params }
       specify { expect(response).to redirect_to new_user_session_path }
     end
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
-        post '/manage/posts'
+        login_as user
+        post '/manage/posts', params: params
       end
       specify { expect(response).to redirect_to root_path }
     end
 
     context 'admin' do
-      before { login_as FactoryGirl.create(:user, :confirmed, :admin) }
+      before { login_as admin }
 
       describe 'successful submission' do
         specify do
@@ -113,11 +116,12 @@ describe 'Post management', type: :request do
 
       describe 'empty submission' do
         specify do
-          empty_params = { post: { title: '', content: '' } }
+          empty_params = { post: { title: '', content: '', category_id: '' } }
           expect { post '/manage/posts', params: empty_params }
             .not_to change(Post, :count)
           expect(response.body).to include 'Title can&#39;t be blank'
           expect(response.body).to include 'Content can&#39;t be blank'
+          expect(response.body).to include 'Category must exist'
         end
       end
     end
