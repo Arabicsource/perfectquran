@@ -1,6 +1,16 @@
 %section
-  %h1 
-    Users
-    %span= User.count
-
+  %h1 Stats
+  
+  %table.table
+    %tbody
+      %tr
+        %th Users Count
+        %td= User.count
+      %tr
+        %th Favorites Count
+        %td= Favorite.count
+      %tr
+        %th Memories Count
+        %td= Memory.count
+          
 - provide :title, 'Management Dashboard'
