@@ -35,7 +35,7 @@
         %td= @user.sign_in_count
       %tr
         %td Current Logged in At
-        - if @user.confirmed?
+        - if @user.confirmed? && @user.current_sign_in_at
           %td= @user.current_sign_in_at.to_formatted_s(:long)
         - else
           %td N/A
