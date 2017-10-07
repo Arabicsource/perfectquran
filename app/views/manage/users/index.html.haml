@@ -14,9 +14,9 @@
           %td 
             = user.id
           %td
-            = user.name
+            = link_to user.username, manage_user_path(user)
           %td
-            = user.username
+            = user.name
           %td
             = user.email
 
