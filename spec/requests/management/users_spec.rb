@@ -6,7 +6,7 @@ describe 'User management', type: :request do
   let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
   let(:user) { FactoryGirl.create(:user, :confirmed) }
   let(:user_obj) { FactoryGirl.create(:user) }
-  
+
   describe 'GET #index' do
     context 'guest' do
       before { get manage_users_path }

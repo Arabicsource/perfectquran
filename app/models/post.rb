@@ -12,10 +12,13 @@
 #  updated_at :datetime         not null
 #
 class Post < ApplicationRecord
+  before_validation { self.permalink = title.parameterize if title }
+
   belongs_to :category
   belongs_to :user
 
   validates :title, presence: true
+  validates :permalink, uniqueness: { case_sensitive: false }
   validates :content, presence: true
 
   def category_name

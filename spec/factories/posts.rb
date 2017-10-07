@@ -15,6 +15,7 @@
 FactoryGirl.define do
   factory :post do
     sequence(:title) { |n| "PostTitle#{n}" }
+    sequence(:permalink) { |n| "posttitle#{n}" }
     content 'PostContent'
     category
     user

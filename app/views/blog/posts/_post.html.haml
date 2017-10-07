@@ -1,0 +1,11 @@
+%article.post
+  %h1= link_to post.title, blog_post_path(post.permalink)
+  
+  %p.post-meta
+    %small
+      = "Posted in #{post.category.name}."
+      = "By #{post.user.name}"
+      = "on #{post.created_at.to_date.to_formatted_s(:short_ordinal)}."
+  
+  .post-content
+    = markdown post.content 
