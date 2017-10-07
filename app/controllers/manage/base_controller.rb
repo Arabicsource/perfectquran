@@ -3,6 +3,7 @@
 module Manage
   # :nodoc:
   class BaseController < ApplicationController
+    layout 'manage'
     before_action :authenticate_user!, :authorize_user!
 
     private def authorize_user!

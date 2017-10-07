@@ -1,0 +1,19 @@
+!!!5
+%html{ html_attrs('en') }
+  = render 'layouts/shared/head'
+  
+  %body{id: params[:controller].gsub('/', '-') }
+    = render 'layouts/manage/navbar'
+
+    .container
+      = render 'layouts/shared/flash'
+      
+      .row
+        .col-3
+          = render 'layouts/shared/aside'
+
+          %footer
+            = render 'layouts/shared/footer'
+
+        #content.col-9
+          = yield
