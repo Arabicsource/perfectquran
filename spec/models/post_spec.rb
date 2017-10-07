@@ -1,15 +1,16 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: posts
 #
-#  id         :integer          not null, primary key
-#  title      :string
-#  content    :text
-#  user_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  title       :string
+#  content     :text
+#  user_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  category_id :integer
+#  permalink   :string
 #
 
 require 'rails_helper'
@@ -26,6 +27,13 @@ RSpec.describe Post, type: :model do
   it { is_expected.to validate_uniqueness_of(:permalink).case_insensitive }
   it { is_expected.to validate_presence_of :content }
   it { is_expected.to belong_to :category }
+
+  describe '#author_name' do
+    it 'is the name of the user who authored the post' do
+      subject.save
+      expect(subject.author_name).to eq subject.user.name
+    end
+  end
 
   describe '#permalink' do
     it 'is a parameterized version of the title' do
