@@ -41,7 +41,7 @@
           %td N/A
       %tr
         %td Last Logged in At
-        - if @user.confirmed?
+        - if @user.confirmed? && @user.last_sign_in_at
           %td= @user.last_sign_in_at.to_formatted_s(:long)
         - else
           %td N/A
