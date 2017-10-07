@@ -5,10 +5,17 @@
     Post
     %small= @post.title
 
-  %p
-    Category
-    %small= @post.category.name
+  %table.table.table-bordered
+    %tbody
+      %tr
+        %th Category
+        %td= @post.category.name
+      %tr
+        %th Permalink
+        %td= @post.permalink
 
-  .content= markdown @post.content
+  .content
+    %h2 Content
+    = markdown @post.content
 
 - provide :title, @post.title
