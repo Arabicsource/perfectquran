@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :settings, only: :index
+
   resources :searches
   resources :ayahs
   resources :pages, only: :show
