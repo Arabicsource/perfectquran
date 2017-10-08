@@ -9,3 +9,10 @@
   
   .post-content
     = markdown post.content 
+
+  %p.post-meta
+    %small
+      = fa_icon 'comments'
+      = link_to blog_post_path(post.permalink, anchor: 'comments') do
+        = post.comments.count
+        Comments
