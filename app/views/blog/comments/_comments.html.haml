@@ -8,6 +8,6 @@
           .media-body
             %p
               %small= "By #{comment.user.name}, #{time_ago_in_words(comment.created_at)} ago."
-            %p= comment.content
+            %p= markdown comment.content
   - else
     %p.alert.alert-info No comments have been made.

@@ -14,10 +14,12 @@ module ApplicationHelper
       no_images: true,
       no_styles: true,
       safe_links_only: true,
-      hard_wrap: true
+      hard_wrap: true,
+      autolink: true,
+      strikethrough: true,
+      underline: true
     }
-    renderer = Redcarpet::Render::HTML.new(options)
-    markdown = Redcarpet::Markdown.new(renderer)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
     markdown.render(text).html_safe
   end
 end
