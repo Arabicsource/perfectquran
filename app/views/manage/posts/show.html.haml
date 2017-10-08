@@ -21,4 +21,18 @@
     %h2 Content
     = markdown @post.content
 
+%section#comments
+  %h1 Comments
+  
+  - unless @post.comments.empty?
+    %ul.list-unstyled
+      - @post.comments.order('created_at ASC').each do |comment|
+        %li.media.comment
+          .media-body
+            %p
+              %small= "By #{comment.user.name}, #{time_ago_in_words(comment.created_at)} ago."
+            %p= markdown comment.content
+  - else
+    %p.alert.alert-info No comments have been made.
+
 - provide :title, @post.title
