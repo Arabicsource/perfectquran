@@ -4,7 +4,7 @@ module Manage
   # :nodoc:
   class CommentsController < Manage::BaseController
     def index
-      @comments = Comment.all
+      @comments = Comment.includes(:user)
     end
 
     def show
