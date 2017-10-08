@@ -6,4 +6,11 @@
     = link_to 'Dashboard', manage_dashboards_path, class: 'dropdown-item'    
     = link_to 'Surah Index', root_path, class: 'dropdown-item'
     = link_to 'Blog', blog_path, class: 'dropdown-item'
-    = link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item'    
+    = link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item'
+
+  %ul.navbar-nav
+    %li.nav-item.dropdown
+      = link_to '#', id: 'nav-content-dropdown', class: 'nav-link dropdown-toggle', data: { toggle: 'dropdown' } do
+        Content
+      .dropdown-menu
+        = link_to 'Comments', manage_comments_path, class: 'dropdown-item'
