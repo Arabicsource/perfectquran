@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: posts
@@ -12,7 +13,6 @@
 #  category_id :integer
 #  permalink   :string
 #
-
 class Post < ApplicationRecord
   before_validation { self.permalink = title.parameterize if title }
 

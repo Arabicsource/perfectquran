@@ -31,6 +31,9 @@
 
 en:
   hello: "Hello world"
+  blog:
+    comment:
+      created: 'Alhamdulillah, your comment was added'
   manage:
     category:
       created: 'The category was created'

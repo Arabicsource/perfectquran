@@ -3,6 +3,8 @@
 module Blog
   # :nodoc:
   class CommentsController < Blog::BaseController
+    before_action :authenticate_user!
+
     def create
       @post = Post.find(params[:post_id])
       @comment = @post.comments.new(comment_params)
