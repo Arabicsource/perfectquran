@@ -4,7 +4,7 @@ module Manage
   # :nodoc:
   class PostsController < Manage::BaseController
     def index
-      @posts = Post.all
+      @posts = Post.includes(:user)
     end
 
     def show
