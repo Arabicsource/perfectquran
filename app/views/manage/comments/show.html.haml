@@ -1,0 +1,28 @@
+.btn-toolbar
+  .btn-group
+    = link_to manage_comment_path(@comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
+      = fa_icon 'trash'
+      Delete
+
+%section
+  %h1 
+    Comment
+    %small= @comment.user.name
+
+  %table.table
+    %tbody
+      %tr
+        %td #
+        %td= @comment.id
+      %tr
+        %td Commenter
+        %td= link_to @comment.user.name, manage_user_path(@comment.user)
+      %tr
+        %td Created At
+        %td= @comment.created_at.to_formatted_s(:long)
+
+  .content
+    %h2 Content
+    = markdown @comment.content
+
+- provide :title, 'Comment'

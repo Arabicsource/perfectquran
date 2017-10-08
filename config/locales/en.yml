@@ -35,6 +35,8 @@ en:
     comment:
       created: 'Alhamdulillah, your comment was added'
   manage:
+    comment:
+      deleted: 'The comment was deleted'
     category:
       created: 'The category was created'
       edited: 'The category was edited'
