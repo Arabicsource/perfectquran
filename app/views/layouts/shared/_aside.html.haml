@@ -1,5 +1,8 @@
 .aside
   = content_for :aside if content_for? :aside
 
+  - unless params[:controller].starts_with? 'manage'
+    = render 'shared/newsletter_signup'
+
   - if params[:controller].starts_with? 'manage'
     = render 'manage/shared/nav'
