@@ -1,3 +1,7 @@
 = render @post
 
+= render 'blog/comments/comments'
+
+= render 'blog/comments/form'
+
 - provide :title, @post.title

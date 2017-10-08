@@ -1,0 +1,15 @@
+%section
+  %h1 New Comment
+  
+  - if user_signed_in?
+    = form_with model: [:blog, @post, @comment] do |f|
+
+      = render 'shared/error_messages', object: @comment
+
+      .form-group
+        = f.label :content
+        = f.text_area :content, id: :comment_content, class: 'form-control'
+
+      = f.submit class: 'btn btn-primary'
+  - else
+    %p.alert.alert-info You must be logged in to comment.

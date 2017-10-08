@@ -9,6 +9,7 @@ module Blog
 
     def show
       @post = Post.find_by(permalink: params[:id])
+      @comment = Comment.new
     end
   end
 end
