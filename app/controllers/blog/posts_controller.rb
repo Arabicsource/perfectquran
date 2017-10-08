@@ -4,7 +4,7 @@ module Blog
   # :nodoc:
   class PostsController < Blog::BaseController
     def index
-      @posts = Post.order('created_at DESC')
+      @posts = Post.includes(:category, :user).order('created_at DESC')
     end
 
     def show
