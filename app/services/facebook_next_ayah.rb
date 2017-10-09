@@ -12,10 +12,7 @@ class FacebookNextAyah
     private
   
     def facebook_next_ayah
-      @page_graph.put_wall_post(next_ayah_text)     
-    rescue Koala::Facebook::APIError
-      logger.info e.to_s
-      nil 
+      @page_graph.put_wall_post(next_ayah_text)
     end
   
     def update_facebook_share
