@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'kaminari'
+gem "koala"
 gem 'mail_form'
 gem 'pg', '~> 0.18'
 gem 'popper_js', '~> 1.11.1'
