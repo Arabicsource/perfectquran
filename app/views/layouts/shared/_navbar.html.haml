@@ -24,7 +24,7 @@
             = current_user.name
           .dropdown-menu
             = link_to 'Profile', user_path(current_user.username), class: 'dropdown-item'
-            = link_to 'Settings', settings_path, class: 'dropdown-item'
+            = link_to 'Settings', edit_settings_general_path, class: 'dropdown-item'
             = link_to 'Manage', manage_dashboards_path, class: 'dropdown-item' if current_user.role?(:admin)
             = link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item'
       - else

@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   resources :settings, only: :index
   namespace :settings do
-    resource :general, only: :edit
+    resource :general, only: %i[edit update]
   end
 
   resources :searches
