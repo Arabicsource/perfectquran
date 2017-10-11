@@ -26,24 +26,7 @@ class TweetNextAyah
 
   def next_ayah_text
     text = next_ayah.texts.where(quran_id: 3).first.content
-    text = text.gsub(/\(.*?\)/, "") # removes parentheses
-    text = text.gsub(/\[.*?\]/, "") # removes square brackets
-    text = text.gsub('. .', '.')
-    text = text.gsub(' .', '.')
-    text = text.gsub(' ,', ',')
-    text = text.gsub('  ', ' ')
-    text = text.gsub(',,', ',')
-    text = text.gsub('&#8217;', "'")
-    text = text.truncate(100)
-    text + ' ' + next_ayah_reference + ' ' + next_ayah_url
-  end
-
-  def next_ayah_reference
-    "[#{next_ayah.surah.id}:#{next_ayah.number}]"
-  end
-
-  def next_ayah_url
-    "https://perfectquran.co/#{next_ayah.surah.id}/#{next_ayah.number}"
+    text = TwitterPrepareAyah.new(next_ayah.surah.id, next_ayah.number, text).call
   end
 
   def next_ayah
