@@ -13,4 +13,8 @@
       = f.label :username
       = f.text_field :username, id: :user_username, class: 'form-control'
 
+    .form-group
+      = f.label :bio
+      = f.text_area :bio, id: :user_bio, class: 'form-control'
+
     = f.submit 'Update Settings', class: 'btn btn-secondary'

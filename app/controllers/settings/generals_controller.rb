@@ -4,7 +4,7 @@ module Settings
   # :nodoc:
   class GeneralsController < Settings::BaseController
     before_action :authenticate_user!
-    
+
     def edit; end
 
     def update
@@ -17,7 +17,7 @@ module Settings
     end
 
     private def general_params
-      params.require(:user).permit(:name, :username)
+      params.require(:user).permit(:name, :username, :bio)
     end
   end
 end

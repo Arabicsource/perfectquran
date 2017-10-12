@@ -23,6 +23,7 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  username               :string
+#  bio                    :string
 #
 
 FactoryGirl.define do
