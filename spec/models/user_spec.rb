@@ -23,6 +23,7 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  username               :string
+#  bio                    :string
 #
 
 require 'rails_helper'
@@ -32,8 +33,11 @@ RSpec.describe User, type: :model do
   subject { user }
 
   it { is_expected.to be_valid }
+
   it { is_expected.to respond_to :name }
   it { is_expected.to respond_to :username }
+  it { is_expected.to respond_to :bio }
+
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_length_of(:name).is_at_least(3).is_at_most(50) }
   it { is_expected.to validate_presence_of :username }

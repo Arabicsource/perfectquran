@@ -34,6 +34,9 @@ en:
   blog:
     comment:
       created: 'Alhamdulillah, your comment was added'
+  settings:
+    general:
+      edited: 'Alhamdullah, your settings were updated.'
   manage:
     comment:
       deleted: 'The comment was deleted'

@@ -23,6 +23,7 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  username               :string
+#  bio                    :string
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:

@@ -31,6 +31,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :settings, only: :index
+  namespace :settings do
+    resource :general, only: %i[edit update]
+  end
+
   resources :searches
   resources :ayahs
   resources :pages, only: :show
