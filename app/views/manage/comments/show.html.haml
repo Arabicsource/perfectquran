@@ -1,8 +1,4 @@
-.btn-toolbar
-  .btn-group
-    = link_to manage_comment_path(@comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
-      = fa_icon 'trash'
-      Delete
+= render 'manage/shared/actions_toolbar', object: @comment, except: %i[new edit]
 
 %section
   %h1 

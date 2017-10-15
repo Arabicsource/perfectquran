@@ -22,4 +22,8 @@ class Comment < ApplicationRecord
   def visible?
     flag.nil?
   end
+
+  def flagged?
+    flag.present?
+  end
 end

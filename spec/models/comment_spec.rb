@@ -16,6 +16,8 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
+  let(:flagged_comment) { FactoryGirl.build(:comment, :with_flag) }
+
   before { @comment = FactoryGirl.build(:comment) }
   subject { @comment }
 
@@ -24,6 +26,16 @@ RSpec.describe Comment, type: :model do
   it { is_expected.to validate_presence_of :content }
 
   it { is_expected.to have_one :flag }
+
+  describe '#flagged?' do
+    it 'is true when it is flagged' do
+      expect(flagged_comment.flagged?).to be_truthy
+    end
+      
+    it 'is false when it is not flagged' do
+      expect(@comment.flagged?).to be_falsey
+    end
+  end
 
   describe '#visible?' do
     it 'is true when it not flagged' do
