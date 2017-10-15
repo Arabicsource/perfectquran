@@ -31,6 +31,27 @@ RSpec.describe Post, type: :model do
   it { is_expected.to belong_to :category }
   it { is_expected.to have_many :comments }
 
+  describe '#visible_comments?' do
+    it 'is false when no comments exisit' do
+      expect(post.visible_comments?).to be_falsey
+    end
+
+    it 'is false when all comments have been flagged' do
+      post_with_flagged_comments = FactoryGirl.create(:post, :with_flagged_comments)
+      expect(post_with_flagged_comments.visible_comments?).to be_falsey
+    end
+
+    it 'is true when no comments have been flagged' do
+      post_with_comments = FactoryGirl.create(:post, :with_comments)
+      expect(post_with_comments.visible_comments?).to be_truthy
+    end
+
+    it 'is true when there is a mixture of flagged and unflagged comments' do
+      post_with_mixed_commments = FactoryGirl.create(:post, :with_mixed_comments)
+      expect(post_with_mixed_commments.visible_comments?).to be_truthy
+    end
+  end
+
   describe '#author_name' do
     it 'is the name of the user who authored the post' do
       subject.save

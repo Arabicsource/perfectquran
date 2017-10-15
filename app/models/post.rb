@@ -24,6 +24,10 @@ class Post < ApplicationRecord
   validates :permalink, uniqueness: { case_sensitive: false }
   validates :content, presence: true
 
+  def visible_comments?
+    comments.includes(:flag).where( flags: { comment_id: nil } ).present?
+  end
+
   def author_name
     user.try(:name)
   end

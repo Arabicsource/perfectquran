@@ -22,4 +22,17 @@ RSpec.describe Comment, type: :model do
   it { is_expected.to be_valid }
   it { is_expected.to respond_to(:content) }
   it { is_expected.to validate_presence_of :content }
+
+  it { is_expected.to have_one :flag }
+
+  describe '#visible?' do
+    it 'is true when it not flagged' do
+      expect(@comment.visible?).to be_truthy
+    end
+
+    it 'is false when it is flagged' do
+      flagged_comment = FactoryGirl.create(:comment, :with_flag)
+      expect(flagged_comment.visible?).to be_falsey
+    end
+  end
 end

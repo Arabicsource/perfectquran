@@ -15,8 +15,12 @@
 
 FactoryGirl.define do
   factory :comment do
-    content 'CommentContent'
+    sequence(:content) { |n| "CommentContent-#{n}" }
     user
     association :commentable, factory: :post
+
+    trait :with_flag do
+      flag
+    end
   end
 end

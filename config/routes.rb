@@ -36,6 +36,10 @@ Rails.application.routes.draw do
     resource :general, only: %i[edit update]
   end
 
+  resources :comments do
+    resources :flags, only: %i[new create]
+  end
+
   resources :searches
   resources :ayahs
   resources :pages, only: :show
