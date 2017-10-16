@@ -31,6 +31,10 @@ RSpec.describe Post, type: :model do
   it { is_expected.to belong_to :category }
   it { is_expected.to have_many :comments }
 
+  describe '#redirect_path' do
+    specify { expect(post.redirect_path).to eq "/blog/posts/#{post.permalink}" }
+  end
+
   describe '#visible_comments?' do
     it 'is false when no comments exisit' do
       expect(post.visible_comments?).to be_falsey

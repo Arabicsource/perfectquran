@@ -37,6 +37,10 @@ RSpec.describe Ayah, type: :model do
   specify { expect(@ayah).to have_many :memories }
   specify { expect(@ayah).to have_many :comments }  
 
+  describe '#redirect_path' do
+    specify { expect(@ayah.redirect_path).to eq "/#{@ayah.surah.id}/#{@ayah.number}" }
+  end
+
   describe '#visible_comments?' do
     it 'is false when no comments exisit' do
       expect(@ayah.visible_comments?).to be_falsey

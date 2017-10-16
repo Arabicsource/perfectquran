@@ -24,6 +24,10 @@ class Post < ApplicationRecord
   validates :permalink, uniqueness: { case_sensitive: false }
   validates :content, presence: true
 
+  def redirect_path
+    "/blog/posts/#{permalink}"
+  end
+
   def visible_comments?
     comments.includes(:flag).where(flags: { comment_id: nil})
       .or(comments.includes(:flag).where( flags: { approved: true }))

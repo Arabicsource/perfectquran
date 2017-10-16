@@ -10,12 +10,7 @@ class CommentsController < ApplicationController
     
     if @comment.save
       flash[:success] = t 'comment.created'
-
-      if @commentable.respond_to?(:surah)
-        redirect_to ayah_by_number_path(@commentable.surah.id, @commentable.number)
-      else
-        redirect_to blog_post_path(@commentable.permalink)
-      end
+      redirect_to @commentable.redirect_path
     end
   end
 

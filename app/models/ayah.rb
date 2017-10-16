@@ -23,6 +23,10 @@ class Ayah < ApplicationRecord
   has_many :favorites
   has_many :memories
 
+  def redirect_path
+    "/#{surah.id}/#{number}"
+  end
+
   def previous?
     number > 1
   end
