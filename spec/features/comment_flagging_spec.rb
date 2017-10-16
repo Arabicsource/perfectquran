@@ -19,4 +19,20 @@ feature 'Comment Flagging' do
                              text: I18n.t('comment.flagged')
     expect(page).not_to have_text post.comments.first.content
   end
+
+  scenario 'ayah comment is flagged by guest' do
+    ayah = FactoryGirl.create(:ayah, :with_comments)
+    visit ayah_by_number_path(ayah.surah.id, ayah.number)
+
+    within "#comment-#{ayah.comments.first.id}" do
+      click_on 'Flag'
+    end
+
+    fill_in 'Reason', with: 'string'
+    click_on 'Flag Comment'
+
+    expect(page).to have_css '.alert-success',
+                             text: I18n.t('comment.flagged')
+    expect(page).not_to have_text ayah.comments.first.content
+  end
 end

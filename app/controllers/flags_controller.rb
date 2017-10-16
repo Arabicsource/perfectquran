@@ -11,7 +11,12 @@ class FlagsController < ApplicationController
     @flag.user = current_user if user_signed_in?
     @flag.save
     flash[:success] = t 'comment.flagged'
-    redirect_to blog_post_path(@comment.commentable.permalink)
+
+    if @comment.commentable.respond_to? :permalink
+      redirect_to blog_post_path(@comment.commentable.permalink)
+    else
+      redirect_to ayah_by_number_path(@comment.commentable.surah.id, @comment.commentable.number)
+    end
   end
 
   private
