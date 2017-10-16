@@ -16,7 +16,7 @@
         %th Content
     %tbody
       - @comments.each do |comment|
-        %tr{ class: ('table-danger' if comment.flagged?) }
+        %tr{ class: ('table-danger' if comment.flagged? and !comment.approved?) }
           %td= link_to comment.id, manage_comment_path(comment)
           %td= link_to comment.user.name, manage_user_path(comment.user)
           %td= markdown comment.content.truncate(100)

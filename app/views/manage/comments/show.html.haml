@@ -1,4 +1,13 @@
-= render 'manage/shared/actions_toolbar', object: @comment, except: %i[new edit]
+.row
+  .col-8
+    = render 'manage/shared/actions_toolbar', object: @comment, except: %i[new edit]
+  .col-4
+    .btn-toolbar
+      .btn-group
+        - if @comment.flagged? and !@comment.approved?
+          = link_to manage_comment_flag_path(@comment.flag), method: :patch, class: 'btn btn-success' do
+            = fa_icon 'plus'
+            Approve
 
 %section
   %h1 
@@ -11,8 +20,14 @@
         %td #
         %td= @comment.id
       %tr
+        %td Flagged?
+        %td= @comment.flagged? ? 'Yes' : 'No'
+      %tr
         %td Commenter
         %td= link_to @comment.user.name, manage_user_path(@comment.user)
+      %tr
+        %td Commented On
+        %td= link_to @comment.commentable.title, blog_post_path(@comment.commentable.permalink)
       %tr
         %td Created At
         %td= @comment.created_at.to_formatted_s(:long)
@@ -20,5 +35,24 @@
   .content
     %h2 Content
     = markdown @comment.content
+
+- if @comment.flagged?
+  %section
+    %h1 Flag
+
+    %table.table
+      %tbody
+        %tr
+          %td Approved?
+          %td= @comment.approved? ? 'Yes' : 'No'
+        %tr
+          %td User
+          %td= @comment.flag.user.present? ? @comment.flag.user.name : 'Guest'
+        %tr
+          %td Ip Address
+          %td= @comment.flag.ip_address
+        %tr
+          %td Reason
+          %td= @comment.flag.content
 
 - provide :title, 'Comment'

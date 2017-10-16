@@ -9,6 +9,7 @@
 #  content    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  approved   :boolean          default(FALSE)
 #
 
 class Flag < ApplicationRecord

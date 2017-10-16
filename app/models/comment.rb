@@ -26,4 +26,8 @@ class Comment < ApplicationRecord
   def flagged?
     flag.present?
   end
+
+  def approved?
+    flag.present? and flag.approved?
+  end
 end

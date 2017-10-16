@@ -9,6 +9,7 @@
 #  content    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  approved   :boolean          default(FALSE)
 #
 
 require 'rails_helper'
@@ -24,6 +25,7 @@ RSpec.describe Flag, type: :model do
   it { is_expected.to respond_to :content }
   it { is_expected.to respond_to :created_at }
   it { is_expected.to respond_to :updated_at }  
+  it { is_expected.to respond_to :approved }
   
   it { is_expected.to belong_to :user }
   it { is_expected.to belong_to :comment }

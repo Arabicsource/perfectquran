@@ -42,6 +42,7 @@ en:
   manage:
     comment:
       deleted: 'The comment was deleted'
+      approved: 'The comment was approved'
     category:
       created: 'The category was created'
       edited: 'The category was edited'

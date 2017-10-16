@@ -17,6 +17,7 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   let(:flagged_comment) { FactoryGirl.build(:comment, :with_flag) }
+  let(:approved_comment) { FactoryGirl.build(:comment, :with_approval) }
 
   before { @comment = FactoryGirl.build(:comment) }
   subject { @comment }
@@ -34,6 +35,20 @@ RSpec.describe Comment, type: :model do
       
     it 'is false when it is not flagged' do
       expect(@comment.flagged?).to be_falsey
+    end
+  end
+
+  describe '#approved?' do
+    it 'is false when it is not flagged' do
+      expect(@comment.approved?).to be_falsey
+    end
+
+    it 'is false when it is flagged and not approved' do
+      expect(flagged_comment.approved?).to be_falsey      
+    end
+
+    it 'is true when it is flagged and approved' do
+      expect(approved_comment.approved?).to be_truthy
     end
   end
 

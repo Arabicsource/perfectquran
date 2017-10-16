@@ -22,5 +22,11 @@ FactoryGirl.define do
     trait :with_flag do
       flag
     end
+
+    trait :with_approval do
+      after(:build) do |comment|
+        comment.flag = create(:flag, :approved)
+      end
+    end
   end
 end
