@@ -59,6 +59,9 @@
           = link_to ayah_by_number_path(@ayah.next.surah.id, @ayah.next.number) do
             = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
 
+= render 'comments/comments', commentable: @commentable
+= render 'comments/form', commentable: @commentable, comment: @comment
+
 - provide :title, "#{@ayah.surah_name}:#{@ayah.number}"
 
 - content_for :aside do

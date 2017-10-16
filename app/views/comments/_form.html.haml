@@ -2,9 +2,9 @@
   %h1 New Comment
   
   - if user_signed_in?
-    = form_with model: [:blog, @post, @comment] do |f|
+    = form_with model: [commentable, comment] do |f|
 
-      = render 'shared/error_messages', object: @comment
+      = render 'shared/error_messages', object: comment
 
       .form-group
         = f.label :content

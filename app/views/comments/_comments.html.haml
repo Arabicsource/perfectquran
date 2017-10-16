@@ -1,9 +1,9 @@
 %section#comments
   %h1 Comments
   
-  - if @post.visible_comments?
+  - if commentable.visible_comments?
     %ul.list-unstyled
-      - @post.comments.each do |comment|
+      - commentable.comments.each do |comment|
         - if comment.visible?
           %li.media.comment{id: "comment-#{comment.id}"}
             .media-body

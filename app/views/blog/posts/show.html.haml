@@ -1,7 +1,7 @@
 = render @post
 
-= render 'blog/comments/comments'
+= render 'comments/comments', commentable: @post
 
-= render 'blog/comments/form'
+= render 'comments/form', commentable: @post, comment: @comment
 
 - provide :title, @post.title

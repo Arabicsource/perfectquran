@@ -29,9 +29,7 @@ Rails.application.routes.draw do
 
   namespace :blog do
     resources :categories, only: :show
-    resources :posts, only: :show do
-      resources :comments, only: :create
-    end
+    resources :posts, only: :show
   end
 
   resources :settings, only: :index
@@ -44,7 +42,15 @@ Rails.application.routes.draw do
   end
 
   resources :searches
-  resources :ayahs
+  
+  resources :posts do
+    resources :comments
+  end
+
+  resources :ayahs do
+    resources :comments
+  end
+  
   resources :pages, only: :show
   resources :contacts, only: %i[new create]
   resources :users, only: :show

@@ -16,6 +16,8 @@
 #  memories_count   :integer          default(0)
 #
 class Ayah < ApplicationRecord
+  include Commentable
+
   belongs_to :surah
   has_many :texts
   has_many :favorites
