@@ -14,11 +14,12 @@
 #  permalink   :string
 #
 class Post < ApplicationRecord
+  include Commentable
+  
   before_validation { self.permalink = title.parameterize if title }
 
   belongs_to :category
   belongs_to :user
-  has_many :comments, as: :commentable
 
   validates :title, presence: true
   validates :permalink, uniqueness: { case_sensitive: false }
@@ -26,12 +27,6 @@ class Post < ApplicationRecord
 
   def redirect_path
     "/blog/posts/#{permalink}"
-  end
-
-  def visible_comments?
-    comments.includes(:flag).where(flags: { comment_id: nil})
-      .or(comments.includes(:flag).where( flags: { approved: true }))
-      .present?
   end
 
   def author_name
