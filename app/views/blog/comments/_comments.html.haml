@@ -1,13 +1,21 @@
 %section#comments
   %h1 Comments
   
-  - unless @post.comments.empty?
+  - if @post.visible_comments?
     %ul.list-unstyled
-      - @post.comments.order('created_at ASC').each do |comment|
-        %li.media.comment
-          .media-body
-            %p
-              %small= "By #{comment.user.name}, #{time_ago_in_words(comment.created_at)} ago."
-            %p= markdown comment.content
+      - @post.comments.each do |comment|
+        - if comment.visible?
+          %li.media.comment{id: "comment-#{comment.id}"}
+            .media-body
+              %p
+                %small
+                  = "By #{comment.user.name}, #{time_ago_in_words(comment.created_at)} ago."
+                  - unless comment.approved?
+                    %span.float-right
+                      = link_to new_comment_flag_path(comment) do
+                        = fa_icon 'flag'
+                        Flag
+
+              %p= markdown comment.content
   - else
-    %p.alert.alert-info No comments have been made.
+    %p.alert.alert-info= t 'comment.no_comments'

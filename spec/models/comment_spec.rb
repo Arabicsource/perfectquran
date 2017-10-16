@@ -16,10 +16,54 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
+  let(:flagged_comment) { FactoryGirl.build(:comment, :with_flag) }
+  let(:approved_comment) { FactoryGirl.build(:comment, :with_approval) }
+
   before { @comment = FactoryGirl.build(:comment) }
   subject { @comment }
 
   it { is_expected.to be_valid }
   it { is_expected.to respond_to(:content) }
   it { is_expected.to validate_presence_of :content }
+
+  it { is_expected.to have_one :flag }
+
+  describe '#flagged?' do
+    it 'is true when it is flagged' do
+      expect(flagged_comment.flagged?).to be_truthy
+    end
+      
+    it 'is false when it is not flagged' do
+      expect(@comment.flagged?).to be_falsey
+    end
+  end
+
+  describe '#approved?' do
+    it 'is false when it is not flagged' do
+      expect(@comment.approved?).to be_falsey
+    end
+
+    it 'is false when it is flagged and not approved' do
+      expect(flagged_comment.approved?).to be_falsey      
+    end
+
+    it 'is true when it is flagged and approved' do
+      expect(approved_comment.approved?).to be_truthy
+    end
+  end
+
+  describe '#visible?' do
+    it 'is true when it not flagged' do
+      expect(@comment.visible?).to be_truthy
+    end
+
+    it 'is true when it is flagged and approved' do
+      expect(approved_comment.visible?).to be_truthy
+    end
+
+    it 'is false when it is flagged and not approved' do
+      flagged_comment = FactoryGirl.create(:comment, :with_flag)
+      expect(flagged_comment.visible?).to be_falsey
+    end
+  end
 end

@@ -15,8 +15,18 @@
 
 FactoryGirl.define do
   factory :comment do
-    content 'CommentContent'
+    sequence(:content) { |n| "CommentContent-#{n}" }
     user
     association :commentable, factory: :post
+
+    trait :with_flag do
+      flag
+    end
+
+    trait :with_approval do
+      after(:build) do |comment|
+        comment.flag = create(:flag, :approved)
+      end
+    end
   end
 end

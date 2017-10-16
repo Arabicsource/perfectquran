@@ -15,6 +15,19 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :commentable, polymorphic: true
+  has_one :flag
 
-  validates :content, presence: true
+  validates :content, presence: true  
+
+  def visible?
+    flag.nil? or flag.approved?
+  end
+
+  def flagged?
+    flag.present?
+  end
+
+  def approved?
+    flag.present? and flag.approved?
+  end
 end

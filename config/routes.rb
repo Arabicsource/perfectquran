@@ -20,8 +20,11 @@ Rails.application.routes.draw do
 
   namespace :manage do
     resources :dashboards, only: :index
-    resources :users, :posts, :pages, :categories
-    resources :comments
+    resources :users, :posts, :pages, :categories, :comments
+
+    namespace :comment do
+      resources :flags
+    end
   end
 
   namespace :blog do
@@ -34,6 +37,10 @@ Rails.application.routes.draw do
   resources :settings, only: :index
   namespace :settings do
     resource :general, only: %i[edit update]
+  end
+
+  resources :comments do
+    resources :flags, only: %i[new create]
   end
 
   resources :searches

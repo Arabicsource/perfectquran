@@ -72,8 +72,6 @@ RSpec.describe TwitterPrepareAyah do
         unmodified_text = "#{'a' * 160}."
         expected_result = "#{'a' * 103}... #{ref_and_url}"
 
-        puts expected_result.length
-
         text = TwitterPrepareAyah.new(1, 1, unmodified_text).call
 
         expect(text).to eq expected_result

@@ -31,6 +31,9 @@
 
 en:
   hello: "Hello world"
+  comment:
+    no_comments: 'No comments have been made.'
+    flagged: 'Thank you. The comment was flagged and is no longer visible.'
   blog:
     comment:
       created: 'Alhamdulillah, your comment was added'
@@ -40,6 +43,7 @@ en:
   manage:
     comment:
       deleted: 'The comment was deleted'
+      approved: 'The comment was approved'
     category:
       created: 'The category was created'
       edited: 'The category was edited'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012061333) do
+ActiveRecord::Schema.define(version: 20171016105014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,18 @@ ActiveRecord::Schema.define(version: 20171012061333) do
     t.index ["ayah_id"], name: "index_favorites_on_ayah_id"
     t.index ["user_id", "ayah_id"], name: "index_favorites_on_user_id_and_ayah_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "flags", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "comment_id"
+    t.string "ip_address"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "approved", default: false
+    t.index ["comment_id"], name: "index_flags_on_comment_id"
+    t.index ["user_id"], name: "index_flags_on_user_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -223,6 +235,8 @@ ActiveRecord::Schema.define(version: 20171012061333) do
   add_foreign_key "facebook_shares", "ayahs"
   add_foreign_key "favorites", "ayahs"
   add_foreign_key "favorites", "users"
+  add_foreign_key "flags", "comments"
+  add_foreign_key "flags", "users"
   add_foreign_key "likes", "ayahs"
   add_foreign_key "likes", "users"
   add_foreign_key "memories", "ayahs"
