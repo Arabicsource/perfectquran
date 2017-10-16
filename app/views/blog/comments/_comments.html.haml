@@ -8,11 +8,13 @@
           %li.media.comment{id: "comment-#{comment.id}"}
             .media-body
               %p
-                %small= "By #{comment.user.name}, #{time_ago_in_words(comment.created_at)} ago."
+                %small
+                  = "By #{comment.user.name}, #{time_ago_in_words(comment.created_at)} ago."
+                  %span.float-right
+                    = link_to new_comment_flag_path(comment) do
+                      = fa_icon 'flag'
+                      Flag
+
               %p= markdown comment.content
-              %p
-                = link_to new_comment_flag_path(comment), class: 'btn btn-secondary' do
-                  = fa_icon 'flag'
-                  Flag
   - else
     %p.alert.alert-info No comments have been made.
