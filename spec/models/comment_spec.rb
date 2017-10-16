@@ -57,7 +57,11 @@ RSpec.describe Comment, type: :model do
       expect(@comment.visible?).to be_truthy
     end
 
-    it 'is false when it is flagged' do
+    it 'is true when it is flagged and approved' do
+      expect(approved_comment.visible?).to be_truthy
+    end
+
+    it 'is false when it is flagged and not approved' do
       flagged_comment = FactoryGirl.create(:comment, :with_flag)
       expect(flagged_comment.visible?).to be_falsey
     end

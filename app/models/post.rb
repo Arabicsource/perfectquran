@@ -25,7 +25,9 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   def visible_comments?
-    comments.includes(:flag).where( flags: { comment_id: nil } ).present?
+    comments.includes(:flag).where(flags: { comment_id: nil})
+      .or(comments.includes(:flag).where( flags: { approved: true }))
+      .present?
   end
 
   def author_name

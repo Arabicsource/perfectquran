@@ -50,6 +50,11 @@ RSpec.describe Post, type: :model do
       post_with_mixed_commments = FactoryGirl.create(:post, :with_mixed_comments)
       expect(post_with_mixed_commments.visible_comments?).to be_truthy
     end
+
+    it 'is true when comments have been approved' do
+      post_with_approved_comments = FactoryGirl.create(:post, :with_approved_comments)
+      expect(post_with_approved_comments.visible_comments?).to be_truthy
+    end
   end
 
   describe '#author_name' do

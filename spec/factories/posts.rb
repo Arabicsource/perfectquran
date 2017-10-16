@@ -42,6 +42,16 @@ FactoryGirl.define do
       end 
     end
 
+    trait :with_approved_comments do
+      transient do
+        number_of_comments 3
+      end
+
+      after :create do |post, eval|
+        FactoryGirl.create_list :comment, eval.number_of_comments, :with_approval, commentable: post
+      end 
+    end
+
     trait :with_mixed_comments do
       transient do
         number_of_comments 3

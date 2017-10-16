@@ -20,7 +20,7 @@ class Comment < ApplicationRecord
   validates :content, presence: true  
 
   def visible?
-    flag.nil?
+    flag.nil? or flag.approved?
   end
 
   def flagged?
