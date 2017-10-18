@@ -15,25 +15,21 @@
 require 'rails_helper'
 
 RSpec.describe Text, type: :model do
-  before { @text = FactoryGirl.build(:text) }
+  subject { FactoryGirl.build_stubbed :text }
 
-  specify { expect(@text).to be_valid }
-  specify { expect(@text).to respond_to :content }
-  specify { expect(@text).to respond_to :quran }
-  specify { expect(@text).to respond_to :ayah }
-
-  specify { expect(@text).to belong_to(:quran) }
-  specify { expect(@text).to belong_to :ayah }
+  it { is_expected.to be_valid }
+  it { is_expected.to belong_to :quran }
+  it { is_expected.to belong_to :ayah }
 
   describe '#uthmani?' do
-    it 'is false if text.quran is not uthmani' do
-      @text.quran_id = 2
-      expect(@text.uthmani?).to be_falsey
+    it 'returns false if quran_id is not 1' do
+      subject.quran_id = 2
+      expect(subject.uthmani?).to be_falsey
     end
 
-    it 'is true if text.quran is uthmani' do
-      @text.quran_id = 1
-      expect(@text.uthmani?).to be_truthy
+    it 'returns true if quran_id is 1' do
+      subject.quran_id = 1
+      expect(subject.uthmani?).to be_truthy
     end
   end
 end
