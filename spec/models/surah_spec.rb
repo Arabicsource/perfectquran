@@ -21,20 +21,9 @@
 require 'rails_helper'
 
 RSpec.describe Surah, type: :model do
-  let(:surah) { FactoryGirl.build(:surah) }
-  subject { surah }
+  subject { FactoryGirl.build_stubbed :surah }
 
   it { is_expected.to be_valid }
-  it { is_expected.to respond_to :number_of_ayahs }
-  it { is_expected.to respond_to :order_of_revelation }
-  it { is_expected.to respond_to :revelation_type }
-  it { is_expected.to respond_to :permalink }
-  it { is_expected.to respond_to :transliterated_name }
-  it { is_expected.to respond_to :arabic_name }
-  it { is_expected.to respond_to :english_name }
-  it { is_expected.to respond_to :character_length }
-  it { is_expected.to respond_to :percent_of_total }
-  it { is_expected.to respond_to :ayahs }
   it { is_expected.to have_many(:ayahs).order('id asc') }
   it do
     is_expected.to define_enum_for(:revelation_type).with(%i[meccan medinan])
