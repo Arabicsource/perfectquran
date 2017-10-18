@@ -13,8 +13,7 @@
 require 'rails_helper'
 
 RSpec.describe Share, type: :model do
-  let(:share) { FactoryGirl.build(:share) }
-  subject { share }
+  subject { FactoryGirl.build_stubbed :share }
 
   it { is_expected.to be_valid }
 end
