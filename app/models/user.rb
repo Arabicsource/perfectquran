@@ -44,6 +44,9 @@ class User < ApplicationRecord
   has_many :roles, through: :rolings
 
   def role?(role)
-    roles.where(name: role).first
+    user_role = :validating unless confirmed?
+    user_role = :member if confirmed?
+    user_role = :admin if roles.where(name: :admin).first
+    user_role == role
   end
 end

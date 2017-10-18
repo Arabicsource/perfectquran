@@ -29,15 +29,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { FactoryGirl.build(:user) }
-  subject { user }
+  subject { FactoryGirl.build(:user) }
 
   it { is_expected.to be_valid }
-
-  it { is_expected.to respond_to :name }
-  it { is_expected.to respond_to :username }
-  it { is_expected.to respond_to :bio }
-
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_length_of(:name).is_at_least(3).is_at_most(50) }
   it { is_expected.to validate_presence_of :username }
@@ -46,13 +40,55 @@ RSpec.describe User, type: :model do
   it { is_expected.to allow_value('username1').for :username }
   it { is_expected.to allow_value('user_name').for :username }
   it { is_expected.to_not allow_value('user name').for :username }
-  it { is_expected.to have_many :rolings }
   it { is_expected.to have_many(:roles).through :rolings }
 
   describe '#role?(:role)' do
-    let(:admin) { FactoryGirl.create(:user, :admin) }
-    let(:user) { FactoryGirl.create(:user) }
-    specify { expect(admin.role?(:admin)).to be_truthy }
-    specify { expect(user.role?(:admin)).to be_falsey }
+    context 'admin' do
+      let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
+      
+      it 'returns true when asking if role is admin' do
+        expect(admin.role? :admin).to be_truthy
+      end
+
+      it 'returns false when asking if role is member' do
+        expect(admin.role? :member).to be_falsey
+      end
+
+      it 'returns false when asking if role is validating' do
+        expect(admin.role? :validating).to be_falsey
+      end
+    end
+
+    context 'validating' do
+      let(:validating) { FactoryGirl.create(:user) }
+
+      it 'returns false when asking if role is admin' do
+        expect(validating.role? :admin).to be_falsey        
+      end
+
+      it 'returns false when asking if role is member' do
+        expect(validating.role? :member).to be_falsey   
+      end
+
+      it 'returns true when asking if role is validating' do
+        expect(validating.role? :validating).to be_truthy  
+      end
+    end
+
+    context 'member' do
+      let(:member) { FactoryGirl.create(:user, :confirmed) }
+
+      it 'returns false when asking if role is admin' do
+        expect(member.role? :admin).to be_falsey 
+      end
+
+      it 'returns true when asking if role is member' do
+        expect(member.role? :member).to be_truthy 
+      end
+
+      it 'returns false when asking if role is validating' do
+        expect(member.role? :validating).to be_falsey
+      end
+    end
   end
 end
