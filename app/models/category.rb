@@ -14,4 +14,8 @@ class Category < ApplicationRecord
   has_many :posts
 
   validates :name, presence: true
+
+  def self.all_active
+    joins(:posts).uniq
+  end
 end

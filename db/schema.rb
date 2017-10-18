@@ -47,15 +47,6 @@ ActiveRecord::Schema.define(version: 20171016105014) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "discussions", force: :cascade do |t|
-    t.string "subject"
-    t.text "content"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_discussions_on_user_id"
-  end
-
   create_table "facebook_shares", force: :cascade do |t|
     t.bigint "ayah_id"
     t.datetime "created_at", null: false
@@ -90,16 +81,6 @@ ActiveRecord::Schema.define(version: 20171016105014) do
     t.string "direction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "ayah_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ayah_id"], name: "index_likes_on_ayah_id"
-    t.index ["user_id", "ayah_id"], name: "index_likes_on_user_id_and_ayah_id", unique: true
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "memories", force: :cascade do |t|
@@ -192,18 +173,6 @@ ActiveRecord::Schema.define(version: 20171016105014) do
     t.index ["quran_id"], name: "index_texts_on_quran_id"
   end
 
-  create_table "topics", force: :cascade do |t|
-    t.string "subject"
-    t.text "content"
-    t.string "discussable_type"
-    t.bigint "discussable_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["discussable_type", "discussable_id"], name: "index_topics_on_discussable_type_and_discussable_id"
-    t.index ["user_id"], name: "index_topics_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -231,14 +200,11 @@ ActiveRecord::Schema.define(version: 20171016105014) do
 
   add_foreign_key "ayahs", "surahs"
   add_foreign_key "comments", "users"
-  add_foreign_key "discussions", "users"
   add_foreign_key "facebook_shares", "ayahs"
   add_foreign_key "favorites", "ayahs"
   add_foreign_key "favorites", "users"
   add_foreign_key "flags", "comments"
   add_foreign_key "flags", "users"
-  add_foreign_key "likes", "ayahs"
-  add_foreign_key "likes", "users"
   add_foreign_key "memories", "ayahs"
   add_foreign_key "memories", "users"
   add_foreign_key "pages", "users"
@@ -250,5 +216,4 @@ ActiveRecord::Schema.define(version: 20171016105014) do
   add_foreign_key "shares", "ayahs"
   add_foreign_key "texts", "ayahs"
   add_foreign_key "texts", "qurans"
-  add_foreign_key "topics", "users"
 end

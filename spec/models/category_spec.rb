@@ -22,4 +22,14 @@ RSpec.describe Category, type: :model do
   it { is_expected.to respond_to(:permalink) }
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to have_many :posts }
+
+  describe '#all_active' do
+    it 'returns all unique categories with posts' do
+      FactoryGirl.create(:category, :with_posts, name: 'first with posts')
+      FactoryGirl.create(:category, :with_posts, name: 'second with posts')
+      FactoryGirl.create(:category, name: 'without posts')
+
+      expect(Category.all_active.map(&:name)).to eq ['first with posts', 'second with posts']
+    end
+  end
 end

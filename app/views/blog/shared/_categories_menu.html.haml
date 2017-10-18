@@ -1,0 +1,5 @@
+%section
+  %h4 Categories
+  %ul.nav
+    - Category.all_active.each do |category|
+      %li= link_to category.name, blog_category_path(category), class: 'nav-link'
