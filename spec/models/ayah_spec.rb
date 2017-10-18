@@ -19,31 +19,23 @@
 require 'rails_helper'
 
 RSpec.describe Ayah, type: :model do
-  let(:ayahs) { FactoryGirl.create_list(:ayah, 5) }
-  before { @ayah = FactoryGirl.build(:ayah) }
+  let(:ayahs) { FactoryGirl.create_list(:ayah, 5) }  
+  subject { FactoryGirl.build_stubbed(:ayah) }
 
-  specify { expect(@ayah).to be_valid }
-  specify { expect(@ayah).to respond_to :number }
-  specify { expect(@ayah).to respond_to :character_length }
-  specify { expect(@ayah).to respond_to :percent_of_total }
-  specify { expect(@ayah).to respond_to :percent_of_surah }
-  specify { expect(@ayah).to respond_to :surah }
-  specify { expect(@ayah).to respond_to :texts }
-  specify { expect(@ayah).to respond_to :comments }
-
-  specify { expect(@ayah).to belong_to :surah }
-  specify { expect(@ayah).to have_many :texts }
-  specify { expect(@ayah).to have_many :favorites }
-  specify { expect(@ayah).to have_many :memories }
-  specify { expect(@ayah).to have_many :comments }  
+  it { is_expected.to be_valid }
+  it { is_expected.to belong_to :surah }
+  it { is_expected.to have_many :texts }
+  it { is_expected.to have_many :favorites }
+  it { is_expected.to have_many :memories }
+  it { is_expected.to have_many :comments }
 
   describe '#redirect_path' do
-    specify { expect(@ayah.redirect_path).to eq "/#{@ayah.surah.id}/#{@ayah.number}" }
+    specify { expect(subject.redirect_path).to eq "/#{subject.surah.id}/#{subject.number}" }
   end
 
   describe '#visible_comments?' do
     it 'is false when no comments exisit' do
-      expect(@ayah.visible_comments?).to be_falsey
+      expect(subject.visible_comments?).to be_falsey
     end
 
     it 'is false when all comments have been flagged' do
@@ -69,13 +61,13 @@ RSpec.describe Ayah, type: :model do
 
   describe '#previous?' do
     it 'is false if ayah number is one' do
-      @ayah.number = 1
-      expect(@ayah.previous?).to be_falsey
+      subject.number = 1
+      expect(subject.previous?).to be_falsey
     end
 
     it 'is true if ayah number is greater than one' do
-      @ayah.number = 2
-      expect(@ayah.previous?).to be_truthy
+      subject.number = 2
+      expect(subject.previous?).to be_truthy
     end
   end
 
@@ -87,13 +79,13 @@ RSpec.describe Ayah, type: :model do
 
   describe '#next?' do
     it 'is false if ayah number is equal to number of ayahs in surah' do
-      @ayah.number = @ayah.surah.number_of_ayahs
-      expect(@ayah.next?).to be_falsey
+      subject.number = subject.surah.number_of_ayahs
+      expect(subject.next?).to be_falsey
     end
 
     it 'is true if ayah number is less than the number of ayahs in surah' do
-      @ayah.number = @ayah.surah.number_of_ayahs - 1
-      expect(@ayah.next?).to be_truthy
+      subject.number = subject.surah.number_of_ayahs - 1
+      expect(subject.next?).to be_truthy
     end
   end
 
