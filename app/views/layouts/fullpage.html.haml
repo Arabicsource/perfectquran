@@ -2,7 +2,7 @@
 %html{ html_attrs('en') }
   = render 'layouts/shared/head'
 
-  %body.fullpage{id: params[:controller].gsub('/', '-') }
+  %body{id: params[:controller].gsub('/', '-'), class: params[:action] }
     = render '/layouts/shared/analytics'
     = render 'layouts/shared/navbar'
 
