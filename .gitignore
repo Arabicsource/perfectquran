@@ -21,6 +21,7 @@
 /public/packs-test
 /public/audios
 /node_modules
+/coverage
 
 .DS_Store
 .vscode
