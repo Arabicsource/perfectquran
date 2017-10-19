@@ -1,0 +1,11 @@
+%h1.d-none Suwar
+
+%ol#suwar-index
+  - @surahs.each do |surah|
+    %li.surah{id: "surah-#{surah.id}"}
+      %h2
+        = link_to surah do
+          = "#{surah.id} #{surah.transliterated_name} #{surah.arabic_name}"  
+      %p= "#{surah.english_name}. #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}."
+
+- provide :title, 'Suwar'

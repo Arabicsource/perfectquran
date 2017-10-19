@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :quran do
+    resources :surahs, only: [:index]
+  end
+ 
   namespace :manage do
     resources :dashboards, only: :index
     resources :users, :posts, :pages, :categories, :comments
