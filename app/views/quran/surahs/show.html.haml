@@ -1,12 +1,14 @@
-= render 'breadcrumb'
-
-= link_to quran_surah_path(@surah.previous), class: 'circle-button' do
-  %span.sr-only Previous
-  = fa_icon 'chevron-circle-left'
-
-  = link_to quran_surah_path(@surah.next), class: 'circle-button float-right' do
-    %span.sr-only Next
-    = fa_icon 'chevron-circle-right'
+.row
+  .col-12.col-lg-8
+    = render 'breadcrumb'
+  .col-12.col-lg-4.mb-4
+    = link_to quran_surah_path(@surah.previous), class: 'btn btn-primary' do
+      = fa_icon 'chevron-circle-left'
+      Previous      
+    
+    = link_to quran_surah_path(@surah.next), class: 'btn btn-primary float-right' do
+      Next
+      = fa_icon 'chevron-circle-right'
 
 %audio{controls: true}
   %source{src: surah_audio_file(@surah.id), type: "audio/mpeg"}
