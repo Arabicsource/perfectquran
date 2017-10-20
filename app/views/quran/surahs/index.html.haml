@@ -4,7 +4,7 @@
   - @surahs.each do |surah|
     %li.surah{id: "surah-#{surah.id}"}
       %h2
-        = link_to surah do
+        = link_to quran_surah_path(surah) do
           = "#{surah.id} #{surah.transliterated_name} #{surah.arabic_name}"  
       %p
         = "#{surah.english_name}"

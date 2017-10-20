@@ -15,4 +15,16 @@ describe 'Surahs', type: :request do
       expect(response).to render_template layout: 'fullpage'
     end
   end
+
+  context 'GET show' do
+    before do
+      @surah = FactoryGirl.create(:surah)
+    end
+    
+    it 'response successfully' do
+      get quran_surah_path(@surah)
+
+      expect(response).to be_successful
+    end
+  end
 end

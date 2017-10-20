@@ -23,6 +23,9 @@ class Ayah < ApplicationRecord
   has_many :favorites
   has_many :memories
 
+  def texts_with_qurans
+  end
+
   def redirect_path
     "/#{surah.id}/#{number}"
   end

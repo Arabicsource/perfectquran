@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   end
 
   namespace :quran do
-    resources :surahs, only: [:index]
+    resources :surahs, only: [:index, :show]
+    resources :ayahs, only: [:show]
   end
  
   namespace :manage do

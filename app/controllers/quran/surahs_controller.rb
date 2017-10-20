@@ -3,4 +3,8 @@ class Quran::SurahsController < Quran::BaseController
     @surahs = Surah.all
     render layout: 'fullpage'
   end
+
+  def show
+    @surah = Surah.find(params[:id])
+  end
 end

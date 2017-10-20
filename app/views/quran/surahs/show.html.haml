@@ -1,0 +1,28 @@
+= render 'breadcrumb'
+
+= link_to quran_surah_path(@surah.previous), class: 'circle-button' do
+  %span.sr-only Previous
+  = fa_icon 'chevron-circle-left'
+
+  = link_to quran_surah_path(@surah.next), class: 'circle-button float-right' do
+    %span.sr-only Next
+    = fa_icon 'chevron-circle-right'
+
+%audio{controls: true}
+  %source{src: surah_audio_file(@surah.id), type: "audio/mpeg"}
+    Your browser does not support the audio tag.
+
+%article#surah
+  %h1.d-none= @surah.transliterated_name
+  - @surah.ayahs.each do |ayah|
+    %article.ayah
+      %h1
+        = link_to quran_ayah_path(ayah) do 
+          = "#{@surah.transliterated_name} #{ayah.number}"
+
+      - ayah.texts.each do |text|
+        .ayah-text
+          %h2{class: ('d-none' if text.uthmani?)}= text.quran.name
+          %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
+
+- provide :title, @surah.transliterated_name

@@ -24,6 +24,12 @@ FactoryGirl.define do
     percent_of_surah 0.1
     surah
 
+    trait :with_text do
+      after :create do |ayah|
+        FactoryGirl.create :text, content: "text #{ayah.number}", ayah: ayah
+      end
+    end
+
     trait :with_favorites do
       transient do
         number_of_favorites 3
