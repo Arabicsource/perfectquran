@@ -16,7 +16,7 @@
 
 %article#surah
   %h1.d-none= @surah.transliterated_name
-  - @surah.ayahs.each do |ayah|
+  - @surah.ayahs_and_included_texts.each do |ayah|
     %article.ayah
       %h1
         = link_to quran_ayah_path(ayah) do 

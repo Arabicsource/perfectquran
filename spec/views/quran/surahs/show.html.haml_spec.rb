@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'quran/surahs/show' do
   before(:each) do
     surah = FactoryGirl.build_stubbed :surah, transliterated_name: 'abc123'
-    allow(surah).to receive(:ayahs).and_return([
+    allow(surah).to receive(:ayahs_and_included_texts).and_return([
       FactoryGirl.build_stubbed(:ayah, number: 1),
       FactoryGirl.build_stubbed(:ayah, number: 2),
       FactoryGirl.build_stubbed(:ayah, number: 3)

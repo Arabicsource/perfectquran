@@ -20,6 +20,7 @@
 class Surah < ApplicationRecord
   enum revelation_type: %i[meccan medinan]
   has_many :ayahs, -> { order('id asc') }
+  has_many :ayahs_and_included_texts, -> { includes(:texts) }, class_name: 'Ayah'
 
   # Returns the next surah if surah < surah.last.
   # If surah is last, returns first surah.

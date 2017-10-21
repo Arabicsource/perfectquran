@@ -28,6 +28,7 @@ RSpec.describe Surah, type: :model do
   it do
     is_expected.to define_enum_for(:revelation_type).with(%i[meccan medinan])
   end
+  it { is_expected.to have_many(:ayahs_and_included_texts).class_name('Ayah') }
 
   describe '#next' do
     before { @surahs = FactoryGirl.create_list(:surah, 5) }
