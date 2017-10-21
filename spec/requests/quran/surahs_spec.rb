@@ -4,6 +4,30 @@ require 'rails_helper'
 
 describe 'Surahs', type: :request do
 
+  context 'GET root' do
+    before(:each) { get root_path }
+
+    it 'responds succeessfully' do
+      expect(response).to be_successful
+    end
+
+    it 'renders quran/surahs#index' do
+      expect(response).to render_template 'quran/surahs/index'
+    end
+  end
+
+  context 'GET quran_root' do
+    before(:each) { get quran_root_path }
+
+    it 'responds succeessfully' do
+      expect(response).to be_successful
+    end
+
+    it 'renders quran/surahs#index' do
+      expect(response).to render_template 'quran/surahs/index'
+    end
+  end
+
   context 'GET index' do
     before(:each) { get quran_surahs_path }
 

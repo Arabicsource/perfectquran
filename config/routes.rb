@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   namespace :quran do
+    root 'surahs#index'
     resources :surahs, only: [:index, :show]
     resources :ayahs, only: [:show]
   end
@@ -64,5 +65,5 @@ Rails.application.routes.draw do
   get '/:surah_id/:number', to: 'ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'surahs#show', as: :surah
 
-  root to: 'surahs#index'
+  root to: 'quran/surahs#index'
 end
