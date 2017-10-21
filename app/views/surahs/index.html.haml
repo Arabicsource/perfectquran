@@ -1,9 +1,0 @@
-#suwar-index
-  %h1.d-none PerfectQuran
-  %ol
-    - @surahs.each do |surah|
-      %li.surah{id: "surah-#{surah.id}"}
-        %h2
-          = link_to surah.permalink do
-            = "#{surah.id} #{surah.transliterated_name} #{surah.arabic_name}"  
-        %p= "#{surah.english_name}. #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}."
