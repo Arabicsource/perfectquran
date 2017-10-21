@@ -42,7 +42,7 @@ describe 'Surahs', type: :request do
 
   context 'GET show' do
     it 'responds successfully' do
-      surah = FactoryGirl.create(:surah)
+      surah = FactoryGirl.create(:surah, :with_ayah_and_text)
 
       get quran_surah_path(surah)
 

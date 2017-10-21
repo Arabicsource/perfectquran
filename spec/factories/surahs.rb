@@ -29,5 +29,11 @@ FactoryGirl.define do
     arabic_name 'string'
     english_name 'string'
     permalink 'string'
+
+    trait :with_ayah_and_text do
+      after :create do |surah|
+        FactoryGirl.create(:ayah, :with_text, surah: surah)
+      end
+    end
   end
 end

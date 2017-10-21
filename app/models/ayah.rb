@@ -18,13 +18,13 @@
 class Ayah < ApplicationRecord
   include Commentable
 
+  default_scope { order('id asc') }
+
   belongs_to :surah
   has_many :texts
   has_many :favorites
   has_many :memories
-
-  def texts_with_qurans
-  end
+  has_many :texts_and_included_quran, -> { includes(:quran) }, class_name: 'Text'
 
   def redirect_path
     "/#{surah.id}/#{number}"

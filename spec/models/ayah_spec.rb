@@ -28,6 +28,7 @@ RSpec.describe Ayah, type: :model do
   it { is_expected.to have_many :favorites }
   it { is_expected.to have_many :memories }
   it { is_expected.to have_many :comments }
+  it { is_expected.to have_many(:texts_and_included_quran).class_name 'Text' }
 
   it_behaves_like 'commentable'
 

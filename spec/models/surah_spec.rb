@@ -24,11 +24,22 @@ RSpec.describe Surah, type: :model do
   subject { FactoryGirl.build_stubbed :surah }
 
   it { is_expected.to be_valid }
-  it { is_expected.to have_many(:ayahs).order('id asc') }
+  it { is_expected.to have_many(:ayahs) }
   it do
     is_expected.to define_enum_for(:revelation_type).with(%i[meccan medinan])
   end
   it { is_expected.to have_many(:ayahs_and_included_texts).class_name('Ayah') }
+
+  describe '#ayahs' do
+    it 'returns ayahs in Ascending order' do
+      surah = FactoryGirl.create(:surah)
+      FactoryGirl.create(:ayah, id: 3, surah: surah)
+      FactoryGirl.create(:ayah, id: 1, surah: surah)
+      FactoryGirl.create(:ayah, id: 2, surah: surah)
+
+      expect(surah.ayahs.map(&:id)).to eq [1, 2, 3]
+    end
+  end
 
   describe '#next' do
     before { @surahs = FactoryGirl.create_list(:surah, 5) }

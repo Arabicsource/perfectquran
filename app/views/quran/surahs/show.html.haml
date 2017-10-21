@@ -22,7 +22,7 @@
         = link_to quran_ayah_path(ayah) do 
           = "#{@surah.transliterated_name} #{ayah.number}"
 
-      - ayah.texts.each do |text|
+      - ayah.texts_and_included_quran.each do |text|
         .ayah-text
           %h2{class: ('d-none' if text.uthmani?)}= text.quran.name
           %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
