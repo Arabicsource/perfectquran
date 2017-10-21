@@ -41,14 +41,30 @@ describe 'Surahs', type: :request do
   end
 
   context 'GET show' do
-    before do
-      @surah = FactoryGirl.create(:surah)
-    end
-    
-    it 'response successfully' do
-      get quran_surah_path(@surah)
+    it 'responds successfully' do
+      surah = FactoryGirl.create(:surah)
+
+      get quran_surah_path(surah)
 
       expect(response).to be_successful
+    end
+  end
+
+  context 'GET permalink' do
+    it 'responds successfully' do
+      surah = FactoryGirl.create(:surah)
+
+      get "/#{surah.permalink}"
+
+      expect(response).to be_successful
+    end
+
+    it 'renders quran/surahs/show' do
+      surah = FactoryGirl.create(:surah)
+      
+      get "/#{surah.permalink}"
+      
+      expect(response).to render_template 'quran/surahs/show'
     end
   end
 end

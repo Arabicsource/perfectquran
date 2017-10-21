@@ -63,7 +63,7 @@ Rails.application.routes.draw do
 
   get '/blog', to: 'blog/posts#index', as: :blog
   get '/:surah_id/:number', to: 'ayahs#show', as: :ayah_by_number
-  get '/:permalink', to: 'surahs#show', as: :surah
-
+  get '/:permalink', to: 'quran/surahs#show', as: :surah
+  
   root to: 'quran/surahs#index'
 end

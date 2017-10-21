@@ -5,6 +5,10 @@ class Quran::SurahsController < Quran::BaseController
   end
 
   def show
-    @surah = Surah.find(params[:id])
+    if params[:permalink].nil?
+      @surah = Surah.find(params[:id])
+    else
+      @surah = Surah.find_by(permalink: params[:permalink])
+    end
   end
 end
