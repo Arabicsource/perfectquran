@@ -1,14 +1,14 @@
-%h1= "#{@ayah.surah_name} #{@ayah.number}"
+.row
+  .col-12.col-lg-8
+    = render 'breadcrumb'
+  .col-12.col-lg-4.mb-4
+    = link_to quran_ayah_path(@ayah.previous), class: 'btn btn-primary' do
+      = fa_icon 'chevron-circle-left'
+      Previous
 
-= render 'breadcrumb'
-
-= link_to quran_ayah_path(@ayah.previous), class: 'text-primary' do
-  = fa_icon 'chevron-circle-left'
-  Previous
-
-= link_to quran_ayah_path(@ayah.next), class: 'text-primary float-right' do
-  Next
-  = fa_icon 'chevron-circle-right'
+    = link_to quran_ayah_path(@ayah.next), class: 'btn btn-primary float-right' do
+      Next
+      = fa_icon 'chevron-circle-right'
 
 %audio{controls: true}
   %source{src: ayah_audio_file(@ayah.surah.id, @ayah.number), type: "audio/mpeg"}
@@ -40,7 +40,7 @@
         = link_to quran_ayah_path(@ayah.next) do
           = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
 
-- provide :title, "#{@ayah.surah_name} #{@ayah.number}"
-
 = render 'comments/comments', commentable: @ayah
 = render 'comments/form', commentable: @ayah, comment: @comment
+
+- provide :title, "#{@ayah.surah_name} #{@ayah.number}"

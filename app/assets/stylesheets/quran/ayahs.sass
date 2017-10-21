@@ -1,0 +1,42 @@
+#quran-ayahs.show
+  article#ayah
+    border-top: 1px solid $gray-400
+    border-bottom: 1px solid $gray-400
+
+    .previous-ayah
+      background-color: $gray-100
+      border-bottom: 1px solid $gray-400
+
+      p
+        padding: $spacer 5px
+        margin-bottom: 0
+
+    .next-ayah
+      background-color: $gray-100
+      border-top: 1px solid $gray-400
+
+      p
+        padding: $spacer 5px
+        margin-bottom: 0
+
+    .current-ayah
+      h1, h2
+        font-size: 1.1rem
+        
+      h2
+        color: $primary-color
+
+      .actions
+        div
+          margin-right: $spacer
+          display: inline
+          color: $gray-500
+
+        a
+          margin-right: $spacer / 2
+
+        a.memorized
+          color: red
+
+        a.favorited
+          color: gold
