@@ -15,12 +15,8 @@
 require 'rails_helper'
 
 RSpec.describe Quran, type: :model do
-  before { @quran = FactoryGirl.build(:quran) }
+  subject { Quran.first }
 
-  specify { expect(@quran).to be_valid }
-  specify { expect(@quran).to respond_to :name }
-  specify { expect(@quran).to respond_to :description }
-  specify { expect(@quran).to respond_to :language }
-
-  specify { expect(@quran).to belong_to :language }
+  it { is_expected.to be_valid }
+  it { is_expected.to belong_to :language }
 end

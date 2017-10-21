@@ -14,7 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe Language, type: :model do
-  before { @language = FactoryGirl.build(:language) }
+  before { @language = Language.first }
 
   specify { expect(@language).to be_valid }
   specify { expect(@language).to respond_to :name }

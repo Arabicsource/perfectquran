@@ -1,0 +1,4 @@
+%ol.breadcrumb
+  %li.breadcrumb-item= link_to 'Index', quran_surahs_path
+  %li.breadcrumb-item= link_to @ayah.surah_name, quran_surah_path(@ayah.surah)
+  %li.breadcrumb-item= @ayah.number

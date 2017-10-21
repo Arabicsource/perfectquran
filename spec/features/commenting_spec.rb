@@ -7,7 +7,7 @@ feature 'Commenting' do
   let(:comment_attributes) { FactoryGirl.attributes_for(:comment) }
   let(:user) { FactoryGirl.create(:user, :confirmed) }
   let(:post) { FactoryGirl.create(:post) }
-  let(:ayah) { FactoryGirl.create(:ayah) }
+  let(:ayah) { Ayah.first }
   
   before { login_as user }
 

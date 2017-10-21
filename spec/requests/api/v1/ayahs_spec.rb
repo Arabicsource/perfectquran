@@ -4,8 +4,6 @@ require 'rails_helper'
 
 RSpec.describe 'Ayahs API', type: :request do
   describe 'GET /api/v1/ayahs' do
-    before { FactoryGirl.create_list(:ayah, 10) }
-
     it 'returns a success response' do
       get '/api/v1/ayahs'
       expect(response).to be_success
@@ -13,12 +11,12 @@ RSpec.describe 'Ayahs API', type: :request do
 
     it 'returns all ayahs' do
       get '/api/v1/ayahs'
-      expect(JSON.parse(response.body).length).to eq(10)
+      expect(JSON.parse(response.body).length).to eq(6236)
     end
   end
 
   describe 'GET /api/v1/ayahs/:ayah_id' do
-    before { @ayah = FactoryGirl.create(:ayah) }
+    before { @ayah = Ayah.first }
 
     it 'returns a success response' do
       get "/api/v1/ayahs/#{@ayah.id}"
@@ -38,7 +36,7 @@ RSpec.describe 'Ayahs API', type: :request do
   end
 
   describe 'GET /api/v1/surah/:surah_id/ayah/:ayah_number' do
-    before { @ayah = FactoryGirl.create(:ayah) }
+    before { @ayah = Ayah.first }
 
     it 'returns a success response' do
       get "/api/v1/surah/#{@ayah.surah.id}/ayah/#{@ayah.number}"

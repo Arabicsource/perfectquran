@@ -21,7 +21,8 @@ feature 'Comment Flagging' do
   end
 
   scenario 'ayah comment is flagged by guest' do
-    ayah = FactoryGirl.create(:ayah, :with_comments)
+    ayah = Ayah.first
+    FactoryGirl.create_list(:comment, 3, commentable: ayah)
     visit ayah_by_number_path(ayah.surah.id, ayah.number)
 
     within "#comment-#{ayah.comments.first.id}" do

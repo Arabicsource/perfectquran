@@ -1,10 +1,10 @@
 <% if user_signed_in? %>
   <div class='ayah-actions'
        data-ayah-id='<%= ayah.id %>'
-       data-memory-id='<%= ayah.memory_id %>'
+       data-memory-id='<%= ayah.memory(current_user).id %>'
        data-memorized='<%= ayah.memorized? %>'
        data-memory-count='<%= ayah.memory_count %>'
-       data-favorite-id='<%= ayah.favorite_id %>'
+       data-favorite-id='<%= ayah.favorite(current_user).id %>'
        data-favorited='<%= ayah.favorited? %>'
        data-favorite-count='<%= ayah.favorite_count %>'
   ></div>

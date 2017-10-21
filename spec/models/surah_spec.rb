@@ -21,7 +21,7 @@
 require 'rails_helper'
 
 RSpec.describe Surah, type: :model do
-  subject { FactoryGirl.build_stubbed :surah }
+  subject { Surah.first }
 
   it { is_expected.to be_valid }
   it { is_expected.to have_many(:ayahs) }
@@ -32,17 +32,12 @@ RSpec.describe Surah, type: :model do
 
   describe '#ayahs' do
     it 'returns ayahs in Ascending order' do
-      surah = FactoryGirl.create(:surah)
-      FactoryGirl.create(:ayah, id: 3, surah: surah)
-      FactoryGirl.create(:ayah, id: 1, surah: surah)
-      FactoryGirl.create(:ayah, id: 2, surah: surah)
-
-      expect(surah.ayahs.map(&:id)).to eq [1, 2, 3]
+      expect(subject.ayahs.map(&:id)).to eq [1, 2, 3, 4, 5, 6, 7]
     end
   end
 
   describe '#next' do
-    before { @surahs = FactoryGirl.create_list(:surah, 5) }
+    before { @surahs = Surah.all }
     specify 'returns the next surah' do
       first_surah = @surahs.first
       expect(first_surah.next).to eq(@surahs[1])
@@ -54,10 +49,10 @@ RSpec.describe Surah, type: :model do
   end
 
   describe '#previous' do
-    before { @surahs = FactoryGirl.create_list(:surah, 3) }
+    before { @surahs = Surah.all }
 
     specify 'returns the previous surah' do
-      expect(@surahs.last.previous).to eq(@surahs[1])
+      expect(@surahs.last.previous).to eq(@surahs[112])
     end
 
     specify 'returns the last surah if the current surah is first' do

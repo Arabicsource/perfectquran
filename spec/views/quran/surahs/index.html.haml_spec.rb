@@ -3,14 +3,7 @@ require 'rails_helper'
 describe 'quran/surahs/index' do
 
   before(:each) do
-    assign(
-      :surahs, 
-      [
-        FactoryGirl.build_stubbed(:surah, transliterated_name: 'First Surah'),
-        FactoryGirl.build_stubbed(:surah, transliterated_name: 'Second Surah'),
-        FactoryGirl.build_stubbed(:surah, transliterated_name: 'Third Surah')
-      ]
-    )
+    @surahs = Surah.all
   end
   
   it 'provides layout with a page title' do
@@ -29,9 +22,8 @@ describe 'quran/surahs/index' do
     render
 
     expect(rendered).to have_css 'ol#suwar-index'
-    expect(rendered).to have_css 'li.surah', count: 3
-    expect(rendered).to have_text 'First Surah'
-    expect(rendered).to have_text 'Second Surah'
-    expect(rendered).to have_text 'Third Surah'    
+    expect(rendered).to have_css 'li.surah', count: 114
+    expect(rendered).to have_link '1 Al-Fatihah', href: '/quran/surahs/1'
+    expect(rendered).to have_link '114 An-Nas', href: '/quran/surahs/114'
   end
 end

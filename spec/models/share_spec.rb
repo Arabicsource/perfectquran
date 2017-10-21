@@ -13,7 +13,7 @@
 require 'rails_helper'
 
 RSpec.describe Share, type: :model do
-  subject { FactoryGirl.build_stubbed :share }
+  subject { FactoryGirl.build_stubbed :share, ayah: Ayah.first }
 
   it { is_expected.to be_valid }
 end

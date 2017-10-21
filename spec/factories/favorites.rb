@@ -13,7 +13,6 @@
 
 FactoryGirl.define do
   factory :favorite do
-    ayah
     user
   end
 end

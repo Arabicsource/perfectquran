@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
 
   get '/blog', to: 'blog/posts#index', as: :blog
-  get '/:surah_id/:number', to: 'ayahs#show', as: :ayah_by_number
+  get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'quran/surahs#show', as: :surah
   
   root to: 'quran/surahs#index'

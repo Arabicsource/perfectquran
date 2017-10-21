@@ -14,7 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe Memory, type: :model do
-  before { @memory = FactoryGirl.build(:memory) }
+  before { @memory = FactoryGirl.build_stubbed(:memory, ayah: Ayah.first) }
 
   specify { expect(@memory).to be_valid }
   specify { expect(@memory).to respond_to(:user) }

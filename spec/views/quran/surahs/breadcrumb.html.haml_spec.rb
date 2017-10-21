@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'quran/surahs/_breadcrumb' do
   it 'renders an Index link' do
-    assign(:surah, FactoryGirl.build_stubbed(:surah))
+    @surah = Surah.first
 
     render
 
@@ -10,10 +10,10 @@ describe 'quran/surahs/_breadcrumb' do
   end
 
   it 'renders the surahs transliterated name' do
-    assign(:surah, FactoryGirl.build_stubbed(:surah, transliterated_name: 'abc123'))
+    @surah = Surah.first
     
     render
 
-    expect(rendered).to have_text 'abc123'
+    expect(rendered).to have_text 'Al-Fatihah'
   end
 end

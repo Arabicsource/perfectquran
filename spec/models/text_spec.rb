@@ -15,7 +15,7 @@
 require 'rails_helper'
 
 RSpec.describe Text, type: :model do
-  subject { FactoryGirl.build_stubbed :text }
+  subject { Text.first }
 
   it { is_expected.to be_valid }
   it { is_expected.to belong_to :quran }

@@ -19,8 +19,8 @@
 require 'rails_helper'
 
 RSpec.describe Ayah, type: :model do
-  let(:ayahs) { FactoryGirl.create_list(:ayah, 5) }  
-  subject { FactoryGirl.build_stubbed(:ayah) }
+  let(:ayahs) { Ayah.all }
+  subject { Ayah.first }
 
   it { is_expected.to be_valid }
   it { is_expected.to belong_to :surah }
@@ -32,37 +32,25 @@ RSpec.describe Ayah, type: :model do
 
   it_behaves_like 'commentable'
 
-  describe '#redirect_path' do
-    specify { expect(subject.redirect_path).to eq "/#{subject.surah.id}/#{subject.number}" }
+  describe '#noble_quran_text' do
+    it 'is equal to the text content of the quran with an id of 3' do
+      expect(subject.noble_quran_text).to include 'In the Name of Allah'
+    end
   end
 
-  describe '#previous?' do
-    it 'is false if ayah number is one' do
-      subject.number = 1
-      expect(subject.previous?).to be_falsey
+  describe '#surah_name' do
+    it 'is equal to surah.transliterated_name' do
+      expect(subject.surah_name).to eq 'Al-Fatihah'
     end
+  end
 
-    it 'is true if ayah number is greater than one' do
-      subject.number = 2
-      expect(subject.previous?).to be_truthy
-    end
+  describe '#redirect_path' do
+    specify { expect(subject.redirect_path).to eq "/#{subject.surah.id}/#{subject.number}" }
   end
 
   describe '#previous' do
     it 'returns the previous ayah' do
       expect(ayahs.second.previous).to eq(ayahs.first)
-    end
-  end
-
-  describe '#next?' do
-    it 'is false if ayah number is equal to number of ayahs in surah' do
-      subject.number = subject.surah.number_of_ayahs
-      expect(subject.next?).to be_falsey
-    end
-
-    it 'is true if ayah number is less than the number of ayahs in surah' do
-      subject.number = subject.surah.number_of_ayahs - 1
-      expect(subject.next?).to be_truthy
     end
   end
 

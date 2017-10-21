@@ -12,6 +12,5 @@
 
 FactoryGirl.define do
   factory :share do
-    ayah
   end
 end

@@ -26,23 +26,59 @@ class Ayah < ApplicationRecord
   has_many :memories
   has_many :texts_and_included_quran, -> { includes(:quran) }, class_name: 'Text'
 
+  def noble_quran_text
+    texts.where(quran_id: 3).first.content
+  end
+
+  def surah_name
+    surah.transliterated_name
+  end
+
   def redirect_path
     "/#{surah.id}/#{number}"
   end
 
-  def previous?
-    number > 1
-  end
-
   def previous
-    self.class.find(id - 1)
-  end
-
-  def next?
-    number < surah.number_of_ayahs
+    if id > 1
+      self.class.find(id - 1)
+    else
+      self.class.find(6236)
+    end
   end
 
   def next
-    self.class.find(id + 1)
+    if id == 6236
+      self.class.first
+    else
+      self.class.find(id + 1)
+    end
+  end
+
+  def favorite(user)
+    @favorite ||= Favorite.find_or_initialize_by(
+      ayah_id: id, user_id: user.id
+    )
+  end
+
+  def favorited?
+    @favorite.persisted?
+  end
+
+  def favorite_count
+    favorites.count
+  end
+
+  def memory(user)
+    @memory ||= Memory.find_or_initialize_by(
+      ayah_id: id, user_id: user.id
+    )
+  end
+
+  def memorized?
+    @memory.persisted?
+  end
+
+  def memory_count
+    memories.count
   end
 end

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Texts API', type: :request do
   describe '/text/ayah/:ayah_id/quran/:quran_id' do
-    before { @text = FactoryGirl.create(:text) }
+    before { @text = Text.first }
 
     it 'returns a success response' do
       get "/api/v1/text/ayah/#{@text.ayah_id}/quran/#{@text.quran_id}"

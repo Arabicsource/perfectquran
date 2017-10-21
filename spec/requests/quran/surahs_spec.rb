@@ -42,7 +42,7 @@ describe 'Surahs', type: :request do
 
   context 'GET show' do
     it 'responds successfully' do
-      surah = FactoryGirl.create(:surah, :with_ayah_and_text)
+      surah = Surah.first
 
       get quran_surah_path(surah)
 
@@ -52,7 +52,7 @@ describe 'Surahs', type: :request do
 
   context 'GET permalink' do
     it 'responds successfully' do
-      surah = FactoryGirl.create(:surah)
+      surah = Surah.first
 
       get "/#{surah.permalink}"
 
@@ -60,7 +60,7 @@ describe 'Surahs', type: :request do
     end
 
     it 'renders quran/surahs/show' do
-      surah = FactoryGirl.create(:surah)
+      surah = Surah.first
       
       get "/#{surah.permalink}"
       

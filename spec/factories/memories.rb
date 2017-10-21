@@ -13,7 +13,6 @@
 
 FactoryGirl.define do
   factory :memory do
-    ayah
     user
   end
 end

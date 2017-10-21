@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe SurahsHelper, type: :helper do
-  let(:surah) { FactoryGirl.create(:surah) }
+  let(:surah) { Surah.first }
   let(:bc) { helper.breadcrumb(surah) }
   let(:pnl) { helper.previous_next_links(surah) }
-  let(:favorite) { FactoryGirl.create(:favorite) }
+  let(:favorite) { FactoryGirl.create(:favorite, ayah: Ayah.first) }
 
   describe '#breadcrumb' do
     specify { expect(bc).to have_css 'div.breadcrumb' }
@@ -30,7 +30,7 @@ RSpec.describe SurahsHelper, type: :helper do
   end
 
   describe '#ayah_is_memorized?' do
-    let(:memory) { FactoryGirl.create(:memory) }
+    let(:memory) { FactoryGirl.create(:memory, ayah: Ayah.first) }
 
     specify do
       expect(helper.ayah_is_memorized?(memory.user, memory.ayah)).to be_truthy

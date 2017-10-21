@@ -1,0 +1,46 @@
+%h1= "#{@ayah.surah_name} #{@ayah.number}"
+
+= render 'breadcrumb'
+
+= link_to quran_ayah_path(@ayah.previous), class: 'text-primary' do
+  = fa_icon 'chevron-circle-left'
+  Previous
+
+= link_to quran_ayah_path(@ayah.next), class: 'text-primary float-right' do
+  Next
+  = fa_icon 'chevron-circle-right'
+
+%audio{controls: true}
+  %source{src: ayah_audio_file(@ayah.surah.id, @ayah.number), type: "audio/mpeg"}
+    Your browser does not support the audio tag.
+
+%article#ayah
+  .previous-ayah
+    %p
+      %small
+        = @ayah.previous.noble_quran_text.html_safe
+        = link_to quran_ayah_path(@ayah.previous) do
+          = "(#{@ayah.previous.surah.id}:#{@ayah.previous.number})"
+
+  .current-ayah
+    %h1= "#{@ayah.surah_name} #{@ayah.number}"
+        
+    - @ayah.texts_and_included_quran.each do |text|
+      .ayah-text
+        %h2{class: ('d-none' if text.uthmani?)}= text.quran.name
+        %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
+            
+    .actions
+      = render 'shared/ayah_actions', ayah: @ayah
+
+  .next-ayah
+    %p
+      %small
+        = @ayah.next.noble_quran_text.html_safe
+        = link_to quran_ayah_path(@ayah.next) do
+          = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
+
+- provide :title, "#{@ayah.surah_name} #{@ayah.number}"
+
+= render 'comments/comments', commentable: @ayah
+= render 'comments/form', commentable: @ayah, comment: @comment
