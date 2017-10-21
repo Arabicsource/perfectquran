@@ -25,4 +25,8 @@ RSpec.shared_examples 'commentable' do
       expect(subject.visible_comments?).to be_truthy
     end
   end
+
+  describe 'associations' do
+    it { is_expected.to have_many(:comments_and_included_users).class_name('Comment') }
+  end
 end
