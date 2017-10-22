@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'quran/surahs/index' do
   before(:each) do
-    @surahs = Surah.all
+    @surahs = Quran::Surah.all
   end
 
   it 'provides layout with a page title' do

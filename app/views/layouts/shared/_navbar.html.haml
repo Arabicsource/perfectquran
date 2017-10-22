@@ -17,7 +17,7 @@
         - f.text_field :terms, class: 'form-control mr-lg-2', value: params[:id] || ''
         - f.submit 'Search', class: 'btn btn-outline-success'
 
-      = select_tag :surah_quick_find, options_from_collection_for_select(Surah.all, "permalink", "transliterated_name"), prompt: 'Select Surah', class: 'form-control col-lg-2 mr-auto mt-3 mt-lg-0'
+      = select_tag :surah_quick_find, options_from_collection_for_select(Quran::Surah.all, "permalink", "transliterated_name"), prompt: 'Select Surah', class: 'form-control col-lg-2 mr-auto mt-3 mt-lg-0'
 
       %ul.navbar-nav
         - if user_signed_in?

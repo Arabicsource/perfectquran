@@ -20,7 +20,7 @@ class Ayah < ApplicationRecord
 
   default_scope { order('id asc') }
 
-  belongs_to :surah
+  belongs_to :surah, class_name: 'Quran::Surah'
   has_many :texts, class_name: 'Quran::Text'
   has_many :favorites
   has_many :memories

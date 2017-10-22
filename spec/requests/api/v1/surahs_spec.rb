@@ -10,7 +10,7 @@ RSpec.describe 'Surahs API', type: :request do
   end
 
   it 'gets a specific surah' do
-    surah = Surah.first
+    surah = Quran::Surah.first
     get "/api/v1/surahs/#{surah.id}"
     json = JSON.parse(response.body)
     expect(response).to be_success

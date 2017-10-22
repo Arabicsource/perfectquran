@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe SurahsHelper, type: :helper do
-  let(:surah) { Surah.first }
+  let(:surah) { Quran::Surah.first }
   let(:bc) { helper.breadcrumb(surah) }
   let(:pnl) { helper.previous_next_links(surah) }
   let(:favorite) { FactoryGirl.create(:favorite, ayah: Ayah.first) }

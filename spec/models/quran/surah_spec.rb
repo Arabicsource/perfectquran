@@ -20,8 +20,8 @@
 
 require 'rails_helper'
 
-RSpec.describe Surah, type: :model do
-  subject { Surah.first }
+RSpec.describe Quran::Surah, type: :model do
+  subject { Quran::Surah.first }
 
   it { is_expected.to be_valid }
   it { is_expected.to have_many(:ayahs) }
@@ -37,7 +37,7 @@ RSpec.describe Surah, type: :model do
   end
 
   describe '#next' do
-    before { @surahs = Surah.all }
+    before { @surahs = Quran::Surah.all }
     specify 'returns the next surah' do
       first_surah = @surahs.first
       expect(first_surah.next).to eq(@surahs[1])
@@ -49,7 +49,7 @@ RSpec.describe Surah, type: :model do
   end
 
   describe '#previous' do
-    before { @surahs = Surah.all }
+    before { @surahs = Quran::Surah.all }
 
     specify 'returns the previous surah' do
       expect(@surahs.last.previous).to eq(@surahs[112])

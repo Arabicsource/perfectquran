@@ -41,7 +41,7 @@ describe 'Surahs', type: :request do
 
   context 'GET show' do
     it 'responds successfully' do
-      surah = Surah.first
+      surah = Quran::Surah.first
 
       get quran_surah_path(surah)
 
@@ -51,7 +51,7 @@ describe 'Surahs', type: :request do
 
   context 'GET permalink' do
     it 'responds successfully' do
-      surah = Surah.first
+      surah = Quran::Surah.first
 
       get "/#{surah.permalink}"
 
@@ -59,7 +59,7 @@ describe 'Surahs', type: :request do
     end
 
     it 'renders quran/surahs/show' do
-      surah = Surah.first
+      surah = Quran::Surah.first
 
       get "/#{surah.permalink}"
 

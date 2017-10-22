@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'quran/surahs/_breadcrumb' do
   it 'renders an Index link' do
-    @surah = Surah.first
+    @surah = Quran::Surah.first
 
     render
 
@@ -12,7 +12,7 @@ describe 'quran/surahs/_breadcrumb' do
   end
 
   it 'renders the surahs transliterated name' do
-    @surah = Surah.first
+    @surah = Quran::Surah.first
 
     render
 
