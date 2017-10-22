@@ -21,12 +21,12 @@ class Ayah < ApplicationRecord
   default_scope { order('id asc') }
 
   belongs_to :surah
-  has_many :texts
+  has_many :texts, class_name: 'Quran::Text'
   has_many :favorites
   has_many :memories
   has_many :texts_and_included_translations,
            -> { includes(:translation) },
-           class_name: 'Text'
+           class_name: 'Quran::Text'
 
   def noble_quran_text
     texts.where(translation_id: 3).first.content

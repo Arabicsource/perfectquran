@@ -5,7 +5,7 @@ module Api
     # :nodoc:
     class TextsController < ApplicationController
       # :nodoc:
-      class Text < ::Text
+      class Text < Quran::Text
         def as_json(options = {})
           super.merge(surah_id: ayah.surah_id, ayah_number: ayah.number)
         end

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Texts API', type: :request do
   describe '/text/ayah/:ayah_id/translation/:translation_id' do
-    before { @text = Text.first }
+    before { @text = Quran::Text.first }
 
     it 'returns a success response' do
       get(

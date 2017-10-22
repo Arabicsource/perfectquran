@@ -11,15 +11,19 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
-class Text < ApplicationRecord
-  searchkick
 
-  default_scope { order('id asc') }
+module Quran
+  # :nodoc:
+  class Text < ApplicationRecord
+    searchkick
 
-  belongs_to :translation, class_name: 'Quran::Translation'
-  belongs_to :ayah
+    default_scope { order('id asc') }
 
-  def uthmani?
-    translation_id == 1
+    belongs_to :translation, class_name: 'Quran::Translation'
+    belongs_to :ayah
+
+    def uthmani?
+      translation_id == 1
+    end
   end
 end
