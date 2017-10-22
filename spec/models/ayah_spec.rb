@@ -28,7 +28,9 @@ RSpec.describe Ayah, type: :model do
   it { is_expected.to have_many :favorites }
   it { is_expected.to have_many :memories }
   it { is_expected.to have_many :comments }
-  it { is_expected.to have_many(:texts_and_included_translations).class_name 'Text' }
+  it do
+    is_expected.to have_many(:texts_and_included_translations).class_name 'Text'
+  end
 
   it_behaves_like 'commentable'
 

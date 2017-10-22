@@ -7,12 +7,16 @@ RSpec.describe 'Texts API', type: :request do
     before { @text = Text.first }
 
     it 'returns a success response' do
-      get "/api/v1/text/ayah/#{@text.ayah_id}/translation/#{@text.translation_id}"
+      get(
+        "/api/v1/text/ayah/#{@text.ayah_id}/translation/#{@text.translation_id}"
+      )
       expect(response).to be_success
     end
 
     it 'returns a specific text' do
-      get "/api/v1/text/ayah/#{@text.ayah_id}/translation/#{@text.translation_id}"
+      get(
+        "/api/v1/text/ayah/#{@text.ayah_id}/translation/#{@text.translation_id}"
+      )
       json = JSON.parse(response.body)
       expect(json['id']).to eq(@text.id)
       expect(json['content']).to eq(@text.content)
