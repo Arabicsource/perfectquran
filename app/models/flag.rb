@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: flags
@@ -11,7 +13,6 @@
 #  updated_at :datetime         not null
 #  approved   :boolean          default(FALSE)
 #
-
 class Flag < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :comment

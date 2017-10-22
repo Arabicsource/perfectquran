@@ -32,7 +32,7 @@ RSpec.describe Comment, type: :model do
     it 'is true when it is flagged' do
       expect(flagged_comment.flagged?).to be_truthy
     end
-      
+
     it 'is false when it is not flagged' do
       expect(@comment.flagged?).to be_falsey
     end
@@ -44,7 +44,7 @@ RSpec.describe Comment, type: :model do
     end
 
     it 'is false when it is flagged and not approved' do
-      expect(flagged_comment.approved?).to be_falsey      
+      expect(flagged_comment.approved?).to be_falsey
     end
 
     it 'is true when it is flagged and approved' do

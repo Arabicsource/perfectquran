@@ -10,14 +10,9 @@ module ApplicationHelper
 
   def markdown(text)
     options = {
-      filter_html: true,
-      no_images: true,
-      no_styles: true,
-      safe_links_only: true,
-      hard_wrap: true,
-      autolink: true,
-      strikethrough: true,
-      underline: true
+      filter_html: true, no_images: true, no_styles: true,
+      safe_links_only: true, hard_wrap: true, autolink: true,
+      strikethrough: true, underline: true
     }
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
     markdown.render(text).html_safe

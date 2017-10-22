@@ -17,10 +17,10 @@ class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
   has_one :flag
 
-  validates :content, presence: true  
+  validates :content, presence: true
 
   def visible?
-    flag.nil? or flag.approved?
+    flag.nil? || flag.approved?
   end
 
   def flagged?
@@ -28,6 +28,6 @@ class Comment < ApplicationRecord
   end
 
   def approved?
-    flag.present? and flag.approved?
+    flag.present? && flag.approved?
   end
 end

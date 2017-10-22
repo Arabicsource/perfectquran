@@ -24,7 +24,7 @@ feature 'Flagging comments' do
   scenario 'on ayahs' do
     ayah = Ayah.first
     FactoryGirl.create_list(:comment, 3, commentable: ayah)
-    
+
     visit quran_ayah_path ayah
     within "#comment-#{ayah.comments.first.id}" do
       click_on 'Flag'

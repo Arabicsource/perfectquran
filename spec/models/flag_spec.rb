@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: flags
@@ -20,13 +22,13 @@ RSpec.describe Flag, type: :model do
   it { is_expected.to be_valid }
 
   it { is_expected.to respond_to :user }
-  it { is_expected.to respond_to :comment } 
+  it { is_expected.to respond_to :comment }
   it { is_expected.to respond_to :ip_address }
   it { is_expected.to respond_to :content }
   it { is_expected.to respond_to :created_at }
-  it { is_expected.to respond_to :updated_at }  
+  it { is_expected.to respond_to :updated_at }
   it { is_expected.to respond_to :approved }
-  
+
   it { is_expected.to belong_to :user }
   it { is_expected.to belong_to :comment }
 

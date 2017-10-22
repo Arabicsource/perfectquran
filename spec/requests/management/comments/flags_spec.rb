@@ -6,7 +6,7 @@ describe 'Comments flag management', type: :request do
   let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
   let(:user) { FactoryGirl.create(:user, :confirmed) }
   let(:comment) { FactoryGirl.create(:comment) }
-  let(:comment_with_flag) { FactoryGirl.create(:comment, :with_flag) }  
+  let(:comment_with_flag) { FactoryGirl.create(:comment, :with_flag) }
 
   describe 'GET #index' do
     context 'guest' do
@@ -19,7 +19,7 @@ describe 'Comments flag management', type: :request do
         login_as user
         get manage_comment_flags_path
       end
-      
+
       specify { expect(response).to redirect_to root_path }
     end
 

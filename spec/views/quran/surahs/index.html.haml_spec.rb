@@ -1,20 +1,21 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'quran/surahs/index' do
-
   before(:each) do
     @surahs = Surah.all
   end
-  
+
   it 'provides layout with a page title' do
     expect(view).to receive(:provide).with(:title, 'Suwar')
-    
-    render   
+
+    render
   end
 
   it 'has a level one heading' do
     render
-    
+
     expect(rendered).to have_selector 'h1', text: 'Suwar'
   end
 

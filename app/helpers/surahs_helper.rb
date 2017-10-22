@@ -29,6 +29,6 @@ module SurahsHelper
   end
 
   def surah_audio_file(surah_id)
-    '/audios/' + "%03d" % surah_id + '.mp3'
+    format('/audios/%03d.mp3', surah_id)
   end
 end

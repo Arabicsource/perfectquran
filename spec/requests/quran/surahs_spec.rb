@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 describe 'Surahs', type: :request do
-
   context 'GET root' do
     before(:each) { get root_path }
 
@@ -61,9 +60,9 @@ describe 'Surahs', type: :request do
 
     it 'renders quran/surahs/show' do
       surah = Surah.first
-      
+
       get "/#{surah.permalink}"
-      
+
       expect(response).to render_template 'quran/surahs/show'
     end
   end

@@ -8,7 +8,7 @@ feature 'Commenting' do
   let(:user) { FactoryGirl.create(:user, :confirmed) }
   let(:post) { FactoryGirl.create(:post) }
   let(:ayah) { Ayah.first }
-  
+
   before { login_as user }
 
   scenario 'create a new comment on blog post' do

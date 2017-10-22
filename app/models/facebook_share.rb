@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: facebook_shares
@@ -7,7 +9,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-
 class FacebookShare < ApplicationRecord
   belongs_to :ayah
 end

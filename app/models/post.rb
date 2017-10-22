@@ -15,7 +15,7 @@
 #
 class Post < ApplicationRecord
   include Commentable
-  
+
   before_validation { self.permalink = title.parameterize if title }
 
   belongs_to :category

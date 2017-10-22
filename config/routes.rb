@@ -20,10 +20,10 @@ Rails.application.routes.draw do
 
   namespace :quran do
     root 'surahs#index'
-    resources :surahs, only: [:index, :show]
+    resources :surahs, only: %i[index show]
     resources :ayahs, only: [:show]
   end
- 
+
   namespace :manage do
     resources :dashboards, only: :index
     resources :users, :posts, :pages, :categories, :comments
@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   end
 
   resources :searches
-  
+
   resources :posts do
     resources :comments
   end
@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   resources :ayahs do
     resources :comments
   end
-  
+
   resources :pages, only: :show
   resources :contacts, only: %i[new create]
   resources :users, only: :show
@@ -64,6 +64,6 @@ Rails.application.routes.draw do
   get '/blog', to: 'blog/posts#index', as: :blog
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'quran/surahs#show', as: :surah
-  
+
   root to: 'quran/surahs#index'
 end

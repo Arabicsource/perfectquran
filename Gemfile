@@ -16,7 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'kaminari'
-gem "koala"
+gem 'koala'
 gem 'mail_form'
 gem 'pg', '~> 0.18'
 gem 'popper_js', '~> 1.11.1'
@@ -58,7 +58,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy'
-  gem 'rails-controller-testing'  
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end

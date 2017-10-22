@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc:
 class FlagsController < ApplicationController
   def new
     @comment = Comment.find(params[:comment_id])
@@ -9,16 +12,14 @@ class FlagsController < ApplicationController
     @flag = @comment.build_flag(flag_params)
     @flag.user = current_user if user_signed_in?
 
-    if @flag.save
-      flash[:success] = t 'comment.flagged'
-      redirect_to redirect_path
-    end
+    flash[:success] = t 'comment.flagged' if @flag.save
+    redirect_to redirect_path
   end
 
   private
 
   def flag_params
-    params[:flag][:ip_address] = request.ip    
+    params[:flag][:ip_address] = request.ip
     params.require(:flag).permit(:ip_address, :content)
   end
 

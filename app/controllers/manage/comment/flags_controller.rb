@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module Manage
   module Comment
+    # :nodoc:
     class FlagsController < Manage::BaseController
       def index
         @comments = ::Comment.joins(:flag)

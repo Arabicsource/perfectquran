@@ -1,4 +1,6 @@
-RSpec.shared_examples 'commentable' do 
+# frozen_string_literal: true
+
+RSpec.shared_examples 'commentable' do
   describe '#visible_comments?' do
     it 'is false when no comments exisit' do
       expect(subject.visible_comments?).to be_falsey
@@ -27,6 +29,10 @@ RSpec.shared_examples 'commentable' do
   end
 
   describe 'associations' do
-    it { is_expected.to have_many(:comments_and_included_users).class_name('Comment') }
+    it do
+      is_expected.to(
+        have_many(:comments_and_included_users).class_name('Comment')
+      )
+    end
   end
 end

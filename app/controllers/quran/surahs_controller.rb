@@ -1,14 +1,19 @@
-class Quran::SurahsController < Quran::BaseController
-  def index
-    @surahs = Surah.all
-    render layout: 'fullpage'
-  end
+# frozen_string_literal: true
 
-  def show
-    if params[:permalink].nil?
-      @surah = Surah.find(params[:id])
-    else
-      @surah = Surah.find_by(permalink: params[:permalink])
+module Quran
+  # :nodoc:
+  class SurahsController < Quran::BaseController
+    def index
+      @surahs = Surah.all
+      render layout: 'fullpage'
+    end
+
+    def show
+      @surah = if params[:permalink].nil?
+                 Surah.find(params[:id])
+               else
+                 Surah.find_by(permalink: params[:permalink])
+               end
     end
   end
 end

@@ -24,9 +24,9 @@ describe 'Ayahs', type: :request do
 
     it 'renders quran/surahs/show' do
       ayah = Ayah.first
-      
+
       get "/#{ayah.surah.id}/#{ayah.number}"
-      
+
       expect(response).to render_template 'quran/ayahs/show'
     end
   end

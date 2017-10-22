@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'quran/ayahs/_breadcrumb' do
@@ -19,7 +21,7 @@ describe 'quran/ayahs/_breadcrumb' do
 
   it 'renders the ayah number as text' do
     @ayah = Ayah.first
-    
+
     render
 
     expect(rendered).to have_text '1'

@@ -16,7 +16,7 @@ AllCops:
     - 'app/services/tweet_next_ayah.rb'
     - 'Rakefile'
     - 'Guardfile'
-Style/BlockLength:
+Metrics/BlockLength:
   Exclude:
-    - 'config/routes.rb'
-    - 'spec/**/*.rb'
+  - 'config/routes.rb'
+  - 'spec/**/*.rb'
