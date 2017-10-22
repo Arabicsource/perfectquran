@@ -14,8 +14,8 @@
 
 require 'rails_helper'
 
-RSpec.describe Quran, type: :model do
-  subject { Quran.first }
+RSpec.describe Translation, type: :model do
+  subject { Translation.first }
 
   it { is_expected.to be_valid }
   it { is_expected.to belong_to :language }

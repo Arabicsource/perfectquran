@@ -15,7 +15,7 @@ module Api
       def show
         render json: Text.find_by!(
           ayah_id: params[:ayah_id],
-          quran_id: params[:quran_id]
+          translation_id: params[:translation_id]
         )
       end
     end

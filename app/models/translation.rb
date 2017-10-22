@@ -11,6 +11,6 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-class Quran < ApplicationRecord
+class Translation < ApplicationRecord
   belongs_to :language
 end

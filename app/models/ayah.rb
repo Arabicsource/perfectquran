@@ -24,12 +24,12 @@ class Ayah < ApplicationRecord
   has_many :texts
   has_many :favorites
   has_many :memories
-  has_many :texts_and_included_quran,
-           -> { includes(:quran) },
+  has_many :texts_and_included_translations,
+           -> { includes(:translation) },
            class_name: 'Text'
 
   def noble_quran_text
-    texts.where(quran_id: 3).first.content
+    texts.where(translation_id: 3).first.content
   end
 
   def surah_name

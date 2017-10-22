@@ -18,17 +18,17 @@ RSpec.describe Text, type: :model do
   subject { Text.first }
 
   it { is_expected.to be_valid }
-  it { is_expected.to belong_to :quran }
+  it { is_expected.to belong_to :translation }
   it { is_expected.to belong_to :ayah }
 
   describe '#uthmani?' do
-    it 'returns false if quran_id is not 1' do
-      subject.quran_id = 2
+    it 'returns false if translation_id is not 1' do
+      subject.translation_id = 2
       expect(subject.uthmani?).to be_falsey
     end
 
-    it 'returns true if quran_id is 1' do
-      subject.quran_id = 1
+    it 'returns true if translation_id is 1' do
+      subject.translation_id = 1
       expect(subject.uthmani?).to be_truthy
     end
   end

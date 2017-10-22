@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016105014) do
+ActiveRecord::Schema.define(version: 20171022191154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,15 +117,6 @@ ActiveRecord::Schema.define(version: 20171016105014) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "qurans", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.bigint "language_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["language_id"], name: "index_qurans_on_language_id"
-  end
-
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -165,12 +156,21 @@ ActiveRecord::Schema.define(version: 20171016105014) do
 
   create_table "texts", force: :cascade do |t|
     t.text "content"
-    t.bigint "quran_id"
+    t.bigint "translation_id"
     t.bigint "ayah_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ayah_id"], name: "index_texts_on_ayah_id"
-    t.index ["quran_id"], name: "index_texts_on_quran_id"
+    t.index ["translation_id"], name: "index_texts_on_translation_id"
+  end
+
+  create_table "translations", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.bigint "language_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_id"], name: "index_translations_on_language_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -210,10 +210,10 @@ ActiveRecord::Schema.define(version: 20171016105014) do
   add_foreign_key "pages", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
-  add_foreign_key "qurans", "languages"
   add_foreign_key "rolings", "roles"
   add_foreign_key "rolings", "users"
   add_foreign_key "shares", "ayahs"
   add_foreign_key "texts", "ayahs"
-  add_foreign_key "texts", "qurans"
+  add_foreign_key "texts", "translations"
+  add_foreign_key "translations", "languages"
 end

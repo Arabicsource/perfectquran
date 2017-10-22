@@ -14,7 +14,8 @@ Rails.application.routes.draw do
         resources :memories
       end
       get '/surah/:surah_id/ayah/:ayah_number', to: 'ayahs#show'
-      get '/text/ayah/:ayah_id/quran/:quran_id', to: 'texts#show'
+      get '/text/ayah/:ayah_id/quran/:translation_id', to: 'texts#show'
+      get '/text/ayah/:ayah_id/translation/:translation_id', to: 'texts#show'
     end
   end
 

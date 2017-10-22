@@ -28,12 +28,12 @@ RSpec.describe Ayah, type: :model do
   it { is_expected.to have_many :favorites }
   it { is_expected.to have_many :memories }
   it { is_expected.to have_many :comments }
-  it { is_expected.to have_many(:texts_and_included_quran).class_name 'Text' }
+  it { is_expected.to have_many(:texts_and_included_translations).class_name 'Text' }
 
   it_behaves_like 'commentable'
 
   describe '#noble_quran_text' do
-    it 'is equal to the text content of the quran with an id of 3' do
+    it 'is equal to the text content of the translation with an id of 3' do
       expect(subject.noble_quran_text).to include 'In the Name of Allah'
     end
   end
