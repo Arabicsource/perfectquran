@@ -18,7 +18,6 @@ class Text < ApplicationRecord
 
   belongs_to :translation, class_name: 'Quran::Translation'
   belongs_to :ayah
-  scope :ordered_by_quran_id, -> { joins(:quran).order('qurans.id') }
 
   def uthmani?
     translation_id == 1
