@@ -6,7 +6,7 @@ describe 'quran/ayahs/show' do
   include Devise::Test::ControllerHelpers
 
   before(:each) do
-    @ayah = Ayah.first
+    @ayah = Quran::Ayah.first
   end
 
   it 'provides layout with a page title' do

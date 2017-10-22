@@ -8,7 +8,7 @@ describe 'Commenting', type: :request do
   let(:empty_params) { { comment: { content: '' } } }
 
   describe 'on ayat' do
-    let(:ayah) { Ayah.first }
+    let(:ayah) { Quran::Ayah.first }
     let(:post_path) { "/ayahs/#{ayah.id}/comments" }
 
     describe 'POST #create' do

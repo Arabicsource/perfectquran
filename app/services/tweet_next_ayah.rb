@@ -30,7 +30,7 @@ class TweetNextAyah
   end
 
   def next_ayah
-    @ayah ||= Ayah.find(next_ayah_id)
+    @ayah ||= Quran::Ayah.find(next_ayah_id)
   end
 
   def next_ayah_id

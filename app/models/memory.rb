@@ -12,5 +12,5 @@
 #
 class Memory < ApplicationRecord
   belongs_to :user
-  belongs_to :ayah, counter_cache: true
+  belongs_to :ayah, counter_cache: true, class_name: 'Quran::Ayah'
 end

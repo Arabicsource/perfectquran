@@ -18,9 +18,9 @@
 
 require 'rails_helper'
 
-RSpec.describe Ayah, type: :model do
-  let(:ayahs) { Ayah.all }
-  subject { Ayah.first }
+RSpec.describe Quran::Ayah, type: :model do
+  let(:ayahs) { Quran::Ayah.all }
+  subject { Quran::Ayah.first }
 
   it { is_expected.to be_valid }
   it { is_expected.to belong_to :surah }

@@ -8,12 +8,12 @@ module Api
       before_action :authenticate_user!, only: :create
 
       def index
-        ayah = Ayah.find(params[:ayah_id])
+        ayah = Quran::Ayah.find(params[:ayah_id])
         render json: ayah.memories
       end
 
       def create
-        ayah = Ayah.find(params[:ayah_id])
+        ayah = Quran::Ayah.find(params[:ayah_id])
         memory = ayah.memories.build(user_id: current_user.id)
         memory.save
         render json: memory

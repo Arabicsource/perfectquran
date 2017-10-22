@@ -7,7 +7,7 @@ module Api
       skip_before_action :verify_authenticity_token
 
       def create
-        ayah = Ayah.find(params[:ayah_id])
+        ayah = Quran::Ayah.find(params[:ayah_id])
         favorite = ayah.favorites.build(user_id: current_user.id)
         favorite.save
         render json: favorite

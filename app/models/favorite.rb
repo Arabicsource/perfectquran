@@ -11,6 +11,6 @@
 #  updated_at :datetime         not null
 #
 class Favorite < ApplicationRecord
-  belongs_to :ayah, counter_cache: true
+  belongs_to :ayah, counter_cache: true, class_name: 'Quran::Ayah'
   belongs_to :user
 end

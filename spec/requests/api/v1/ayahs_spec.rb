@@ -16,7 +16,7 @@ RSpec.describe 'Ayahs API', type: :request do
   end
 
   describe 'GET /api/v1/ayahs/:ayah_id' do
-    before { @ayah = Ayah.first }
+    before { @ayah = Quran::Ayah.first }
 
     it 'returns a success response' do
       get "/api/v1/ayahs/#{@ayah.id}"
@@ -36,7 +36,7 @@ RSpec.describe 'Ayahs API', type: :request do
   end
 
   describe 'GET /api/v1/surah/:surah_id/ayah/:ayah_number' do
-    before { @ayah = Ayah.first }
+    before { @ayah = Quran::Ayah.first }
 
     it 'returns a success response' do
       get "/api/v1/surah/#{@ayah.surah.id}/ayah/#{@ayah.number}"

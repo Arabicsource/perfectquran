@@ -7,7 +7,7 @@ RSpec.describe 'Memories API', type: :request do
 
   describe 'GET /api/v1/ayahs/:ayah_id/memories' do
     before do
-      ayah = Ayah.first
+      ayah = Quran::Ayah.first
       FactoryGirl.create_list(:memory, 3, ayah: ayah)
       sign_in user
       get "/api/v1/ayahs/#{ayah.id}/memories"
@@ -26,7 +26,7 @@ RSpec.describe 'Memories API', type: :request do
   describe 'POST /api/v1/ayahs/:ayah_id/memories' do
     context 'guest' do
       it 'returns an unauthorized response' do
-        ayah = Ayah.first
+        ayah = Quran::Ayah.first
         post "/api/v1/ayahs/#{ayah.id}/memories"
         expect(response).to have_http_status(:unauthorized)
       end
@@ -34,7 +34,7 @@ RSpec.describe 'Memories API', type: :request do
 
     context 'registered user' do
       before do
-        @ayah = Ayah.first
+        @ayah = Quran::Ayah.first
         sign_in user
       end
 
@@ -56,7 +56,7 @@ RSpec.describe 'Memories API', type: :request do
 
   describe 'DELETE /api/v1/ayahs/:ayah_id/memories/:id' do
     before do
-      @ayah = Ayah.first
+      @ayah = Quran::Ayah.first
       @memory = FactoryGirl.create(:memory, ayah: @ayah, user: user)
       sign_in user
     end

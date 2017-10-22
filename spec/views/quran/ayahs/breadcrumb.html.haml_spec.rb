@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'quran/ayahs/_breadcrumb' do
   it 'renders an Index link' do
-    @ayah = Ayah.first
+    @ayah = Quran::Ayah.first
 
     render
 
@@ -12,7 +12,7 @@ describe 'quran/ayahs/_breadcrumb' do
   end
 
   it 'renders a link with the name of the surah' do
-    @ayah = Ayah.first
+    @ayah = Quran::Ayah.first
 
     render
 
@@ -20,7 +20,7 @@ describe 'quran/ayahs/_breadcrumb' do
   end
 
   it 'renders the ayah number as text' do
-    @ayah = Ayah.first
+    @ayah = Quran::Ayah.first
 
     render
 

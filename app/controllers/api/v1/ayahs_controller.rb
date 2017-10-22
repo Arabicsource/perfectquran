@@ -5,14 +5,14 @@ module Api
     # :nodoc:
     class AyahsController < ApplicationController
       def index
-        render json: Ayah.all
+        render json: Quran::Ayah.all
       end
 
       def show
         ayah = if params[:id]
-                 Ayah.find(params[:id])
+                 Quran::Ayah.find(params[:id])
                else
-                 Ayah.find_by!(
+                 Quran::Ayah.find_by!(
                    surah_id: params[:surah_id],
                    number: params[:ayah_number]
                  )
