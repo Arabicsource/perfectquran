@@ -14,9 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe Quran::Language, type: :model do
-  before { @language = Quran::Language.first }
+  subject { Quran::Language.first }
 
-  specify { expect(@language).to be_valid }
-  specify { expect(@language).to respond_to :name }
-  specify { expect(@language).to respond_to :direction }
+  it { is_expected.to be_valid }
 end
