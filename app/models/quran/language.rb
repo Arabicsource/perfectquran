@@ -10,5 +10,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Language < ApplicationRecord
+module Quran
+  # :nodoc:
+  class Language < ApplicationRecord
+  end
 end

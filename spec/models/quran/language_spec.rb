@@ -13,8 +13,8 @@
 
 require 'rails_helper'
 
-RSpec.describe Language, type: :model do
-  before { @language = Language.first }
+RSpec.describe Quran::Language, type: :model do
+  before { @language = Quran::Language.first }
 
   specify { expect(@language).to be_valid }
   specify { expect(@language).to respond_to :name }
