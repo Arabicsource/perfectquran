@@ -18,7 +18,7 @@ RSpec.describe Text, type: :model do
   subject { Text.first }
 
   it { is_expected.to be_valid }
-  it { is_expected.to belong_to :translation }
+  it { is_expected.to belong_to(:translation).class_name('Quran::Translation') }
   it { is_expected.to belong_to :ayah }
 
   describe '#uthmani?' do

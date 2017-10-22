@@ -16,7 +16,7 @@ class Text < ApplicationRecord
 
   default_scope { order('id asc') }
 
-  belongs_to :translation
+  belongs_to :translation, class_name: 'Quran::Translation'
   belongs_to :ayah
   scope :ordered_by_quran_id, -> { joins(:quran).order('qurans.id') }
 
