@@ -11,7 +11,7 @@ class FlagsController < ApplicationController
 
     if @flag.save
       flash[:success] = t 'comment.flagged'
-      redirect_to @comment.commentable.redirect_path
+      redirect_to redirect_path
     end
   end
 
@@ -20,5 +20,13 @@ class FlagsController < ApplicationController
   def flag_params
     params[:flag][:ip_address] = request.ip    
     params.require(:flag).permit(:ip_address, :content)
+  end
+
+  def redirect_path
+    if @comment.commentable.respond_to? :permalink
+      blog_post_path(@comment.commentable.permalink)
+    else
+      quran_ayah_path(@comment.commentable)
+    end
   end
 end

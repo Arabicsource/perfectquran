@@ -44,10 +44,6 @@ RSpec.describe Ayah, type: :model do
     end
   end
 
-  describe '#redirect_path' do
-    specify { expect(subject.redirect_path).to eq "/#{subject.surah.id}/#{subject.number}" }
-  end
-
   describe '#previous' do
     it 'returns the previous ayah' do
       expect(ayahs.second.previous).to eq(ayahs.first)

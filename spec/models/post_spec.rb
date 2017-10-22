@@ -28,10 +28,6 @@ RSpec.describe Post, type: :model do
 
   it_behaves_like 'commentable'
 
-  describe '#redirect_path' do
-    specify { expect(subject.redirect_path).to eq "/blog/posts/#{subject.permalink}" }
-  end
-
   describe '#author_name' do
     it 'is the name of the user who authored the post' do
       subject.user = FactoryGirl.build_stubbed :user, name: 'abc123'

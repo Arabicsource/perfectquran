@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     
     if @comment.save
       flash[:success] = t 'comment.created'
-      redirect_to @commentable.redirect_path
+      redirect_to redirect_path
     end
   end
 
@@ -23,5 +23,13 @@ class CommentsController < ApplicationController
   def load_commentable
     resource, id = request.path.split('/')[1,2]
     @commentable = resource.singularize.classify.constantize.find(id)
+  end
+
+  def redirect_path
+    if @commentable.respond_to? :permalink
+      blog_post_path(@commentable.permalink)
+    else
+      quran_ayah_path(@commentable)
+    end
   end
 end

@@ -34,10 +34,6 @@ class Ayah < ApplicationRecord
     surah.transliterated_name
   end
 
-  def redirect_path
-    "/#{surah.id}/#{number}"
-  end
-
   def previous
     if id > 1
       self.class.find(id - 1)

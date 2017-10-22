@@ -25,10 +25,6 @@ class Post < ApplicationRecord
   validates :permalink, uniqueness: { case_sensitive: false }
   validates :content, presence: true
 
-  def redirect_path
-    "/blog/posts/#{permalink}"
-  end
-
   def author_name
     user.try(:name)
   end
