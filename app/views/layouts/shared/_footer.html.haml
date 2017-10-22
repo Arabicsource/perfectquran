@@ -1,7 +1,5 @@
+%p= "Copyright &copy; #{Time.now.year} PerfectQuran. All rights reserved.".html_safe
 %p
-  %small= "Copyright &copy; #{Time.now.year} PerfectQuran. All rights reserved.".html_safe
-%p
-  %small
-    = link_to 'Blog', blog_path
-    - Page.all.each do |page|
-      = link_to page.title, page_path(page.permalink)
+  = link_to 'Blog', blog_path
+  - Page.all.each do |page|
+    = link_to page.title, page_path(page.permalink)
