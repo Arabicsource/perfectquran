@@ -13,9 +13,7 @@
 require 'rails_helper'
 
 RSpec.describe Role, type: :model do
-  let(:role) { FactoryGirl.build(:role) }
-  subject { role }
+  subject { FactoryGirl.build_stubbed(:role) }
 
   it { is_expected.to be_valid }
-  it { is_expected.to respond_to :name }
 end
