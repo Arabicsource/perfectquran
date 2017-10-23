@@ -22,8 +22,12 @@ RSpec.describe Category, type: :model do
 
   describe '#all_active' do
     it 'returns all unique categories with posts' do
-      FactoryGirl.create(:post, category: FactoryGirl.create(:category, name: 'first'))
-      FactoryGirl.create(:post, category: FactoryGirl.create(:category, name: 'second'))      
+      FactoryGirl.create(
+        :post, category: FactoryGirl.create(:category, name: 'first')
+      )
+      FactoryGirl.create(
+        :post, category: FactoryGirl.create(:category, name: 'second')
+      )
       FactoryGirl.create(:category, name: 'none')
 
       expect(Category.all_active.map(&:name)).to eq %w[first second]
