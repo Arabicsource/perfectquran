@@ -4,20 +4,7 @@ require 'rails_helper'
 
 RSpec.describe SurahsHelper, type: :helper do
   let(:surah) { Quran::Surah.first }
-  let(:bc) { helper.breadcrumb(surah) }
-  let(:pnl) { helper.previous_next_links(surah) }
   let(:favorite) { FactoryGirl.create(:favorite, ayah: Quran::Ayah.first) }
-
-  describe '#breadcrumb' do
-    specify { expect(bc).to have_css 'div.breadcrumb' }
-    specify { expect(bc).to have_link 'Home' }
-    specify { expect(bc).to have_text surah.transliterated_name }
-  end
-
-  describe '#previous_next_links' do
-    specify { expect(pnl).to have_link 'Previous' }
-    specify { expect(pnl).to have_link 'Next' }
-  end
 
   describe '#ayah_is_favorited?' do
     specify do
