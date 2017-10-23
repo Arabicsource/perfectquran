@@ -44,5 +44,10 @@ FactoryGirl.define do
       confirmed_at Time.now
       role 'member'
     end
+
+    factory :validating do
+      confirmation_sent_at Time.now
+      confirmation_token 'token'
+    end
   end
 end

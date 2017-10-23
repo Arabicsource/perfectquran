@@ -42,6 +42,16 @@ RSpec.describe User, type: :model do
   it { is_expected.to allow_value('user_name').for :username }
   it { is_expected.to_not allow_value('user name').for :username }
 
+  describe '#after_confirmation' do
+    it 'changes the users role to member' do
+      validating = FactoryGirl.create(:validating)
+      validating.confirm
+      validating.reload
+
+      expect(validating.role).to eq 'member'
+    end
+  end
+
   describe 'User.all' do
     it 'returns users ordered by id desc' do
       FactoryGirl.create(:user, name: 'first')

@@ -43,6 +43,10 @@ class User < ApplicationRecord
               message: 'only Letters, numbers and underscores'
             }
 
+  def after_confirmation
+    update_attribute(:role, 'member')
+  end
+
   def role?(role)
     role.to_s == self.role
   end
