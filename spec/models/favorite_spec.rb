@@ -14,9 +14,9 @@
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
-  before { @favorite = FactoryGirl.build(:favorite, ayah: Quran::Ayah.first) }
+  subject { FactoryGirl.build_stubbed :favorite, ayah: Quran::Ayah.first }
 
-  specify { expect(@favorite).to be_valid }
-  specify { expect(@favorite).to belong_to(:user) }
-  specify { expect(@favorite).to belong_to(:ayah).counter_cache(true) }
+  it { is_expected.to be_valid }
+  it { is_expected.to belong_to(:user) }
+  it { is_expected.to belong_to(:ayah).counter_cache(true) }
 end
