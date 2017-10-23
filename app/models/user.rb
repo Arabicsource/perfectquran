@@ -24,6 +24,7 @@
 #  name                   :string
 #  username               :string
 #  bio                    :string
+#  role                   :string           default("validating")
 #
 class User < ApplicationRecord
   default_scope { order('id desc') }
@@ -42,19 +43,7 @@ class User < ApplicationRecord
               message: 'only Letters, numbers and underscores'
             }
 
-  has_many :rolings
-  has_many :roles, through: :rolings
-
-  def role
-    return 'Admin' if role? :admin
-    return 'Member' if role? :member
-    'Validating'
-  end
-
   def role?(role)
-    user_role = :validating unless confirmed?
-    user_role = :member if confirmed?
-    user_role = :admin if roles.where(name: :admin).first
-    user_role == role
+    role.to_s == self.role
   end
 end

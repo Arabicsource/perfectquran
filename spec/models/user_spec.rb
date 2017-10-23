@@ -24,6 +24,7 @@
 #  name                   :string
 #  username               :string
 #  bio                    :string
+#  role                   :string           default("validating")
 #
 
 require 'rails_helper'
@@ -40,7 +41,6 @@ RSpec.describe User, type: :model do
   it { is_expected.to allow_value('username1').for :username }
   it { is_expected.to allow_value('user_name').for :username }
   it { is_expected.to_not allow_value('user name').for :username }
-  it { is_expected.to have_many(:roles).through :rolings }
 
   describe 'User.all' do
     it 'returns users ordered by id desc' do
@@ -99,26 +99,6 @@ RSpec.describe User, type: :model do
       it 'returns false when asking if role is validating' do
         expect(member.role?(:validating)).to be_falsey
       end
-    end
-  end
-
-  describe '#role' do
-    it 'returns Admin for administrators' do
-      admin = FactoryGirl.create(:admin)
-
-      expect(admin.role).to eq 'Admin'
-    end
-
-    it 'returns Member for confirmed users' do
-      member = FactoryGirl.create(:member)
-
-      expect(member.role).to eq 'Member'
-    end
-
-    it 'returns Validating for unconfirmed users' do
-      validating = FactoryGirl.create(:user)
-
-      expect(validating.role).to eq 'Validating'
     end
   end
 end

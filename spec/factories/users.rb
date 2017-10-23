@@ -24,6 +24,7 @@
 #  name                   :string
 #  username               :string
 #  bio                    :string
+#  role                   :string           default("validating")
 #
 
 FactoryGirl.define do
@@ -32,17 +33,16 @@ FactoryGirl.define do
     sequence(:username) { |n| "username_#{n}" }
     sequence(:email) { |n| "eample#{n}@example.com" }
     password 'password'
+    role 'validating'
 
     factory :admin do
       confirmed_at Time.now
-
-      after(:create) do |admin|
-        admin.roles << create(:role, :admin)
-      end
+      role 'admin'
     end
 
     factory :member do
       confirmed_at Time.now
+      role 'member'
     end
   end
 end
