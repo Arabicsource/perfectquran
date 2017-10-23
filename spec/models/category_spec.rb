@@ -14,8 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  before { @category = FactoryGirl.build(:category) }
-  subject { @category }
+  subject { FactoryGirl.build_stubbed(:category) }
 
   it { is_expected.to be_valid }
   it { is_expected.to respond_to(:name) }
