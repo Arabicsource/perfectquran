@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe SurahsHelper, type: :helper do
-  let(:surah) { Quran::Surah.first }
   let(:favorite) { FactoryGirl.create(:favorite, ayah: Quran::Ayah.first) }
 
   describe '#ayah_is_favorited?' do
