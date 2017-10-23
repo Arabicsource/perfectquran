@@ -42,6 +42,15 @@ RSpec.describe User, type: :model do
   it { is_expected.to_not allow_value('user name').for :username }
   it { is_expected.to have_many(:roles).through :rolings }
 
+  describe 'User.all'
+    it 'returns users ordered by id desc' do
+      FactoryGirl.create(:user, name: 'first')
+      FactoryGirl.create(:user, name: 'second')
+      FactoryGirl.create(:user, name: 'third')
+
+      expect(User.all.map(&:name)).to eq %w[third second first]
+    end
+
   describe '#role?(:role)' do
     context 'admin' do
       let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
