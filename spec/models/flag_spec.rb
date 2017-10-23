@@ -17,21 +17,11 @@
 require 'rails_helper'
 
 RSpec.describe Flag, type: :model do
-  subject { FactoryGirl.build(:flag) }
+  subject { FactoryGirl.build_stubbed(:flag) }
 
   it { is_expected.to be_valid }
-
-  it { is_expected.to respond_to :user }
-  it { is_expected.to respond_to :comment }
-  it { is_expected.to respond_to :ip_address }
-  it { is_expected.to respond_to :content }
-  it { is_expected.to respond_to :created_at }
-  it { is_expected.to respond_to :updated_at }
-  it { is_expected.to respond_to :approved }
-
   it { is_expected.to belong_to :user }
   it { is_expected.to belong_to :comment }
-
   it { is_expected.to validate_presence_of :ip_address }
   it { is_expected.to validate_presence_of :content }
 end
