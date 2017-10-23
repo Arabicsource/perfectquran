@@ -24,7 +24,7 @@ class FacebookNextAyah
   end
 
   def next_ayah_text
-    text = next_ayah.texts.where(quran_id: 3).first.content
+    text = next_ayah.texts.where(translation_id: 3).first.content
     text = text.gsub('&#8217;', "'")
     text + ' ' + next_ayah_reference + ' ' + next_ayah_url
   end
