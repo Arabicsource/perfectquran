@@ -17,7 +17,10 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { FactoryGirl.build(:post) }
+  subject do
+    author = FactoryGirl.create(:member, name: 'Author Name')
+    FactoryGirl.create(:post, title: 'This is my title', user: author)
+  end
 
   it { is_expected.to be_valid }
   it { is_expected.to validate_presence_of :title }
@@ -30,15 +33,12 @@ RSpec.describe Post, type: :model do
 
   describe '#author_name' do
     it 'is the name of the user who authored the post' do
-      subject.user = FactoryGirl.build_stubbed :user, name: 'abc123'
-      expect(subject.author_name).to eq 'abc123'
+      expect(subject.author_name).to eq 'Author Name'
     end
   end
 
   describe '#permalink' do
     it 'is a parameterized version of the title' do
-      subject.title = 'This Is My Title'
-      subject.save
       expect(subject.permalink).to eq 'this-is-my-title'
     end
   end
