@@ -54,7 +54,7 @@ export default class FavoriteButton extends React.Component {
         <a className={buttonClass} onClick={() => this.toggleFavorite()}>
           <i className={icon}></i>
         </a>
-        <div><span className="d-none d-lg-inline">Favorites</span> {count}</div>
+        <div>Favorites {count}</div>
       </div>
     )
   }
