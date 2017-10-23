@@ -8,6 +8,7 @@
         %th Username
         %th Name
         %th Email
+        %th Role
     %tbody
       - @users.each do |user|
         %tr
@@ -19,5 +20,7 @@
             = user.name
           %td
             = user.email
+          %td
+            = user.role
 
 - provide :title, 'User Management'

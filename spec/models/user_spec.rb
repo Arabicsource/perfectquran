@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
   it { is_expected.to_not allow_value('user name').for :username }
   it { is_expected.to have_many(:roles).through :rolings }
 
-  describe 'User.all'
+  describe 'User.all' do
     it 'returns users ordered by id desc' do
       FactoryGirl.create(:user, name: 'first')
       FactoryGirl.create(:user, name: 'second')
@@ -50,6 +50,7 @@ RSpec.describe User, type: :model do
 
       expect(User.all.map(&:name)).to eq %w[third second first]
     end
+  end
 
   describe '#role?(:role)' do
     context 'admin' do
@@ -98,6 +99,26 @@ RSpec.describe User, type: :model do
       it 'returns false when asking if role is validating' do
         expect(member.role?(:validating)).to be_falsey
       end
+    end
+  end
+
+  describe '#role' do
+    it 'returns Admin for administrators' do
+      admin = FactoryGirl.create(:admin)
+
+      expect(admin.role).to eq 'Admin'
+    end
+
+    it 'returns Member for confirmed users' do
+      member = FactoryGirl.create(:member)
+
+      expect(member.role).to eq 'Member'
+    end
+
+    it 'returns Validating for unconfirmed users' do
+      validating = FactoryGirl.create(:user)
+
+      expect(validating.role).to eq 'Validating'
     end
   end
 end

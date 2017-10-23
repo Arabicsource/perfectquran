@@ -33,6 +33,18 @@ FactoryGirl.define do
     sequence(:email) { |n| "eample#{n}@example.com" }
     password 'password'
 
+    factory :admin do
+      confirmed_at Time.now
+
+      after(:create) do |admin|
+        admin.roles << create(:role, :admin)
+      end
+    end
+
+    factory :member do
+      confirmed_at Time.now
+    end
+
     trait :confirmed do
       confirmed_at Time.now
     end
