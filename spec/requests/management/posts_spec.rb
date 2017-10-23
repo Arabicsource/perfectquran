@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe 'Post management', type: :request do
-  let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
+  let(:admin) { FactoryGirl.create(:admin) }
   let(:category) { FactoryGirl.create(:category) }
-  let(:user) { FactoryGirl.create(:user, :confirmed) }
+  let(:user) { FactoryGirl.create(:member) }
   let(:post_obj) { FactoryGirl.create(:post) }
   let(:post_attributes) { FactoryGirl.attributes_for(:post) }
   let(:params) { { post: post_attributes.merge(category_name: category.name) } }
@@ -21,7 +21,7 @@ describe 'Post management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         get manage_posts_path
       end
       specify { expect(response).to redirect_to root_path }
@@ -30,7 +30,7 @@ describe 'Post management', type: :request do
     context 'admin user' do
       before do
         @post = FactoryGirl.create(:post)
-        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        login_as FactoryGirl.create(:admin)
         get manage_posts_path
       end
       specify { expect(response).to be_successful }
@@ -48,7 +48,7 @@ describe 'Post management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         get manage_post_path(post)
       end
       specify { expect(response).to redirect_to root_path }
@@ -56,7 +56,7 @@ describe 'Post management', type: :request do
 
     context 'admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        login_as FactoryGirl.create(:admin)
         get manage_post_path(post)
       end
       specify { expect(response).to be_successful }
@@ -73,7 +73,7 @@ describe 'Post management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         get new_manage_post_path
       end
       specify { expect(response).to redirect_to root_path }
@@ -81,7 +81,7 @@ describe 'Post management', type: :request do
 
     context 'admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        login_as FactoryGirl.create(:admin)
         get new_manage_post_path
       end
       specify { expect(response).to be_successful }
@@ -135,7 +135,7 @@ describe 'Post management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         get edit_manage_post_path(post_obj)
       end
       specify { expect(response).to redirect_to root_path }
@@ -143,7 +143,7 @@ describe 'Post management', type: :request do
 
     context 'admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        login_as FactoryGirl.create(:admin)
         get edit_manage_post_path(post_obj)
       end
       specify { expect(response).to be_successful }
@@ -159,7 +159,7 @@ describe 'Post management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         patch '/manage/posts/' + post_obj.id.to_s,
               params: { post: post_attributes }
       end
@@ -167,7 +167,7 @@ describe 'Post management', type: :request do
     end
 
     context 'admin' do
-      before { login_as FactoryGirl.create(:user, :confirmed, :admin) }
+      before { login_as FactoryGirl.create(:admin) }
 
       describe 'successful submission' do
         before do

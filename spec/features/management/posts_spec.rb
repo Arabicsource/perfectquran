@@ -4,7 +4,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'Post management' do
-  let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
+  let(:admin) { FactoryGirl.create(:admin) }
   let(:post_attributes) { FactoryGirl.attributes_for(:post) }
   let(:post) { FactoryGirl.create(:post) }
   let(:category) { FactoryGirl.create(:category) }

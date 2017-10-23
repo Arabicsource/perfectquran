@@ -54,7 +54,7 @@ RSpec.describe User, type: :model do
 
   describe '#role?(:role)' do
     context 'admin' do
-      let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
+      let(:admin) { FactoryGirl.create(:admin) }
 
       it 'returns true when asking if role is admin' do
         expect(admin.role?(:admin)).to be_truthy
@@ -86,7 +86,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'member' do
-      let(:member) { FactoryGirl.create(:user, :confirmed) }
+      let(:member) { FactoryGirl.create(:member) }
 
       it 'returns false when asking if role is admin' do
         expect(member.role?(:admin)).to be_falsey

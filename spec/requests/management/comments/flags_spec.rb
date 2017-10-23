@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 describe 'Comments flag management', type: :request do
-  let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
-  let(:user) { FactoryGirl.create(:user, :confirmed) }
+  let(:admin) { FactoryGirl.create(:admin) }
+  let(:user) { FactoryGirl.create(:member) }
   let(:comment) { FactoryGirl.create(:comment) }
   let(:comment_with_flag) { FactoryGirl.create(:comment, :with_flag) }
 

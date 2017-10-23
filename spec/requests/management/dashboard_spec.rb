@@ -11,7 +11,7 @@ describe 'Management Dashboard', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         get manage_dashboards_path
       end
       specify { expect(response).to redirect_to root_path }
@@ -19,7 +19,7 @@ describe 'Management Dashboard', type: :request do
 
     context 'admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed, :admin)
+        login_as FactoryGirl.create(:admin)
         get manage_dashboards_path
       end
       specify { expect(response).to be_successful }

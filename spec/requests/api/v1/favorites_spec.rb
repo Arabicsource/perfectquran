@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Favorites API', type: :request do
-  let(:user) { FactoryGirl.create(:user, :confirmed) }
+  let(:user) { FactoryGirl.create(:member) }
 
   describe 'POST /api/v1/ayahs/:ayah_id/favorites' do
     before do

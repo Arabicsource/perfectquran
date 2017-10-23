@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 describe 'User management', type: :request do
-  let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
-  let(:user) { FactoryGirl.create(:user, :confirmed) }
+  let(:admin) { FactoryGirl.create(:admin) }
+  let(:member) { FactoryGirl.create(:member) }
   let(:user_obj) { FactoryGirl.create(:user) }
 
   describe 'GET #index' do
@@ -13,9 +13,9 @@ describe 'User management', type: :request do
       specify { expect(response).to redirect_to new_user_session_path }
     end
 
-    context 'non-admin user' do
+    context 'member' do
       before do
-        login_as user
+        login_as member
         get manage_users_path
       end
       specify { expect(response).to redirect_to root_path }
@@ -36,9 +36,9 @@ describe 'User management', type: :request do
       specify { expect(response).to redirect_to new_user_session_path }
     end
 
-    context 'non-admin user' do
+    context 'member' do
       before do
-        login_as user
+        login_as member
         get manage_user_path(user_obj)
       end
       specify { expect(response).to redirect_to root_path }

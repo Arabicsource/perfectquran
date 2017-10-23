@@ -4,7 +4,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'General Settings' do
-  let(:user) { FactoryGirl.create(:user, :confirmed) }
+  let(:user) { FactoryGirl.create(:member) }
   before { login_as user }
 
   scenario 'edit a users general settings' do

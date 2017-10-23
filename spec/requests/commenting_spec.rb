@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'Commenting', type: :request do
-  let(:user) { FactoryGirl.create(:user, :confirmed) }
+  let(:user) { FactoryGirl.create(:member) }
   let(:valid_params) { { comment: FactoryGirl.attributes_for(:comment) } }
   let(:empty_params) { { comment: { content: '' } } }
 

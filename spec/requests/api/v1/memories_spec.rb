@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Memories API', type: :request do
-  let(:user) { FactoryGirl.create :user, :confirmed }
+  let(:user) { FactoryGirl.create :member }
 
   describe 'GET /api/v1/ayahs/:ayah_id/memories' do
     before do

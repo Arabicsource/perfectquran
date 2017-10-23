@@ -4,7 +4,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'Categories management' do
-  let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
+  let(:admin) { FactoryGirl.create(:admin) }
   let(:category_attributes) { FactoryGirl.attributes_for(:category) }
   let(:category) { FactoryGirl.create(:category) }
   before { login_as admin }

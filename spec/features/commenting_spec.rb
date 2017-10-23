@@ -5,7 +5,7 @@ include Warden::Test::Helpers
 
 feature 'Commenting' do
   let(:comment_attributes) { FactoryGirl.attributes_for(:comment) }
-  let(:user) { FactoryGirl.create(:user, :confirmed) }
+  let(:user) { FactoryGirl.create(:member) }
   let(:post) { FactoryGirl.create(:post) }
   let(:ayah) { Quran::Ayah.first }
 

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'Page management', type: :request do
-  let(:admin) { FactoryGirl.create(:user, :confirmed, :admin) }
+  let(:admin) { FactoryGirl.create(:admin) }
   let(:page) { FactoryGirl.create(:page) }
   let(:page_attributes) { FactoryGirl.attributes_for(:page) }
   let(:params) { { page: page_attributes } }
@@ -26,7 +26,7 @@ describe 'Page management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         get manage_pages_path
       end
       specify { expect(response).to redirect_to root_path }
@@ -51,7 +51,7 @@ describe 'Page management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         get manage_page_path(page)
       end
       specify { expect(response).to redirect_to root_path }
@@ -76,7 +76,7 @@ describe 'Page management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         get new_manage_page_path
       end
       specify { expect(response).to redirect_to root_path }
@@ -100,7 +100,7 @@ describe 'Page management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         post '/manage/posts'
       end
       specify { expect(response).to redirect_to root_path }
@@ -137,7 +137,7 @@ describe 'Page management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         get edit_manage_page_path(page)
       end
       specify { expect(response).to redirect_to root_path }
@@ -161,7 +161,7 @@ describe 'Page management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:user, :confirmed)
+        login_as FactoryGirl.create(:member)
         patch '/manage/pages/' + page.id.to_s,
               params: { page: page_attributes }
       end
