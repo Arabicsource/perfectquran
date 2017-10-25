@@ -1,16 +1,57 @@
-%section
-  %h1 Stats
-  
-  %table.table
-    %tbody
-      %tr
-        %th Users Count
-        %td= User.count
-      %tr
-        %th Favorites Count
-        %td= Favorite.count
-      %tr
-        %th Memories Count
-        %td= Memory.count
-          
+.row
+  .col-4
+    .card
+      .card-header
+        Users
+      .list-group.list-group-flush
+        %li.list-group-item
+          New this week
+          %span.badge.badge-primary.float-right 9
+        %li.list-group-item
+          Members
+          %span.badge.badge-primary.float-right
+            = User.where(role: 'member').count
+        %li.list-group-item
+          Admins
+          %span.badge.badge-primary.float-right
+            = User.where(role: 'admin').count
+        %li.list-group-item
+          Validating
+          %span.badge.badge-primary.float-right
+            = User.where(role: 'validating').count
+        %li.list-group-item
+          Banned
+          %span.badge.badge-primary.float-right
+            = User.where(role: 'banned').count
+
+  .col-4
+    .card
+      .card-header
+        Recent Registrations
+      .list-group.list-group-flush
+        - User.limit(5).each do |user|
+          %li.list-group-item= user.name
+
+  .col-4
+    .card
+      .card-header
+        Stats
+      .list-group.list-group-flush
+        %li.list-group-item
+          Users
+          %span.badge.badge-primary.float-right
+            = User.count
+        %li.list-group-item
+          Comments
+          %span.badge.badge-primary.float-right
+            = Comment.count
+        %li.list-group-item
+          Memories
+          %span.badge.badge-primary.float-right
+            = Memory.count
+        %li.list-group-item
+          Favorites
+          %span.badge.badge-primary.float-right
+            = Favorite.count
+
 - provide :title, 'Management Dashboard'
