@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :content do
+    resources :pages, only: :show
+  end
+
   namespace :quran do
     root 'surahs#index'
     resources :surahs, only: %i[index show]

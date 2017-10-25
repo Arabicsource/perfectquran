@@ -1,0 +1,6 @@
+%article
+  %h1= @page.title
+  .content
+    = markdown @page.content
+
+- provide :title, @page.title
