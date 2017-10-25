@@ -62,7 +62,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :pages, only: :show
   resources :contacts, only: %i[new create]
   resources :users, only: :show
 
