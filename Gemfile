@@ -46,8 +46,6 @@ group :development do
   gem 'capistrano-passenger', '~> 0.2.0'
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rvm'
-  gem 'guard-rspec', require: false
-  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop', '~> 0.49.1', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
