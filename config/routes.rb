@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   namespace :manage do
-    resources :dashboards, only: :index
+    root 'dashboards#show'
     resources :users, :posts, :pages, :categories, :comments
 
     namespace :comment do
