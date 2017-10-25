@@ -15,6 +15,15 @@ describe 'Surahs', type: :request do
     end
   end
 
+  context 'GET quran_root as admin' do
+      it 'responds successfully' do
+        login_as FactoryGirl.create(:admin)
+        get quran_root_path
+
+        expect(response).to be_successful
+      end
+  end
+
   context 'GET quran_root' do
     before(:each) { get quran_root_path }
 
