@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Favorites API', type: :request do
-  let(:user) { FactoryGirl.create(:member) }
+  let(:user) { FactoryBot.create(:member) }
 
   describe 'POST /api/v1/ayahs/:ayah_id/favorites' do
     before do
@@ -29,7 +29,7 @@ RSpec.describe 'Favorites API', type: :request do
   describe 'DELETE /api/v1/ayahs/:ayah_id/favorites' do
     before do
       @ayah = Quran::Ayah.first
-      @favorite = FactoryGirl.create(:favorite, ayah: @ayah, user: user)
+      @favorite = FactoryBot.create(:favorite, ayah: @ayah, user: user)
       sign_in user
     end
 

@@ -14,7 +14,7 @@
 #  permalink   :string
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :post do
     sequence(:title) { |n| "PostTitle#{n}" }
     sequence(:permalink) { |n| "posttitle#{n}" }
@@ -28,7 +28,7 @@ FactoryGirl.define do
       end
 
       after :create do |post, eval|
-        FactoryGirl.create_list(
+        FactoryBot.create_list(
           :comment, eval.number_of_comments, commentable: post
         )
       end
@@ -40,7 +40,7 @@ FactoryGirl.define do
       end
 
       after :create do |post, eval|
-        FactoryGirl.create_list(
+        FactoryBot.create_list(
           :comment, eval.number_of_comments, :with_flag, commentable: post
         )
       end
@@ -52,7 +52,7 @@ FactoryGirl.define do
       end
 
       after :create do |post, eval|
-        FactoryGirl.create_list(
+        FactoryBot.create_list(
           :comment, eval.number_of_comments, :with_approval, commentable: post
         )
       end
@@ -64,10 +64,10 @@ FactoryGirl.define do
       end
 
       after :create do |post, eval|
-        FactoryGirl.create_list(
+        FactoryBot.create_list(
           :comment, eval.number_of_comments, commentable: post
         )
-        FactoryGirl.create_list(
+        FactoryBot.create_list(
           :comment, eval.number_of_comments, :with_flag, commentable: post
         )
       end

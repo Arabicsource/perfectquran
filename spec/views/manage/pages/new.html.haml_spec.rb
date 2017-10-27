@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'manage/pages/new' do
   before(:each) do
     params[:action] = 'new'
-    @page = FactoryGirl.build_stubbed(:page)
+    @page = FactoryBot.build_stubbed(:page)
     allow(@page).to receive(:persisted?).and_return(false)
   end
 

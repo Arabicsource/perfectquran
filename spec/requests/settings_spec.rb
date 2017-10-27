@@ -11,7 +11,7 @@ describe 'Settings', type: :request do
 
     context 'member' do
       before do
-        login_as FactoryGirl.create(:member)
+        login_as FactoryBot.create(:member)
         get settings_path
       end
       specify { expect(response).to be_successful }

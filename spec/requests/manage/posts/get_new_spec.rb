@@ -11,7 +11,7 @@ describe 'Post management GET #new', type: :request do
 
   context 'member' do
     before do
-      login_as FactoryGirl.create(:member)
+      login_as FactoryBot.create(:member)
       get new_manage_post_path
     end
 
@@ -20,7 +20,7 @@ describe 'Post management GET #new', type: :request do
 
   context 'admin' do
     before do
-      login_as FactoryGirl.create(:admin)
+      login_as FactoryBot.create(:admin)
       get new_manage_post_path
     end
 

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'Post management PATCH #update', type: :request do
-  let(:blog_post) { FactoryGirl.create(:post) }
+  let(:blog_post) { FactoryBot.create(:post) }
   let(:params) do
     { post: { title: 'UpdatedTitle', content: 'UpdatedContent' } }
   end
@@ -16,7 +16,7 @@ describe 'Post management PATCH #update', type: :request do
 
   context 'member' do
     before do
-      login_as FactoryGirl.create(:member)
+      login_as FactoryBot.create(:member)
       patch "/manage/posts/#{blog_post.id}", params: params
     end
 
@@ -24,7 +24,7 @@ describe 'Post management PATCH #update', type: :request do
   end
 
   context 'admin' do
-    before { login_as FactoryGirl.create(:admin) }
+    before { login_as FactoryBot.create(:admin) }
 
     describe 'successful submission' do
       before do

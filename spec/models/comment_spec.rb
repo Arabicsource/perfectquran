@@ -16,10 +16,10 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  let(:flagged_comment) { FactoryGirl.build(:comment, :with_flag) }
-  let(:approved_comment) { FactoryGirl.build(:comment, :with_approval) }
+  let(:flagged_comment) { FactoryBot.build(:comment, :with_flag) }
+  let(:approved_comment) { FactoryBot.build(:comment, :with_approval) }
 
-  before { @comment = FactoryGirl.build(:comment) }
+  before { @comment = FactoryBot.build(:comment) }
   subject { @comment }
 
   it { is_expected.to be_valid }
@@ -62,7 +62,7 @@ RSpec.describe Comment, type: :model do
     end
 
     it 'is false when it is flagged and not approved' do
-      flagged_comment = FactoryGirl.create(:comment, :with_flag)
+      flagged_comment = FactoryBot.create(:comment, :with_flag)
       expect(flagged_comment.visible?).to be_falsey
     end
   end

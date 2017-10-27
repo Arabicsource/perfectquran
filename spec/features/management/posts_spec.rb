@@ -4,10 +4,10 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'Post management' do
-  let(:admin) { FactoryGirl.create(:admin) }
-  let(:post_attributes) { FactoryGirl.attributes_for(:post) }
-  let(:post) { FactoryGirl.create(:post) }
-  let(:category) { FactoryGirl.create(:category) }
+  let(:admin) { FactoryBot.create(:admin) }
+  let(:post_attributes) { FactoryBot.attributes_for(:post) }
+  let(:post) { FactoryBot.create(:post) }
+  let(:category) { FactoryBot.create(:category) }
   before { login_as admin }
 
   scenario 'create a new post' do

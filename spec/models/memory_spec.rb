@@ -15,7 +15,7 @@ require 'rails_helper'
 
 RSpec.describe Memory, type: :model do
   before do
-    @memory = FactoryGirl.build_stubbed(:memory, ayah: Quran::Ayah.first)
+    @memory = FactoryBot.build_stubbed(:memory, ayah: Quran::Ayah.first)
   end
 
   specify { expect(@memory).to be_valid }

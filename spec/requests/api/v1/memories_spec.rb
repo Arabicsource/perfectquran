@@ -3,12 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Memories API', type: :request do
-  let(:user) { FactoryGirl.create :member }
+  let(:user) { FactoryBot.create :member }
 
   describe 'GET /api/v1/ayahs/:ayah_id/memories' do
     before do
       ayah = Quran::Ayah.first
-      FactoryGirl.create_list(:memory, 3, ayah: ayah)
+      FactoryBot.create_list(:memory, 3, ayah: ayah)
       sign_in user
       get "/api/v1/ayahs/#{ayah.id}/memories"
     end
@@ -57,7 +57,7 @@ RSpec.describe 'Memories API', type: :request do
   describe 'DELETE /api/v1/ayahs/:ayah_id/memories/:id' do
     before do
       @ayah = Quran::Ayah.first
-      @memory = FactoryGirl.create(:memory, ayah: @ayah, user: user)
+      @memory = FactoryBot.create(:memory, ayah: @ayah, user: user)
       sign_in user
     end
 

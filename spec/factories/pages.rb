@@ -13,7 +13,7 @@
 #  permalink  :string
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :page, class: 'Content::Page' do
     sequence(:title) { |n| "PageTitle#{n}" }
     sequence(:permalink) { |n| "pagetitle#{n}" }

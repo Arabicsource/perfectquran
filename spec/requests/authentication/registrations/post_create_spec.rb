@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'Registration POST #create', type: :request do
   it 'increases user count by 1 when successful' do
-    expect { post '/', params: { user: FactoryGirl.attributes_for(:user) } }
+    expect { post '/', params: { user: FactoryBot.attributes_for(:user) } }
       .to change(User, :count).by(1)
   end
 

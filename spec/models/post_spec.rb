@@ -18,8 +18,8 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   subject do
-    author = FactoryGirl.create(:member, name: 'Author Name')
-    FactoryGirl.create(:post, title: 'This is my title', user: author)
+    author = FactoryBot.create(:member, name: 'Author Name')
+    FactoryBot.create(:post, title: 'This is my title', user: author)
   end
 
   it { is_expected.to be_valid }

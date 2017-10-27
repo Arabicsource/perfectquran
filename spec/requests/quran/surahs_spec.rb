@@ -17,7 +17,7 @@ describe 'Surahs', type: :request do
 
   context 'GET quran_root as admin' do
     it 'responds successfully' do
-      login_as FactoryGirl.create(:admin)
+      login_as FactoryBot.create(:admin)
       get quran_root_path
 
       expect(response).to be_successful

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'Blog Categories', type: :request do
-  let(:category) { FactoryGirl.create(:category) }
+  let(:category) { FactoryBot.create(:category) }
 
   describe 'GET #show' do
     before { get blog_category_path(category) }

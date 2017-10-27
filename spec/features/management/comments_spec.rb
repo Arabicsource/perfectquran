@@ -4,9 +4,9 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'Comments management' do
-  let(:admin) { FactoryGirl.create(:admin) }
-  let(:comment) { FactoryGirl.create(:comment) }
-  let(:flagged_comment) { FactoryGirl.create(:comment, :with_flag) }
+  let(:admin) { FactoryBot.create(:admin) }
+  let(:comment) { FactoryBot.create(:comment) }
+  let(:flagged_comment) { FactoryBot.create(:comment, :with_flag) }
 
   before { login_as admin }
 

@@ -4,9 +4,9 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'Commenting' do
-  let(:comment_attributes) { FactoryGirl.attributes_for(:comment) }
-  let(:user) { FactoryGirl.create(:member) }
-  let(:post) { FactoryGirl.create(:post) }
+  let(:comment_attributes) { FactoryBot.attributes_for(:comment) }
+  let(:user) { FactoryBot.create(:member) }
+  let(:post) { FactoryBot.create(:post) }
   let(:ayah) { Quran::Ayah.first }
 
   before { login_as user }

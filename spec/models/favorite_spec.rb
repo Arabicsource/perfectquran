@@ -14,7 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
-  subject { FactoryGirl.build_stubbed :favorite, ayah: Quran::Ayah.first }
+  subject { FactoryBot.build_stubbed :favorite, ayah: Quran::Ayah.first }
 
   it { is_expected.to be_valid }
   it { is_expected.to belong_to(:user) }

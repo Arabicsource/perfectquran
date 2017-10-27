@@ -30,7 +30,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { FactoryGirl.build(:user) }
+  subject { FactoryBot.build(:user) }
 
   it { is_expected.to be_valid }
   it { is_expected.to validate_presence_of :name }
@@ -44,7 +44,7 @@ RSpec.describe User, type: :model do
 
   describe '#after_confirmation' do
     it 'changes the users role to member' do
-      validating = FactoryGirl.create(:validating)
+      validating = FactoryBot.create(:validating)
       validating.confirm
       validating.reload
 
@@ -54,9 +54,9 @@ RSpec.describe User, type: :model do
 
   describe 'User.all' do
     it 'returns users ordered by id desc' do
-      FactoryGirl.create(:user, name: 'first')
-      FactoryGirl.create(:user, name: 'second')
-      FactoryGirl.create(:user, name: 'third')
+      FactoryBot.create(:user, name: 'first')
+      FactoryBot.create(:user, name: 'second')
+      FactoryBot.create(:user, name: 'third')
 
       expect(User.all.map(&:name)).to eq %w[third second first]
     end
@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
 
   describe '#role?(:role)' do
     context 'admin' do
-      let(:admin) { FactoryGirl.create(:admin) }
+      let(:admin) { FactoryBot.create(:admin) }
 
       it 'returns true when asking if role is admin' do
         expect(admin.role?(:admin)).to be_truthy
@@ -80,7 +80,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'validating' do
-      let(:validating) { FactoryGirl.create(:user) }
+      let(:validating) { FactoryBot.create(:user) }
 
       it 'returns false when asking if role is admin' do
         expect(validating.role?(:admin)).to be_falsey
@@ -96,7 +96,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'member' do
-      let(:member) { FactoryGirl.create(:member) }
+      let(:member) { FactoryBot.create(:member) }
 
       it 'returns false when asking if role is admin' do
         expect(member.role?(:admin)).to be_falsey

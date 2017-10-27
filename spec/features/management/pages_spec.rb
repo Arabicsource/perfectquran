@@ -4,9 +4,9 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'Page management' do
-  let(:admin) { FactoryGirl.create(:admin) }
-  let(:page_attributes) { FactoryGirl.attributes_for(:page) }
-  let(:page_obj) { FactoryGirl.create(:page) }
+  let(:admin) { FactoryBot.create(:admin) }
+  let(:page_attributes) { FactoryBot.attributes_for(:page) }
+  let(:page_obj) { FactoryBot.create(:page) }
   before { login_as admin }
 
   describe 'create' do

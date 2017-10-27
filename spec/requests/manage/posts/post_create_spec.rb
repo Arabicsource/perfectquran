@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe 'Post management POST #create', type: :request do
-  let(:post_attributes) { FactoryGirl.attributes_for(:post) }
+  let(:post_attributes) { FactoryBot.attributes_for(:post) }
   let(:params) { { post: post_attributes.merge(category_name: category.name) } }
-  let(:category) { FactoryGirl.create(:category) }
+  let(:category) { FactoryBot.create(:category) }
 
   context 'guest' do
     before { post '/manage/posts', params: params }
@@ -15,7 +15,7 @@ describe 'Post management POST #create', type: :request do
 
   context 'member' do
     before do
-      login_as FactoryGirl.create(:member)
+      login_as FactoryBot.create(:member)
       post '/manage/posts', params: params
     end
 
@@ -23,7 +23,7 @@ describe 'Post management POST #create', type: :request do
   end
 
   context 'admin' do
-    before { login_as FactoryGirl.create(:admin) }
+    before { login_as FactoryBot.create(:admin) }
 
     describe 'successful submission' do
       specify do

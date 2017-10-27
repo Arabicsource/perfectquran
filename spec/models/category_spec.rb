@@ -14,7 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  subject { FactoryGirl.build_stubbed(:category) }
+  subject { FactoryBot.build_stubbed(:category) }
 
   it { is_expected.to be_valid }
   it { is_expected.to validate_presence_of :name }
@@ -22,13 +22,13 @@ RSpec.describe Category, type: :model do
 
   describe '#all_active' do
     it 'returns all unique categories with posts' do
-      FactoryGirl.create(
-        :post, category: FactoryGirl.create(:category, name: 'first')
+      FactoryBot.create(
+        :post, category: FactoryBot.create(:category, name: 'first')
       )
-      FactoryGirl.create(
-        :post, category: FactoryGirl.create(:category, name: 'second')
+      FactoryBot.create(
+        :post, category: FactoryBot.create(:category, name: 'second')
       )
-      FactoryGirl.create(:category, name: 'none')
+      FactoryBot.create(:category, name: 'none')
 
       expect(Category.all_active.map(&:name)).to eq %w[first second]
     end

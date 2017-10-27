@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'content/pages/show' do
-  before { @page = FactoryGirl.build_stubbed(:page) }
+  before { @page = FactoryBot.build_stubbed(:page) }
 
   it 'provides layout with a page title' do
     expect(view).to receive(:provide).with(:title, @page.title)

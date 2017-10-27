@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 describe 'Category management', type: :request do
-  let(:admin) { FactoryGirl.create(:admin) }
-  let(:user) { FactoryGirl.create(:member) }
-  let(:category) { FactoryGirl.create(:category) }
-  let(:category_attributes) { FactoryGirl.attributes_for(:category) }
+  let(:admin) { FactoryBot.create(:admin) }
+  let(:user) { FactoryBot.create(:member) }
+  let(:category) { FactoryBot.create(:category) }
+  let(:category_attributes) { FactoryBot.attributes_for(:category) }
   let(:params) { { category: category_attributes } }
   let(:update_params) { { category: { name: 'UpdatedName' } } }
   let(:empty_params) { { category: { name: '' } } }
@@ -67,7 +67,7 @@ describe 'Category management', type: :request do
 
     context 'non-admin user' do
       before do
-        login_as FactoryGirl.create(:member)
+        login_as FactoryBot.create(:member)
         get new_manage_category_path
       end
       specify { expect(response).to redirect_to root_path }

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe SurahsHelper, type: :helper do
-  let(:favorite) { FactoryGirl.create(:favorite, ayah: Quran::Ayah.first) }
+  let(:favorite) { FactoryBot.create(:favorite, ayah: Quran::Ayah.first) }
 
   describe '#ayah_is_favorited?' do
     specify do
@@ -16,7 +16,7 @@ RSpec.describe SurahsHelper, type: :helper do
   end
 
   describe '#ayah_is_memorized?' do
-    let(:memory) { FactoryGirl.create(:memory, ayah: Quran::Ayah.first) }
+    let(:memory) { FactoryBot.create(:memory, ayah: Quran::Ayah.first) }
 
     specify do
       expect(helper.ayah_is_memorized?(memory.user, memory.ayah)).to be_truthy

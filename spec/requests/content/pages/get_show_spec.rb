@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'Pages GET #show' do
   it 'responds successfully' do
-    page = FactoryGirl.create(:page)
+    page = FactoryBot.create(:page)
     get content_page_path(page)
     expect(response).to be_successful
   end

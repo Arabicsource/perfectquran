@@ -14,7 +14,7 @@
 #  approved   :boolean          default(FALSE)
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :flag do
     comment
     ip_address '127.0.0.1'

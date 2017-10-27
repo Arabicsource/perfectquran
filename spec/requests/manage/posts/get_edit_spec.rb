@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'Post management GET #edit', type: :request do
-  let(:blog_post) { FactoryGirl.create(:post) }
+  let(:blog_post) { FactoryBot.create(:post) }
 
   context 'guest' do
     before { get edit_manage_post_path(blog_post) }
@@ -13,7 +13,7 @@ describe 'Post management GET #edit', type: :request do
 
   context 'member' do
     before do
-      login_as FactoryGirl.create(:member)
+      login_as FactoryBot.create(:member)
       get edit_manage_post_path(blog_post)
     end
 
@@ -22,7 +22,7 @@ describe 'Post management GET #edit', type: :request do
 
   context 'admin' do
     before do
-      login_as FactoryGirl.create(:admin)
+      login_as FactoryBot.create(:admin)
       get edit_manage_post_path(blog_post)
     end
 

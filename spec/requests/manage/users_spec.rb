@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe 'User management', type: :request do
-  let(:admin) { FactoryGirl.create(:admin) }
-  let(:member) { FactoryGirl.create(:member) }
-  let(:user_obj) { FactoryGirl.create(:user) }
+  let(:admin) { FactoryBot.create(:admin) }
+  let(:member) { FactoryBot.create(:member) }
+  let(:user_obj) { FactoryBot.create(:user) }
 
   describe 'GET #index' do
     context 'guest' do

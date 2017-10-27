@@ -13,7 +13,7 @@ describe 'Management Dashboard GET #show', type: :request do
 
   context 'member' do
     before do
-      login_as FactoryGirl.create(:member)
+      login_as FactoryBot.create(:member)
       get manage_root_path
     end
 
@@ -24,7 +24,7 @@ describe 'Management Dashboard GET #show', type: :request do
 
   context 'admin' do
     before do
-      login_as FactoryGirl.create(:admin)
+      login_as FactoryBot.create(:admin)
       get manage_root_path
     end
 

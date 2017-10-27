@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 describe 'Comments flag management', type: :request do
-  let(:admin) { FactoryGirl.create(:admin) }
-  let(:user) { FactoryGirl.create(:member) }
-  let(:comment) { FactoryGirl.create(:comment) }
-  let(:comment_with_flag) { FactoryGirl.create(:comment, :with_flag) }
+  let(:admin) { FactoryBot.create(:admin) }
+  let(:user) { FactoryBot.create(:member) }
+  let(:comment) { FactoryBot.create(:comment) }
+  let(:comment_with_flag) { FactoryBot.create(:comment, :with_flag) }
 
   describe 'GET #index' do
     context 'guest' do

@@ -27,7 +27,7 @@
 #  role                   :string           default("validating")
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     name 'FirstName LastName'
     sequence(:username) { |n| "username_#{n}" }

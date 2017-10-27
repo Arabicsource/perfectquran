@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'manage/pages/index' do
   before(:each) do
     params[:action] = 'index'
-    @pages = FactoryGirl.build_stubbed_list(:page, 5)
+    @pages = FactoryBot.build_stubbed_list(:page, 5)
   end
 
   it 'provides layout with a page title' do

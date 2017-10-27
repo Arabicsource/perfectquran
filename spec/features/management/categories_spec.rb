@@ -4,9 +4,9 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'Categories management' do
-  let(:admin) { FactoryGirl.create(:admin) }
-  let(:category_attributes) { FactoryGirl.attributes_for(:category) }
-  let(:category) { FactoryGirl.create(:category) }
+  let(:admin) { FactoryBot.create(:admin) }
+  let(:category_attributes) { FactoryBot.attributes_for(:category) }
+  let(:category) { FactoryBot.create(:category) }
   before { login_as admin }
 
   scenario 'create a new category' do

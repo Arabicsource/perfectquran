@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'manage/pages/show' do
   before(:each) do
     params[:action] = 'show'
-    @page = FactoryGirl.build_stubbed(:page)
+    @page = FactoryBot.build_stubbed(:page)
   end
 
   it 'provides layout with a page title' do

@@ -6,7 +6,7 @@ describe 'Posts' do
   describe 'GET #index' do
     context 'geust' do
       before do
-        @post = FactoryGirl.create(:post)
+        @post = FactoryBot.create(:post)
         get blog_path
       end
       specify { expect(response).to be_successful }
@@ -18,7 +18,7 @@ describe 'Posts' do
   describe 'GET #show' do
     describe 'without comments' do
       before do
-        @post = FactoryGirl.create(:post)
+        @post = FactoryBot.create(:post)
         get blog_post_path(@post.permalink)
       end
 
@@ -30,7 +30,7 @@ describe 'Posts' do
 
     describe 'with comments' do
       before do
-        @post = FactoryGirl.create(:post, :with_comments)
+        @post = FactoryBot.create(:post, :with_comments)
         get blog_post_path(@post.permalink)
       end
 
@@ -46,7 +46,7 @@ describe 'Posts' do
 
     describe 'with flagged comments' do
       before do
-        @post = FactoryGirl.create(:post, :with_flagged_comments)
+        @post = FactoryBot.create(:post, :with_flagged_comments)
         get blog_post_path(@post.permalink)
       end
 
@@ -62,7 +62,7 @@ describe 'Posts' do
 
     describe 'with approved comments' do
       before do
-        @post = FactoryGirl.create(:post, :with_approved_comments)
+        @post = FactoryBot.create(:post, :with_approved_comments)
         get blog_post_path(@post.permalink)
       end
 

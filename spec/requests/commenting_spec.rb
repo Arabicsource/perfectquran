@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 describe 'Commenting', type: :request do
-  let(:user) { FactoryGirl.create(:member) }
-  let(:valid_params) { { comment: FactoryGirl.attributes_for(:comment) } }
+  let(:user) { FactoryBot.create(:member) }
+  let(:valid_params) { { comment: FactoryBot.attributes_for(:comment) } }
   let(:empty_params) { { comment: { content: '' } } }
 
   describe 'on ayat' do
@@ -38,7 +38,7 @@ describe 'Commenting', type: :request do
   end
 
   describe 'on blog posts' do
-    let(:blog_post) { FactoryGirl.create(:post) }
+    let(:blog_post) { FactoryBot.create(:post) }
     let(:post_path) { "/posts/#{blog_post.id}/comments" }
 
     describe 'POST #create' do
