@@ -3,7 +3,7 @@
 %section
   %h1 New Page
   
-  = form_with scope: :page, url: manage_pages_path do |f|
+  = form_with scope: :page, url: manage_pages_path, id: 'new-page' do |f|
     
     = render 'shared/error_messages', object: @page
   

@@ -5,7 +5,7 @@
     Edit Page
     %small= @page.title
 
-  = form_with scope: :page, url: manage_page_path(@page.id), method: :patch do |f|
+  = form_with scope: :page, url: manage_page_path(@page.id), method: :patch, id: 'edit-page' do |f|
     
     = render 'shared/error_messages', object: @page
   
