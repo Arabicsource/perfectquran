@@ -15,7 +15,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Page, type: :model do
+RSpec.describe Content::Page, type: :model do
   subject { FactoryGirl.create(:page, title: 'This is my title') }
 
   it { is_expected.to be_valid }

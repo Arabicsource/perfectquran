@@ -12,12 +12,15 @@
 #  updated_at :datetime         not null
 #  permalink  :string
 #
-class Page < ApplicationRecord
-  before_validation { self.permalink = title.parameterize }
+module Content
+  # :nodoc:
+  class Page < ApplicationRecord
+    before_validation { self.permalink = title.parameterize }
 
-  belongs_to :user
+    belongs_to :user
 
-  validates :title, presence: true
-  validates :permalink, uniqueness: { case_sensitive: false }
-  validates :content, presence: true
+    validates :title, presence: true
+    validates :permalink, uniqueness: { case_sensitive: false }
+    validates :content, presence: true
+  end
 end

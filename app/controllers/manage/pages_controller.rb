@@ -4,19 +4,19 @@ module Manage
   # :nodoc:
   class PagesController < Manage::BaseController
     def index
-      @pages = Page.all
+      @pages = Content::Page.all
     end
 
     def show
-      @page = Page.find(params[:id])
+      @page = Content::Page.find(params[:id])
     end
 
     def new
-      @page = Page.new
+      @page = Content::Page.new
     end
 
     def create
-      @page = Page.new(page_params)
+      @page = Content::Page.new(page_params)
       @page.user = current_user
 
       if @page.save
@@ -28,11 +28,11 @@ module Manage
     end
 
     def edit
-      @page = Page.find(params[:id])
+      @page = Content::Page.find(params[:id])
     end
 
     def update
-      @page = Page.find(params[:id])
+      @page = Content::Page.find(params[:id])
 
       if @page.update_attributes(page_params)
         flash[:success] = t 'manage.page.edited'

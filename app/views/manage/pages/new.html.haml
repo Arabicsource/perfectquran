@@ -1,7 +1,20 @@
-= render 'manage/shared/actions_toolbar', object: @page
+= render 'toolbar'
 
 %section
   %h1 New Page
-  = render 'form'
+  
+  = form_with scope: :page, url: manage_pages_path do |f|
+    
+    = render 'shared/error_messages', object: @page
+  
+    .form-group
+      = f.label :title
+      = f.text_field :title, class: 'form-control', id: 'page_title'
+  
+    .form-group
+      = f.label :content
+      = f.text_area :content, rows: 20, class: 'form-control', id: 'page_content'
+  
+    = f.submit 'Create Page', class: 'btn btn-secondary'
    
 - provide :title, 'New Page'
