@@ -14,11 +14,10 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  subject { FactoryBot.build_stubbed(:category) }
-
-  it { is_expected.to be_valid }
-  it { is_expected.to validate_presence_of :name }
-  it { is_expected.to have_many :posts }
+  context 'validations' do
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to have_many :posts }
+  end
 
   describe '#all_active' do
     it 'returns all unique categories with posts' do

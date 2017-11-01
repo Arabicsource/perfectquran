@@ -22,6 +22,8 @@ RSpec.describe Post, type: :model do
     FactoryBot.create(:post, title: 'This is my title', user: author)
   end
 
+  let(:commentable) { subject }
+
   it { is_expected.to be_valid }
   it { is_expected.to validate_presence_of :title }
   it { is_expected.to validate_uniqueness_of(:permalink).case_insensitive }

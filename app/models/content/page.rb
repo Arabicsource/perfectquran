@@ -15,7 +15,7 @@
 module Content
   # :nodoc:
   class Page < ApplicationRecord
-    before_validation { self.permalink = title.parameterize }
+    before_validation { self.permalink = title.parameterize if title.present? }
 
     belongs_to :user
 

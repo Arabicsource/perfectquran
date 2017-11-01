@@ -3,28 +3,30 @@
 RSpec.shared_examples 'commentable' do
   describe '#visible_comments?' do
     it 'is false when no comments exisit' do
-      expect(subject.visible_comments?).to be_falsey
+      expect(commentable.visible_comments?).to be_falsey
     end
 
     it 'is false when all comments have been flagged' do
-      FactoryBot.create_list(:comment, 3, :with_flag, commentable: subject)
-      expect(subject.visible_comments?).to be_falsey
+      FactoryBot.create_list(:comment, 3, :with_flag, commentable: commentable)
+      expect(commentable.visible_comments?).to be_falsey
     end
 
     it 'is true when no comments have been flagged' do
-      FactoryBot.create_list(:comment, 3, commentable: subject)
-      expect(subject.visible_comments?).to be_truthy
+      FactoryBot.create_list(:comment, 3, commentable: commentable)
+      expect(commentable.visible_comments?).to be_truthy
     end
 
     it 'is true when there is a mixture of flagged and unflagged comments' do
-      FactoryBot.create_list(:comment, 3, commentable: subject)
-      FactoryBot.create_list(:comment, 3, :with_flag, commentable: subject)
-      expect(subject.visible_comments?).to be_truthy
+      FactoryBot.create_list(:comment, 3, commentable: commentable)
+      FactoryBot.create_list(:comment, 3, :with_flag, commentable: commentable)
+      expect(commentable.visible_comments?).to be_truthy
     end
 
     it 'is true when comments have been approved' do
-      FactoryBot.create_list(:comment, 3, :with_approval, commentable: subject)
-      expect(subject.visible_comments?).to be_truthy
+      FactoryBot.create_list(
+        :comment, 3, :with_approval, commentable: commentable
+      )
+      expect(commentable.visible_comments?).to be_truthy
     end
   end
 

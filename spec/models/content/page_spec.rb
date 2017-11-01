@@ -16,15 +16,15 @@
 require 'rails_helper'
 
 RSpec.describe Content::Page, type: :model do
-  subject { FactoryBot.create(:page, title: 'This is my title') }
-
-  it { is_expected.to be_valid }
-  it { is_expected.to validate_uniqueness_of(:permalink).case_insensitive }
-  it { is_expected.to validate_presence_of :content }
+  context 'validations' do
+    it { is_expected.to validate_uniqueness_of(:permalink).case_insensitive }
+    it { is_expected.to validate_presence_of :content }
+  end
 
   describe '#permalink' do
     it 'is a parameterized version of the title' do
-      expect(subject.permalink).to eq 'this-is-my-title'
+      page = FactoryBot.create :page, title: 'This is my Title'
+      expect(page.permalink).to eq 'this-is-my-title'
     end
   end
 end
