@@ -32,7 +32,7 @@ module Quran
       end
 
       def url
-        @url ||= "perfectquran.co/#{@surah_id}/#{@ayah_number}"
+        @url ||= "https://perfectquran.co/#{@surah_id}/#{@ayah_number}"
       end
 
       def filter_apostraphe_html_entities
