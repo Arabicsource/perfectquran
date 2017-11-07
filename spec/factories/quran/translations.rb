@@ -11,8 +11,11 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-require 'rails_helper'
 
-RSpec.describe Quran::Translation, type: :model do
-  it { is_expected.to belong_to :language }
+FactoryBot.define do
+  factory :translation, class: Quran::Translation do
+    name 'string'
+    description 'string'
+    language
+  end
 end

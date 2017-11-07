@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'quran/surahs/_breadcrumb' do
   it 'renders an Index link' do
-    @surah = Quran::Surah.first
+    assign :surah, build_stubbed(:surah)
 
     render
 
@@ -12,10 +12,10 @@ describe 'quran/surahs/_breadcrumb' do
   end
 
   it 'renders the surahs transliterated name' do
-    @surah = Quran::Surah.first
+    assign :surah, build_stubbed(:surah, transliterated_name: 'abc123')
 
     render
 
-    expect(rendered).to have_text 'Al-Fatihah'
+    expect(rendered).to have_text 'abc123'
   end
 end

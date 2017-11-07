@@ -11,8 +11,9 @@
 #  updated_at :datetime         not null
 #
 
-require 'rails_helper'
-
-RSpec.describe Quran::Language, type: :model do
-  it { is_expected.to be_valid }
+FactoryBot.define do
+  factory :language, class: Quran::Language do
+    name 'string'
+    direction 'string'
+  end
 end

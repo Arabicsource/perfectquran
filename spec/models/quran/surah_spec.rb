@@ -21,9 +21,6 @@
 require 'rails_helper'
 
 RSpec.describe Quran::Surah, type: :model do
-  subject { Quran::Surah.first }
-
-  it { is_expected.to be_valid }
   it { is_expected.to have_many(:ayahs) }
   it do
     is_expected.to define_enum_for(:revelation_type).with(%i[meccan medinan])
@@ -32,31 +29,44 @@ RSpec.describe Quran::Surah, type: :model do
 
   describe '#ayahs' do
     it 'returns ayahs in Ascending order' do
-      expect(subject.ayahs.map(&:id)).to eq [1, 2, 3, 4, 5, 6, 7]
+      surah = create :surah
+      create(:ayah, id: 3, surah: surah)
+      create(:ayah, id: 1, surah: surah)
+      create(:ayah, id: 2, surah: surah)
+
+      expect(surah.ayahs.map(&:id)).to eq [1, 2, 3]
     end
   end
 
   describe '#next' do
-    before { @surahs = Quran::Surah.all }
+    before do
+      @first = create :surah, id: 1
+      @second = create :surah, id: 2
+      @third = create :surah, id: 3
+    end
+
     specify 'returns the next surah' do
-      first_surah = @surahs.first
-      expect(first_surah.next).to eq(@surahs[1])
+      expect(@second.next).to eq(@third)
     end
 
     specify 'returns first surah if current surah is last' do
-      expect(@surahs.last.next).to eq(@surahs[0])
+      expect(@third.next).to eq(@first)
     end
   end
 
   describe '#previous' do
-    before { @surahs = Quran::Surah.all }
+    before do
+      @first = create :surah, id: 1
+      @second = create :surah, id: 2
+      @third = create :surah, id: 3
+    end
 
     specify 'returns the previous surah' do
-      expect(@surahs.last.previous).to eq(@surahs[112])
+      expect(@third.previous).to eq(@second)
     end
 
     specify 'returns the last surah if the current surah is first' do
-      expect(@surahs.first.previous).to eq(@surahs.last)
+      expect(@first.previous).to eq(@third)
     end
   end
 end

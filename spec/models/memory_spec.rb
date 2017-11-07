@@ -14,13 +14,6 @@
 require 'rails_helper'
 
 RSpec.describe Memory, type: :model do
-  before do
-    @memory = FactoryBot.build_stubbed(:memory, ayah: Quran::Ayah.first)
-  end
-
-  specify { expect(@memory).to be_valid }
-  specify { expect(@memory).to respond_to(:user) }
-  specify { expect(@memory).to respond_to(:ayah) }
-  specify { expect(@memory).to belong_to(:user) }
-  specify { expect(@memory).to belong_to(:ayah).counter_cache(true) }
+  it { is_expected.to belong_to :user }
+  it { is_expected.to belong_to(:ayah).counter_cache true }
 end

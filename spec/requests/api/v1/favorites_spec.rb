@@ -7,7 +7,7 @@ RSpec.describe 'Favorites API', type: :request do
 
   describe 'POST /api/v1/ayahs/:ayah_id/favorites' do
     before do
-      @ayah = Quran::Ayah.first
+      @ayah = create :ayah
       sign_in user
     end
 
@@ -28,7 +28,7 @@ RSpec.describe 'Favorites API', type: :request do
 
   describe 'DELETE /api/v1/ayahs/:ayah_id/favorites' do
     before do
-      @ayah = Quran::Ayah.first
+      @ayah = create :ayah
       @favorite = FactoryBot.create(:favorite, ayah: @ayah, user: user)
       sign_in user
     end

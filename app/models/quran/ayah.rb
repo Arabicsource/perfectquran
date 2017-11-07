@@ -31,26 +31,34 @@ module Quran
              class_name: 'Quran::Text'
 
     def noble_quran_text
-      texts.where(translation_id: 3).first.content
+      texts.where(translation_id: 3).first.try(:content) || ''
     end
 
     def surah_name
       surah.transliterated_name
     end
 
+    def previous?
+      previous.present?
+    end
+
     def previous
-      if id > 1
-        self.class.find(id - 1)
-      else
-        self.class.find(6236)
-      end
+      @previous ||= if id > 1
+                      self.class.find_by id: id - 1
+                    else
+                      self.class.find_by id: 6236
+                    end
+    end
+
+    def next?
+      self.next.present?
     end
 
     def next
       if id == 6236
-        self.class.first
+        self.class.find_by id: 1
       else
-        self.class.find(id + 1)
+        self.class.find_by id: id + 1
       end
     end
 

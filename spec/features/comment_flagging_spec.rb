@@ -22,7 +22,7 @@ feature 'Flagging comments' do
   end
 
   scenario 'on ayahs' do
-    ayah = Quran::Ayah.first
+    ayah = create :ayah
     FactoryBot.create_list(:comment, 3, commentable: ayah)
 
     visit quran_ayah_path ayah

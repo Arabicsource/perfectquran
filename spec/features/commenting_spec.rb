@@ -7,7 +7,7 @@ feature 'Commenting' do
   let(:comment_attributes) { FactoryBot.attributes_for(:comment) }
   let(:user) { FactoryBot.create(:member) }
   let(:post) { FactoryBot.create(:post) }
-  let(:ayah) { Quran::Ayah.first }
+  let(:ayah) { create :ayah }
 
   before { login_as user }
 

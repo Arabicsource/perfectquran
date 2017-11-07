@@ -10,13 +10,16 @@ RSpec.describe 'Ayahs API', type: :request do
     end
 
     it 'returns all ayahs' do
+      create_list :ayah, 5
+
       get '/api/v1/ayahs'
-      expect(JSON.parse(response.body).length).to eq(6236)
+
+      expect(JSON.parse(response.body).length).to eq(5)
     end
   end
 
   describe 'GET /api/v1/ayahs/:ayah_id' do
-    before { @ayah = Quran::Ayah.first }
+    before { @ayah = create :ayah }
 
     it 'returns a success response' do
       get "/api/v1/ayahs/#{@ayah.id}"
@@ -36,7 +39,7 @@ RSpec.describe 'Ayahs API', type: :request do
   end
 
   describe 'GET /api/v1/surah/:surah_id/ayah/:ayah_number' do
-    before { @ayah = Quran::Ayah.first }
+    before { @ayah = create :ayah }
 
     it 'returns a success response' do
       get "/api/v1/surah/#{@ayah.surah.id}/ayah/#{@ayah.number}"

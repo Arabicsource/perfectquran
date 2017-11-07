@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'Ayahs', type: :request do
   context 'GET show' do
     it 'responds successfully' do
-      ayah = Quran::Ayah.first
+      ayah = create :ayah
 
       get quran_ayah_path(ayah)
 
@@ -15,7 +15,7 @@ describe 'Ayahs', type: :request do
 
   context 'GET /:surah_id/:ayah_number' do
     it 'responds successfully' do
-      ayah = Quran::Ayah.first
+      ayah = create :ayah
 
       get "/#{ayah.surah.id}/#{ayah.number}"
 
@@ -23,7 +23,7 @@ describe 'Ayahs', type: :request do
     end
 
     it 'renders quran/surahs/show' do
-      ayah = Quran::Ayah.first
+      ayah = create :ayah
 
       get "/#{ayah.surah.id}/#{ayah.number}"
 
