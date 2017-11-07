@@ -25,8 +25,7 @@ class TweetNextAyah
   end
 
   def next_ayah_text
-    text = next_ayah.texts.where(translation_id: 3).first.content
-    text = TwitterPrepareAyah.new(next_ayah.surah.id, next_ayah.number, text).call
+    next_ayah.texts.where(translation_id: 3).first.twitterize
   end
 
   def next_ayah
