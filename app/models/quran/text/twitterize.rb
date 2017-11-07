@@ -3,7 +3,7 @@
 module Quran
   class Text
     class Twitterize # :nodoc:
-      TWITTER_CHAR_LIMIT = 140
+      TWITTER_CHAR_LIMIT = 280
 
       def initialize(text)
         @content = text.content
