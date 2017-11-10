@@ -1,6 +1,8 @@
 language: ruby
 rvm:
   - 2.4.2
+env:
+  DEVISE_SECRET_KEY=bac0c3178cf7a54c002cfc2763c2d21dbca0e7ca6fdbfa62a80759c7bda63e9ca07d5e832ad91cf952a151bd9ced1d4beac3af622b720e3eaa1c0841088f5189
 cache: bundler
 services:
   - postgresql
