@@ -24,10 +24,6 @@ class FlagsController < ApplicationController
   end
 
   def redirect_path
-    if @comment.commentable.respond_to? :permalink
-      blog_post_path(@comment.commentable.permalink)
-    else
-      quran_ayah_path(@comment.commentable)
-    end
+    blog_post_path(@comment.commentable.permalink)
   end
 end

@@ -11,7 +11,6 @@ module Quran
                   surah_id: params[:surah_id], number: params[:number]
                 )
               end
-      @comment = Comment.new
     end
   end
 end

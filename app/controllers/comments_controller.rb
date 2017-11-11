@@ -20,18 +20,10 @@ class CommentsController < ApplicationController
 
   def load_commentable
     resource, id = request.path.split('/')[1, 2]
-    @commentable = if resource == 'ayahs'
-                     Quran::Ayah.find(id)
-                   else
-                     resource.singularize.classify.constantize.find(id)
-                   end
+    @commentable = resource.singularize.classify.constantize.find(id)
   end
 
   def redirect_path
-    if @commentable.respond_to? :permalink
-      blog_post_path(@commentable.permalink)
-    else
-      quran_ayah_path(@commentable)
-    end
+    blog_post_path(@commentable.permalink)
   end
 end

@@ -44,7 +44,4 @@
           = link_to quran_ayah_path(@ayah.next) do
             = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
 
-= render 'comments/comments', commentable: @ayah
-= render 'comments/form', commentable: @ayah, comment: @comment
-
 - provide :title, "#{@ayah.surah_name} #{@ayah.number}"
