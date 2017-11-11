@@ -121,17 +121,17 @@ RSpec.describe Quran::Text, type: :model do
     end
 
     context 'text, reference and url are more than 140 characters' do
-      it 'has a length of 140 characters' do
+      it 'has a length of 280 characters' do
         ayah = build_stubbed :ayah
-        content = ('a' * 200).to_s
+        content = ('a' * 300).to_s
         text = build_stubbed :text, ayah: ayah, content: content
 
-        expect(text.twitterize.length).to eq 140
+        expect(text.twitterize.length).to eq 280
       end
 
       it 'removes parenthesis' do
         ayah = build_stubbed :ayah
-        content = "#{'a' * 40} (abc123) #{'a' * 100}"
+        content = "#{'a' * 200} (abc123) #{'a' * 100}"
         text = build_stubbed :text, ayah: ayah, content: content
 
         expect(text.twitterize).not_to include '(abc123)'
@@ -139,7 +139,7 @@ RSpec.describe Quran::Text, type: :model do
 
       it 'removes square brackets' do
         ayah = build_stubbed :ayah
-        content = "#{'a' * 40} [abc123] #{'a' * 100}"
+        content = "#{'a' * 200} [abc123] #{'a' * 100}"
         text = build_stubbed :text, ayah: ayah, content: content
 
         expect(text.twitterize).not_to include '[abc123]'
