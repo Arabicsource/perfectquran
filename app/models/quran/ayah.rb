@@ -18,8 +18,6 @@
 module Quran
   # :nodoc:
   class Ayah < ApplicationRecord
-    include Commentable
-
     default_scope { order('id asc') }
 
     belongs_to :surah, class_name: 'Quran::Surah'

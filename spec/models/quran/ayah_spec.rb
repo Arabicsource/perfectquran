@@ -24,7 +24,6 @@ RSpec.describe Quran::Ayah, type: :model do
     it { is_expected.to have_many :texts }
     it { is_expected.to have_many :favorites }
     it { is_expected.to have_many :memories }
-    it { is_expected.to have_many :comments }
     it do
       is_expected.to(
         have_many(:texts_and_included_translations).class_name('Quran::Text')
@@ -33,10 +32,6 @@ RSpec.describe Quran::Ayah, type: :model do
   end
 
   context 'instance methods' do
-    let(:commentable) { build_stubbed :ayah }
-
-    it_behaves_like 'commentable'
-
     describe '#noble_quran_text' do
       it 'is equal to the text content of the translation with an id of 3' do
         ayah = create :ayah
