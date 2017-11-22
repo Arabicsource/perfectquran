@@ -9,6 +9,7 @@
 
 .byebug_history
 /public/audios
+/public/packs
 /coverage
 
 .DS_Store

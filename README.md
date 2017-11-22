@@ -32,3 +32,4 @@ we would like to express our deepest gratitude to all contributors. In Sha
 Allah, we will expand this list.
 
 * [Ruby on Rails](http://rubyonrails.org)
+* [Bulma](https://bulma.io)
