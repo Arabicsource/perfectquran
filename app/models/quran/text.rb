@@ -15,8 +15,6 @@
 module Quran
   # :nodoc:
   class Text < ApplicationRecord
-    searchkick
-
     default_scope { order('id asc') }
 
     belongs_to :translation, class_name: 'Quran::Translation'

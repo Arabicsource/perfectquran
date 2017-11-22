@@ -1,3 +1,4 @@
-%ol.breadcrumb
-  %li.breadcrumb-item= link_to 'Index', quran_surahs_path
-  %li.breadcrumb-item= @surah.transliterated_name
+%nav.breadcrumb.is-left{ aria: { label: 'breadcrumbs' } }
+  %ul
+    %li= link_to 'Index', quran_surahs_path
+    %li.is-active= link_to @surah.transliterated_name, '#', aria: { current: 'page' }

@@ -1,0 +1,22 @@
+html
+  background: $background
+
+audio
+  width: 100%
+
+section#main
+  background: $white
+
+.navbar-burger
+  border-radius: 0
+  border: 0
+
+  &.is-active
+    background: $orange
+    color: $white
+
+#error_explanation
+  @extend .notification, .is-danger, .content
+
+  h2
+    color: $white

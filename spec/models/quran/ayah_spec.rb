@@ -22,8 +22,6 @@ RSpec.describe Quran::Ayah, type: :model do
   context 'associations' do
     it { is_expected.to belong_to :surah }
     it { is_expected.to have_many :texts }
-    it { is_expected.to have_many :favorites }
-    it { is_expected.to have_many :memories }
     it do
       is_expected.to(
         have_many(:texts_and_included_translations).class_name('Quran::Text')

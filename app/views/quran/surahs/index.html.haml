@@ -1,14 +1,16 @@
-%h1.d-none Suwar
+%h1.is-hidden Suwar
 
-%ol#suwar-index
-  - @surahs.each do |surah|
-    %li.surah{id: "surah-#{surah.id}"}
-      %h2
-        = link_to quran_surah_path(surah) do
-          = "#{surah.id} #{surah.transliterated_name} #{surah.arabic_name}"  
-      %p
-        = "#{surah.english_name}"
-        %br
-        = "#{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}."
+%section#main.section
+  .container
+    %ol#suwar-index
+      - @surahs.each do |surah|
+        %li.surah{id: "surah-#{surah.id}"}
+          %h2
+            = link_to quran_surah_path(surah) do
+              = "#{surah.id} #{surah.transliterated_name} #{surah.arabic_name}"  
+          %p.has-text-weight-light
+            = "#{surah.english_name}"
+            %br
+            = "#{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}."
 
 - provide :title, 'Suwar'

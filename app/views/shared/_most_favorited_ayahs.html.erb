@@ -1,6 +1,0 @@
-<section>
-  <h1>Most Favorited</h1>
-  <% Ayah.order("favorites_count DESC").limit(5).each do |ayah| %>
-    <%= link_to "#{ayah.surah.transliterated_name}:#{ayah.number} (#{ayah.favorites_count})", surah_path(ayah.surah.permalink, anchor: "ayah-#{ayah.id}") %>
-  <% end %>
-</section>

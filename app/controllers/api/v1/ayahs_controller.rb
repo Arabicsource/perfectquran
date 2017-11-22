@@ -3,7 +3,7 @@
 module Api
   module V1
     # :nodoc:
-    class AyahsController < ApplicationController
+    class AyahsController < Api::V1::BaseController
       def index
         render json: Quran::Ayah.all
       end

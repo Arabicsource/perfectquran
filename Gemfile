@@ -7,30 +7,22 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bulma-rails', '~> 0.6.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'haml'
 gem 'jbuilder', '~> 2.5'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'kaminari'
 gem 'koala'
-gem 'mail_form'
 gem 'pg', '~> 0.18'
-gem 'popper_js', '~> 1.11.1'
 gem 'puma', '~> 3.7'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.1.2'
-gem 'redcarpet'
 gem 'sass-rails', '~> 5.0'
-gem 'searchkick'
 gem 'turbolinks', '~> 5'
 gem 'twitter'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'uglifier', '>= 1.3.0'
-gem 'webpacker'
 
 group :development, :test do
   gem 'bullet'

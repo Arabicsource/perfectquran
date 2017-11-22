@@ -1,33 +1,27 @@
-.row
-  .col-12.col-lg-8
-    = render 'breadcrumb'
-  .col-12.col-lg-4.mb-4
-    = link_to quran_surah_path(@surah.previous), class: 'btn btn-primary' do
-      = fa_icon 'chevron-circle-left'
-      Previous      
-    
-    = link_to quran_surah_path(@surah.next), class: 'btn btn-primary float-right' do
-      Next
-      = fa_icon 'chevron-circle-right'
+.container
+  = render 'breadcrumb'
 
-%audio{controls: true}
-  %source{src: surah_audio_file(@surah.id), type: "audio/mpeg"}
-    Your browser does not support the audio tag.
-
-%article#surah
-  %h1.d-none= @surah.transliterated_name
-  - @surah.ayahs_and_included_texts.each do |ayah|
-    %article.ayah
-      %h1
-        = link_to quran_ayah_path(ayah) do 
-          = "#{@surah.transliterated_name} #{ayah.number}"
-
-      - ayah.texts_and_included_translations.each do |text|
-        .ayah-text
-          %h2{class: ('d-none' if text.uthmani?)}= text.translation.name
-          %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
+%section#main.section
+  .container
+    .columns
+      .column.is-two-thirds
+        .level
+          = render 'pagination'
+        .level
+          = render 'audio'
+        %article#surah
+          %h1.is-hidden= @surah.transliterated_name
+          - @surah.ayahs_and_included_texts.each do |ayah|
+            %article.ayah.content
+              %h1.is-size-4
+                = link_to quran_ayah_path(ayah), class: 'has-text-grey' do 
+                  = "#{@surah.transliterated_name} #{ayah.number}"
+              - ayah.texts_and_included_translations.each do |text|
+                .ayah-text.content
+                  %h2.has-text-orange-dark.is-size-5{class: ('is-hidden' if text.uthmani?)}= text.translation.name
+                  %p{class: ('is-size-2 has-text-right' if text.uthmani?)}= text.content.html_safe
+        = render 'pagination'
+      .column
+        = render 'information', surah: @surah
 
 - provide :title, @surah.transliterated_name
-
-- content_for :aside do
-  = render 'information', surah: @surah

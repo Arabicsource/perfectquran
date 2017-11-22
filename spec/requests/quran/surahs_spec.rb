@@ -42,10 +42,6 @@ describe 'Surahs', type: :request do
     it 'responds successfully' do
       expect(response).to be_successful
     end
-
-    it 'uses fullpage layout' do
-      expect(response).to render_template layout: 'fullpage'
-    end
   end
 
   context 'GET show' do

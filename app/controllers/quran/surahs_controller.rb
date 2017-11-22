@@ -5,7 +5,6 @@ module Quran
   class SurahsController < Quran::BaseController
     def index
       @surahs = Surah.all
-      render layout: 'fullpage'
     end
 
     def show

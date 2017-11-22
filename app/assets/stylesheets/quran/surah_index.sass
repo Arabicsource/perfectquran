@@ -1,0 +1,21 @@
+#quran-surahs.index
+  ol
+    list-style: none
+
+    li
+      width: 100%
+      display: inline-block
+      padding-bottom: 1rem
+      margin-bottom: 1rem
+      border-bottom: 3px solid $background
+
+      &:hover
+        border-color: $orange-dark
+
+  @media (min-width: 768px)
+    ol
+      column-count: 2
+
+  @media (min-width: 992px)
+    ol
+      column-count: 4

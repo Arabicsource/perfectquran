@@ -1,16 +1,23 @@
-.component
-  %h1 Resend confirmation instructions
+.hero.is-light.is-small
+  .hero-body
+    .container
+      %h1.title Resend confirmation instructions
 
-  = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-    = devise_error_messages!
+%section#main.section
+  .container
+    .columns
+      .column.is-two-thirds
+        = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+          = devise_error_messages!
+      
+          .field
+            = f.label :email, class: 'label'
+            .control
+              = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'input'
 
-    .form-group
-      = f.label :email
-      = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control'
+          .field
+            = f.submit "Resend confirmation instructions", class: "button"
+      .column
+        = render "devise/shared/links"
 
-    = f.submit "Resend confirmation instructions", class: "btn btn-secondary"
-
-  - content_for(:aside) do
-    = render "devise/shared/links"
-
-  - provide :title, 'Resend confirmation instructions'
+- provide :title, 'Resend confirmation instructions'

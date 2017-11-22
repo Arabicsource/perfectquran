@@ -9,6 +9,11 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class FacebookShare < ApplicationRecord
-  belongs_to :ayah, class_name: 'Quran::Ayah'
+
+require 'rails_helper'
+
+RSpec.describe FacebookShare, type: :model do
+  subject { build_stubbed :facebook_share }
+
+  it { is_expected.to belong_to :ayah }
 end

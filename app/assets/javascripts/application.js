@@ -10,25 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery-ui
-//= require popper
 //= require rails-ujs
 //= require turbolinks
-//= require bootstrap
 //= require_tree .
-
-$(document).on('turbolinks:load', function() {
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-
-    $('#surah_quick_find').change(function(){
-      const permalink = $(this).val();
-      window.location.href = "https://perfectquran.co/" + permalink;
-    });
-
-    $('#post_category_name').autocomplete(
-      { source: $('#post_category_name').data('autocomplete-source') }
-    );
-  })
-})

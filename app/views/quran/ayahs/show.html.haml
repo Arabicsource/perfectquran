@@ -1,47 +1,20 @@
-.row
-  .col-12.col-lg-8
-    = render 'breadcrumb'
-  .col-12.col-lg-4.mb-4
-    - if @ayah.previous?
-      = link_to quran_ayah_path(@ayah.previous), class: 'btn btn-primary' do
-        = fa_icon 'chevron-circle-left'
-        Previous
+.container
+  = render 'breadcrumb'
 
-    - if @ayah.next?
-      = link_to quran_ayah_path(@ayah.next), class: 'btn btn-primary float-right' do
-        Next
-        = fa_icon 'chevron-circle-right'
-
-%audio{controls: true}
-  %source{src: ayah_audio_file(@ayah.surah.id, @ayah.number), type: "audio/mpeg"}
-    Your browser does not support the audio tag.
-
-%article#ayah
-  - if @ayah.previous
-    .previous-ayah
-      %p
-        %small
-          = @ayah.previous.noble_quran_text.html_safe
-          = link_to quran_ayah_path(@ayah.previous) do
-            = "(#{@ayah.previous.surah.id}:#{@ayah.previous.number})"
-
-  .current-ayah
-    %h1= "#{@ayah.surah_name} #{@ayah.number}"
-        
-    - @ayah.texts_and_included_translations.each do |text|
-      .ayah-text
-        %h2{class: ('d-none' if text.uthmani?)}= text.translation.name
-        %p{class: ('arabic' if text.uthmani?)}= text.content.html_safe
-            
-    .actions
-      = render 'shared/ayah_actions', ayah: @ayah
-
-  - if @ayah.next?
-    .next-ayah
-      %p
-        %small
-          = @ayah.next.noble_quran_text.html_safe
-          = link_to quran_ayah_path(@ayah.next) do
-            = "(#{@ayah.next.surah.id}:#{@ayah.next.number})"
+%section#main.section
+  .container
+    .columns
+      .column.is-two-thirds
+        .level.is-block
+          = render 'pagination'
+        .level
+          = render 'audio'
+        %article#ayah.content
+          = render 'previous'
+          = render 'current'
+          = render 'next'          
+        = render 'pagination'
+      .column
+        = render 'quran/surahs/information', surah: @ayah.surah
 
 - provide :title, "#{@ayah.surah_name} #{@ayah.number}"

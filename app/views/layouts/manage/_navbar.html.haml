@@ -7,9 +7,6 @@
       = link_to '#', id: 'nav-content-dropdown', class: 'nav-link dropdown-toggle', data: { toggle: 'dropdown' } do
         Content
       .dropdown-menu
-        = link_to 'Comments', manage_comments_path, class: 'dropdown-item'
-        = link_to 'Categories', manage_categories_path, class: 'dropdown-item'
         = link_to 'Pages', manage_pages_path, class: 'dropdown-item'
-        = link_to 'Posts', manage_posts_path, class: 'dropdown-item'
     %li.nav-item
       = link_to 'Users', manage_users_path, class: 'nav-link'

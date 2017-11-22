@@ -1,6 +1,5 @@
 AllCops:
   Exclude:
-    - 'node_modules/**/*'
     - 'db/schema.rb'
     - 'db/migrate/*.rb'
     - 'config/spring.rb'

@@ -1,16 +1,24 @@
-.component
-  %h1 Forgot your password?
+.hero.is-light.is-small
+  .hero-body
+    .container
+      %h1.title Forgot your password?
 
-  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-    = devise_error_messages!
+%section#main.section
+  .container
+    .columns
+      .column.is-two-thirds
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = devise_error_messages!
 
-    .form-group
-      = f.label :email
-      = f.email_field :email, autofocus: true, class: 'form-control'
+          .field
+            = f.label :email, class: 'label'
+            .control
+              = f.email_field :email, autofocus: true, class: 'input'
 
-    = f.submit "Send me reset password instructions", class: "btn btn-secondary"
+          .field
+            = f.submit "Send me reset password instructions", class: "button"
+      .column
+        = render "devise/shared/links"
 
-  - content_for(:aside) do
-    = render "devise/shared/links"
 
-  - provide :title, 'Forgot your password?'
+- provide :title, 'Forgot your password?'

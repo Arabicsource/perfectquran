@@ -30,28 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  comment:
-    no_comments: 'No comments have been made.'
-    flagged: 'Thank you. The comment was flagged and is no longer visible.'
-    created: 'Alhamdulillah, your comment was added.'
-  blog:
-    comment:
-      created: 'Alhamdulillah, your comment was added'
-  settings:
-    general:
-      edited: 'Alhamdullah, your settings were updated.'
   manage:
-    comment:
-      deleted: 'The comment was deleted'
-      approved: 'The comment was approved'
-    category:
-      created: 'The category was created'
-      edited: 'The category was edited'
-      deleted: 'The category was deleted'
-    post:
-      created: 'The post was created'
-      edited: 'The post was edited'
     page:
       created: 'The page was created'
       edited: 'The page was edited'

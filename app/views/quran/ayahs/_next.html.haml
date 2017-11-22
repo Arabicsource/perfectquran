@@ -1,0 +1,6 @@
+- if @ayah.next?
+  %section.next
+    %p
+      = @ayah.next.noble_quran_text.html_safe
+      = link_to quran_ayah_path(@ayah.next) do
+        = "(#{@ayah.next.surah_id}:#{@ayah.next.number})"

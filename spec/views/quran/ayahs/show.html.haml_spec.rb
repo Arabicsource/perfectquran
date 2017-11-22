@@ -52,7 +52,7 @@ describe 'quran/ayahs/show' do
     assign :ayah, current
     render
 
-    expect(rendered).to have_css '.previous-ayah'
+    expect(rendered).to have_css '.previous'
     expect(rendered).to have_text 'abc123'
   end
 
@@ -65,7 +65,7 @@ describe 'quran/ayahs/show' do
     assign :ayah, current
     render
 
-    expect(rendered).to have_css '.next-ayah'
+    expect(rendered).to have_css '.next'
     expect(rendered).to have_text 'abc123'
   end
 
@@ -77,7 +77,7 @@ describe 'quran/ayahs/show' do
     assign :ayah, current
     render
 
-    expect(rendered).to have_css '.current-ayah'
+    expect(rendered).to have_css '.current'
     expect(rendered).to have_text 'abc123'
   end
 end

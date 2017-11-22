@@ -22,8 +22,6 @@ module Quran
 
     belongs_to :surah, class_name: 'Quran::Surah'
     has_many :texts, class_name: 'Quran::Text'
-    has_many :favorites
-    has_many :memories
     has_many :texts_and_included_translations,
              -> { includes(:translation) },
              class_name: 'Quran::Text'
@@ -58,34 +56,6 @@ module Quran
       else
         self.class.find_by id: id + 1
       end
-    end
-
-    def favorite(user)
-      @favorite ||= Favorite.find_or_initialize_by(
-        ayah_id: id, user_id: user.id
-      )
-    end
-
-    def favorited?
-      @favorite.persisted?
-    end
-
-    def favorite_count
-      favorites.count
-    end
-
-    def memory(user)
-      @memory ||= Memory.find_or_initialize_by(
-        ayah_id: id, user_id: user.id
-      )
-    end
-
-    def memorized?
-      @memory.persisted?
-    end
-
-    def memory_count
-      memories.count
     end
   end
 end

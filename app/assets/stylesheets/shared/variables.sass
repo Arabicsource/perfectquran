@@ -1,7 +1,17 @@
-$white: #ffffff
-$primary-color: #E91E63
-$link-color: $primary-color
-$primary-button-color: $primary-color
-$breadcrumb-bg: $white
+@import "sass/utilities/initial-variables"
+@import "sass/utilities/functions"
+@import "sass/utilities/derived-variables"
 
-$blue: $primary-color
+$brown: #653100
+$yellow: #FEC70A
+$orange: #FA9942
+$alert: $red
+$alert-inverse: findColorInvert($alert)
+$notice: $green
+$notice-inverse: findColorInvert($green)
+$orange-dark: darken($orange, 20%)
+$orange-dark-invert: findColorInvert($orange-dark)
+$link: $orange-dark
+$orange-invert: findColorInvert($orange)
+$addColors: ("orange":($orange, $orange-invert), "orange-dark":($orange-dark, $orange-dark-invert), "alert":($alert, $alert-inverse), "notice":($notice, $notice-inverse))
+$colors: map-merge($colors, $addColors)

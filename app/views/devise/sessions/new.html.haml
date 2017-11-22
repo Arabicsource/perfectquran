@@ -1,23 +1,32 @@
-.component
-  %h1 Login
+.hero.is-light.is-small
+  .hero-body
+    .container
+      %h1.title Login
 
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-group
-      = f.label :email
-      = f.email_field :email, autofocus: true, class: 'form-control'
+%section#main.section
+  .container
+    .columns
+      .column.is-two-thirds
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label :email, class: 'label'
+            .control
+              = f.email_field :email, autofocus: true, class: 'input'
+      
+          .field
+            = f.label :password, class: 'label'
+            .control
+              = f.password_field :password, autocomplete: "off", class: 'input'
+      
+          .field
+            .control
+              = f.label :remember_me, class: 'checkbox' do
+                = f.check_box :remember_me
+                Remember me?
 
-    .form-group
-      = f.label :password
-      = f.password_field :password, autocomplete: "off", class: 'form-control'
+          .field
+            = f.submit "Login", class: "button"
+      .column
+        = render "devise/shared/links"
 
-    .form-check
-      = f.label :remember_me, class: 'form-check-label' do
-        = f.check_box :remember_me, class: 'form-check-input'
-        Remember me?
-
-    = f.submit "Login", class: "btn btn-secondary"
-
-  - content_for(:aside) do
-    = render "devise/shared/links"
-    
-  - provide :title, 'Login'
+- provide :title, 'Login'

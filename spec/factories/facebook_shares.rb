@@ -9,6 +9,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class FacebookShare < ApplicationRecord
-  belongs_to :ayah, class_name: 'Quran::Ayah'
+
+FactoryBot.define do
+  factory :facebook_share do
+  end
 end

@@ -100,7 +100,7 @@ describe 'Page management', type: :request do
     context 'non-admin user' do
       before do
         login_as FactoryBot.create(:member)
-        post '/manage/posts'
+        post '/manage/pages'
       end
       specify { expect(response).to redirect_to root_path }
     end

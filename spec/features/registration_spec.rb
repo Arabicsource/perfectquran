@@ -7,12 +7,14 @@ feature 'Registration' do
     attributes = FactoryBot.attributes_for :user
     visit new_user_registration_path
 
-    fill_in 'Name', with: attributes[:name]
-    fill_in 'Username', with: attributes[:username]
-    fill_in 'Email', with: attributes[:email]
-    fill_in 'Password', with: attributes[:password]
-    fill_in 'Password confirmation', with: attributes[:password]
-    click_button 'Register'
+    within '#registration-form' do
+      fill_in 'Name', with: attributes[:name]
+      fill_in 'Username', with: attributes[:username]
+      fill_in 'Email', with: attributes[:email]
+      fill_in 'Password', with: attributes[:password]
+      fill_in 'Password confirmation', with: attributes[:password]
+      click_button 'Register'
+    end
 
     expect(page)
       .to have_css '.alert-notice',

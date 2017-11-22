@@ -2,13 +2,18 @@
 
 # == Schema Information
 #
-# Table name: facebook_shares
+# Table name: shares
 #
 #  id         :integer          not null, primary key
 #  ayah_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class FacebookShare < ApplicationRecord
-  belongs_to :ayah, class_name: 'Quran::Ayah'
+
+require 'rails_helper'
+
+RSpec.describe Share, type: :model do
+  subject { build_stubbed :share }
+
+  it { is_expected.to belong_to :ayah }
 end

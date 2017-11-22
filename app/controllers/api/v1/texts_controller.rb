@@ -3,7 +3,7 @@
 module Api
   module V1
     # :nodoc:
-    class TextsController < ApplicationController
+    class TextsController < Api::V1::BaseController
       # :nodoc:
       class Text < Quran::Text
         def as_json(options = {})

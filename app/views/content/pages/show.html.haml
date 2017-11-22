@@ -1,6 +1,13 @@
-%article
-  %h1= @page.title
-  .content
-    = markdown @page.content
+.hero.is-light.is-small
+  .hero-body
+    .container
+      %h1.title= @page.title
+
+%section#main.section
+  .container
+    .columns
+      .column.is-two-thirds
+        .content.is-size-4
+          = @page.content
 
 - provide :title, @page.title

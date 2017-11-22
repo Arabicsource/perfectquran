@@ -1,36 +1,22 @@
-%nav.navbar.navbar-expand-lg.navbar-light.bg-white
-
+%nav.navbar.is-transparent{ role: 'navigation', aria: { label: 'main navigation'} }
   .container
-  
-    = link_to root_path, class: 'navbar-brand dropdown-toggle mr-5', data: { toggle: 'dropdown' } do
-      PerfectQuran
-    .dropdown-menu
-      = link_to 'Surah Index', root_path, class: 'dropdown-item'
-      = link_to 'Blog', blog_path, class: 'dropdown-item'
+    .navbar-brand
+      = link_to 'PerfectQuran', root_url, class: 'navbar-item'
 
-    %button.navbar-toggler{ type: 'button', data: { toggle: 'collapse', target: '#mobile-nav' } }
-      %span.navbar-toggler-icon
+      %button.button.navbar-burger{ data: { target: 'navbar-menu' } }
+        %span
+        %span
+        %span
 
-    #mobile-nav.collapse.navbar-collapse
-      
-      - form_with url: searches_path, local: true, class: 'form-inline mr-lg-2' do |f|
-        - f.text_field :terms, class: 'form-control mr-lg-2', value: params[:id] || ''
-        - f.submit 'Search', class: 'btn btn-outline-success'
-
-      = select_tag :surah_quick_find, options_from_collection_for_select(Quran::Surah.all, "permalink", "transliterated_name"), prompt: 'Select Surah', class: 'form-control col-lg-2 mr-auto mt-3 mt-lg-0'
-
-      %ul.navbar-nav
+    .navbar-menu#navbar-menu
+      .navbar-end
         - if user_signed_in?
-          %li.nav-item.dropdown
-            = link_to '#', id: 'nav-user-dropdown', class: 'nav-link dropdown-toggle', data: { toggle: 'dropdown' } do
+          .navbar-item.has-dropdown.is-hoverable
+            = link_to '#', class: 'navbar-link' do
               = current_user.name
-            .dropdown-menu
-              = link_to 'Profile', user_path(current_user.username), class: 'dropdown-item'
-              = link_to 'Settings', edit_settings_general_path, class: 'dropdown-item'
-              = link_to 'Manage', manage_root_path, class: 'dropdown-item' if current_user.role?(:admin)
-              = link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item'
+            .navbar-dropdown
+              = link_to 'Manage', manage_root_path, class: 'navbar-item' if current_user.role?(:admin)
+              = link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-item'
         - else
-          %li.nav-item
-            = link_to 'Login', new_user_session_path, class: 'nav-link'
-          %li.nav-item
-            = link_to 'Register', new_user_registration_path, class: 'nav-link'
+          = link_to 'Login', new_user_session_path, class: 'navbar-item'
+          = link_to 'Register', new_user_registration_path, class: 'navbar-item'
