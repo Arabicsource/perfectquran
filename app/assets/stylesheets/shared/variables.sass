@@ -3,6 +3,8 @@
 @import "sass/utilities/derived-variables"
 
 $brown: #653100
+$brown-invert: findColorInvert($brown)
+
 $yellow: #FEC70A
 $orange: #FA9942
 $alert: $red
@@ -13,5 +15,5 @@ $orange-dark: darken($orange, 20%)
 $orange-dark-invert: findColorInvert($orange-dark)
 $link: $orange-dark
 $orange-invert: findColorInvert($orange)
-$addColors: ("orange":($orange, $orange-invert), "orange-dark":($orange-dark, $orange-dark-invert), "alert":($alert, $alert-inverse), "notice":($notice, $notice-inverse))
+$addColors: ("brown":($brown, $brown-invert), "orange":($orange, $orange-invert), "orange-dark":($orange-dark, $orange-dark-invert), "alert":($alert, $alert-inverse), "notice":($notice, $notice-inverse))
 $colors: map-merge($colors, $addColors)
