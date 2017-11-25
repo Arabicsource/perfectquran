@@ -17,7 +17,7 @@ feature 'Registration' do
     end
 
     expect(page)
-      .to have_css '.alert-notice',
+      .to have_css '.notification',
                    text: I18n
                      .t('devise.registrations.signed_up_but_unconfirmed')
   end

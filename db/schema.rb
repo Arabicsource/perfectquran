@@ -23,28 +23,7 @@ ActiveRecord::Schema.define(version: 20171023142851) do
     t.bigint "surah_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "favorites_count", default: 0
-    t.integer "memories_count", default: 0
     t.index ["surah_id"], name: "index_ayahs_on_surah_id"
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.string "permalink"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["permalink"], name: "index_categories_on_permalink", unique: true
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.text "content"
-    t.bigint "user_id"
-    t.string "commentable_type"
-    t.bigint "commentable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "facebook_shares", force: :cascade do |t|
@@ -54,43 +33,11 @@ ActiveRecord::Schema.define(version: 20171023142851) do
     t.index ["ayah_id"], name: "index_facebook_shares_on_ayah_id"
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.bigint "ayah_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ayah_id"], name: "index_favorites_on_ayah_id"
-    t.index ["user_id", "ayah_id"], name: "index_favorites_on_user_id_and_ayah_id", unique: true
-    t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
-
-  create_table "flags", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "comment_id"
-    t.string "ip_address"
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "approved", default: false
-    t.index ["comment_id"], name: "index_flags_on_comment_id"
-    t.index ["user_id"], name: "index_flags_on_user_id"
-  end
-
   create_table "languages", force: :cascade do |t|
     t.string "name"
     t.string "direction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "memories", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "ayah_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ayah_id"], name: "index_memories_on_ayah_id"
-    t.index ["user_id", "ayah_id"], name: "index_memories_on_user_id_and_ayah_id", unique: true
-    t.index ["user_id"], name: "index_memories_on_user_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -102,35 +49,6 @@ ActiveRecord::Schema.define(version: 20171023142851) do
     t.string "permalink"
     t.index ["permalink"], name: "index_pages_on_permalink", unique: true
     t.index ["user_id"], name: "index_pages_on_user_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.string "permalink"
-    t.index ["category_id"], name: "index_posts_on_category_id"
-    t.index ["permalink"], name: "index_posts_on_permalink", unique: true
-    t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_roles_on_name", unique: true
-  end
-
-  create_table "rolings", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "role_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["role_id"], name: "index_rolings_on_role_id"
-    t.index ["user_id"], name: "index_rolings_on_user_id"
   end
 
   create_table "shares", force: :cascade do |t|
@@ -200,19 +118,8 @@ ActiveRecord::Schema.define(version: 20171023142851) do
   end
 
   add_foreign_key "ayahs", "surahs"
-  add_foreign_key "comments", "users"
   add_foreign_key "facebook_shares", "ayahs"
-  add_foreign_key "favorites", "ayahs"
-  add_foreign_key "favorites", "users"
-  add_foreign_key "flags", "comments"
-  add_foreign_key "flags", "users"
-  add_foreign_key "memories", "ayahs"
-  add_foreign_key "memories", "users"
   add_foreign_key "pages", "users"
-  add_foreign_key "posts", "categories"
-  add_foreign_key "posts", "users"
-  add_foreign_key "rolings", "roles"
-  add_foreign_key "rolings", "users"
   add_foreign_key "shares", "ayahs"
   add_foreign_key "texts", "ayahs"
   add_foreign_key "texts", "translations"

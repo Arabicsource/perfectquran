@@ -1,5 +1,7 @@
 AllCops:
   Exclude:
+    - 'vendor/**/*'
+    - '36mvendo/**'
     - 'db/schema.rb'
     - 'db/migrate/*.rb'
     - 'config/spring.rb'

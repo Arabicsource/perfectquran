@@ -26,9 +26,10 @@
               = f.email_field :email, class: 'input'
       
           .field
-            = f.label :password, "Password (#{@minimum_password_length} characters minimum)", class: 'label'
+            = f.label :password, class: 'label'
             .control
               = f.password_field :password, autocomplete: "off", class: 'input'
+            %p.help= "Password (#{@minimum_password_length} characters minimum)"
       
           .field
             = f.label :password_confirmation, class: 'label'
