@@ -9,6 +9,7 @@ end
 
 gem 'bulma-rails', '~> 0.6.1'
 gem 'coffee-rails', '~> 4.2'
+gem 'coveralls', require: false
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'haml'
@@ -50,5 +51,4 @@ group :test do
   gem 'launchy'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
-  gem 'simplecov', require: false
 end

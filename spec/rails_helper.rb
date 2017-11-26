@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'simplecov'
-SimpleCov.start 'rails'
+require 'coveralls'
+Coveralls.wear! 'rails'
 
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'

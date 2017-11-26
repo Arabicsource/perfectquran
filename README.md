@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/imabusabah/perfectquran.svg?branch=master)](https://travis-ci.org/imabusabah/perfectquran)
 
+[![Coverage Status](https://coveralls.io/repos/github/imabusabah/perfectquran/badge.svg?branch=coveralls)](https://coveralls.io/github/imabusabah/perfectquran?branch=coveralls)
+
 # Bismillah ar-Rahman ar-Rahim
 
 The Quran is a book that judges between right and wrong.
