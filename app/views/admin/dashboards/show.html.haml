@@ -1,0 +1,7 @@
+= render 'shared/page_header', title: t('dashboard')
+
+%section#main.section
+  .container
+    = render 'admin/shared/menu'
+
+- provide :title, t('dashboard')

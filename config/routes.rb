@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     resources :ayahs, only: [:show]
   end
 
+  namespace :admin do
+    root 'dashboards#show'
+  end
+
   namespace :manage do
     root 'dashboards#show'
     resources :users, :pages
