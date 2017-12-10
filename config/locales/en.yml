@@ -30,7 +30,84 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  index: 'Index'
+  admin:
+    shared:
+      menu:
+        content: 'Content'
+    categories:
+      index:
+        title: 'Categories'
+        header: 'Categories'
+      show:
+        title: 'Category: %{name}'
+        header: 'Category: %{name}'
+      new:
+        title: 'New Category'
+        header: 'New Category'
+      create:
+        success_notification: 'The category %{name} was created'
+      edit:
+        title: 'Edit Category: %{name}'
+        header: 'Edit Category: %{name}'
+      update:
+        success_notification: 'The category %{name} was updated'
+      destroy:
+        success_notification: 'The category %{name} was deleted'
+      button:
+        new: 'New Category'
+    articles:
+      show:
+        title: 'Article: %{title}'
+      edit:
+        title: 'Edit Article: %{title}'
+      update:
+        success_notification: 'The article %{title} was updated'
+      destroy:
+        success_notification: 'The article %{title} was deleted'
+    menus:
+      index:
+        title: 'Menus'
+        header: 'Menus'
+        new_menu_link_name: 'New Menu'
+      new:
+        title: 'New Menu'
+        header: 'New Menu'
+      create:
+        success_notification: 'The menu %{name} was created'
+      show:
+        title: 'Menu: %{name}'
+      edit:
+        title: 'Edit Menu: %{name}'
+      update:
+        success_notification: 'The menu %{name} was updated'
+      destroy:
+        success_notification: 'The menu %{name} was deleted'
+    menu_links:
+      new:
+        title: 'New Menu Link'
+        header: 'New Menu Link'
+      create:
+        success_notification: 'The link %{name} was created'
+      edit:
+        title: 'Edit Menu Link: %{name}'
+        header: 'Edit Menu Link: %{name}'
+      update:
+        success_notification: 'The menu link %{name} was updated'
+      destroy:
+        success_notification: 'The menu link %{name} was deleted'
+  content:
+    articles:
+      index:
+        title: 'Blog'
+        header: 'Blog'
+    comments:
+      create:
+        success_notification: 'Alhamdulillah, your comment was created'
   dashboard: 'Dashboard'
+  articles: 'Articles'
+  new_article: 'New Article'
+  article_created: 'The article %{title} was created'
   manage:
     page:
       created: 'The page was created'

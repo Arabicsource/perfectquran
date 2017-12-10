@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   namespace :content do
     resources :pages, only: :show
+    resources :articles, only: %i[index show] do
+      resources :comments, only: :create
+    end
   end
 
   namespace :quran do
@@ -28,6 +31,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'dashboards#show'
+    resources :articles, :categories
+
+    resources :menus do
+      # resources :menu_links, only: %i[new create edit update delete]
+      resources :menu_links
+    end
   end
 
   namespace :manage do

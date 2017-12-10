@@ -1,0 +1,5 @@
+.menu
+  %p.menu-label= label
+  %ul.menu-list
+    - links.each do |link|
+      %li= link_to link.name, link.path

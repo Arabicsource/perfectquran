@@ -1,0 +1,34 @@
+= render 'shared/page_header', title: t('admin.menus.index.header')
+
+%section#main.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
+      .column
+        .field.has-addons
+          %p.control
+            = link_to new_admin_menu_path, class: 'button' do
+              %span.icon
+                = fa_icon 'plus'
+              %span
+                = t 'admin.menus.index.new_menu_link_name'
+        %table#menus.table.is-fullwidth
+          %thead
+            %tr
+              %th #
+              %th Name
+              %th Description
+          %tfoot
+            %tr
+              %th #
+              %th Name
+              %th Description
+          %tbody
+            - @menus.each do |menu|
+              %tr
+                %td= menu.id
+                %td= link_to menu.name, admin_menu_path(menu)
+                %td= menu.description
+
+- provide :title, t('admin.menus.index.title')

@@ -1,0 +1,14 @@
+= render 'shared/page_header', title: @article.title
+
+%section.section
+  .container
+    .columns.is-centered
+      .column.is-two-thirds
+        %article.content
+          = @article.content.html_safe
+
+= render 'content/articles/comments'
+
+= render 'content/articles/comments_form'
+
+- provide :title, @article.title

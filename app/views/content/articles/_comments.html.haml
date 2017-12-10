@@ -1,0 +1,19 @@
+- if @article.comments.any?
+  = render 'shared/page_header', title: 'Comments'
+
+  %section.section
+    .container
+      .columns.is-centered
+        .column.is-two-thirds
+          - @article.comments.includes(:user).each do |comment|
+            %article.media
+              %figure.media-left
+                %p.image.is-64x64
+                  = image_tag 'https://bulma.io/images/placeholders/128x128.png'
+              .media-content
+                .content
+                  %p.metadata
+                    = fa_icon 'user'
+                    = comment.user.name + ','
+                    = time_ago_in_words(comment.created_at) + ' ago'
+                  = markdown comment.content

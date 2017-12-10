@@ -1,0 +1,31 @@
+= render 'shared/error_messages', object: @article
+
+.field
+  = f.label :visibility, class: 'label'
+  .control
+    .select
+      = f.select :visibility, Article.visibilities.keys.map {|key| [key.humanize, key]}, {}, id: 'article_visibility'
+  
+.field
+  = f.label :collection, class: 'label'
+  .control
+    .select
+      = f.select :collection, Article.collections.keys.map {|key| [key.humanize, key]}, {}, id: 'article_collection'
+
+.field
+  = f.label :category_id, 'Category', class: 'label'
+  .control
+    .select
+      = f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }, {}, id: 'article_category_id'
+
+.field
+  = f.label :title, class: 'label'
+  .control
+    = f.text_field :title, autofocus: true, class: 'input', id: 'article_title'
+
+.field
+  = f.label :content, class: 'label'
+  .control
+    = f.trix_editor :content
+
+= f.submit nil, class: 'button is-orange'

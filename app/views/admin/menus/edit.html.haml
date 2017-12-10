@@ -1,0 +1,25 @@
+= render 'shared/page_header', title: t('admin.menus.edit.title', name: @menu.name)
+
+%section#main.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
+      .column
+        = form_with scope: :menu, url: admin_menu_path(@menu), method: :patch, id: 'edit_menu' do |f|
+          = render 'shared/error_messages', object: @menu
+
+          .field
+            = f.label :name, class: 'label'
+            .control
+              = f.text_field :name, autofocus: true, class: 'input', id: 'menu_name'
+
+          .field
+            = f.label :description, class: 'label'
+            .control
+              = f.text_field :description, class: 'input', id: 'menu_description'
+
+          = f.submit nil, class: 'button is-orange'
+
+
+- provide :title, t('admin.menus.edit.title', name: @menu.name)

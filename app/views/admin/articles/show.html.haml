@@ -1,0 +1,40 @@
+= render 'shared/page_header', title: t('admin.articles.show.title', title: @article.title)
+
+%section#main.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
+      .column
+        .field.has-addons
+          %p.control
+            = link_to admin_articles_path, class: 'button' do
+              %span.icon
+                = fa_icon 'list'
+              %span
+                = t 'index'
+          %p.control
+            = link_to new_admin_article_path, class: 'button' do
+              %span.icon
+                = fa_icon 'plus'
+              %span
+                = t 'new'
+          %p.control
+            = link_to edit_admin_article_path(@article), class: 'button' do
+              %span.icon
+                = fa_icon 'edit'
+              %span
+                = t 'edit'
+          %p.control
+            = link_to admin_article_path(@article), method: :delete, class: 'button is-danger' do
+              %span.icon
+                = fa_icon 'trash'
+              %span
+                = t 'delete'
+      
+
+        %article.content
+          %h1.title= @article.title
+          = @article.content.html_safe
+
+- provide :title, t('admin.articles.show.title', title: @article.title)

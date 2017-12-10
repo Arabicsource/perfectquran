@@ -1,0 +1,13 @@
+= render 'shared/error_messages', object: @category
+
+.field
+  = f.label :name, class: 'label'
+  .control
+    = f.text_field :name, autofocus: true, class: 'input', id: 'category_name'
+
+.field
+  = f.label :description, class: 'label'
+  .control
+    = f.text_field :description, class: 'input', id: 'category_description'
+
+= f.submit nil, class: 'button is-orange'

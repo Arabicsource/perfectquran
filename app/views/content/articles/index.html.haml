@@ -1,0 +1,27 @@
+= render 'shared/page_header', title: t('content.articles.index.header')
+
+%section#main.section
+  .container
+    .columns.is-centered
+      .column.is-two-thirds
+        - @articles.each do |article|
+          %article.article.content
+            %h1.title= link_to article.title, content_article_path(article.permalink)
+            .level.metadata
+              .level-left
+                .level-item
+                  = fa_icon 'folder'
+                  = article.category.name
+                .level-item
+                  = fa_icon 'user'
+                  = article.user.name
+                .level-item
+                  = fa_icon 'calendar'
+                  = article.created_at.to_date.to_formatted_s(:short_ordinal)
+              .level-right
+                .level-item
+                  = fa_icon 'comments'
+                  = pluralize article.comments_count, 'comment'
+            = article.content.html_safe
+
+- provide :title, t('content.articles.index.title')

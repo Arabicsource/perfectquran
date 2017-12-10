@@ -9,6 +9,8 @@
         %span
 
     .navbar-menu#navbar-menu
+      .navbar-start
+        = link_to 'Blog', content_articles_path, class: 'navbar-item'
       .navbar-end
         - if user_signed_in?
           .navbar-item.has-dropdown.is-hoverable

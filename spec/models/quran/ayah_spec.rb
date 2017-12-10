@@ -12,8 +12,6 @@
 #  surah_id         :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  favorites_count  :integer          default(0)
-#  memories_count   :integer          default(0)
 #
 
 require 'rails_helper'

@@ -1,0 +1,26 @@
+= render 'shared/page_header', title: t('admin.categories.show.header', name: @category.name)
+
+%section#main.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
+      .column
+        .field.has-addons
+          %p.control
+            = link_to edit_admin_category_path(@category), class: 'button' do
+              %span.icon
+                = fa_icon 'edit'
+              %span
+                = t 'edit'
+          %p.control
+            = link_to admin_category_path(@category), method: :delete, class: 'button is-danger' do
+              %span.icon
+                = fa_icon 'trash'
+              %span
+                = t 'delete'
+        %article.content
+          %h1.title= @category.name
+          %p= @category.description
+
+- provide :title, t('admin.categories.show.title', name: @category.name)

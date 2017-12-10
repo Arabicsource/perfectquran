@@ -6,4 +6,5 @@
     = render 'layouts/shared/navbar'
     = render 'layouts/shared/flash'
     = yield
+    = render 'layouts/shared/newsletter' unless params[:controller].start_with? 'admin'
     = render 'layouts/shared/footer'

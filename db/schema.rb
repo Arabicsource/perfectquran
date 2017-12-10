@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023142851) do
+ActiveRecord::Schema.define(version: 20171210223654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "visibility", default: 0
+    t.string "permalink"
+    t.integer "collection", default: 0
+    t.bigint "category_id"
+    t.bigint "user_id"
+    t.integer "comments_count", default: 0
+    t.index ["category_id"], name: "index_articles_on_category_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
 
   create_table "ayahs", force: :cascade do |t|
     t.integer "number"
@@ -26,6 +41,23 @@ ActiveRecord::Schema.define(version: 20171023142851) do
     t.index ["surah_id"], name: "index_ayahs_on_surah_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "facebook_shares", force: :cascade do |t|
     t.bigint "ayah_id"
     t.datetime "created_at", null: false
@@ -36,6 +68,22 @@ ActiveRecord::Schema.define(version: 20171023142851) do
   create_table "languages", force: :cascade do |t|
     t.string "name"
     t.string "direction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "menu_links", force: :cascade do |t|
+    t.string "name"
+    t.string "path"
+    t.bigint "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_menu_links_on_menu_id"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -117,8 +165,13 @@ ActiveRecord::Schema.define(version: 20171023142851) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "articles", "categories"
+  add_foreign_key "articles", "users"
   add_foreign_key "ayahs", "surahs"
+  add_foreign_key "comments", "articles"
+  add_foreign_key "comments", "users"
   add_foreign_key "facebook_shares", "ayahs"
+  add_foreign_key "menu_links", "menus"
   add_foreign_key "pages", "users"
   add_foreign_key "shares", "ayahs"
   add_foreign_key "texts", "ayahs"

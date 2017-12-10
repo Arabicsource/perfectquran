@@ -1,0 +1,33 @@
+= render 'shared/page_header', title: t('admin.categories.index.header')
+
+%section#main.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
+      .column
+        %p.control
+          = link_to new_admin_category_path, class: 'button' do
+            %span.icon
+              = fa_icon 'plus'
+            %span
+              = t 'admin.categories.button.new'
+        %table#articles.table.is-fullwidth
+          %tbody
+            %tr
+              %th #
+              %th Name
+              %th Description
+          %tfoot
+            %tr
+              %th #
+              %th Name
+              %th Descrption
+          %tbody
+            - @categories.each do |category|
+              %tr
+                %td= category.id
+                %td= link_to category.name, admin_category_path(category)
+                %td= category.description
+
+- provide :title, t('admin.categories.index.title')

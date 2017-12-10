@@ -19,7 +19,9 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.1.2'
+gem 'redcarpet', '3.4.0'
 gem 'sass-rails', '~> 5.0'
+gem 'trix'
 gem 'turbolinks', '~> 5'
 gem 'twitter'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -50,5 +52,6 @@ group :test do
   gem 'factory_bot_rails'
   gem 'launchy'
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
 end

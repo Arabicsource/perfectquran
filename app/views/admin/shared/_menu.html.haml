@@ -2,3 +2,10 @@
   %p.menu-label= t 'general'
   %ul.menu-list
     %li= link_to t('dashboard'), admin_root_path
+
+  %p.menu-label= t 'admin.shared.menu.content'
+  %ul.menu-list
+    %li= link_to t('articles'), admin_articles_path
+    %li= link_to t('admin.shared.categories'), admin_categories_path
+    %li= link_to t('new_article'), new_admin_article_path
+    %li= link_to t('admin.shared.menus'), admin_menus_path
