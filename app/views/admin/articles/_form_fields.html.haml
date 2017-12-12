@@ -1,22 +1,24 @@
 = render 'shared/error_messages', object: @article
 
-.field
-  = f.label :visibility, class: 'label'
-  .control
-    .select
-      = f.select :visibility, Article.visibilities.keys.map {|key| [key.humanize, key]}, {}, id: 'article_visibility'
-  
-.field
-  = f.label :collection, class: 'label'
-  .control
-    .select
-      = f.select :collection, Article.collections.keys.map {|key| [key.humanize, key]}, {}, id: 'article_collection'
-
-.field
-  = f.label :category_id, 'Category', class: 'label'
-  .control
-    .select
-      = f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }, {}, id: 'article_category_id'
+.columns
+  .column
+    .field
+      = f.label :visibility, class: 'label'
+      .control
+        %span.select.is-fullwidth
+          = f.select :visibility, Article.visibilities.keys.map {|key| [key.humanize, key]}, {}, id: 'article_visibility'
+  .column
+    .field
+      = f.label :collection, class: 'label'
+      .control
+        .select.is-fullwidth
+          = f.select :collection, Article.collections.keys.map {|key| [key.humanize, key]}, {}, id: 'article_collection'
+  .column
+    .field
+      = f.label :category_id, 'Category', class: 'label'
+      .control
+        .select.is-fullwidth
+          = f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }, {}, id: 'article_category_id'
 
 .field
   = f.label :title, class: 'label'
