@@ -17,7 +17,7 @@
             = link_to '#', class: 'navbar-link' do
               = current_user.name
             .navbar-dropdown
-              = link_to 'Manage', manage_root_path, class: 'navbar-item' if current_user.role?(:admin)
+              = link_to 'Admin', admin_root_path, class: 'navbar-item' if current_user.role?(:admin)
               = link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-item'
         - else
           = link_to 'Login', new_user_session_path, class: 'navbar-item'
