@@ -1,0 +1,27 @@
+= render 'shared/page_header', title: t('settings.accounts.edit.header')
+
+%section.section
+  .container
+    .columns.is-centered
+      .column.is-two-thirds
+        = form_with model: current_user, url: settings_account_path, local: true, method: :patch, id: 'account_settings' do |f|
+          = render 'shared/error_messages', object: current_user
+
+          .field
+            = f.label :name, class: 'label'
+            .control
+              = f.text_field :name, class: 'input', id: 'user_name'
+
+          .field
+            = f.label :username, class: 'label'
+            .control
+              = f.text_field :username, class: 'input', id: 'user_username'
+
+          .field
+            = f.label :bio, class: 'label'
+            .control
+              = f.text_area :bio, class: 'textarea is-expanded', id: 'user_bio'
+          
+          = f.submit 'Update Account Settings', class: 'button is-orange'
+
+- provide :title, t('settings.accounts.edit.title')

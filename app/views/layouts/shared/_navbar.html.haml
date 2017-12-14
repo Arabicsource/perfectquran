@@ -16,9 +16,10 @@
         - if user_signed_in?
           .navbar-item.has-dropdown.is-hoverable
             = link_to '#', class: 'navbar-link' do
-              = current_user.name
+              = current_user.reload.name
             .navbar-dropdown
               = link_to 'Admin', admin_root_path, class: 'navbar-item' if current_user.role?(:admin)
+              = link_to 'Settings', edit_settings_account_path, class: 'navbar-item'
               = link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-item'
         - else
           = link_to 'Login', new_user_session_path, class: 'navbar-item'

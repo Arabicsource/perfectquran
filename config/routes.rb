@@ -44,6 +44,10 @@ Rails.application.routes.draw do
     resources :users, :pages
   end
 
+  namespace :settings do
+    resource :account, only: %i[edit update]
+  end
+
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'quran/surahs#show', as: :surah
 

@@ -104,6 +104,13 @@ en:
     comments:
       create:
         success_notification: 'Alhamdulillah, your comment was created'
+  settings:
+    accounts:
+      edit:
+        title: 'Edit Account Settings'
+        header: 'Edit Account Settings'
+      update:
+        success_notification: 'Alhamdulillah, Your account settings were updated'
   dashboard: 'Dashboard'
   articles: 'Articles'
   new_article: 'New Article'
