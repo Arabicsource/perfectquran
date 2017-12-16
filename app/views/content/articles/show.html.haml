@@ -5,7 +5,7 @@
     .columns.is-centered
       .column.is-two-thirds
         %article.content
-          = @article.content.html_safe
+          = sanitize @article.content
 
 = render 'content/articles/comments'
 

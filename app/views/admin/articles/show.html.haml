@@ -35,6 +35,6 @@
 
         %article.content
           %h1.title= @article.title
-          = @article.content.html_safe
+          = sanitize @article.content
 
 - provide :title, t('admin.articles.show.title', title: @article.title)
