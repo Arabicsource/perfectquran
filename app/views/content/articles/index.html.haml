@@ -14,7 +14,7 @@
                   = article.category.name
                 .level-item
                   = fa_icon 'user'
-                  = article.account.name
+                  = article.account.try(:name)
                 .level-item
                   = fa_icon 'calendar'
                   = article.created_at.to_date.to_formatted_s(:short_ordinal)

@@ -21,16 +21,11 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string
-#  username               :string
-#  bio                    :string
 #  role                   :string           default("validating")
 #
 
 FactoryBot.define do
   factory :account do
-    name 'FirstName LastName'
-    sequence(:username) { |n| "username_#{n}" }
     sequence(:email) { |n| "eample#{n}@example.com" }
     password 'password'
     role 'validating'

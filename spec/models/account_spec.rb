@@ -21,30 +21,19 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string
-#  username               :string
-#  bio                    :string
 #  role                   :string           default("validating")
 #
 
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
-  subject { FactoryBot.build(:account) }
-
-  it { is_expected.to be_valid }
-  it { is_expected.to validate_presence_of :name }
-  it { is_expected.to validate_length_of(:name).is_at_least(3).is_at_most(50) }
-  it { is_expected.to validate_presence_of :username }
-  it { is_expected.to validate_uniqueness_of(:username).case_insensitive }
-  it { is_expected.to allow_value('username').for :username }
-  it { is_expected.to allow_value('username1').for :username }
-  it { is_expected.to allow_value('user_name').for :username }
-  it { is_expected.to_not allow_value('user name').for :username }
+  context 'associations' do
+    it { is_expected.to have_one :profile }
+  end
 
   describe '#after_confirmation' do
     it 'changes the users role to member' do
-      validating = FactoryBot.create(:validating)
+      validating = create :validating
       validating.confirm
       validating.reload
 
@@ -54,11 +43,13 @@ RSpec.describe Account, type: :model do
 
   describe 'Account.all' do
     it 'returns users ordered by id desc' do
-      FactoryBot.create(:account, name: 'first')
-      FactoryBot.create(:account, name: 'second')
-      FactoryBot.create(:account, name: 'third')
+      FactoryBot.create(:account, email: 'first@example.com')
+      FactoryBot.create(:account, email: 'second@example.com')
+      FactoryBot.create(:account, email: 'third@example.com')
 
-      expect(Account.all.map(&:name)).to eq %w[third second first]
+      expect(Account.all.map(&:email)).to(
+        eq %w[third@example.com second@example.com first@example.com]
+      )
     end
   end
 

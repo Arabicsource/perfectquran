@@ -21,9 +21,6 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string
-#  username               :string
-#  bio                    :string
 #  role                   :string           default("validating")
 #
 
@@ -31,19 +28,10 @@
 class Account < ApplicationRecord
   default_scope { order('id desc') }
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_one :profile
+
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  validates :name, presence: true, length: { minimum: 3, maximum: 50 }
-  validates :username,
-            presence: true,
-            uniqueness: { case_sensitive: false },
-            format: {
-              with: /\A\w+\z/,
-              message: 'only Letters, numbers and underscores'
-            }
 
   def after_confirmation
     update_attribute(:role, 'member')

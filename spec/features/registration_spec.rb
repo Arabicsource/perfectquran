@@ -4,21 +4,20 @@ require 'rails_helper'
 
 feature 'Registration' do
   scenario 'successful submission' do
-    attributes = FactoryBot.attributes_for :account
     visit new_account_registration_path
 
-    within '#registration-form' do
-      fill_in 'Name', with: attributes[:name]
-      fill_in 'Username', with: attributes[:username]
-      fill_in 'Email', with: attributes[:email]
-      fill_in 'Password', with: attributes[:password]
-      fill_in 'Password confirmation', with: attributes[:password]
-      click_button 'Register'
+    fill_in 'Email', with: 'example@perfectquran.co'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+
+    expect { click_button 'Next' }.to change(Account, :count).by(1)
+
+    within '#profile_form' do
+      fill_in 'Name', with: 'name'
+      fill_in 'Username', with: 'username'
+      fill_in 'Bio', with: 'bio'
     end
 
-    expect(page)
-      .to have_css '.notification',
-                   text: I18n
-                     .t('devise.registrations.signed_up_but_unconfirmed')
+    expect { click_button 'Finished' }.to change(Profile, :count).by(1)
   end
 end

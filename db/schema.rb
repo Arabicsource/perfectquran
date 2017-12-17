@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216193618) do
+ActiveRecord::Schema.define(version: 20171217092747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,13 +32,9 @@ ActiveRecord::Schema.define(version: 20171216193618) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "username"
-    t.string "bio"
     t.string "role", default: "validating"
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_accounts_on_username", unique: true
   end
 
   create_table "articles", force: :cascade do |t|
@@ -119,6 +115,16 @@ ActiveRecord::Schema.define(version: 20171216193618) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
+    t.text "bio"
+    t.bigint "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_profiles_on_account_id"
+  end
+
   create_table "shares", force: :cascade do |t|
     t.bigint "ayah_id"
     t.datetime "created_at", null: false
@@ -162,6 +168,7 @@ ActiveRecord::Schema.define(version: 20171216193618) do
   add_foreign_key "comments", "articles"
   add_foreign_key "facebook_shares", "ayahs"
   add_foreign_key "menu_links", "menus"
+  add_foreign_key "profiles", "accounts"
   add_foreign_key "shares", "ayahs"
   add_foreign_key "texts", "ayahs"
   add_foreign_key "texts", "translations"

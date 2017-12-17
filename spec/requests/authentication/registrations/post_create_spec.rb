@@ -9,12 +9,12 @@ describe 'Registration POST #create', type: :request do
   end
 
   it 'does not change user count when unsuccessful' do
-    expect { post '/', params: { account: { name: '' } } }
+    expect { post '/', params: { account: { email: '' } } }
       .not_to change(Account, :count)
   end
 
   context 'empty submission' do
-    before(:all) { post '/', params: { account: { name: '' } } }
+    before(:all) { post '/', params: { account: { email: '' } } }
 
     it 'includes email can\'t be blank' do
       expect(response.body).to include 'Email can&#39;t be blank'
@@ -22,22 +22,6 @@ describe 'Registration POST #create', type: :request do
 
     it 'includes password can\'t be blank' do
       expect(response.body).to include 'Password can&#39;t be blank'
-    end
-
-    it 'includes name can\'t be blank' do
-      expect(response.body).to include 'Name can&#39;t be blank'
-    end
-
-    it 'includes name is too short' do
-      expect(response.body).to include 'Name is too short'
-    end
-
-    it 'includes username can\'t be blank' do
-      expect(response.body).to include 'Username can&#39;t be blank'
-    end
-
-    it 'includes username character limitations' do
-      expect(response.body).to include 'sername only Letters, numbers'
     end
   end
 end
