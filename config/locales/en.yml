@@ -115,7 +115,3 @@ en:
   articles: 'Articles'
   new_article: 'New Article'
   article_created: 'The article %{title} was created'
-  manage:
-    page:
-      created: 'The page was created'
-      edited: 'The page was edited'

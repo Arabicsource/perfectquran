@@ -39,11 +39,6 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :manage do
-    root 'dashboards#show'
-    resources :users, :pages
-  end
-
   namespace :settings do
     resource :account, only: %i[edit update]
   end
