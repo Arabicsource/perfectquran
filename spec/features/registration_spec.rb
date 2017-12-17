@@ -4,8 +4,8 @@ require 'rails_helper'
 
 feature 'Registration' do
   scenario 'successful submission' do
-    attributes = FactoryBot.attributes_for :user
-    visit new_user_registration_path
+    attributes = FactoryBot.attributes_for :account
+    visit new_account_registration_path
 
     within '#registration-form' do
       fill_in 'Name', with: attributes[:name]

@@ -6,7 +6,7 @@ module Settings
     def edit; end
 
     def update
-      if current_user.update_attributes(account_settings_params)
+      if current_account.update_attributes(account_settings_params)
         flash[:success] = I18n.t(
           'settings.accounts.update.success_notification'
         )
@@ -19,7 +19,7 @@ module Settings
     private
 
     def account_settings_params
-      params.require(:user).permit(:name, :username, :bio)
+      params.require(:account).permit(:name, :username, :bio)
     end
   end
 end

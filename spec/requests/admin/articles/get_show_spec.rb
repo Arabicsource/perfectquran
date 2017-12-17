@@ -9,7 +9,7 @@ describe 'GET Admin::Articles#show', type: :request do
 
       get admin_article_path(article)
 
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to new_account_session_path
     end
   end
 

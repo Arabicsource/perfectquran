@@ -55,7 +55,7 @@ describe 'content/articles/show' do
     it 'does not display new comment section while logged in' do
       assign :article, create(:article, collection: 'page')
       assign :comment, build(:comment)
-      allow(view).to receive(:user_signed_in?).and_return(true)
+      allow(view).to receive(:account_signed_in?).and_return(true)
 
       render
 
@@ -93,7 +93,7 @@ describe 'content/articles/show' do
       it 'displays comment form' do
         assign :article, create(:article)
         assign :comment, build(:comment)
-        allow(view).to receive(:user_signed_in?).and_return(true)
+        allow(view).to receive(:account_signed_in?).and_return(true)
 
         render
 

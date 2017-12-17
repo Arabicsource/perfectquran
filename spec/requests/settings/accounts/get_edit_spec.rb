@@ -7,7 +7,7 @@ describe 'GET Settings::Accounts#edit', type: :request do
     it 'redirects the user to the login page' do
       get edit_settings_account_path
 
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to new_account_session_path
     end
   end
 

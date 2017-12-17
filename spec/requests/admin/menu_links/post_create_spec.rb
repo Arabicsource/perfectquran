@@ -29,7 +29,7 @@ describe 'Post Admin::MenuLinks#create', type: :request do
       menu = create :menu
       post "/admin/menus/#{menu.id}/menu_links", params: valid_params
 
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to new_account_session_path
     end
   end
 

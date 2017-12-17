@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: users
+# Table name: accounts
 #
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
@@ -27,27 +27,29 @@
 #  role                   :string           default("validating")
 #
 
-FactoryBot.define do
-  factory :user do
-    name 'FirstName LastName'
-    sequence(:username) { |n| "username_#{n}" }
-    sequence(:email) { |n| "eample#{n}@example.com" }
-    password 'password'
-    role 'validating'
+# :nodoc:
+class Account < ApplicationRecord
+  default_scope { order('id desc') }
 
-    factory :admin do
-      confirmed_at Time.now
-      role 'admin'
-    end
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-    factory :member do
-      confirmed_at Time.now
-      role 'member'
-    end
+  validates :name, presence: true, length: { minimum: 3, maximum: 50 }
+  validates :username,
+            presence: true,
+            uniqueness: { case_sensitive: false },
+            format: {
+              with: /\A\w+\z/,
+              message: 'only Letters, numbers and underscores'
+            }
 
-    factory :validating do
-      confirmation_sent_at Time.now
-      confirmation_token 'token'
-    end
+  def after_confirmation
+    update_attribute(:role, 'member')
+  end
+
+  def role?(role)
+    role.to_s == self.role
   end
 end

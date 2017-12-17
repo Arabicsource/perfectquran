@@ -9,7 +9,7 @@ describe 'GET Admin::Menus#edit', type: :request do
 
       get edit_admin_menu_path(menu)
 
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to new_account_session_path
     end
   end
 

@@ -9,7 +9,7 @@ describe 'PATCH Admin::Articles#update', type: :request do
 
       delete "/admin/articles/#{article.id}"
 
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to new_account_session_path
     end
   end
 

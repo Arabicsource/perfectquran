@@ -6,7 +6,7 @@ describe 'settings/accounts/edit' do
   include Devise::Test::ControllerHelpers
 
   it 'provides a page title' do
-    allow(view).to receive(:current_user).and_return(build_stubbed(:member))
+    allow(view).to receive(:current_account).and_return(build_stubbed(:member))
 
     expect(view).to receive(:provide).with(:title, 'Edit Account Settings')
 
@@ -14,7 +14,7 @@ describe 'settings/accounts/edit' do
   end
 
   it 'has a level one heading' do
-    allow(view).to receive(:current_user).and_return(build_stubbed(:member))
+    allow(view).to receive(:current_account).and_return(build_stubbed(:member))
 
     render
 

@@ -9,7 +9,7 @@ describe 'GET Admin::Categories#edit', type: :request do
 
       get edit_admin_category_path(category)
 
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to new_account_session_path
     end
   end
 

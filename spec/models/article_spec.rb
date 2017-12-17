@@ -4,16 +4,17 @@
 #
 # Table name: articles
 #
-#  id          :integer          not null, primary key
-#  title       :string
-#  content     :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  visibility  :integer          default("draft")
-#  permalink   :string
-#  collection  :integer          default("post")
-#  category_id :integer
-#  user_id     :integer
+#  id             :integer          not null, primary key
+#  title          :string
+#  content        :text
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  visibility     :integer          default("draft")
+#  permalink      :string
+#  collection     :integer          default("post")
+#  category_id    :integer
+#  account_id     :integer
+#  comments_count :integer          default(0)
 #
 
 require 'rails_helper'
@@ -21,7 +22,7 @@ require 'rails_helper'
 RSpec.describe Article, type: :model do
   context 'associations' do
     it { is_expected.to belong_to :category }
-    it { is_expected.to belong_to :user }
+    it { is_expected.to belong_to :account }
     it { is_expected.to have_many :comments }
   end
 

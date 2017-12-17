@@ -5,12 +5,12 @@ require 'rails_helper'
 describe 'User management', type: :request do
   let(:admin) { FactoryBot.create(:admin) }
   let(:member) { FactoryBot.create(:member) }
-  let(:user_obj) { FactoryBot.create(:user) }
+  let(:user_obj) { FactoryBot.create(:account) }
 
   describe 'GET #index' do
     context 'guest' do
       before { get manage_users_path }
-      specify { expect(response).to redirect_to new_user_session_path }
+      specify { expect(response).to redirect_to new_account_session_path }
     end
 
     context 'member' do
@@ -33,7 +33,7 @@ describe 'User management', type: :request do
   describe 'GET #show' do
     context 'guest' do
       before { get manage_user_path(user_obj) }
-      specify { expect(response).to redirect_to new_user_session_path }
+      specify { expect(response).to redirect_to new_account_session_path }
     end
 
     context 'member' do

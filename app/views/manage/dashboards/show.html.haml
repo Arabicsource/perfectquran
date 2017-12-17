@@ -10,26 +10,26 @@
         %li.list-group-item
           Members
           %span.badge.badge-primary.float-right
-            = User.where(role: 'member').count
+            = Account.where(role: 'member').count
         %li.list-group-item
           Admins
           %span.badge.badge-primary.float-right
-            = User.where(role: 'admin').count
+            = Account.where(role: 'admin').count
         %li.list-group-item
           Validating
           %span.badge.badge-primary.float-right
-            = User.where(role: 'validating').count
+            = Account.where(role: 'validating').count
         %li.list-group-item
           Banned
           %span.badge.badge-primary.float-right
-            = User.where(role: 'banned').count
+            = Account.where(role: 'banned').count
 
   .col-4
     .card
       .card-header
         Recent Registrations
       .list-group.list-group-flush
-        - User.limit(5).each do |user|
+        - Account.limit(5).each do |user|
           %li.list-group-item= user.name
 
   .col-4
@@ -40,6 +40,6 @@
         %li.list-group-item
           Users
           %span.badge.badge-primary.float-right
-            = User.count
+            = Account.count
 
 - provide :title, 'Management Dashboard'

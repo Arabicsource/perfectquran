@@ -4,11 +4,11 @@ module Manage
   # :nodoc:
   class UsersController < Manage::BaseController
     def index
-      @users = User.all
+      @users = Account.all
     end
 
     def show
-      @user = User.find(params[:id])
+      @user = Account.find(params[:id])
     end
   end
 end

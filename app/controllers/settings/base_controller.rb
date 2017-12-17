@@ -3,6 +3,6 @@
 module Settings
   # :nodoc:
   class BaseController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_account!
   end
 end

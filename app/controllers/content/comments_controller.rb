@@ -3,12 +3,12 @@
 module Content
   # :nodoc:
   class CommentsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_account!
 
     def create
       @article = Article.find(params[:article_id])
       @comment = @article.comments.build(comment_params)
-      @comment.user = current_user
+      @comment.account = current_account
 
       if @comment.save
         flash[:success] = I18n.t('content.comments.create.success_notification')

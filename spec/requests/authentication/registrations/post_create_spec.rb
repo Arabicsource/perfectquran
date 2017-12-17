@@ -4,17 +4,17 @@ require 'rails_helper'
 
 describe 'Registration POST #create', type: :request do
   it 'increases user count by 1 when successful' do
-    expect { post '/', params: { user: FactoryBot.attributes_for(:user) } }
-      .to change(User, :count).by(1)
+    expect { post '/', params: { account: attributes_for(:account) } }
+      .to change(Account, :count).by(1)
   end
 
   it 'does not change user count when unsuccessful' do
-    expect { post '/', params: { user: { name: '' } } }
-      .not_to change(User, :count)
+    expect { post '/', params: { account: { name: '' } } }
+      .not_to change(Account, :count)
   end
 
   context 'empty submission' do
-    before(:all) { post '/', params: { user: { name: '' } } }
+    before(:all) { post '/', params: { account: { name: '' } } }
 
     it 'includes email can\'t be blank' do
       expect(response.body).to include 'Email can&#39;t be blank'

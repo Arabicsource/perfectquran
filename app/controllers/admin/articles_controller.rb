@@ -17,7 +17,7 @@ module Admin
 
     def create
       @article = Article.new(article_params)
-      @article.user = current_user
+      @article.account = current_account
 
       if @article.save
         flash[:success] = I18n.t 'article_created', title: @article.title

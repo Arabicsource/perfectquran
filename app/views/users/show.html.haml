@@ -1,7 +1,0 @@
-- provide :title, @user.name
-
-- content_for :aside do
-  %section
-    %h1= @user.name
-    %h2= "@#{@user.username}"
-    %p= fa_icon('calendar') + ' Joined ' + @user.created_at.to_date.to_formatted_s(:long_ordinal)

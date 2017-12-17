@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: users
+# Table name: accounts
 #
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
@@ -29,8 +29,8 @@
 
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  subject { FactoryBot.build(:user) }
+RSpec.describe Account, type: :model do
+  subject { FactoryBot.build(:account) }
 
   it { is_expected.to be_valid }
   it { is_expected.to validate_presence_of :name }
@@ -52,13 +52,13 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'User.all' do
+  describe 'Account.all' do
     it 'returns users ordered by id desc' do
-      FactoryBot.create(:user, name: 'first')
-      FactoryBot.create(:user, name: 'second')
-      FactoryBot.create(:user, name: 'third')
+      FactoryBot.create(:account, name: 'first')
+      FactoryBot.create(:account, name: 'second')
+      FactoryBot.create(:account, name: 'third')
 
-      expect(User.all.map(&:name)).to eq %w[third second first]
+      expect(Account.all.map(&:name)).to eq %w[third second first]
     end
   end
 
@@ -80,7 +80,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'validating' do
-      let(:validating) { FactoryBot.create(:user) }
+      let(:validating) { FactoryBot.create(:account) }
 
       it 'returns false when asking if role is admin' do
         expect(validating.role?(:admin)).to be_falsey

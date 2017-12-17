@@ -25,7 +25,7 @@ describe 'PATCH Admin::Categories#update', type: :request do
 
       patch "/admin/categories/#{category.id}", params: update_params
 
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to new_account_session_path
     end
   end
 

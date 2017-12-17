@@ -7,7 +7,7 @@ describe 'Management Dashboard GET #show', type: :request do
     before { get manage_root_path }
 
     it 'redirects the user to the login page' do
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to new_account_session_path
     end
   end
 

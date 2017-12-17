@@ -4,12 +4,12 @@ require 'rails_helper'
 
 describe 'PATCH Settings::Accounts#update', type: :request do
   let :update_params do
-    { user:
+    { account:
       { name: 'name123', username: 'username123', bio: 'bio123' } }
   end
 
   let :empty_params do
-    { user: { name: '', username: '', bio: '' } }
+    { account: { name: '', username: '', bio: '' } }
   end
 
   let :error_messages do
@@ -25,7 +25,7 @@ describe 'PATCH Settings::Accounts#update', type: :request do
     it 'redirects the user to the login page' do
       patch settings_account_path, params: update_params
 
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to new_account_session_path
     end
   end
 

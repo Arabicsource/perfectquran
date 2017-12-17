@@ -5,7 +5,7 @@ RSpec.shared_examples 'admin get request' do |url|
     it 'redirects the user to the login page' do
       get url
 
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to new_account_session_path
     end
   end
 
