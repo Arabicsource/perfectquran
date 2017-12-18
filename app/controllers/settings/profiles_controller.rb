@@ -20,7 +20,7 @@ module Settings
     end
 
     def edit
-      @profile = current_account.profile
+      @profile = Profile.find_or_create_by(account: current_account)
     end
 
     def update

@@ -21,5 +21,15 @@ describe 'GET Settings::Profiles#edit', type: :request do
 
       expect(response).to be_successful
     end
+
+    context 'account without an associated profile' do
+      it 'creates a profile for the account' do
+        login_as create :account
+
+        expect { get edit_settings_profile_path }.to(
+          change(Profile, :count).by(1)
+        )
+      end
+    end
   end
 end
