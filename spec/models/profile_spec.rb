@@ -19,7 +19,11 @@ RSpec.describe Profile, type: :model do
   context 'validations' do
     it { is_expected.to validate_length_of(:name).is_at_most(50) }
     it { is_expected.to validate_length_of(:username).is_at_most(50) }
-    it { is_expected.to validate_uniqueness_of(:username).case_insensitive }
+    it do
+      is_expected.to(
+        validate_uniqueness_of(:username).case_insensitive.allow_blank
+      )
+    end
     it { is_expected.to allow_value('username').for :username }
     it { is_expected.to allow_value('username1').for :username }
     it { is_expected.to allow_value('user_name').for :username }

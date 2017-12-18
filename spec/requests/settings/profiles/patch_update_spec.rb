@@ -29,6 +29,19 @@ describe 'PATCH Settings::Profiles#update', type: :request do
   end
 
   context 'basic account' do
+    describe 'submitting the form with only the name' do
+      it 'changes the name' do
+        account = create :account
+        profile = create :profile, account: account, name: 'name', username: ''
+        login_as account
+        params = { profile: { name: 'name123' } }
+
+        expect { patch settings_profile_path, params: params }.to(
+          change { profile.name }.from('name').to('name123')
+        )
+      end
+    end
+
     describe 'successful submission' do
       it 'redirects to edit' do
         account = create :account

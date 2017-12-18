@@ -23,6 +23,7 @@ class Profile < ApplicationRecord
             format: {
               with: /\A\w+\z/,
               message: 'only Letters, numbers and underscores'
-            }
+            },
+            allow_blank: true
   validates :bio, length: { maximum: 500 }
 end
