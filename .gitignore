@@ -18,3 +18,7 @@
 config/secrets.yml
 
 TODO
+
+/public/packs
+/public/packs-test
+/node_modules

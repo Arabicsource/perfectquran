@@ -15,6 +15,11 @@
           = render 'next'          
         = render 'pagination'
       .column
+        .field.is-grouped
+          - if memorized? @ayah, current_account
+            = render 'quran/memories/delete_memory'
+          - else
+            = render 'quran/memories/create_memory'
         = render 'quran/surahs/information', surah: @ayah.surah
 
 - provide :title, "#{@ayah.surah_name} #{@ayah.number}"

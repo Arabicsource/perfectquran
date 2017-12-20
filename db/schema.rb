@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171217092747) do
+ActiveRecord::Schema.define(version: 20171218204026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,15 @@ ActiveRecord::Schema.define(version: 20171217092747) do
     t.string "direction"
   end
 
+  create_table "memories", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "ayah_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_memories_on_account_id"
+    t.index ["ayah_id"], name: "index_memories_on_ayah_id"
+  end
+
   create_table "menu_links", force: :cascade do |t|
     t.string "name"
     t.string "path"
@@ -167,6 +176,8 @@ ActiveRecord::Schema.define(version: 20171217092747) do
   add_foreign_key "comments", "accounts"
   add_foreign_key "comments", "articles"
   add_foreign_key "facebook_shares", "ayahs"
+  add_foreign_key "memories", "accounts"
+  add_foreign_key "memories", "ayahs"
   add_foreign_key "menu_links", "menus"
   add_foreign_key "profiles", "accounts"
   add_foreign_key "shares", "ayahs"
