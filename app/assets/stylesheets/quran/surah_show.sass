@@ -8,3 +8,12 @@
     &:first-of-type
       padding-top: 1.5rem
       border-top: 15px solid $background
+
+  .is-memorized
+    @extend .button
+    @extend .is-danger
+
+  .not-memorized
+    @extend .button
+    @extend .is-outlined
+    @extend .is-danger

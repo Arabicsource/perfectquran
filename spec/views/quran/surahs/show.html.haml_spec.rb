@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 describe 'quran/surahs/show' do
+  include Devise::Test::ControllerHelpers
+
   it 'provides layout with a page title' do
     assign :surah, create(:surah, transliterated_name: 'abc123')
 
