@@ -25,6 +25,10 @@ module Quran
              -> { includes(:texts_and_included_translations) },
              class_name: 'Ayah'
 
+    def self.commonly_memorized
+      where(id: 98..114).or(where(id: 1))
+    end
+
     # Returns the next surah if surah < surah.last.
     # If surah is last, returns first surah.
     def next

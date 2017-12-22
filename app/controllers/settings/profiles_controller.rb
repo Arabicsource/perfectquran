@@ -12,8 +12,7 @@ module Settings
       @profile.account = current_account
 
       if @profile.save
-        flash[:success] = 'Thank you for..'
-        redirect_to root_path
+        redirect_to new_quran_memory_path
       else
         render :new
       end

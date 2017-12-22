@@ -25,6 +25,9 @@ Rails.application.routes.draw do
 
   namespace :quran do
     root 'surahs#index'
+
+    resources :memories, only: :new
+
     resources :surahs, only: %i[index show] do
       scope module: :surahs do
         resource :memories

@@ -35,7 +35,7 @@ describe 'POST Settings::Profiles#create', type: :request do
 
         post settings_profile_path, params: params
 
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to new_quran_memory_path
       end
 
       it 'creates a profile' do

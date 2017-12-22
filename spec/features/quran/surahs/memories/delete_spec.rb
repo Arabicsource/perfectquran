@@ -7,7 +7,7 @@ include JavascriptHelper
 feature 'Forget a surah', js: true do
   scenario 'successfully' do
     account = create :account
-    surah = create :surah, id: 1
+    surah = create :surah, id: 1, transliterated_name: 'surah123'
     ayahs = create_list :ayah, 3, surah: surah
 
     ayahs.each do |ayah|
@@ -16,8 +16,10 @@ feature 'Forget a surah', js: true do
 
     login_as account
     visit quran_surah_path(surah)
-    click_on 'Memory'
+    within "#memory-surah-#{surah.id}" do
+      click_on 'surah123'
+    end
 
-    expect(page).to have_css '.not-memorized', text: 'Memory'
+    expect(page).to have_css '.not-memorized', text: 'surah123'
   end
 end

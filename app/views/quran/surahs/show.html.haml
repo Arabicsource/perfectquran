@@ -23,10 +23,11 @@
         = render 'pagination'
       .column
         .field.is-grouped
-          - if surah_memorized? @surah, current_account
-            = render 'quran/surahs/memories/delete_memory'
-          - else 
-            = render 'quran/surahs/memories/create_memory'
+          %p.control{id: "memory-surah-#{@surah.id}"}
+            - if surah_memorized? @surah, current_account
+              = render 'quran/surahs/memories/delete_memory'
+            - else 
+              = render 'quran/surahs/memories/create_memory'
 
         = render 'information', surah: @surah
 
