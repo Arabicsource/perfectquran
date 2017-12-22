@@ -32,7 +32,9 @@ Rails.application.routes.draw do
     end
 
     resources :ayahs, only: [:show] do
-      resource :memories
+      scope module: :ayahs do
+        resource :memories
+      end
     end
   end
 
