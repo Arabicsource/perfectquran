@@ -17,7 +17,7 @@
             permission.
 
         .column
-          = image_tag 'verticle-perfectquran.jpg', alt: '', class: 'is-rotated-90'
+          = image_tag 'verticle-perfectquran.jpg', alt: ''
         .column.is-half
           %h1.title Have you memorized any of these Surahs?
 
@@ -28,5 +28,7 @@
                   %p.control{id: "memory-surah-#{surah.id}"}
                     = link_to quran_surah_memories_path(surah), method: :post, remote: true, class: 'not-memorized' do
                       #{fa_icon('heart-o')} #{surah.transliterated_name}
+
+          = link_to 'Next', new_subscriptions_path, class: 'button is-orange'
 
 - provide :title, 'Have you memorized any of these Surahs?'

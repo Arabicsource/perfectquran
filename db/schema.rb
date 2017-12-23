@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218204026) do
+ActiveRecord::Schema.define(version: 20171222184352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,13 @@ ActiveRecord::Schema.define(version: 20171218204026) do
     t.index ["ayah_id"], name: "index_shares_on_ayah_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_subscriptions_on_account_id"
+  end
+
   create_table "surahs", force: :cascade do |t|
     t.integer "number_of_ayahs"
     t.integer "order_of_revelation"
@@ -181,6 +188,7 @@ ActiveRecord::Schema.define(version: 20171218204026) do
   add_foreign_key "menu_links", "menus"
   add_foreign_key "profiles", "accounts"
   add_foreign_key "shares", "ayahs"
+  add_foreign_key "subscriptions", "accounts"
   add_foreign_key "texts", "ayahs"
   add_foreign_key "texts", "translations"
   add_foreign_key "translations", "languages"

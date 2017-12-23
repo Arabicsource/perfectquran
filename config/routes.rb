@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resource :subscriptions
+  
   devise_for :accounts,
              path: '',
              path_names: { sign_up: 'register' },
