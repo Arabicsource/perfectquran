@@ -3,10 +3,11 @@
 require 'rails_helper'
 
 describe 'accounts/profiles/show' do
-  # include Devise::Test::ControllerHelpers
+  include Devise::Test::ControllerHelpers
 
   it 'provides a page title' do
-    # assign :profile, build_stubbed(:profile)
+    allow(view).to receive(:current_account).and_return(create(:account))
+    assign :profile, build_stubbed(:profile)
 
     expect(view).to receive(:provide).with(:title, 'Profile')
 
@@ -14,7 +15,8 @@ describe 'accounts/profiles/show' do
   end
 
   it 'has a level one heading' do
-    # assign :profile, build_stubbed(:profile)
+    allow(view).to receive(:current_account).and_return(create(:account))
+    assign :profile, build_stubbed(:profile)
 
     render
 

@@ -1,3 +1,21 @@
-- provide :title, 'Profile'
+= render 'shared/page_header', title: 'Profile'
 
-%h1 Profile
+%section.section
+  .container
+    .columns
+      .column.is-two-thirds
+        %section#summary
+          %h1.title= @profile.name
+          %h2.subtitle
+            Member since #{current_account.created_at.to_date.to_formatted_s(:long_ordinal)}
+          %p.content
+            = @profile.bio
+
+        %section#points
+          %h1.title= number_with_delimiter 198924545
+          %h2.subtitle Total Points 
+
+          
+
+
+- provide :title, 'Profile'

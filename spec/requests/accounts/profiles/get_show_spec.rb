@@ -13,7 +13,10 @@ describe 'GET Accounts::Profiles#show', type: :request do
 
   context 'basic account' do
     it 'responds successfully' do
-      login_as create(:account)
+      account = create :account
+      create :profile, account: account
+
+      login_as account
 
       get accounts_profile_path
 
