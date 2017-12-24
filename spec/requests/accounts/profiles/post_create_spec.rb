@@ -22,7 +22,7 @@ describe 'POST Settings::Profiles#create', type: :request do
 
   context 'guest' do
     it 'redirects the user to the login page' do
-      post settings_profile_path, params: params
+      post accounts_profile_path, params: params
 
       expect(response).to redirect_to new_account_session_path
     end
@@ -33,7 +33,7 @@ describe 'POST Settings::Profiles#create', type: :request do
       it 'redirects to root' do
         login_as create :account
 
-        post settings_profile_path, params: params
+        post accounts_profile_path, params: params
 
         expect(response).to redirect_to new_quran_memory_path
       end
@@ -41,7 +41,7 @@ describe 'POST Settings::Profiles#create', type: :request do
       it 'creates a profile' do
         login_as create :account
 
-        expect { post settings_profile_path, params: params }.to(
+        expect { post accounts_profile_path, params: params }.to(
           change(Profile, :count).by(1)
         )
       end
@@ -50,7 +50,7 @@ describe 'POST Settings::Profiles#create', type: :request do
         account = create :account
         login_as account
 
-        post settings_profile_path, params: params
+        post accounts_profile_path, params: params
 
         expect(account.profile.name).to eq 'name123'
       end
@@ -59,7 +59,7 @@ describe 'POST Settings::Profiles#create', type: :request do
         account = create :account
         login_as account
 
-        post settings_profile_path, params: params
+        post accounts_profile_path, params: params
 
         expect(account.profile.username).to eq 'username123'
       end
@@ -68,7 +68,7 @@ describe 'POST Settings::Profiles#create', type: :request do
         account = create :account
         login_as account
 
-        post settings_profile_path, params: params
+        post accounts_profile_path, params: params
 
         expect(account.profile.bio).to eq 'bio123'
       end
@@ -79,7 +79,7 @@ describe 'POST Settings::Profiles#create', type: :request do
         account = create :account
         login_as account
 
-        expect { post settings_profile_path, params: invalid_params }.not_to(
+        expect { post accounts_profile_path, params: invalid_params }.not_to(
           change(Profile, :count)
         )
       end
@@ -88,7 +88,7 @@ describe 'POST Settings::Profiles#create', type: :request do
         account = create :account
         login_as account
 
-        post settings_profile_path, params: invalid_params
+        post accounts_profile_path, params: invalid_params
 
         error_messages.each do |message|
           expect(response.body).to include message

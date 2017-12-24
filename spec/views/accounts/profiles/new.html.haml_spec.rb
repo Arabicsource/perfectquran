@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'settings/profiles/new' do
+describe 'accounts/profiles/new' do
   include Devise::Test::ControllerHelpers
 
   it 'provides a page title' do

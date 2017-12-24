@@ -22,7 +22,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
 
   context 'guest' do
     it 'redirects the user to the login page' do
-      patch settings_profile_path, params: update_params
+      patch accounts_profile_path, params: update_params
 
       expect(response).to redirect_to new_account_session_path
     end
@@ -36,7 +36,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         login_as account
         params = { profile: { name: 'name123' } }
 
-        expect { patch settings_profile_path, params: params }.to(
+        expect { patch accounts_profile_path, params: params }.to(
           change { profile.name }.from('name').to('name123')
         )
       end
@@ -48,9 +48,9 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         create :profile, account: account
         login_as account
 
-        patch settings_profile_path, params: update_params
+        patch accounts_profile_path, params: update_params
 
-        expect(response).to redirect_to edit_settings_profile_path
+        expect(response).to redirect_to edit_accounts_profile_path
       end
 
       it 'changes the name' do
@@ -59,7 +59,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
 
         login_as account
 
-        expect { patch settings_profile_path, params: update_params }.to(
+        expect { patch accounts_profile_path, params: update_params }.to(
           change { profile.name }.from('name').to('name123')
         )
       end
@@ -69,7 +69,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         profile = create :profile, account: account, username: 'username'
         login_as account
 
-        expect { patch settings_profile_path, params: update_params }.to(
+        expect { patch accounts_profile_path, params: update_params }.to(
           change { profile.username }.from('username').to('username123')
         )
       end
@@ -79,7 +79,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         profile = create :profile, account: account, bio: 'bio'
         login_as account
 
-        expect { patch settings_profile_path, params: update_params }.to(
+        expect { patch accounts_profile_path, params: update_params }.to(
           change { profile.bio }.from('bio').to('bio123')
         )
       end
@@ -91,7 +91,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         profile = create :profile, account: account, name: 'name123'
         login_as account
 
-        patch settings_profile_path, params: invalid_params
+        patch accounts_profile_path, params: invalid_params
 
         expect(profile.reload.name).to eq 'name123'
       end
@@ -101,7 +101,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         profile = create :profile, account: account, username: 'username123'
         login_as account
 
-        patch settings_profile_path, params: invalid_params
+        patch accounts_profile_path, params: invalid_params
 
         expect(profile.reload.username).to eq 'username123'
       end
@@ -111,7 +111,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         profile = create :profile, account: account, bio: 'bio123'
         login_as account
 
-        patch settings_profile_path, params: invalid_params
+        patch accounts_profile_path, params: invalid_params
 
         expect(profile.reload.bio).to eq 'bio123'
       end
@@ -121,7 +121,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         create :profile, account: account
         login_as account
 
-        patch settings_profile_path, params: invalid_params
+        patch accounts_profile_path, params: invalid_params
 
         error_messages.each do |message|
           expect(response.body).to include message

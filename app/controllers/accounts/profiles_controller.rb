@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Settings
+module Accounts
   # :nodoc:
-  class ProfilesController < Settings::BaseController
+  class ProfilesController < Accounts::BaseController
     def new
       @profile = Profile.new
     end
@@ -27,7 +27,7 @@ module Settings
 
       if @profile.update_attributes(profile_params)
         flash[:success] = 'Alhamdulillah, Your profile was updated'
-        redirect_to edit_settings_profile_path
+        redirect_to edit_accounts_profile_path
       else
         render :edit
       end

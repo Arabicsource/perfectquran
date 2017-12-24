@@ -9,7 +9,7 @@ feature 'Edit profile settings' do
     create :profile, account: account
     login_as account
 
-    visit edit_settings_profile_path
+    visit edit_accounts_profile_path
 
     within 'form#profile_form' do
       fill_in 'Name', with: 'name123'
