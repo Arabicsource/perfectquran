@@ -3,6 +3,8 @@
 module Accounts
   # :nodoc:
   class ProfilesController < Accounts::BaseController
+    def show; end
+
     def new
       @profile = Profile.new
     end

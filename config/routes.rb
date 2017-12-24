@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   namespace :accounts do
-    resource :profile, only: %i[new create edit update]
+    resource :profile, only: %i[new create edit update show]
   end
 
   namespace :admin do
