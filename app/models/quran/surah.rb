@@ -24,7 +24,7 @@ module Quran
     has_many :ayahs_and_included_texts,
              -> { includes(:texts_and_included_translations) },
              class_name: 'Ayah'
-
+    has_many :memories, through: :ayahs
     def self.commonly_memorized
       where(id: 98..114).or(where(id: 1))
     end

@@ -18,6 +18,7 @@ module Quran
     default_scope { order('id asc') }
 
     belongs_to :surah, class_name: 'Quran::Surah'
+    has_many :memories
     has_many :texts, class_name: 'Quran::Text'
     has_many :texts_and_included_translations,
              -> { includes(:translation) },

@@ -8,6 +8,7 @@ describe 'accounts/profiles/show' do
   it 'provides a page title' do
     allow(view).to receive(:current_account).and_return(create(:account))
     assign :profile, build_stubbed(:profile)
+    assign :surahs, []
 
     expect(view).to receive(:provide).with(:title, 'Profile')
 
@@ -17,6 +18,7 @@ describe 'accounts/profiles/show' do
   it 'has a level one heading' do
     allow(view).to receive(:current_account).and_return(create(:account))
     assign :profile, build_stubbed(:profile)
+    assign :surahs, []
 
     render
 

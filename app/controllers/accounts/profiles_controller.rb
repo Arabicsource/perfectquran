@@ -5,6 +5,11 @@ module Accounts
   class ProfilesController < Accounts::BaseController
     def show
       @profile = current_account.profile
+      @total_points = Quran::Ayah.joins(:memories)
+                                 .where(memories: { account: current_account })
+                                 .sum(:character_length) * 3
+      @surahs = Quran::Surah.joins(:memories)
+                            .where(memories: { account: current_account }).uniq
     end
 
     def new

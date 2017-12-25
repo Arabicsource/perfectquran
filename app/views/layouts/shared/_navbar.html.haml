@@ -15,10 +15,11 @@
       .navbar-end
         - if account_signed_in?
           .navbar-item.has-dropdown.is-hoverable
-            = link_to '#', class: 'navbar-link' do
+            = link_to accounts_profile_path, class: 'navbar-link' do
               = current_account.reload.try(:name) || current_account.email
             .navbar-dropdown
               = link_to 'Admin', admin_root_path, class: 'navbar-item' if current_account.role?(:admin)
+              = link_to 'Profile', accounts_profile_path, class: 'navbar-item'
               = link_to 'Settings', edit_accounts_profile_path, class: 'navbar-item'
               = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'
         - else
