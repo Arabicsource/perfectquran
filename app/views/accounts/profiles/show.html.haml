@@ -1,0 +1,29 @@
+= render 'shared/page_header', title: 'Profile'
+
+%section.section
+  .container
+    .columns
+      .column.is-two-thirds
+        %section#summary
+          %h1.title
+            #{@profile.name} <small>(@#{@profile.username})</small>
+          %h2.subtitle
+            Member since #{current_account.created_at.to_date.to_formatted_s(:long_ordinal)}
+          %p.content
+            = @profile.bio
+
+        %section#points
+          %h1.title= number_with_delimiter @total_points
+          %h2.subtitle Total Points 
+
+          .columns.is-multiline
+            - @surahs.each do |surah|
+              .column.is-one-quarter
+                %p
+                  %strong
+                    = number_with_delimiter surah.ayahs.joins(:memories).where(memories: { account: current_account }).sum(:character_length) * 3
+                %p
+                  = surah.transliterated_name
+
+
+- provide :title, 'Profile'

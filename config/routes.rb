@@ -1,12 +1,19 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resource :subscriptions
-  
-  devise_for :accounts,
-             path: '',
-             path_names: { sign_up: 'register' },
-             controllers: { registrations: 'registrations' }
+  namespace :accounts do
+    resource :profile, only: %i[new create edit update show]
+  end
+
+  namespace :admin do
+    root 'dashboards#show'
+    resources :articles, :categories
+
+    resources :menus do
+      # resources :menu_links, only: %i[new create edit update delete]
+      resources :menu_links
+    end
+  end
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
@@ -43,19 +50,10 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :admin do
-    root 'dashboards#show'
-    resources :articles, :categories
-
-    resources :menus do
-      # resources :menu_links, only: %i[new create edit update delete]
-      resources :menu_links
-    end
-  end
-
-  namespace :settings do
-    resource :profile, only: %i[new create edit update]
-  end
+  devise_for :accounts,
+             path: '',
+             path_names: { sign_up: 'register' },
+             controllers: { registrations: 'registrations' }
 
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'quran/surahs#show', as: :surah

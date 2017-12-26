@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'GET Settings::Profiles#edit', type: :request do
   context 'guest' do
     it 'redirects the user to the login page' do
-      get edit_settings_profile_path
+      get edit_accounts_profile_path
 
       expect(response).to redirect_to new_account_session_path
     end
@@ -17,7 +17,7 @@ describe 'GET Settings::Profiles#edit', type: :request do
       create :profile, account: account
       login_as account
 
-      get edit_settings_profile_path
+      get edit_accounts_profile_path
 
       expect(response).to be_successful
     end
@@ -26,7 +26,7 @@ describe 'GET Settings::Profiles#edit', type: :request do
       it 'creates a profile for the account' do
         login_as create :account
 
-        expect { get edit_settings_profile_path }.to(
+        expect { get edit_accounts_profile_path }.to(
           change(Profile, :count).by(1)
         )
       end

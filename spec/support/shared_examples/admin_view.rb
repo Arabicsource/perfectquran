@@ -15,14 +15,6 @@ RSpec.shared_examples 'admin view' do |title, template|
     expect(rendered).to have_selector 'h1', text: title
   end
 
-  it 'does not have a newsletter signup section' do
-    allow(view).to receive(:params).and_return(controller: 'admin')
-
-    render template: template, layout: 'layouts/application'
-
-    expect(rendered).not_to have_css 'section#newsletter'
-  end
-
   it 'has a admin menu' do
     allow(view).to receive(:params).and_return(controller: 'admin')
 
