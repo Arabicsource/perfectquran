@@ -31,7 +31,7 @@ feature 'Registration', js: true do
     expect { click_on 'third' }.to change(Memory, :count).by(4)
     expect { click_on 'second' }.to change(Memory, :count).by(-3)
 
-    click_on 'Finished'
+    click_on 'Next'
 
     expect(page).to have_css '.notification', text: 'Thank you for joining'
   end
