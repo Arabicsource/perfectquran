@@ -3,23 +3,9 @@
 require 'rails_helper'
 
 describe 'quran/memories/new' do
-  it 'provides layout with a page title' do
-    assign :commonly_memorized_surahs, []
+  let(:title) { 'Have you memorized any of these Surahs?' }
 
-    expect(view).to(
-      receive(:provide).with(:title, 'Have you memorized any of these Surahs?')
-    )
+  before { assign :commonly_memorized_surahs, [] }
 
-    render
-  end
-
-  it 'has a level one heading' do
-    assign :commonly_memorized_surahs, []
-
-    render
-
-    expect(rendered).to(
-      have_selector('h1', text: 'Have you memorized any of these Surahs?')
-    )
-  end
+  it_behaves_like 'a titled view'
 end

@@ -3,8 +3,6 @@
 module Accounts
   # :nodoc:
   class SubscriptionsController < Accounts::BaseController
-    def new
-
-    end
+    def new; end
   end
 end

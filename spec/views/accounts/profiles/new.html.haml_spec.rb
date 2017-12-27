@@ -3,21 +3,9 @@
 require 'rails_helper'
 
 describe 'accounts/profiles/new' do
-  include Devise::Test::ControllerHelpers
+  let(:title) { 'Tell Us About Yourself' }
 
-  it 'provides a page title' do
-    assign :profile, build_stubbed(:profile)
+  before { assign :profile, build_stubbed(:profile) }
 
-    expect(view).to receive(:provide).with(:title, 'Tell Us About Yourself')
-
-    render
-  end
-
-  it 'has a level one heading' do
-    assign :profile, build_stubbed(:profile)
-
-    render
-
-    expect(rendered).to have_selector 'h1', text: 'Tell Us About Yourself'
-  end
+  it_behaves_like 'a titled view'
 end

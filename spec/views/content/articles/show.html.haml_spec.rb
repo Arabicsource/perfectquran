@@ -3,112 +3,79 @@
 require 'rails_helper'
 
 describe 'content/articles/show' do
-  include Devise::Test::ControllerHelpers
+  context 'as either' do
+    let(:article) { build_stubbed :article }
+    let(:title) { article.title }
 
-  it 'provides a page title' do
-    assign :article, create(:article, title: 'title123')
-    assign :comment, build(:comment)
+    before do
+      allow(view).to receive(:account_signed_in?).and_return(false)
+      assign :article, article
+    end
 
-    expect(view).to receive(:provide).with(:title, 'title123')
+    it_behaves_like 'a titled view'
 
-    render
-  end
-
-  it 'has a level one heading' do
-    assign :article, create(:article, title: 'title123')
-    assign :comment, build(:comment)
-
-    render
-
-    expect(rendered).to have_selector 'h1', text: 'title123'
-  end
-
-  it 'has a newsletter signup section' do
-    allow(view).to receive(:params).and_return(controller: 'content')
-    assign :article, create(:article, title: 'title123')
-    assign :comment, build(:comment)
-
-    render template: '/content/articles/show', layout: 'layouts/application'
-
-    expect(rendered).to have_css 'section#newsletter'
-  end
-
-  it 'has a heading with the article title' do
-    assign :article, create(:article, title: 'title123')
-    assign :comment, build(:comment)
-
-    render
-
-    expect(rendered).to have_selector 'h1', text: 'title123'
-  end
-
-  it 'displays the article content' do
-    assign :article, create(:article, content: 'content123')
-    assign :comment, build(:comment)
-
-    render
-
-    expect(rendered).to have_content 'content123'
-  end
-
-  context 'page' do
-    it 'does not display new comment section while logged in' do
-      assign :article, create(:article, collection: 'page')
-      assign :comment, build(:comment)
-      allow(view).to receive(:account_signed_in?).and_return(true)
-
+    it 'has content' do
       render
 
-      expect(rendered).not_to have_selector 'h1', text: 'New Comment'
+      expect(rendered).to have_content article.content
     end
   end
 
-  context 'post' do
+  context 'as a page' do
+    let(:article) { build_stubbed :article, collection: 'page' }
+
+    before { assign :article, article }
+
+    context 'when logged in' do
+      before { allow(view).to receive(:account_signed_in?).and_return(true) }
+
+      it 'does not have a new comment section' do
+        render
+
+        expect(rendered).not_to have_css 'section#new-comment'
+      end
+    end
+  end
+
+  context 'as a post' do
+    let(:article) { build_stubbed :article, collection: 'post' }
+    let(:comment) { build :comment }
+
+    before do
+      assign :article, article
+      assign :comment, comment
+    end
+
     context 'with comments' do
-      it 'displays comments section' do
-        article = create :article
-        new_comment = build :comment
-        create :comment, article: article
-        assign :article, article
-        assign :comment, new_comment
+      before do
+        allow(view).to receive(:account_signed_in?).and_return(false)
+        allow(article.comments).to receive(:any?).and_return(true)
+      end
 
+      it 'has comments section' do
         render
 
-        expect(rendered).to have_selector 'h1', text: 'Comments'
+        expect(rendered).to have_css 'section#comments'
       end
     end
 
-    context 'without comments' do
-      it 'does not display comments section' do
-        assign :article, create(:article)
-        assign :comment, build(:comment)
+    context 'when logged in' do
+      before { allow(view).to receive(:account_signed_in?).and_return(true) }
 
+      it 'has a new comment section' do
         render
 
-        expect(rendered).not_to have_selector 'h1', text: 'Comments'
+        expect(rendered).to have_css 'section#new-comment'
       end
     end
 
-    context 'while logged in' do
-      it 'displays comment form' do
-        assign :article, create(:article)
-        assign :comment, build(:comment)
-        allow(view).to receive(:account_signed_in?).and_return(true)
+    context 'when not logged in' do
+      before { allow(view).to receive(:account_signed_in?).and_return(false) }
 
+      it 'does not a new comment section' do
         render
 
-        expect(rendered).to have_selector 'h1', text: 'New Comment'
-      end
-    end
-
-    context 'while logged out' do
-      it 'does not display the comment section' do
-        assign :article, create(:article)
-        assign :comment, build(:comment)
-
-        render
-
-        expect(rendered).not_to have_selector 'h1', text: 'New Comment'
+        expect(rendered).not_to have_css 'section#new-comment'
       end
     end
   end

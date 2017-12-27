@@ -3,16 +3,14 @@
 require 'rails_helper'
 
 describe 'admin/menu_links/edit' do
-  context 'behaves like an admin view' do
-    before do
-      menu = build_stubbed :menu
-      menu_link = build_stubbed :menu_link, menu: menu, name: 'link123'
-      assign :menu, menu
-      assign :menu_link, menu_link
-    end
+  let(:menu_obj) { build_stubbed :menu }
+  let(:menu_link) { build_stubbed :menu_link }
+  let(:title) { "Edit Menu Link: #{menu_link.name}" }
 
-    it_behaves_like(
-      'admin view', 'Edit Menu Link: link123', 'admin/menu_links/edit'
-    )
+  before do
+    assign :menu, menu_obj
+    assign :menu_link, menu_link
   end
+
+  it_behaves_like 'a titled view'
 end

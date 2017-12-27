@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 describe 'admin/categories/show' do
-  context 'behaves like an admin view' do
-    let(:category) { create :category, name: 'name123' }
-    before { assign :category, category }
+  let(:category) { build_stubbed :category }
+  let(:title) { "Category: #{category.name}" }
 
-    it_behaves_like 'admin view', 'Category: name123', 'admin/categories/show'
-  end
+  before { assign :category, category }
+
+  it_behaves_like 'a titled view'
 end

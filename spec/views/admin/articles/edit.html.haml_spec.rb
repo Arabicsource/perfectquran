@@ -3,18 +3,10 @@
 require 'rails_helper'
 
 describe 'admin/articles/edit' do
-  context 'behaves like an admin view' do
-    before { assign :article, build_stubbed(:article, title: 'title123') }
-    it_behaves_like(
-      'admin view', 'Edit Article: title123', 'admin/articles/edit'
-    )
-  end
+  let(:article) { build_stubbed :article, title: 'title123' }
+  let(:title) { "Edit Article: #{article.title}" }
 
-  it 'has an edit article form' do
-    assign :article, build_stubbed(:article)
+  before { assign :article, article }
 
-    render
-
-    expect(rendered).to have_css 'form#edit_article'
-  end
+  it_behaves_like 'a titled view'
 end

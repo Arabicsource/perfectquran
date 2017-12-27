@@ -3,8 +3,9 @@
 require 'rails_helper'
 
 describe 'admin/categories/index' do
-  context 'behaves like an admin view' do
-    before { assign :categories, [] }
-    it_behaves_like 'admin view', 'Categories', 'admin/categories/index'
-  end
+  let(:title) { 'Categories' }
+
+  before { assign :categories, [] }
+
+  it_behaves_like 'a titled view'
 end
