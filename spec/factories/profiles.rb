@@ -15,6 +15,6 @@
 
 FactoryBot.define do
   factory :profile do
-    username 'username'
+    sequence(:username) { |n| "username_#{n}" }
   end
 end
