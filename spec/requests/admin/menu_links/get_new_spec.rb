@@ -3,7 +3,10 @@
 require 'rails_helper'
 
 describe 'GET Admin::MenuLinks#new', type: :request do
-  before { create :menu, id: 1 }
+  let(:admin) { create :admin_account }
+  let(:url) { new_admin_menu_menu_link_path(menu) }
+  let(:account) { create :account }
+  let(:menu) { create :menu }
 
-  include_examples 'admin get request', '/admin/menus/1/menu_links/new'
+  it_behaves_like 'an admin get request'
 end

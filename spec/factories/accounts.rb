@@ -30,6 +30,10 @@ FactoryBot.define do
     password 'password'
     role 'validating'
 
+    factory :admin_account do
+      role 'admin'
+    end
+
     factory :admin do
       confirmed_at Time.now
       role 'admin'

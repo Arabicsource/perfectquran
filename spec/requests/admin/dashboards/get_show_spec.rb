@@ -3,5 +3,9 @@
 require 'rails_helper'
 
 describe 'GET Admin::Dashboards#show', type: :request do
-  include_examples 'admin get request', '/admin'
+  let(:admin) { create :admin_account }
+  let(:url) { admin_root_path }
+  let(:account) { create :account }
+
+  it_behaves_like 'an admin get request'
 end

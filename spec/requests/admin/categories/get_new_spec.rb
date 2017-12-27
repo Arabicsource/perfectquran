@@ -3,5 +3,9 @@
 require 'rails_helper'
 
 describe 'GET Admin::Categories#new', type: :request do
-  include_examples 'admin get request', '/admin/categories/new'
+  let(:admin) { create :admin_account }
+  let(:url) { new_admin_category_path }
+  let(:account) { create :account }
+
+  it_behaves_like 'an admin get request'
 end
