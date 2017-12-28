@@ -7,7 +7,7 @@ describe 'GET Admin::MenuLinks#edit', type: :request do
   let(:url) { edit_admin_menu_menu_link_path(menu, menu_link) }
   let(:account) { create :account }
   let(:menu) { create :menu }
-  let(:menu_link) { create :menu_link, menu: menu }  
+  let(:menu_link) { create :menu_link, menu: menu }
 
   it_behaves_like 'an admin get request'
 end

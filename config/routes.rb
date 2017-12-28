@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   namespace :accounts do
-    resource :subscription, only: :new
+    resource :subscription, only: %i[new create]
     resource :profile, only: %i[new create edit update show]
   end
 
