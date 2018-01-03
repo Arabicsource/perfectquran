@@ -29,19 +29,6 @@ describe 'PATCH Settings::Profiles#update', type: :request do
   end
 
   context 'basic account' do
-    describe 'submitting the form with only the name' do
-      it 'changes the name' do
-        account = create :account
-        profile = create :profile, account: account, name: 'name', username: ''
-        login_as account
-        params = { profile: { name: 'name123' } }
-
-        expect { patch accounts_profile_path, params: params }.to(
-          change { profile.name }.from('name').to('name123')
-        )
-      end
-    end
-
     describe 'successful submission' do
       it 'redirects to edit' do
         account = create :account
@@ -50,7 +37,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
 
         patch accounts_profile_path, params: update_params
 
-        expect(response).to redirect_to edit_accounts_profile_path
+        expect(response).to redirect_to accounts_profile_path
       end
 
       it 'changes the name' do
@@ -60,7 +47,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         login_as account
 
         expect { patch accounts_profile_path, params: update_params }.to(
-          change { profile.name }.from('name').to('name123')
+          change { profile.reload.name }.from('name').to('name123')
         )
       end
 
@@ -70,7 +57,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         login_as account
 
         expect { patch accounts_profile_path, params: update_params }.to(
-          change { profile.username }.from('username').to('username123')
+          change { profile.reload.username }.from('username').to('username123')
         )
       end
 
@@ -80,7 +67,7 @@ describe 'PATCH Settings::Profiles#update', type: :request do
         login_as account
 
         expect { patch accounts_profile_path, params: update_params }.to(
-          change { profile.bio }.from('bio').to('bio123')
+          change { profile.reload.bio }.from('bio').to('bio123')
         )
       end
     end

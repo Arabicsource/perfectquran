@@ -4,7 +4,7 @@ module Accounts
   # :nodoc:
   class ProfilesController < Accounts::BaseController
     def show
-      @profile = current_account.profile
+      @profile = Profile.find_by(account: current_account)
       @total_points = Quran::Ayah.joins(:memories)
                                  .where(memories: { account: current_account })
                                  .sum(:character_length) * 3
@@ -32,14 +32,16 @@ module Accounts
     end
 
     def update
-      @profile = current_account.profile
+      @profile = Profile.find_by(account: current_account)
 
       if @profile.update_attributes(profile_params)
         flash[:success] = 'Alhamdulillah, Your profile was updated'
-        redirect_to edit_accounts_profile_path
+        redirect_to accounts_profile_path
       else
         render :edit
       end
+
+      # raise @profile.to_yaml
     end
 
     private

@@ -1,11 +1,26 @@
-#registrations, #accounts-profiles.new
-
-  .navbar, #newsletter, .footer, .notification
+#registrations, #accounts-registrations-profiles, #accounts-registrations-memories, #accounts-registrations-subscriptions
+  .navbar, .footer, .is-notice
     display: none
 
   h1
-    color: lighten($orange, 20%)
+    color: $orange-light
 
   form
     label
-      color: lighten($orange, 20%)
+      color: $orange-light
+
+  .is-memorized
+    @extend .button
+    @extend .is-danger
+    @extend .is-fullwidth
+
+  .not-memorized
+    @extend .button
+    @extend .is-fullwidth
+
+  .is-cancellation
+    @extend .button
+
+  .is-subscription
+    @extend .button
+    @extend .is-orange

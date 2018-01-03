@@ -105,6 +105,7 @@ GEM
       term-ansicolor
       thor
     crass (1.0.2)
+    dante (0.2.0)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -303,6 +304,10 @@ GEM
     sshkit (1.14.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    stripe-ruby-mock (2.5.0)
+      dante (>= 0.2.0)
+      multi_json (~> 1.0)
+      stripe (>= 2.0.3)
     temple (0.8.0)
     term-ansicolor (1.6.0)
       tins (~> 1.0)
@@ -389,6 +394,7 @@ DEPENDENCIES
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   stripe!
+  stripe-ruby-mock (~> 2.5.0)
   trix
   turbolinks (~> 5)
   twitter

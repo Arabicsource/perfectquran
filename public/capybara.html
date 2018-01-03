@@ -1,0 +1,230 @@
+<html lang="en"><head><style type="text/css" data-tag-name="trix-editor">trix-editor:empty:not(:focus)::before {
+  content: attr(placeholder);
+  color: graytext;
+}
+
+trix-editor a[contenteditable=false] {
+  cursor: text;
+}
+
+trix-editor img {
+  max-width: 100%;
+  height: auto;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea {
+  resize: none;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea.trix-autoresize-clone {
+  position: absolute;
+  left: -9999px;
+  max-height: 0px;
+}
+
+trix-editor [data-trix-attachment] figcaption[data-trix-placeholder]:empty::before {
+  content: attr(data-trix-placeholder);
+  color: graytext;
+}
+
+trix-editor [data-trix-cursor-target] {
+  display: inline-block !important;
+  width: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+trix-editor [data-trix-cursor-target=left] {
+  vertical-align: top !important;
+  margin-left: -1px !important;
+}
+
+trix-editor [data-trix-cursor-target=right] {
+  vertical-align: bottom !important;
+  margin-right: -1px !important;
+}
+trix-editor { display: block; }</style><style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
+  white-space: nowrap;
+}
+
+trix-toolbar [data-trix-dialog] {
+  display: none;
+}
+
+trix-toolbar [data-trix-dialog][data-trix-active] {
+  display: block;
+}
+
+trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
+  background-color: #ffdddd;
+}
+trix-toolbar { display: block; }</style>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<title>Subscribe to PerfectQuran | Perfect Quran</title>
+
+<meta name="stripe-key" content="pk_test_gOJJmPkWHKOREug0LCmVVAUB">
+<link rel="stylesheet" media="all" href="/assets/application-d62df2bd5909fd2d00d1908a5c6eb284b1b29faba5fcbceacfd21d1718bb5ce3.css" data-turbolinks-track="reload">
+<script src="https://js.stripe.com/v3/"></script>
+<script src="/assets/application-316c155ea984f513e3a641646af6015dfcc30afc4d983a79bcbe9b71205c8c3b.js" data-turbolinks-track="reload"></script>
+</head>
+
+<body class="new" id="accounts-subscriptions">
+
+<nav aria-label="main navigation" class="navbar is-transparent" role="navigation">
+<div class="container">
+<div class="navbar-brand">
+<a class="navbar-item" href="http://127.0.0.1:50029/">PerfectQuran</a>
+<button class="button navbar-burger" data-toggle="">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="navbar-menu" id="navbar-menu">
+<div class="navbar-start">
+<a class="navbar-item" href="/content/articles">Blog</a>
+<a class="navbar-item" href="/content/articles/about">About</a>
+</div>
+<div class="navbar-end">
+<div class="navbar-item has-dropdown is-hoverable">
+<a class="navbar-link" href="/accounts/profile">example@perfectquran.co
+</a><div class="navbar-dropdown">
+
+<a class="navbar-item" href="/accounts/profile">Profile</a>
+<a class="navbar-item" href="/accounts/profile/edit">Settings</a>
+<a class="navbar-item" rel="nofollow" data-method="delete" href="/sign_out">Logout</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+
+
+<section class="hero is-brown is-fullheight">
+<div class="hero-body">
+<div class="container">
+<div class="columns">
+<div class="column content is-size-6">
+<h1 class="title">The Problem</h1>
+<p>
+Creating, maintaining and growing a website is hard work, it takes a
+lot of time and the costs can mount up quickly.
+</p>
+<p>
+Many websites and services rely on showing ads and/or selling your
+personal data. Both things PerfectQuran is going to avoid.
+</p>
+<p>
+When PerfectQuran was first created we had no idea how popular it
+was going to be. Without any real means to pay for the growing costs,
+that popularity turned out to be too expensive and eventually killed the site.
+</p>
+</div>
+<div class="column content">
+<h1 class="title">The Benefits</h1>
+<p>
+<i class="fa fa-check has-text-success"></i> Share in its future and
+successes.
+</p>
+<p>
+<i class="fa fa-check has-text-success"></i> Enjoy patron only features
+</p>
+<p>
+<i class="fa fa-check has-text-success"></i> Never ever see an advertisement
+</p>
+<p>
+<i class="fa fa-check has-text-success"></i> Have a strong voice on future features
+</p>
+<p>
+<i class="fa fa-check has-text-success"></i> First access to new features
+</p>
+<p>
+<i class="fa fa-check has-text-success"></i> Recognition of your status
+</p>
+<p>
+<i class="fa fa-check has-text-success"></i> My gratitude and prayers
+</p>
+</div>
+<div class="column content is-two-fifths">
+<h1 class="title">The Solution</h1>
+<form id="payment_form" action="/accounts/subscription" accept-charset="UTF-8" method="post"><input name="utf8" value="✓" type="hidden">
+<div id="card-errors"></div>
+<div class="field">
+<div class="control StripeElement StripeElement--complete" id="card-element"><div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: medium none !important; display: block !important; background: transparent none repeat scroll 0% 0% !important; position: relative !important; opacity: 1 !important;"><iframe allowtransparency="true" scrolling="no" name="__privateStripeFrame3" allowpaymentrequest="true" src="https://js.stripe.com/v3/elements-inner-card-f233f345168ec853ead6b0ff7020e84d.html#componentName=card&amp;wait=false&amp;rtl=false&amp;features[noop]=false&amp;origin=http%3A%2F%2F127.0.0.1%3A50029&amp;referrer=http%3A%2F%2F127.0.0.1%3A50029%2Faccounts%2Fsubscription%2Fnew&amp;controllerId=__privateStripeController0" title="Secure payment input frame" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; height: 16.8px;" frameborder="0"></iframe><input class="__PrivateStripeElement-input" style="border: medium none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent none repeat scroll 0% 0% !important;" aria-hidden="true"></div></div>
+</div>
+<p class="control">
+</p><div class="buttons">
+<input name="commit" value="Submit Payment" class="is-subscription" data-disable-with="Submit Payment" disabled="" type="submit">
+<a class="is-cancellation" href="/">cancel</a>
+</div>
+<p></p>
+<script src="/packs-test/stripe-78ea1c9f164c6388b51b.js"></script>
+</form><img alt="" src="/assets/perfectquran-557dfcf8cfb18f80100be33ee267dbbaeb834d68128a8aae7d5ef01f0842d1c7.jpg">
+</div>
+</div>
+</div>
+</div>
+<div class="hero-foot">
+<div class="container">
+<p class="is-size-7 content">
+The payment form above is powered by <a href="https://stripe.com">stripe</a>.
+Your payment details are never submitted to PerfectQuran servers.
+</p>
+</div>
+</div>
+</section>
+
+
+<footer class="footer">
+<div class="container">
+<div class="columns">
+<div class="column content">
+<p>
+<strong>PerfectQuran</strong>
+by
+<a href="https://imabusabah.github.io">Abdullah Hashim</a>.
+He may also be found on
+<a href="https://twitter.com/ImAbuDhuha">Twitter</a>.
+</p>
+<p>
+The source code for this site can be found at
+<a href="https://github.com/imabusabah/perfectquran"><i class="fa fa-github"></i>
+GitHub
+</a>and is licensed under the
+<a href="https://opensource.org/licenses/mit-license.php">MIT</a>
+License.
+</p>
+<p>
+The content is licensed under the
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
+This does not cover the Quranic text, translations or audio. Please
+check the relevant websites for licensing information.
+</p>
+<p>
+The Quranic text and translations were obtained from
+<a href="http://tanzil.net/trans/">Tanzil</a>.
+</p>
+<p>
+The audio recitations are from
+<a href="http://www.mp3quran.net/eng/">MP3 Quran</a>
+and
+<a href="http://everyayah.com/data/status.php">EveryAyah</a>.
+</p>
+</div>
+<div class="column">
+<p>All praise and thanks belongs to Allah alone.</p>
+</div>
+<div class="column">
+
+
+</div>
+</div>
+</div>
+</footer>
+
+
+
+<iframe allowtransparency="true" scrolling="no" name="__privateStripeController0" allowpaymentrequest="true" src="https://js.stripe.com/v3/controller-7743f84299e535f3ffb8506402af4243.html#apiKey=pk_test_gOJJmPkWHKOREug0LCmVVAUB&amp;stripeJsId=d49690e1-68c7-47d2-8616-d342691bc349&amp;features[noop]=false&amp;origin=http%3A%2F%2F127.0.0.1%3A50029&amp;referrer=http%3A%2F%2F127.0.0.1%3A50029%2Faccounts%2Fsubscription%2Fnew&amp;controllerId=__privateStripeController0" aria-hidden="true" tabindex="-1" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important;" frameborder="0"></iframe><iframe allowtransparency="true" scrolling="no" name="__privateStripeMetricsController4" allowpaymentrequest="true" src="https://js.stripe.com/v2/m/outer.html#url=http%3A%2F%2F127.0.0.1%3A50029%2Faccounts%2Fsubscription%2Fnew&amp;title=Subscribe%20to%20PerfectQuran%20%7C%20Perfect%20Quran&amp;referrer=&amp;muid=c07bb2fa-aa51-4a69-8810-05ade027908f&amp;sid=308ac1c7-66e6-46e8-ba97-515e5210f8da&amp;preview=false" aria-hidden="true" tabindex="-1" style="border: medium none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important;" frameborder="0"></iframe></body></html>

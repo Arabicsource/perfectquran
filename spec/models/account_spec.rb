@@ -29,6 +29,7 @@ require 'rails_helper'
 RSpec.describe Account, type: :model do
   context 'associations' do
     it { is_expected.to have_one :profile }
+    it { is_expected.to have_one :subscription }
   end
 
   describe '#after_confirmation' do

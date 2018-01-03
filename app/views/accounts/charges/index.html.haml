@@ -1,0 +1,30 @@
+= render 'shared/page_header', title: 'Billing History'
+
+%section.section
+  .container
+    .columns
+      .column
+        = render 'accounts/shared/menu'
+      .column.is-three-quarters
+        %section#subscription-summary
+          %h1.title Charges
+
+          %table.table.is-fullwidth
+            %thead
+              %tr
+                %th Invoice
+                %th Date
+                %th Ammount
+            %tfoot
+              %tr
+                %th Invoice
+                %th Date
+                %th Ammount
+            %tbody
+              - @charges.each do |charge|
+                %tr
+                  %td= charge.id 
+                  %td= charge.created_at.to_date.to_formatted_s(:long_ordinal)
+                  %td $2.99
+
+- provide :title, 'Billing History'

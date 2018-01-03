@@ -111,6 +111,13 @@ en:
         header: 'Edit Account Settings'
       update:
         success_notification: 'Alhamdulillah, Your account settings were updated'
+  accounts:
+    subscriptions:
+      update:
+        success: 'Your subscription has been reactivated and will be billed normally at the end of the current billing cycle.'
+      destroy:
+        success: 'Your subscription has been cancelled! Your patron benefits will last until the end of your current billing cycle. You may reactivate your subscription any time before that date to keep all your patron benefits.'
+    
   dashboard: 'Dashboard'
   articles: 'Articles'
   new_article: 'New Article'

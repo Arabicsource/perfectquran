@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'quran/memories/new' do
+describe 'accounts/registrations/memories/new' do
   let(:title) { 'Have you memorized any of these Surahs?' }
 
   before { assign :commonly_memorized_surahs, [] }

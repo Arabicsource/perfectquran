@@ -1,0 +1,21 @@
+= render 'shared/page_header', title: 'Update Payment Method'
+
+%section.section
+  .container
+    .columns
+      .column
+        = render 'accounts/shared/menu'
+      .column.is-three-quarters
+        = form_with url: accounts_card_path, method: :patch, id: 'payment_form' do |f|
+          #card-errors
+
+          .field
+            #card-element.control
+
+          %p.control
+            .buttons
+              = f.submit 'Update Payment Method', class: 'button is-orange'
+              = link_to 'cancel', accounts_subscription_path, class: 'is-cancellation'
+
+- provide :title, 'Update Payment Method'
+= javascript_pack_tag 'stripe'

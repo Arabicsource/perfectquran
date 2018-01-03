@@ -1,0 +1,10 @@
+%nav.menu
+  %p.menu-label Account
+  %ul.menu-list
+    %li= link_to 'Profile', accounts_profile_path
+    %li= link_to 'Settings', edit_accounts_profile_path
+
+  %p.menu-label Patron
+  %ul.menu-list
+    %li= link_to 'Subscription', accounts_subscription_path
+    %li= link_to 'Billing History', accounts_charges_path

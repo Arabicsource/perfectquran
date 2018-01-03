@@ -2,9 +2,10 @@
 
 %section.section
   .container
-    .columns.is-centered
-      .column.is-two-thirds
-
+    .columns
+      .column
+        = render 'accounts/shared/menu'
+      .column.is-three-quarters
         = form_with model: @profile, url: accounts_profile_path, local: true, method: :patch, id: 'profile_form' do |f|
           = render 'shared/error_messages', object: @profile
 

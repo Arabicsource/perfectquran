@@ -46,6 +46,7 @@ group :development do
   gem 'rubocop', '~> 0.49.1', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'stripe-ruby-mock', '~> 2.5.0', require: 'stripe_mock'
   gem 'web-console', '>= 3.3.0'
 end
 

@@ -29,6 +29,7 @@ class Account < ApplicationRecord
   default_scope { order('id desc') }
 
   has_one :profile
+  has_one :subscription
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

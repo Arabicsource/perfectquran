@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228202033) do
+ActiveRecord::Schema.define(version: 20171229064646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,16 @@ ActiveRecord::Schema.define(version: 20171228202033) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.bigint "account_id"
+    t.integer "amount_in_cents"
+    t.string "payment_brand"
+    t.string "payment_last4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_charges_on_account_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -147,6 +157,10 @@ ActiveRecord::Schema.define(version: 20171228202033) do
     t.datetime "updated_at", null: false
     t.string "customer_token"
     t.string "subscription_token"
+    t.string "status"
+    t.string "payment_brand"
+    t.string "payment_last4"
+    t.string "current_period_end"
     t.index ["account_id"], name: "index_subscriptions_on_account_id"
   end
 
@@ -182,6 +196,7 @@ ActiveRecord::Schema.define(version: 20171228202033) do
   add_foreign_key "ayahs", "surahs"
   add_foreign_key "bookmarks", "accounts"
   add_foreign_key "bookmarks", "ayahs"
+  add_foreign_key "charges", "accounts"
   add_foreign_key "comments", "accounts"
   add_foreign_key "comments", "articles"
   add_foreign_key "facebook_shares", "ayahs"

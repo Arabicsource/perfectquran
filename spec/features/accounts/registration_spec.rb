@@ -3,13 +3,18 @@
 require 'rails_helper'
 
 feature 'Registration', js: true do
-  scenario 'successful submission' do
+  let(:stripe_helper) { StripeMock.create_test_helper }
+
+  before do
     first = create :surah, id: 1, transliterated_name: 'first'
     create_list :ayah, 2, surah: first
     second = create :surah, id: 114, transliterated_name: 'second'
     create_list :ayah, 3, surah: second
     third = create :surah, id: 113, transliterated_name: 'third'
     create_list :ayah, 4, surah: third
+  end
+
+  scenario 'best case' do
     visit new_account_registration_path
 
     fill_in 'Email', with: 'example@perfectquran.co'
@@ -18,11 +23,9 @@ feature 'Registration', js: true do
 
     expect { click_button 'Next' }.to change(Account, :count).by(1)
 
-    within '#profile_form' do
-      fill_in 'Name', with: 'name'
-      fill_in 'Username', with: 'username'
-      fill_in 'Bio', with: 'bio'
-    end
+    fill_in 'Name', with: 'name123'
+    fill_in 'Username', with: 'username123'
+    fill_in 'Bio', with: 'bio123'
 
     expect { click_button 'Next' }.to change(Profile, :count).by(1)
 
@@ -33,6 +36,8 @@ feature 'Registration', js: true do
 
     click_on 'Next'
 
-    expect(page).to have_css '.notification', text: 'Thank you for joining'
+    click_on 'Cancel'
+
+    expect(current_path).to eql accounts_profile_path
   end
 end

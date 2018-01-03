@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-describe 'accounts/profiles/new' do
+describe 'accounts/registrations/profiles/new' do
   let(:title) { 'Tell Us About Yourself' }
 
-  before { assign :profile, build_stubbed(:profile) }
+  before { assign :profile, Profile.new }
 
   it_behaves_like 'a titled view'
 end
