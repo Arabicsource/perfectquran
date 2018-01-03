@@ -34,9 +34,11 @@ feature 'Registration', js: true do
     expect { click_on 'third' }.to change(Memory, :count).by(4)
     expect { click_on 'second' }.to change(Memory, :count).by(-3)
 
-    click_on 'Next'
+    click_on 'Finished'
 
-    click_on 'Cancel'
+    # click_on 'Next'
+
+    # click_on 'Cancel'
 
     expect(current_path).to eql accounts_profile_path
   end
