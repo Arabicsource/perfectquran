@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229064646) do
+ActiveRecord::Schema.define(version: 20180103180141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,18 @@ ActiveRecord::Schema.define(version: 20171229064646) do
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_comments_on_account_id"
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "connections", force: :cascade do |t|
+    t.string "name"
+    t.string "provider"
+    t.string "provider_uid"
+    t.string "token"
+    t.string "secret"
+    t.bigint "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_connections_on_account_id"
   end
 
   create_table "facebook_shares", force: :cascade do |t|
@@ -199,6 +211,7 @@ ActiveRecord::Schema.define(version: 20171229064646) do
   add_foreign_key "charges", "accounts"
   add_foreign_key "comments", "accounts"
   add_foreign_key "comments", "articles"
+  add_foreign_key "connections", "accounts"
   add_foreign_key "facebook_shares", "ayahs"
   add_foreign_key "memories", "accounts"
   add_foreign_key "memories", "ayahs"

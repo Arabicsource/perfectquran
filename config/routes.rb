@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :charges, only: :index
     resource :profile, only: %i[edit show create update new]
     resource :subscription
+    resources :connections, only: :index
   end
 
   namespace :admin do
@@ -63,6 +64,7 @@ Rails.application.routes.draw do
              path_names: { sign_up: 'register' },
              controllers: { registrations: 'registrations' }
 
+  get 'auth/:provider/callback', to: 'accounts/connections#callback'
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'quran/surahs#show', as: :surah
 
