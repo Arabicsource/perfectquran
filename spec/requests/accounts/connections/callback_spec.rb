@@ -3,21 +3,6 @@
 require 'rails_helper'
 
 describe 'GET Accounts::Connections#callback', type: :request do
-  before(:all) do
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.logger = Logger.new('/dev/null')
-    OmniAuth.config.add_mock(
-      :twitter,
-      uid: '12345',
-      info: { nickname: 'example' },
-      credentials:
-        {
-          token: '6789',
-          secret: 'abcdef'
-        }
-    )
-  end
-
   let(:uri) { '/auth/twitter/callback' }
   let(:account) { create :account }
   let(:redirect_path) do
@@ -36,7 +21,7 @@ describe 'GET Accounts::Connections#callback', type: :request do
     end
   end
 
-  context 'basic account' do
+  context 'with account' do
     before do
       login_as account
     end
@@ -50,6 +35,26 @@ describe 'GET Accounts::Connections#callback', type: :request do
         get uri
 
         expect(response).to redirect_to accounts_connections_path
+      end
+    end
+
+    context 'when connection exists' do
+      let!(:connection) { create :connection, account: account, name: 'name' }
+
+      it 'updates connection' do
+        get uri
+
+        expect(connection.reload.name).to eq 'nickname123'
+      end
+
+      it 'redirects' do
+        get uri
+
+        expect(response).to redirect_to accounts_connections_path
+      end
+
+      it 'does not create connection' do
+        expect { get uri }.not_to change(Connection, :count)
       end
     end
 

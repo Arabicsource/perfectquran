@@ -1,0 +1,32 @@
+= render 'shared/page_header', title: 'Connections'
+
+%section.section
+  .container
+    .columns
+      .column
+        = render 'accounts/shared/menu'
+      .column.is-three-quarters
+        %section#connections
+          %h1.title Connections
+
+          = link_to 'Connect Twitter Account', '/auth/twitter', class: 'is-twitter-button'
+
+          %table.table.is-fullwidth
+            %thead
+              %tr
+                %th UID
+                %th Name
+                %th Provider
+            %tfoot
+              %tr
+                %th UID
+                %th Name
+                %th Provider
+            %tbody
+              - @connections.each do |connection|
+                %tr
+                  %td= connection.provider_uid
+                  %td= connection.name
+                  %td= connection.provider
+
+- provide :title, 'Connections'

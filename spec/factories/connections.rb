@@ -15,13 +15,12 @@
 #  updated_at   :datetime         not null
 #
 
-# :nodoc:
-class Connection < ApplicationRecord
-  belongs_to :account
-
-  validates :name, presence: true
-  validates :provider, presence: true
-  validates :provider_uid, presence: true, uniqueness: { scope: :provider }
-  validates :token, presence: true
-  validates :secret, presence: true
+FactoryBot.define do
+  factory :connection do
+    name 'nickname123'
+    provider 'twitter'
+    provider_uid 'uid12345'
+    token 'tok12345'
+    secret 'sec12345'
+  end
 end
