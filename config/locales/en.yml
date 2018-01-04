@@ -112,6 +112,9 @@ en:
       update:
         success_notification: 'Alhamdulillah, Your account settings were updated'
   accounts:
+    connections:
+      destroy:
+        success: 'Alhamdulillah, your Twitter connection has been deleted'
     subscriptions:
       update:
         success: 'Your subscription has been reactivated and will be billed normally at the end of the current billing cycle.'

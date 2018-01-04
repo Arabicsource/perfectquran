@@ -17,16 +17,21 @@
                 %th UID
                 %th Name
                 %th Provider
+                %th
             %tfoot
               %tr
                 %th UID
                 %th Name
                 %th Provider
+                %th
             %tbody
               - @connections.each do |connection|
-                %tr
+                %tr{id: "connection-#{connection.id}"}
                   %td= connection.provider_uid
                   %td= connection.name
                   %td= connection.provider
+                  %td
+                    = link_to accounts_connection_path(connection), method: :delete, class: 'button is-danger' do
+                      #{fa_icon('trash')} Delete
 
 - provide :title, 'Connections'

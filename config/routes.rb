@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :charges, only: :index
     resource :profile, only: %i[edit show create update new]
     resource :subscription
-    resources :connections, only: :index
+    resources :connections
   end
 
   namespace :admin do

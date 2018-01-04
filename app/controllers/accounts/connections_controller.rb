@@ -9,6 +9,13 @@ module Accounts
       @connections = Connection.where(account: current_account)
     end
 
+    def destroy
+      @connection = Connection.find_by!(id: params[:id])
+      @connection.destroy
+      flash[:success] = I18n.t('accounts.connections.destroy.success')
+      redirect_to accounts_connections_path
+    end
+
     def callback
       if update_connection
         flash[:success] = 'Alhamdulillah, your Twitter account has been updated'

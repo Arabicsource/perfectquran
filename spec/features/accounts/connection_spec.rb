@@ -38,3 +38,25 @@ feature 'Connection' do
     )
   end
 end
+
+feature 'Deleting Connection' do
+  let(:account) { create :account }
+  let!(:connection) { create :connection, account: account }
+
+  before { login_as account }
+
+  scenario 'when successful' do
+    visit accounts_connections_path
+
+    within "#connection-#{connection.id}" do
+      click_on 'Delete'
+    end
+
+    expect(page).not_to have_text connection.name
+    expect(page).not_to have_text connection.provider_uid
+    expect(page).to have_css(
+      '.notification',
+      text: 'Alhamdulillah, your Twitter connection has been deleted'
+    )
+  end
+end
