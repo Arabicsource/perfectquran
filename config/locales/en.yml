@@ -113,6 +113,8 @@ en:
         success_notification: 'Alhamdulillah, Your account settings were updated'
   accounts:
     connections:
+      update:
+        success: 'Alhamdulillah, your Twitter connection has been updated'
       destroy:
         success: 'Alhamdulillah, your Twitter connection has been deleted'
     subscriptions:

@@ -13,6 +13,7 @@
 #  account_id   :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  status       :integer
 #
 
 # :nodoc:
@@ -24,4 +25,7 @@ class Connection < ApplicationRecord
   validates :provider_uid, presence: true, uniqueness: { scope: :provider }
   validates :token, presence: true
   validates :secret, presence: true
+  validates :status, presence: true
+
+  enum status: %i[inactive active]
 end

@@ -59,4 +59,27 @@ feature 'Deleting Connection' do
       text: 'Alhamdulillah, your Twitter connection has been deleted'
     )
   end
+
+  feature 'Editing Connection' do
+    let(:account) { create :account }
+    let!(:connection) { create :connection, account: account }
+
+    before { login_as account }
+
+    scenario 'when successful' do
+      visit accounts_connections_path
+
+      click_on connection.provider_uid
+
+      select 'active', from: 'connection[status]'
+
+      click_on 'Update Connection'
+
+      expect(page).to have_css 'td', text: 'active'
+      expect(page).to have_css(
+        '.notification',
+        text: 'Alhamdulillah, your Twitter connection has been updated'
+      )
+    end
+  end
 end

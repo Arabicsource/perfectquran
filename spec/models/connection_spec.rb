@@ -13,6 +13,7 @@
 #  account_id   :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  status       :integer
 #
 
 require 'rails_helper'
@@ -28,9 +29,14 @@ RSpec.describe Connection, type: :model do
     it { is_expected.to validate_presence_of :provider_uid }
     it { is_expected.to validate_presence_of :token }
     it { is_expected.to validate_presence_of :secret }
+    it { is_expected.to validate_presence_of :status }
 
     it do
       is_expected.to validate_uniqueness_of(:provider_uid).scoped_to(:provider)
     end
+  end
+
+  context 'enums' do
+    it { is_expected.to define_enum_for(:status).with(%i[inactive active]) }
   end
 end

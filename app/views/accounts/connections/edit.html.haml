@@ -1,0 +1,17 @@
+= render 'shared/page_header', title: 'Edit Connection'
+
+%section.section
+  .container
+    .columns
+      .column
+        = render 'accounts/shared/menu'
+      .column.is-three-quarters
+        = form_with model: @connection, url: accounts_connection_path(@connection), local: true, method: :patch, id: 'connection_form' do |f|
+          .field.has-addons
+            .control.is-expanded
+              .select.is-fullwidth
+                = f.select :status, Connection.statuses.keys.map {|key| [key.humanize, key]}, {}, id: 'connection_status'
+            .control
+              = f.submit class: 'button is-orange'
+
+- provide :title, 'Edit Connection'

@@ -9,6 +9,21 @@ module Accounts
       @connections = Connection.where(account: current_account)
     end
 
+    def edit
+      @connection = Connection.find(params[:id])
+    end
+
+    def update
+      @connection = Connection.find(params[:id])
+
+      if @connection.update_attributes(connection_params)
+        flash[:success] = I18n.t('accounts.connections.update.success')
+        redirect_to accounts_connections_path
+      else
+        render :edit
+      end
+    end
+
     def destroy
       @connection = Connection.find_by!(id: params[:id])
       @connection.destroy
@@ -48,6 +63,7 @@ module Accounts
         connection.token = auth[:credentials][:token]
         connection.secret = auth[:credentials][:secret]
         connection.account = current_account
+        connection.status = 'inactive'
       end
     rescue
       false
@@ -61,6 +77,10 @@ module Accounts
       )
     rescue
       false
+    end
+
+    def connection_params
+      params.require(:connection).permit(:status)
     end
   end
 end
