@@ -7,31 +7,32 @@
         = render 'accounts/shared/menu'
       .column.is-three-quarters
         %section#connections
-          %h1.title Connections
+          - if @connections.any?
+            %h1.title Connections            
+            %table.table.is-fullwidth
+              %thead
+                %tr
+                  %th UID
+                  %th Name
+                  %th Provider
+                  %th
+              %tfoot
+                %tr
+                  %th UID
+                  %th Name
+                  %th Provider
+                  %th
+              %tbody
+                - @connections.each do |connection|
+                  %tr{id: "connection-#{connection.id}"}
+                    %td= connection.provider_uid
+                    %td= connection.name
+                    %td= connection.provider
+                    %td
+                      = link_to accounts_connection_path(connection), method: :delete, class: 'button is-danger' do
+                        #{fa_icon('trash')} Delete
 
-          = link_to 'Connect Twitter Account', '/auth/twitter', class: 'is-twitter-button'
-
-          %table.table.is-fullwidth
-            %thead
-              %tr
-                %th UID
-                %th Name
-                %th Provider
-                %th
-            %tfoot
-              %tr
-                %th UID
-                %th Name
-                %th Provider
-                %th
-            %tbody
-              - @connections.each do |connection|
-                %tr{id: "connection-#{connection.id}"}
-                  %td= connection.provider_uid
-                  %td= connection.name
-                  %td= connection.provider
-                  %td
-                    = link_to accounts_connection_path(connection), method: :delete, class: 'button is-danger' do
-                      #{fa_icon('trash')} Delete
+        = link_to '/auth/twitter', class: 'is-twitter-button' do
+          #{fa_icon('twitter')} Connect Twitter Account
 
 - provide :title, 'Connections'
