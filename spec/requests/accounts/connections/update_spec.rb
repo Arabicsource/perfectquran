@@ -48,4 +48,14 @@ describe 'Accounts::Connections#update', type: :request do
       end
     end
   end
+
+  context 'when account is not the resource owner' do
+    before { login_as create :account }
+
+    it 'raises an exception' do
+      expect { patch uri, params: valid_params }.to(
+        raise_error(ActiveRecord::RecordNotFound)
+      )
+    end
+  end
 end

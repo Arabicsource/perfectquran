@@ -3,19 +3,16 @@
 module Accounts
   # :nodoc:
   class ConnectionsController < Accounts::BaseController
-    before_action :load_connection, only: :callback
+    before_action :find_connection_by_provider, only: :callback
+    before_action :find_connection, only: %i[edit update destroy]
 
     def index
       @connections = Connection.where(account: current_account)
     end
 
-    def edit
-      @connection = Connection.find(params[:id])
-    end
+    def edit; end
 
     def update
-      @connection = Connection.find(params[:id])
-
       if @connection.update_attributes(connection_params)
         flash[:success] = I18n.t('accounts.connections.update.success')
         redirect_to accounts_connections_path
@@ -25,7 +22,6 @@ module Accounts
     end
 
     def destroy
-      @connection = Connection.find_by!(id: params[:id])
       @connection.destroy
       flash[:success] = I18n.t('accounts.connections.destroy.success')
       redirect_to accounts_connections_path
@@ -45,9 +41,15 @@ module Accounts
 
     private
 
-    def load_connection
+    def find_connection_by_provider
       @connection = Connection.find_by(
         provider: 'twitter', provider_uid: auth[:uid]
+      )
+    end
+
+    def find_connection
+      @connection = Connection.find_by!(
+        id: params[:id], account: current_account
       )
     end
 

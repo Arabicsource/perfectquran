@@ -32,4 +32,12 @@ describe 'Accounts::Connections#destroy', type: :request do
       end
     end
   end
+
+  context 'when account is not the resource owner' do
+    before { login_as create :account }
+
+    it 'raises an exception' do
+      expect { delete uri }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
 end
