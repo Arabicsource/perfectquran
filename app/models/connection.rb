@@ -28,4 +28,6 @@ class Connection < ApplicationRecord
   validates :status, presence: true
 
   enum status: %i[inactive active]
+
+  scope :all_active, -> { where(status: 'active') }
 end

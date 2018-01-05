@@ -24,5 +24,6 @@ FactoryBot.define do
     token 'tok12345'
     secret 'sec12345'
     status 'inactive'
+    last_ayah_id 0
   end
 end

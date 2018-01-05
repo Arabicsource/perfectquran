@@ -39,4 +39,41 @@ RSpec.describe Connection, type: :model do
   context 'enums' do
     it { is_expected.to define_enum_for(:status).with(%i[inactive active]) }
   end
+
+  context 'scopes' do
+    context '#all_active' do
+      let(:account) { create :account }
+
+      let!(:first_active) do
+        create(
+          :connection,
+          provider_uid: '12345',
+          status: 'active',
+          account: account
+        )
+      end
+
+      let!(:second_inactive) do
+        create(
+          :connection,
+          provider_uid: '67890',
+          status: 'inactive',
+          account: account
+        )
+      end
+
+      let!(:third_active) do
+        create(
+          :connection,
+          provider_uid: 'abcdef',
+          status: 'active',
+          account: account
+        )
+      end
+
+      it 'returns active' do
+        expect(Connection.all_active.size).to eq 2
+      end
+    end
+  end
 end
