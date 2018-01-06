@@ -30,6 +30,8 @@ class Account < ApplicationRecord
 
   has_one :profile
   has_one :subscription
+  has_many :connections
+  has_many :memories
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

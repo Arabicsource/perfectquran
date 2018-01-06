@@ -30,6 +30,8 @@ RSpec.describe Account, type: :model do
   context 'associations' do
     it { is_expected.to have_one :profile }
     it { is_expected.to have_one :subscription }
+    it { is_expected.to have_many :connections }
+    it { is_expected.to have_many :memories }
   end
 
   describe '#after_confirmation' do
