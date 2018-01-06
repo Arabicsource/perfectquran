@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'dashboards#show'
-    resources :articles, :categories
+    resources :articles, :categories, :accounts
 
     resources :menus do
       # resources :menu_links, only: %i[new create edit update delete]

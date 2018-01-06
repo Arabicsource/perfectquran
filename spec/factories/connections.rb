@@ -14,6 +14,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  status       :integer
+#  last_ayah_id :integer          default(0)
 #
 
 FactoryBot.define do
