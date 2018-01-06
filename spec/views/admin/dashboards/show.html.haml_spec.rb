@@ -9,6 +9,7 @@ describe 'admin/dashboards/show' do
     assign :accounts, []
     assign :comments, []
     assign :memories, []
+    assign :connections, []
   end
 
   it_behaves_like 'a titled view'

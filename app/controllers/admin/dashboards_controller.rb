@@ -7,6 +7,7 @@ module Admin
       @accounts = Account.all
       @comments = Comment.all
       @memories = Memory.all
+      @connections = Connection.all
     end
   end
 end
