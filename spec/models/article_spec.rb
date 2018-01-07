@@ -63,4 +63,15 @@ RSpec.describe Article, type: :model do
       expect(article.permalink).to eq 'this-is-my-title'
     end
   end
+
+  context '#published_pages' do
+    it 'returns published pages' do
+      create :article, title: 'first', collection: :page, visibility: :published
+      create :article, title: 'second', collection: :page, visibility: :draft
+      create :article, title: 'third', collection: :post, visibility: :published
+      create :article, title: 'forth', collection: :page, visibility: :published
+
+      expect(Article.published_pages.map(&:title)).to eq %w[forth first]
+    end
+  end
 end

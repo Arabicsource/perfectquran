@@ -35,8 +35,6 @@ feature 'View articles index' do
 
     visit content_articles_path
 
-    expect(page).not_to have_content 'title123'
-    expect(page).not_to have_content 'title456'
     expect(page).to have_content 'title789'
     expect(page).to have_content 'titleabc'
     expect(page).to have_content 'titledef'

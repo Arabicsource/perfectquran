@@ -32,3 +32,20 @@
       .column
         %p All praise and thanks belongs to Allah alone.
       .column
+        .menu
+          %p.menu-label Content
+          %ul.menu-list
+            %li
+              = link_to 'Quran', quran_root_path
+              - Article.published_pages.each do |page|
+                %li= link_to page.title, content_page_path(page)
+          %p.menu-label Social Media Profiles
+          %ul.menu-list
+            %li
+              = link_to 'https://twitter.com/PerfectQuran' do
+                = fa_icon 'twitter'
+                Twitter
+            %li
+              = link_to 'https://www.facebook.com/PerfectQuran' do
+                = fa_icon 'facebook'
+                Facebook
