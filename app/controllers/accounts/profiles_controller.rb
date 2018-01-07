@@ -4,7 +4,7 @@ module Accounts
   # :nodoc:
   class ProfilesController < Accounts::BaseController
     def show
-      @profile = Profile.find_by(account: current_account)
+      @profile = Profile.find_or_create_by(account: current_account)
       @total_points = Quran::Ayah.joins(:memories)
                                  .where(memories: { account: current_account })
                                  .sum(:character_length) * 3
@@ -12,18 +12,14 @@ module Accounts
                             .where(memories: { account: current_account }).uniq
     end
 
-    def new
-      @profile = Profile.new
-    end
-
     def create
       @profile = Profile.new(profile_params)
       @profile.account = current_account
 
       if @profile.save
-        redirect_to new_quran_memory_path
+        redirect_to accounts_profile_path
       else
-        render :new
+        render :edit
       end
     end
 
