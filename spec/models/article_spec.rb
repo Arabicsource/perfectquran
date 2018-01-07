@@ -74,4 +74,15 @@ RSpec.describe Article, type: :model do
       expect(Article.published_pages.map(&:title)).to eq %w[forth first]
     end
   end
+
+  context '#published_posts' do
+    it 'returns published pages' do
+      create :article, title: 'first', collection: :post, visibility: :published
+      create :article, title: 'second', collection: :post, visibility: :draft
+      create :article, title: 'third', collection: :page, visibility: :published
+      create :article, title: 'forth', collection: :post, visibility: :published
+
+      expect(Article.published_posts.map(&:title)).to eq %w[forth first]
+    end
+  end
 end

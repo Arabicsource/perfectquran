@@ -22,6 +22,7 @@ class Article < ApplicationRecord
   default_scope { order created_at: :desc }
 
   scope :published_pages, -> { where collection: :page, visibility: :published }
+  scope :published_posts, -> { where collection: :post, visibility: :published }
 
   before_validation { self.permalink = title.parameterize if title.present? }
   validates :title, presence: true

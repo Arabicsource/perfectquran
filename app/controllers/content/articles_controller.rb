@@ -4,8 +4,7 @@ module Content
   # :nodoc:
   class ArticlesController < ApplicationController
     def index
-      @articles = Article.includes(:category, :account)
-                         .where(collection: 'post', visibility: 'published')
+      @articles = Article.includes(:category, :account).published_posts
     end
 
     def show
