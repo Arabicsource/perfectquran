@@ -38,10 +38,4 @@ describe 'admin/shared/_menu' do
 
     expect(rendered).to have_link 'Articles', href: admin_articles_path
   end
-
-  it 'has a link to menus' do
-    render
-
-    expect(rendered).to have_link 'Menus', href: admin_menus_path
-  end
 end

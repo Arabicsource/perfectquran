@@ -17,11 +17,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboards#show'
     resources :articles, :categories, :accounts
-
-    resources :menus do
-      # resources :menu_links, only: %i[new create edit update delete]
-      resources :menu_links
-    end
   end
 
   namespace :api, defaults: { format: 'json' } do
