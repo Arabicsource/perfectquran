@@ -2,9 +2,10 @@
 
 require 'rails_helper'
 
-describe 'GET /accounts/subscriptions/show', type: :request do
+describe '/accounts/subscriptions/show', type: :request do
   let(:url) { accounts_subscription_path }
   let(:account) { create :account }
+  let(:title) { 'Subscription' }
 
   context 'when an account has a subscription and charge' do
     before do
