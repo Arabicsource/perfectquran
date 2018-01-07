@@ -7,6 +7,7 @@ describe 'GET Admin::Menus#show', type: :request do
   let(:url) { admin_menu_path(menu) }
   let(:account) { create :account }
   let(:menu) { create :menu }
+  let(:title) { "Menu: #{menu.name}" }
 
   it_behaves_like 'an admin get request'
 end

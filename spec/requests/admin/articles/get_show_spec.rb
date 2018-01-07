@@ -7,6 +7,7 @@ describe 'GET Admin::Articles#show', type: :request do
   let(:url) { admin_article_path(article) }
   let(:account) { create :account }
   let(:article) { create :article }
+  let(:title) { "Article: #{article.title}" }
 
   it_behaves_like 'an admin get request'
 end

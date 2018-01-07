@@ -20,12 +20,15 @@ RSpec.shared_examples 'an admin get request' do
   end
 
   context 'with admin account' do
-    before { login_as admin }
-
-    it 'responds successfully' do
+    before do
+      login_as admin
       get url
+    end
 
-      expect(response).to be_successful
+    specify { expect(response).to be_successful }
+
+    specify do
+      expect(response.body).to include "<title>#{title} | Perfect Quran</title>"
     end
   end
 end

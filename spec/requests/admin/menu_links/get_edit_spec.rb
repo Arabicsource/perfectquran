@@ -8,6 +8,7 @@ describe 'GET Admin::MenuLinks#edit', type: :request do
   let(:account) { create :account }
   let(:menu) { create :menu }
   let(:menu_link) { create :menu_link, menu: menu }
+  let(:title) { "Edit Menu Link: #{menu_link.name}" }
 
   it_behaves_like 'an admin get request'
 end

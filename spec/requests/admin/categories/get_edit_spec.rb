@@ -7,6 +7,7 @@ describe 'GET Admin::Categories#edit', type: :request do
   let(:url) { edit_admin_category_path(category) }
   let(:account) { create :account }
   let(:category) { create :category }
+  let(:title) { "Edit Category: #{category.name}" }
 
   it_behaves_like 'an admin get request'
 end

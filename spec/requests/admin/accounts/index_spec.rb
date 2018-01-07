@@ -6,6 +6,7 @@ describe 'Admin::Accounts#index', type: :request do
   let(:admin) { create :admin_account }
   let(:url) { admin_accounts_path }
   let(:account) { create :account }
+  let(:title) { 'Accounts' }
 
   it_behaves_like 'an admin get request'
 end
