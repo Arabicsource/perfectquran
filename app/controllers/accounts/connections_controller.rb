@@ -58,17 +58,7 @@ module Accounts
     end
 
     def create_connection
-      Connection.create! do |connection|
-        connection.name = auth[:info][:nickname]
-        connection.provider = 'twitter'
-        connection.provider_uid = auth[:uid]
-        connection.token = auth[:credentials][:token]
-        connection.secret = auth[:credentials][:secret]
-        connection.account = current_account
-        connection.status = 'inactive'
-      end
-    rescue
-      false
+      Connection.create_with_omniauth! auth, current_account
     end
 
     def update_connection

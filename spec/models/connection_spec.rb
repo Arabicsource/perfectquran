@@ -41,6 +41,24 @@ RSpec.describe Connection, type: :model do
     it { is_expected.to define_enum_for(:status).with(%i[inactive active]) }
   end
 
+  context '#create_with_omniauth!' do
+    let(:account) { create :account }
+
+    let(:auth_hash) do
+      {
+        uid: 'uid12345',
+        info: { nickname: 'nickname' },
+        credentials: { token: 'token', secret: 'secret' }
+      }
+    end
+
+    specify do
+      expect { Connection.create_with_omniauth!(auth_hash, account) }.to(
+        change(Connection, :count).by(1)
+      )
+    end
+  end
+
   context 'scopes' do
     context '#all_active' do
       let(:account) { create :account }
