@@ -4,18 +4,17 @@ module Accounts
   module Registrations
     # :nodoc:
     class ProfilesController < Accounts::BaseController
-      def new
-        @profile = Profile.new
+      def edit
+        @profile = Profile.find_by(account: current_account)
       end
 
-      def create
-        @profile = Profile.new(profile_params)
-        @profile.account = current_account
+      def update
+        @profile = Profile.find_by(account: current_account)
 
-        if @profile.save
+        if @profile.update_attributes(profile_params)
           redirect_to new_accounts_registrations_memory_path
         else
-          render :new
+          render :edit
         end
       end
 

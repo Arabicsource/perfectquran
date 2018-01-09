@@ -6,7 +6,6 @@ include Warden::Test::Helpers
 feature 'Edit profile settings' do
   scenario 'successfully' do
     account = create :account
-    create :profile, account: account
     login_as account
 
     visit edit_accounts_profile_path

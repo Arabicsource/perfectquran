@@ -27,7 +27,7 @@ feature 'Registration', js: true do
     fill_in 'Username', with: 'username123'
     fill_in 'Bio', with: 'bio123'
 
-    expect { click_button 'Next' }.to change(Profile, :count).by(1)
+    expect { click_button 'Next' }.not_to change(Profile, :count)
 
     expect { click_on 'first' }.to change(Memory, :count).by(2)
     expect { click_on 'second' }.to change(Memory, :count).by(3)

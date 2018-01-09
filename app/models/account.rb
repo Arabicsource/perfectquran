@@ -28,6 +28,8 @@
 class Account < ApplicationRecord
   default_scope { order('id desc') }
 
+  after_create :create_profile!
+
   has_one :profile
   has_one :subscription
   has_many :connections

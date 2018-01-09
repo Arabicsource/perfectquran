@@ -44,6 +44,12 @@ RSpec.describe Account, type: :model do
     end
   end
 
+  describe '#after_create' do
+    it 'creates profile' do
+      expect { create :account }.to change(Profile, :count).by(1)
+    end
+  end
+
   describe 'Account.all' do
     it 'returns users ordered by id desc' do
       FactoryBot.create(:account, email: 'first@example.com')

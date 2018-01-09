@@ -22,7 +22,7 @@
         .column.is-half
           %h1.title Tell Us About Yourself
 
-          = form_with model: @profile, url: accounts_registrations_profile_path, method: :post, local: true, id: 'profile_form' do |f|
+          = form_with model: @profile, url: accounts_registrations_profile_path, method: :patch, local: true, id: 'profile_form' do |f|
             = render 'shared/error_messages', object: @profile
           
             .field
