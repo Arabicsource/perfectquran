@@ -57,6 +57,15 @@ RSpec.describe Article, type: :model do
     end
   end
 
+  describe '#category_name' do
+    it 'returns the category name' do
+      category = create :category, name: 'cat123'
+      article = create :article, category: category
+
+      expect(article.category_name).to eq 'cat123'
+    end
+  end
+
   describe '#permalink' do
     it 'is a parameterized version of the title' do
       article = create :article, title: 'This is my Title'

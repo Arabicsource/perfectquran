@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'GET Content::Articles#index', type: :request do
   it 'responds successfully' do
-    # article = create :article, visibility: 'published'
+    create :article, visibility: 'published'
 
     get content_articles_path
 

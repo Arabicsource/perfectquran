@@ -24,6 +24,8 @@ class Article < ApplicationRecord
   scope :published_pages, -> { where collection: :page, visibility: :published }
   scope :published_posts, -> { where collection: :post, visibility: :published }
 
+  delegate :name, to: :category, prefix: true
+
   before_validation { self.permalink = title.parameterize if title.present? }
   validates :title, presence: true
   validates :content, presence: true
