@@ -17,7 +17,6 @@ feature 'Connection' do
 
     expect(page).to have_selector 'td', text: 'twitter'
     expect(page).to have_selector 'td', text: 'nickname123'
-    expect(page).to have_selector 'td', text: 'uid12345'
     expect(page).to have_css(
       '.notification', text: 'Alhamdulillah, your Twitter account was connected'
     )
@@ -32,7 +31,6 @@ feature 'Connection' do
 
     expect(page).to have_selector 'td', text: 'twitter'
     expect(page).to have_selector 'td', text: 'nickname123'
-    expect(page).to have_selector 'td', text: 'uid12345'
     expect(page).to have_css(
       '.notification',
       text: 'Alhamdulillah, your Twitter account has been updated'
@@ -70,7 +68,7 @@ feature 'Deleting Connection' do
     scenario 'when successful' do
       visit accounts_connections_path
 
-      click_on connection.provider_uid
+      click_on 'Edit'
 
       select 'Active', from: 'connection[active]'
 
