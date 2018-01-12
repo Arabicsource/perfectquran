@@ -7,6 +7,7 @@ class TwitterConnectionPoster
     @token = connection.token
     @secret = connection.secret
     @last_ayah_id = connection.last_ayah_id
+    @translation = connection.translation
   end
 
   def run!
@@ -29,7 +30,9 @@ class TwitterConnectionPoster
   end
 
   def twitterized_text
-    Quran::Text.find_by!(translation_id: 3, ayah_id: current_ayah_id).twitterize
+    Quran::Text.find_by!(
+      translation: @translation, ayah_id: current_ayah_id
+    ).twitterize
   end
 
   def current_ayah_id

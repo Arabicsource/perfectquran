@@ -8,8 +8,11 @@ RSpec.describe TwitterConnectionPoster do
   let(:ayah) { create :ayah, id: 1 }
 
   context 'when successful' do
-    let(:connection) { create :connection, account: account }
     let!(:text) { create :text, translation: translation, ayah: ayah }
+
+    let(:connection) do
+      create :connection, account: account, translation: translation
+    end
 
     it 'returns true' do
       allow_any_instance_of(TwitterPoster).to receive(:run!).and_return(true)
@@ -29,7 +32,12 @@ RSpec.describe TwitterConnectionPoster do
     let!(:text) { create :text, translation: translation, ayah: ayah }
 
     let(:connection) do
-      create :connection, account: account, last_ayah_id: 6236
+      create(
+        :connection,
+        account: account,
+        last_ayah_id: 6236,
+        translation: translation
+      )
     end
 
     specify do
@@ -38,9 +46,14 @@ RSpec.describe TwitterConnectionPoster do
   end
 
   context 'when middle ayah' do
-    let(:connection) { create :connection, account: account, last_ayah_id: 5 }
     let(:ayah) { create :ayah, id: 6 }
     let!(:text) { create :text, translation: translation, ayah: ayah }
+
+    let(:connection) do
+      create(
+        :connection, account: account, last_ayah_id: 5, translation: translation
+      )
+    end
 
     specify do
       expect(TwitterConnectionPoster.new(connection).run!).to be_truthy
@@ -48,8 +61,11 @@ RSpec.describe TwitterConnectionPoster do
   end
 
   context 'when failure' do
-    let(:connection) { create :connection, account: account }
     let!(:text) { create :text, translation: translation, ayah: ayah }
+
+    let(:connection) do
+      create :connection, account: account, translation: translation
+    end
 
     before do
       allow_any_instance_of(TwitterPoster).to(
