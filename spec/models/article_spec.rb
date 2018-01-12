@@ -57,6 +57,27 @@ RSpec.describe Article, type: :model do
     end
   end
 
+  describe '#author_name' do
+    context 'when profile has name' do
+      it 'returns the account name' do
+        account = create :account
+        account.profile.update_attribute :name, 'name123'
+        article = create :article, account: account
+
+        expect(article.author_name).to eq 'name123'
+      end
+    end
+
+    context 'when profile has no name' do
+      it 'returns the account name' do
+        account = create :account
+        article = create :article, account: account
+
+        expect(article.author_name).to eq 'Anonymous'
+      end
+    end
+  end
+
   describe '#category_name' do
     it 'returns the category name' do
       category = create :category, name: 'cat123'

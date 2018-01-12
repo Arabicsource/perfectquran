@@ -45,4 +45,8 @@ class Account < ApplicationRecord
   def role?(role)
     role.to_s == self.role
   end
+
+  def name
+    profile.name || 'Anonymous'
+  end
 end

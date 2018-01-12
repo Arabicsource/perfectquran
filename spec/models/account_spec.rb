@@ -34,6 +34,25 @@ RSpec.describe Account, type: :model do
     it { is_expected.to have_many :memories }
   end
 
+  describe '#name' do
+    context 'when profile has name' do
+      it 'returns profile name' do
+        account = create :account
+        account.profile.update_attribute :name, 'name123'
+
+        expect(account.name).to eq 'name123'
+      end
+    end
+
+    context 'when profile has no name' do
+      it 'returns annon' do
+        account = create :account
+
+        expect(account.name).to eq 'Anonymous'
+      end
+    end
+  end
+
   describe '#after_confirmation' do
     it 'changes the users role to member' do
       validating = create :validating
