@@ -36,7 +36,7 @@ module Accounts
         flash[:danger] = 'An error occurred'
       end
 
-      redirect_to accounts_connections_path
+      redirect_to edit_accounts_connection_path(@connection)
     end
 
     private
@@ -58,7 +58,7 @@ module Accounts
     end
 
     def create_connection
-      Connection.create_with_omniauth! auth, current_account
+      @connection = Connection.create_with_omniauth! auth, current_account
     end
 
     def update_connection

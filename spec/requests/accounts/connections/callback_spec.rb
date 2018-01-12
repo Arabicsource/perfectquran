@@ -35,7 +35,9 @@ describe 'GET Accounts::Connections#callback', type: :request do
       it 'redirects' do
         get uri
 
-        expect(response).to redirect_to accounts_connections_path
+        expect(response).to(
+          redirect_to(edit_accounts_connection_path(Connection.last))
+        )
       end
     end
 
@@ -51,7 +53,9 @@ describe 'GET Accounts::Connections#callback', type: :request do
       it 'redirects' do
         get uri
 
-        expect(response).to redirect_to accounts_connections_path
+        expect(response).to(
+          redirect_to(edit_accounts_connection_path(connection))
+        )
       end
 
       it 'does not create connection' do
