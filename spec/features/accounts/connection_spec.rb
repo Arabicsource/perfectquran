@@ -5,6 +5,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 feature 'Connection' do
+  let!(:translation) { create :translation, id: 3 }
   let(:account) { create :account }
 
   before { login_as account }

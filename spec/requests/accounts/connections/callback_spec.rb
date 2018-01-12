@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 describe 'GET Accounts::Connections#callback', type: :request do
+  let!(:translation) { create :translation, id: 3 }
   let(:uri) { '/auth/twitter/callback' }
   let(:account) { create :account }
   let(:redirect_path) do

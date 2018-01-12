@@ -6,6 +6,28 @@
       .column
         = render 'accounts/shared/menu'
       .column.is-three-quarters
+
+        = form_with model: @connection, url: accounts_connection_path(@connection), local: true, method: :patch, id: 'connection_form' do |f|
+          = render 'shared/error_messages', object: @connection
+          .columns
+            .column
+              .field
+                = f.label :active, 'Status', class: 'label'
+                .control
+                  .select.is-fullwidth
+                    = f.select :active, [['Active', true], ['Inactive', false]], {}, id: 'connection_active'
+
+            .column
+              .field
+                = f.label :translation_id, 'Posting From', class: 'label'
+                .control
+                  .select.is-fullwidth
+                    = f.select :translation_id, Quran::Translation.available_for_posting.map{|s|[s.name, s.id]}
+            
+          .field
+            .control
+              = f.submit class: 'button is-orange'
+
         %article.message
           .message-header
             %p Important Message About Automatic Posting
@@ -37,16 +59,6 @@
               know your needs, I can prioritize them.
 
             %p
-              With love,
-              Your Brother
-              Abdullah
-
-        = form_with model: @connection, url: accounts_connection_path(@connection), local: true, method: :patch, id: 'connection_form' do |f|
-          .field.has-addons
-            .control.is-expanded
-              .select.is-fullwidth
-                = f.select :active, [['Active', true], ['Inactive', false]], {}, id: 'connection_status'
-            .control
-              = f.submit class: 'button is-orange'
+              With love, Your Brother Abdullah
 
 - provide :title, 'Edit Connection'

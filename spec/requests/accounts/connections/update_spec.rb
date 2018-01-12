@@ -3,11 +3,15 @@
 require 'rails_helper'
 
 describe 'Accounts::Connections#update', type: :request do
+  let(:uthmani) { create :translation, id: 1 }
   let(:account) { create :account }
   let(:connection) { create :connection, account: account }
   let(:uri) { accounts_connection_path(connection) }
-  let(:valid_params) { { connection: { active: true } } }
-  let(:invalid_params) { { connection: { active: '' } } }
+  let(:invalid_params) { { connection: { active: '', translation_id: '' } } }
+
+  let(:valid_params) do
+    { connection: { active: true, translation_id: uthmani.id } }
+  end
 
   context 'without account' do
     it 'redirects to the login page' do
@@ -25,12 +29,13 @@ describe 'Accounts::Connections#update', type: :request do
 
       specify { expect(response).to redirect_to accounts_connections_path }
       specify { expect(connection.reload.active).to be_truthy }
+      specify { expect(connection.reload.translation).to eq uthmani }
     end
 
     context 'when failure' do
       before { patch uri, params: invalid_params }
 
-      xspecify { expect(response).not_to redirect_to accounts_connections_path }
+      specify { expect(response).not_to redirect_to accounts_connections_path }
       specify { expect(connection.reload.active).to be_falsey }
     end
   end

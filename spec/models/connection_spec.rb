@@ -4,17 +4,18 @@
 #
 # Table name: connections
 #
-#  id           :integer          not null, primary key
-#  name         :string
-#  provider     :string
-#  provider_uid :string
-#  token        :string
-#  secret       :string
-#  account_id   :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  last_ayah_id :integer          default(0)
-#  active       :boolean          default(FALSE)
+#  id             :integer          not null, primary key
+#  name           :string
+#  provider       :string
+#  provider_uid   :string
+#  token          :string
+#  secret         :string
+#  account_id     :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  last_ayah_id   :integer          default(0)
+#  active         :boolean          default(FALSE)
+#  translation_id :integer
 #
 
 require 'rails_helper'
@@ -22,6 +23,7 @@ require 'rails_helper'
 RSpec.describe Connection, type: :model do
   context 'associations' do
     it { is_expected.to belong_to :account }
+    it { is_expected.to belong_to :translation }
   end
 
   context 'validations' do
@@ -37,6 +39,7 @@ RSpec.describe Connection, type: :model do
   end
 
   context '#create_with_omniauth!' do
+    let!(:translation) { create :translation, id: 3 }
     let(:account) { create :account }
 
     let(:auth_hash) do
