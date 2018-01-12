@@ -71,11 +71,10 @@ feature 'Deleting Connection' do
 
       click_on connection.provider_uid
 
-      select 'active', from: 'connection[status]'
+      select 'Active', from: 'connection[active]'
 
       click_on 'Update Connection'
 
-      expect(page).to have_css 'td', text: 'active'
       expect(page).to have_css(
         '.notification',
         text: 'Alhamdulillah, your Twitter connection has been updated'

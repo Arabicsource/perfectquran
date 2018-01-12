@@ -72,7 +72,7 @@ module Accounts
     end
 
     def connection_params
-      params.require(:connection).permit(:status)
+      params.require(:connection).permit(:active)
     end
   end
 end

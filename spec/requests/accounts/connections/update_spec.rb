@@ -6,8 +6,8 @@ describe 'Accounts::Connections#update', type: :request do
   let(:account) { create :account }
   let(:connection) { create :connection, account: account }
   let(:uri) { accounts_connection_path(connection) }
-  let(:valid_params) { { connection: { status: 'active' } } }
-  let(:invalid_params) { { connection: { status: '' } } }
+  let(:valid_params) { { connection: { active: true } } }
+  let(:invalid_params) { { connection: { active: '' } } }
 
   context 'without account' do
     it 'redirects to the login page' do
@@ -21,31 +21,17 @@ describe 'Accounts::Connections#update', type: :request do
     before { login_as account }
 
     context 'when success' do
-      it 'redirects' do
-        patch uri, params: valid_params
+      before { patch uri, params: valid_params }
 
-        expect(response).to redirect_to accounts_connections_path
-      end
-
-      it 'updates' do
-        patch uri, params: valid_params
-
-        expect(connection.reload.status).to eq 'active'
-      end
+      specify { expect(response).to redirect_to accounts_connections_path }
+      specify { expect(connection.reload.active).to be_truthy }
     end
 
     context 'when failure' do
-      it 'does not redirect' do
-        patch uri, params: invalid_params
+      before { patch uri, params: invalid_params }
 
-        expect(response).not_to redirect_to accounts_connections_path
-      end
-
-      it 'does not update' do
-        patch uri, params: invalid_params
-
-        expect(connection.reload.status).to eq 'inactive'
-      end
+      xspecify { expect(response).not_to redirect_to accounts_connections_path }
+      specify { expect(connection.reload.active).to be_falsey }
     end
   end
 

@@ -45,7 +45,7 @@
           .field.has-addons
             .control.is-expanded
               .select.is-fullwidth
-                = f.select :status, Connection.statuses.keys.map {|key| [key.humanize, key]}, {}, id: 'connection_status'
+                = f.select :active, [['Active', true], ['Inactive', false]], {}, id: 'connection_status'
             .control
               = f.submit class: 'button is-orange'
 

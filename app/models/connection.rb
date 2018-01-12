@@ -13,8 +13,8 @@
 #  account_id   :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  status       :integer
 #  last_ayah_id :integer          default(0)
+#  active       :boolean          default(FALSE)
 #
 
 # :nodoc:
@@ -26,11 +26,8 @@ class Connection < ApplicationRecord
   validates :provider_uid, presence: true, uniqueness: { scope: :provider }
   validates :token, presence: true
   validates :secret, presence: true
-  validates :status, presence: true
 
-  enum status: %i[inactive active]
-
-  scope :all_active, -> { where(status: 'active') }
+  scope :all_active, -> { where(active: true) }
 
   def self.create_with_omniauth!(auth_hash, account)
     create! do |c|
@@ -40,7 +37,6 @@ class Connection < ApplicationRecord
       c.token = auth_hash[:credentials][:token]
       c.secret = auth_hash[:credentials][:secret]
       c.account = account
-      c.status = 'inactive'
     end
   end
 end

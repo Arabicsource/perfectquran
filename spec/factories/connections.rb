@@ -13,8 +13,8 @@
 #  account_id   :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  status       :integer
 #  last_ayah_id :integer          default(0)
+#  active       :boolean          default(FALSE)
 #
 
 FactoryBot.define do
@@ -24,7 +24,6 @@ FactoryBot.define do
     provider_uid 'uid12345'
     token 'tok12345'
     secret 'sec12345'
-    status 'inactive'
     last_ayah_id 0
   end
 end

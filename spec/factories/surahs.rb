@@ -14,8 +14,6 @@
 #  english_name        :string
 #  character_length    :integer
 #  percent_of_total    :float
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
 #
 
 FactoryBot.define do

@@ -15,14 +15,14 @@
                   %th UID
                   %th Name
                   %th Provider
-                  %th Status
+                  %th Active?
                   %th
               %tfoot
                 %tr
                   %th UID
                   %th Name
                   %th Provider
-                  %th Status
+                  %th Active? 
                   %th
               %tbody
                 - @connections.each do |connection|
@@ -30,7 +30,7 @@
                     %td= link_to connection.provider_uid, edit_accounts_connection_path(connection)
                     %td= connection.name
                     %td= connection.provider
-                    %td= connection.status
+                    %td= connection.active
                     %td
                       = link_to accounts_connection_path(connection), method: :delete, class: 'button is-danger' do
                         #{fa_icon('trash')} Delete

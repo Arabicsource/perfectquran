@@ -13,8 +13,8 @@
 #  account_id   :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  status       :integer
 #  last_ayah_id :integer          default(0)
+#  active       :boolean          default(FALSE)
 #
 
 require 'rails_helper'
@@ -30,15 +30,10 @@ RSpec.describe Connection, type: :model do
     it { is_expected.to validate_presence_of :provider_uid }
     it { is_expected.to validate_presence_of :token }
     it { is_expected.to validate_presence_of :secret }
-    it { is_expected.to validate_presence_of :status }
 
     it do
       is_expected.to validate_uniqueness_of(:provider_uid).scoped_to(:provider)
     end
-  end
-
-  context 'enums' do
-    it { is_expected.to define_enum_for(:status).with(%i[inactive active]) }
   end
 
   context '#create_with_omniauth!' do
@@ -67,7 +62,7 @@ RSpec.describe Connection, type: :model do
         create(
           :connection,
           provider_uid: '12345',
-          status: 'active',
+          active: true,
           account: account
         )
       end
@@ -76,7 +71,6 @@ RSpec.describe Connection, type: :model do
         create(
           :connection,
           provider_uid: '67890',
-          status: 'inactive',
           account: account
         )
       end
@@ -85,7 +79,7 @@ RSpec.describe Connection, type: :model do
         create(
           :connection,
           provider_uid: 'abcdef',
-          status: 'active',
+          active: true,
           account: account
         )
       end
