@@ -7,7 +7,10 @@ describe 'Accounts::Connections#update', type: :request do
   let(:account) { create :account }
   let(:connection) { create :connection, account: account }
   let(:uri) { accounts_connection_path(connection) }
-  let(:invalid_params) { { connection: { active: '', translation_id: '' } } }
+
+  let(:invalid_params) do
+    { connection: { active: '', translation_id: '', hashtags: 'a' * 61 } }
+  end
 
   let(:valid_params) do
     { connection:

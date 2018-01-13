@@ -16,6 +16,7 @@
 #  last_ayah_id   :integer          default(0)
 #  active         :boolean          default(FALSE)
 #  translation_id :integer
+#  hashtags       :string
 #
 
 FactoryBot.define do

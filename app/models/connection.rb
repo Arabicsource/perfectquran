@@ -16,6 +16,7 @@
 #  last_ayah_id   :integer          default(0)
 #  active         :boolean          default(FALSE)
 #  translation_id :integer
+#  hashtags       :string
 #
 
 # :nodoc:
@@ -28,6 +29,7 @@ class Connection < ApplicationRecord
   validates :provider_uid, presence: true, uniqueness: { scope: :provider }
   validates :token, presence: true
   validates :secret, presence: true
+  validates :hashtags, length: { maximum: 60 }
 
   scope :all_active, -> { where(active: true) }
 
