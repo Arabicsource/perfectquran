@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112160046) do
+ActiveRecord::Schema.define(version: 20180113084002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20180112160046) do
     t.integer "last_ayah_id", default: 0
     t.boolean "active", default: false
     t.bigint "translation_id"
+    t.string "hashtags"
     t.index ["account_id"], name: "index_connections_on_account_id"
     t.index ["provider_uid", "provider"], name: "index_connections_on_provider_uid_and_provider", unique: true
     t.index ["translation_id"], name: "index_connections_on_translation_id"

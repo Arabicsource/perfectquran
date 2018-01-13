@@ -23,7 +23,12 @@
                 .control
                   .select.is-fullwidth
                     = f.select :translation_id, Quran::Translation.available_for_posting.map{|s|[s.name, s.id]}
-            
+
+          .field
+            = f.label :hashtags, class: 'label'
+            .control
+              = f.text_field :hashtags, class: 'input', id: 'connection_hashtags', placeholder: '#PerfectQuran'
+
           .field
             .control
               = f.submit class: 'button is-orange'

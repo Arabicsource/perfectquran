@@ -72,7 +72,7 @@ module Accounts
     end
 
     def connection_params
-      params.require(:connection).permit(:active, :translation_id)
+      params.require(:connection).permit(:active, :translation_id, :hashtags)
     end
   end
 end

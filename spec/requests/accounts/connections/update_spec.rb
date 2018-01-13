@@ -10,7 +10,8 @@ describe 'Accounts::Connections#update', type: :request do
   let(:invalid_params) { { connection: { active: '', translation_id: '' } } }
 
   let(:valid_params) do
-    { connection: { active: true, translation_id: uthmani.id } }
+    { connection:
+      { active: true, translation_id: uthmani.id, hashtags: '#hash123' } }
   end
 
   context 'without account' do
@@ -25,11 +26,15 @@ describe 'Accounts::Connections#update', type: :request do
     before { login_as account }
 
     context 'when success' do
-      before { patch uri, params: valid_params }
+      before do
+        patch uri, params: valid_params
+        connection.reload
+      end
 
       specify { expect(response).to redirect_to accounts_connections_path }
-      specify { expect(connection.reload.active).to be_truthy }
-      specify { expect(connection.reload.translation).to eq uthmani }
+      specify { expect(connection.active).to be_truthy }
+      specify { expect(connection.translation).to eq uthmani }
+      specify { expect(connection.hashtags).to eq '#hash123' }
     end
 
     context 'when failure' do
