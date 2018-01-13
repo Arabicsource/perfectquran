@@ -8,6 +8,7 @@ class TwitterConnectionPoster
     @secret = connection.secret
     @last_ayah_id = connection.last_ayah_id
     @translation = connection.translation
+    @hashtags = connection.hashtags
   end
 
   def run!
