@@ -30,9 +30,15 @@ class TwitterConnectionPoster
   end
 
   def twitterized_text
-    Quran::Text.find_by!(
-      translation: @translation, ayah_id: current_ayah_id
-    ).twitterize
+    AyahTwitterizer.new(text, current_ayah, @hashtags).run!
+  end
+
+  def text
+    Quran::Text.find_by!(translation: @translation, ayah: current_ayah).content
+  end
+
+  def current_ayah
+    @current_ayah ||= Quran::Ayah.find_by!(id: current_ayah_id)
   end
 
   def current_ayah_id
