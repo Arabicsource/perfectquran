@@ -17,7 +17,8 @@
           %p
             When PerfectQuran was first created we had no idea how popular it
             was going to be. Without any real means to pay for the growing costs,
-            that popularity turned out to be too expensive and eventually killed the site. 
+            that popularity turned out to be too expensive and eventually killed the site.
+            Help me ensure that never happens again.
 
         .column.content
           %h1.title The Benefits
@@ -55,8 +56,8 @@
 
             %p.control
               .buttons
-                = f.submit 'Submit Payment', class: 'is-subscription'
-                = link_to 'Cancel', accounts_profile_path, class: 'is-cancellation'
+                = f.submit 'Subscribe for Just $2.99 / Month', class: 'is-subscription'
+                = link_to 'Maybe Later', accounts_profile_path, class: 'is-cancellation'
 
             = javascript_pack_tag 'stripe'
 

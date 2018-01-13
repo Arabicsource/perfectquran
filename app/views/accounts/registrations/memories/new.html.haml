@@ -29,6 +29,6 @@
                     = link_to quran_surah_memories_path(surah), method: :post, remote: true, class: 'not-memorized' do
                       #{fa_icon('heart-o')} #{surah.transliterated_name}
 
-          = link_to 'Finished', accounts_profile_path, class: 'button is-orange'
+          = link_to 'Next', new_accounts_registrations_subscription_path, class: 'button is-orange'
 
 - provide :title, 'Have you memorized any of these Surahs?'
