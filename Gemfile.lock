@@ -239,6 +239,7 @@ GEM
       rake
     rake (12.2.1)
     rb-fsevent (0.10.2)
+    rb-gravatar (1.0.5)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     redcarpet (3.4.0)
@@ -397,6 +398,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.1.2)
   rails-controller-testing
+  rb-gravatar
   redcarpet (= 3.4.0)
   rspec-rails (~> 3.5)
   rubocop (~> 0.49.1)
