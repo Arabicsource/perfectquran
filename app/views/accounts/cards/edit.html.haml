@@ -1,11 +1,10 @@
 = render 'shared/page_header', title: 'Update Payment Method'
+= render 'accounts/shared/navbar'
 
 %section.section
   .container
     .columns
-      .column
-        = render 'accounts/shared/menu'
-      .column.is-three-quarters
+      .column.is-two-thirds
         = form_with url: accounts_card_path, method: :patch, id: 'payment_form' do |f|
           #card-errors
 

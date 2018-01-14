@@ -1,11 +1,10 @@
 = render 'shared/page_header', title: 'Edit Connection'
+= render 'accounts/shared/navbar'
 
 %section.section
   .container
     .columns
-      .column
-        = render 'accounts/shared/menu'
-      .column.is-three-quarters
+      .column.is-two-thirds
 
         = form_with model: @connection, url: accounts_connection_path(@connection), local: true, method: :patch, id: 'connection_form' do |f|
           = render 'shared/error_messages', object: @connection
@@ -33,37 +32,9 @@
             .control
               = f.submit class: 'button is-orange'
 
-        %article.message
-          .message-header
-            %p Important Message About Automatic Posting
-          .message-body.content
-            %p 
-              Alhamdulillah, I'm super excited about finally starting to allow
-              automatic posting. This was the distinguishing feature that made
-              PerfectQuran so popular in the past.
+      .column
+      .column.is-one-quarter
+        = render 'automatic_posts_message'
 
-            %p
-              There are a few points of note:
-
-            %ul
-              %li For the moment this only works with Twitter
-              %li This will post one ayah of Quran every hour to your Twitter account
-              %li It only Tweets ayahs from The Noble Quran English translation
-              %li It functions exactly as you can see on the #{link_to('PerfectQuran Twitter', 'https://twitter.com/perfectquran')} account
-
-            %p
-              If that works for you, just change the connection status to active
-              and enjoy.
-
-            %p
-              If that's not quite what you want, drop me an email (quran.is.perfect@gmail.com)
-              and let me know how I can make it more suitable for your needs.
-
-            %p
-              I only have a limited amount of time to work on this project. If I
-              know your needs, I can prioritize them.
-
-            %p
-              With love, Your Brother Abdullah
 
 - provide :title, 'Edit Connection'

@@ -1,11 +1,9 @@
-= render 'shared/page_header', title: 'Edit Profile'
+= render 'accounts/shared/navbar'
 
 %section.section
   .container
     .columns
-      .column
-        = render 'accounts/shared/menu'
-      .column.is-three-quarters
+      .column.is-two-thirds
         = form_with model: @profile, url: accounts_profile_path, local: true, method: :patch, id: 'profile_form' do |f|
           = render 'shared/error_messages', object: @profile
 
@@ -25,5 +23,8 @@
               = f.text_area :bio, class: 'textarea is-expanded', id: 'profile_bio'
 
           = f.submit class: 'button is-orange'
+
+      .column
+      .column.is-one-quarter
 
 - provide :title, 'Edit Profile'

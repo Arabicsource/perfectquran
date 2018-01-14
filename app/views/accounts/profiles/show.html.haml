@@ -1,4 +1,5 @@
-= render 'shared/page_header', title: 'Profile'
+= render 'accounts/shared/navbar'
+
 %section.section
   .container
     .columns
@@ -6,7 +7,7 @@
         %section#summary
           .columns
             .column
-              = Gravatar.tag(current_account.email, 128).html_safe          
+              = Gravatar.tag(current_account.email, 135).html_safe
             .column.is-four-fifths
               - if @profile.name.present? || @profile.username.present?
                 %h1.title
@@ -19,6 +20,7 @@
               - if @profile.bio.present?
                 %p.content
                   = @profile.bio
+              
 
         %section#points
           %h1.title= number_with_delimiter @total_points
@@ -35,6 +37,8 @@
 
       .column
       .column.is-one-quarter
-        = render 'accounts/shared/menu'
+        .buttons
+          = link_to 'Edit Profile', edit_accounts_profile_path, class: 'button is-brown is-fullwidth'
+        
 
 - provide :title, 'Profile'

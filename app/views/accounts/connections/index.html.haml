@@ -1,11 +1,10 @@
 = render 'shared/page_header', title: 'Connections'
+= render 'accounts/shared/navbar'
 
 %section.section
   .container
-    .columns
-      .column
-        = render 'accounts/shared/menu'
-      .column.is-three-quarters
+    .columns.is-8.is-variable
+      .column.is-two-thirds
         %section#connections
           - if @connections.any?
             %h1.title Connections            
@@ -40,7 +39,11 @@
                       = link_to accounts_connection_path(connection), method: :delete, class: 'button is-danger' do
                         #{fa_icon('trash')} Delete
 
-        = link_to '/auth/twitter', class: 'is-twitter-button' do
-          #{fa_icon('twitter')} Connect Twitter Account
+      .column
+        .buttons
+          = link_to '/auth/twitter', class: 'is-twitter-button is-fullwidth' do
+            #{fa_icon('twitter')} Connect Twitter Account
+
+        = render 'automatic_posts_message'
 
 - provide :title, 'Connections'
