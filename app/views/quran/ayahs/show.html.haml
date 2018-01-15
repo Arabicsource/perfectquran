@@ -1,25 +1,23 @@
 .container
   = render 'breadcrumb'
 
-%section#main.section
+%section.section
   .container
-    .columns
-      .column.is-two-thirds
-        .level.is-block
-          = render 'pagination'
-        .level
-          = render 'audio'
-        %article#ayah.content
-          = render 'previous'
-          = render 'current'
-          = render 'next'          
-        = render 'pagination'
-      .column
-        .field.is-grouped
-          - if memorized? @ayah, current_account
-            = render 'quran/ayahs/memories/delete_memory'
-          - else
-            = render 'quran/ayahs/memories/create_memory'
-        = render 'quran/surahs/information', surah: @ayah.surah
+    = render 'pagination'
+    = render 'audio'
+
+    .buttons
+      - if memorized? @ayah, current_account
+        = render 'quran/ayahs/memories/delete_memory'
+      - else
+        = render 'quran/ayahs/memories/create_memory'
+        
+    %article#ayah.content
+      = render 'previous'
+      = render 'current'
+      = render 'next'          
+    = render 'pagination'
+
+    = render 'quran/surahs/information', surah: @ayah.surah
 
 - provide :title, "#{@ayah.surah_name} #{@ayah.number}"
