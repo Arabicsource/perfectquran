@@ -4,7 +4,7 @@
       = link_to  root_url, class: 'navbar-item' do
         = image_tag 'queue.jpg'
 
-      %button.button.navbar-burger{ data: { target: 'navbar-menu' } }
+      %button.button.navbar-burger#burger{ data: { target: 'navbar-menu' } }
         %span
         %span
         %span
@@ -14,7 +14,8 @@
         = link_to 'Quran', quran_root_path, class: 'navbar-item'
         = link_to 'Blog', content_articles_path, class: 'navbar-item'
         
-        - if account_signed_in?          
+        - if account_signed_in?
+          = link_to 'Bookmarks', '#', class: 'navbar-item', id: 'bookmarks-modal-opener', data: { target: 'bookmarks-modal' }
           = link_to 'Account', accounts_profile_path, class: 'navbar-item'
           = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'
           = link_to 'Admin', admin_root_path, class: 'navbar-item' if current_account.role?(:admin)          

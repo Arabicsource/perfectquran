@@ -1,0 +1,10 @@
+.modal#bookmarks-modal
+  .modal-background
+  .modal-content
+    .box
+      .menu
+        %p.menu-label Bookmarks
+        %ul.menu-list
+          - Quran::Bookmark.includes(:bookmarkable).where(account: current_account).each do |bookmark|
+            %li= link_to bookmark, bookmark.bookmarkable
+  %button#bookmarks-modal-closer.modal-close.is-large{ data: { target: 'bookmarks-modal' } }

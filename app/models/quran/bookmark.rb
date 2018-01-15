@@ -17,5 +17,9 @@ module Quran
   class Bookmark < ApplicationRecord
     belongs_to :bookmarkable, polymorphic: true
     belongs_to :account
+
+    def to_s
+      bookmarkable.to_s
+    end
   end
 end

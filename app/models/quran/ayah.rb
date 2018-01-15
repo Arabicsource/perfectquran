@@ -56,5 +56,9 @@ module Quran
         self.class.find_by id: id + 1
       end
     end
+
+    def to_s
+      "#{surah_name}: #{number}"
+    end
   end
 end
