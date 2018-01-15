@@ -4,7 +4,14 @@
     .box
       .menu
         %p.menu-label Bookmarks
-        %ul.menu-list
-          - Quran::Bookmark.includes(:bookmarkable).where(account: current_account).each do |bookmark|
-            %li= link_to bookmark, bookmark.bookmarkable
+        %ul#bookmark-menu-list.menu-list
+          - if bookmarks.any?        
+            - bookmarks.each do |bookmark|
+              %li= link_to bookmark, bookmark.bookmarkable
+          - else
+            %p.has-text-danger
+              You've not created any bookmarks yet. Browse around, when you find
+              an ayah that you'd like to remember. You can click the bookmark
+              button and it will show up here.
+
   %button#bookmarks-modal-closer.modal-close.is-large{ data: { target: 'bookmarks-modal' } }

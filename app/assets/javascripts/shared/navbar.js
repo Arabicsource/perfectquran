@@ -5,7 +5,6 @@ document.addEventListener('turbolinks:load', function () {
     let $target = document.getElementById(target);
 
     $burger.addEventListener('click', function(event){
-      console.log($burger)
       $burger.classList.toggle('is-active');
       $target.classList.toggle('is-active');
     });
