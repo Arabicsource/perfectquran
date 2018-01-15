@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: translations
+# Table name: quran_translations
 #
 #  id          :integer          not null, primary key
 #  name        :string

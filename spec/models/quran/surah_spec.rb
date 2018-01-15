@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: surahs
+# Table name: quran_surahs
 #
 #  id                  :integer          not null, primary key
 #  number_of_ayahs     :integer

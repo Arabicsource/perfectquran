@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: ayahs
+# Table name: quran_ayahs
 #
 #  id               :integer          not null, primary key
 #  number           :integer
@@ -19,6 +19,7 @@ module Quran
 
     belongs_to :surah, class_name: 'Quran::Surah'
     has_many :memories
+    has_many :bookmarks, as: :bookmarkable
     has_many :texts, class_name: 'Quran::Text'
     has_many :texts_and_included_translations,
              -> { includes(:translation) },

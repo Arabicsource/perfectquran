@@ -2,7 +2,7 @@
 
 # == Schema Information
 #
-# Table name: surahs
+# Table name: quran_surahs
 #
 #  id                  :integer          not null, primary key
 #  number_of_ayahs     :integer
@@ -21,6 +21,7 @@ module Quran
   class Surah < ApplicationRecord
     enum revelation_type: %i[meccan medinan]
     has_many :ayahs
+    has_many :bookmarks, as: :bookmarkable
     has_many :ayahs_and_included_texts,
              -> { includes(:texts_and_included_translations) },
              class_name: 'Ayah'
