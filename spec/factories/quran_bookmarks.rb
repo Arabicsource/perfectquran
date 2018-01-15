@@ -12,10 +12,7 @@
 #  account_id        :integer
 #
 
-require 'rails_helper'
-
-RSpec.describe Quran::Bookmark, type: :model do
-  context 'associations' do
-    it { is_expected.to belong_to(:bookmarkable) }
+FactoryBot.define do
+  factory :bookmark, class: Quran::Bookmark do
   end
 end
