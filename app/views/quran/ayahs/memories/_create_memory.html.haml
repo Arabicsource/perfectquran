@@ -2,7 +2,3 @@
   - if account_signed_in?
     = link_to quran_ayah_memories_path(@ayah), method: :post, remote: true, class: 'button is-outlined is-danger is-fullwidth' do
       #{fa_icon('heart-o')} Memory
-  - else
-    %a.button.is-outlined.is-danger.is-fullwidth{ disabled: true, title: 'You must be logged in to record a memory', data: { tooltip: true } } 
-      #{fa_icon('heart-o')} Memory
-    = javascript_pack_tag 'tooltips'
