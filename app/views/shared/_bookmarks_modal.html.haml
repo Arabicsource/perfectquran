@@ -1,4 +1,4 @@
-.modal#bookmarks-modal
+.modal#bookmarks-modal{ data: { target: 'navbar.bookmarks-modal' } }
   .modal-background
   .modal-content
     .box
@@ -14,4 +14,4 @@
               an ayah that you'd like to remember. You can click the bookmark
               button and it will show up here.
 
-  %button#bookmarks-modal-closer.modal-close.is-large{ data: { target: 'bookmarks-modal' } }
+  %button.modal-close.is-large{ data: { action: 'navbar#closeBookmarksModal' } }
