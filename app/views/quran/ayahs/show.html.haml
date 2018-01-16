@@ -3,27 +3,29 @@
 
 %section.section
   .container
-    = render 'pagination'
-    = render 'audio'
+    .columns
+      .column
+        = render 'audio'
 
-    - if account_signed_in?
-      .buttons
-        - if memorized? @ayah, current_account
-          = render 'quran/ayahs/memories/delete_memory'
-        - else
-          = render 'quran/ayahs/memories/create_memory'
+        .buttons
+          - if account_signed_in?
+            - if memorized? @ayah, current_account
+              = render 'quran/ayahs/memories/delete_memory'
+            - else
+              = render 'quran/ayahs/memories/create_memory'
 
-        - if bookmarked? @ayah
-          = render 'quran/ayahs/bookmarks/delete_button'
-        - else
-          = render 'quran/ayahs/bookmarks/create_button'
-        
-    %article#ayah.content
-      = render 'previous'
-      = render 'current'
-      = render 'next'          
-    = render 'pagination'
+            - if bookmarked? @ayah
+              = render 'quran/ayahs/bookmarks/delete_button'
+            - else
+              = render 'quran/ayahs/bookmarks/create_button'
+            
+        %article#ayah.content
+          = render 'previous'
+          = render 'current'
+          = render 'next'
 
-    = render 'quran/surahs/information', surah: @ayah.surah
+      .column
+        = render 'pagination'        
+        = render 'quran/surahs/information', surah: @ayah.surah
 
 - provide :title, "#{@ayah.surah_name} #{@ayah.number}"
