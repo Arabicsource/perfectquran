@@ -49,5 +49,9 @@ module Quran
         self.class.last
       end
     end
+
+    def to_s
+      transliterated_name
+    end
   end
 end

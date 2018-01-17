@@ -1,0 +1,16 @@
+= yield :top
+
+.hero.is-brown.is-small
+  .hero-body
+    .container
+      %h1.title= title
+
+%section.section
+  .container
+    .columns
+      .column
+        = yield :main
+      .column
+        = yield :aside
+
+- provide :title, title

@@ -1,0 +1,6 @@
+.field.is-grouped
+  %p.control{id: "memory-surah-#{@surah.id}"}
+    - if surah_memorized? @surah, current_account
+      = render 'quran/surahs/memories/delete_memory'
+    - else 
+      = render 'quran/surahs/memories/create_memory'

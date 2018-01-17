@@ -1,31 +1,17 @@
-.container
+- content_for :top do
   = render 'breadcrumb'
 
-%section.section
-  .container
-    .columns
-      .column
-        = render 'audio'
+- content_for :main do
+  = render 'audio'
+  = render 'buttons'
 
-        .buttons
-          - if account_signed_in?
-            - if memorized? @ayah, current_account
-              = render 'quran/ayahs/memories/delete_memory'
-            - else
-              = render 'quran/ayahs/memories/create_memory'
+  %article#ayah.content
+    = render 'previous'
+    = render 'current'
+    = render 'next'
 
-            - if bookmarked? @ayah
-              = render 'quran/ayahs/bookmarks/delete_button'
-            - else
-              = render 'quran/ayahs/bookmarks/create_button'
-            
-        %article#ayah.content
-          = render 'previous'
-          = render 'current'
-          = render 'next'
+- content_for :aside do
+  = render 'pagination'
+  = render 'quran/surahs/information', surah: @ayah.surah
 
-      .column
-        = render 'pagination'        
-        = render 'quran/surahs/information', surah: @ayah.surah
-
-- provide :title, "#{@ayah.surah_name} #{@ayah.number}"
+= render "layouts/templates/is_half", title: @ayah

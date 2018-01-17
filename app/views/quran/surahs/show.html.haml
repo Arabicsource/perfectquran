@@ -1,34 +1,24 @@
-.container
+- content_for :top do
   = render 'breadcrumb'
 
-%section#main.section
-  .container
-    .columns
-      .column.is-two-thirds
-        .level
-          = render 'pagination'
-        .level
-          = render 'audio'
-        %article#surah
-          %h1.is-hidden= @surah.transliterated_name
-          - @surah.ayahs_and_included_texts.each do |ayah|
-            %article.ayah.content
-              %h1.is-size-4
-                = link_to quran_ayah_path(ayah), class: 'has-text-grey' do 
-                  = "#{@surah.transliterated_name} #{ayah.number}"
-              - ayah.texts_and_included_translations.each do |text|
-                .ayah-text.content
-                  %h2.has-text-orange-dark.is-size-5{class: ('is-hidden' if text.uthmani?)}= text.translation.name
-                  %p{class: ('is-size-2 has-text-right' if text.uthmani?)}= text.content.html_safe
-        = render 'pagination'
-      .column
-        .field.is-grouped
-          %p.control{id: "memory-surah-#{@surah.id}"}
-            - if surah_memorized? @surah, current_account
-              = render 'quran/surahs/memories/delete_memory'
-            - else 
-              = render 'quran/surahs/memories/create_memory'
+- content_for :main do
+  = render 'audio'
+  = render 'buttons'
 
-        = render 'information', surah: @surah
+  %article#surah
+    %h1.is-hidden= @surah.transliterated_name
+    - @surah.ayahs_and_included_texts.each do |ayah|
+      %article.ayah.content
+        %h1.is-size-4
+          = link_to quran_ayah_path(ayah), class: 'has-text-grey' do 
+            = "#{@surah.transliterated_name} #{ayah.number}"
+        - ayah.texts_and_included_translations.each do |text|
+          .ayah-text.content
+            %h2.has-text-orange-dark.is-size-5{class: ('is-hidden' if text.uthmani?)}= text.translation.name
+            %p{class: ('is-size-2 has-text-right' if text.uthmani?)}= text.content.html_safe
 
-- provide :title, @surah.transliterated_name
+- content_for :aside do
+  = render 'pagination'
+  = render 'information', surah: @surah  
+
+= render "layouts/templates/is_half", title: @surah
