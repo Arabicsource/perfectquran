@@ -18,6 +18,9 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - sleep 3 # give xvfb some time to start
   - cp config/secrets.yml.travis config/secrets.yml
+  - npm install -g yarn
+  - npm --version
+  - yarn install
   - bundle exec rake db:create
   - bundle exec rake db:migrate
 script: 
