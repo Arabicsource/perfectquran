@@ -1,24 +1,7 @@
-.hero.is-light.is-small
-  .hero-body
-    .container
-      %h1.title Forgot your password?
+- content_for :main do
+  = render 'form'
 
-%section#main.section
-  .container
-    .columns
-      .column.is-two-thirds
-        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-          = devise_error_messages!
+- content_for :aside do
+  = render "devise/shared/links"
 
-          .field
-            = f.label :email, class: 'label'
-            .control
-              = f.email_field :email, autofocus: true, class: 'input'
-
-          .field
-            = f.submit "Send me reset password instructions", class: "button"
-      .column
-        = render "devise/shared/links"
-
-
-- provide :title, 'Forgot your password?'
+= render "layouts/templates/is_two_thirds", title: 'Forgot your password?'

@@ -1,32 +1,7 @@
-.hero.is-light.is-small
-  .hero-body
-    .container
-      %h1.title Login
+- content_for :main do
+  = render 'form'
 
-%section#main.section
-  .container
-    .columns
-      .column.is-two-thirds
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .field
-            = f.label :email, class: 'label'
-            .control
-              = f.email_field :email, autofocus: true, class: 'input'
-      
-          .field
-            = f.label :password, class: 'label'
-            .control
-              = f.password_field :password, autocomplete: "off", class: 'input'
-      
-          .field
-            .control
-              = f.label :remember_me, class: 'checkbox' do
-                = f.check_box :remember_me
-                Remember me?
+- content_for :aside do
+  = render "devise/shared/links"
 
-          .field
-            = f.submit "Login", class: "button"
-      .column
-        = render "devise/shared/links"
-
-- provide :title, 'Login'
+= render "layouts/templates/is_two_thirds", title: 'Login'
