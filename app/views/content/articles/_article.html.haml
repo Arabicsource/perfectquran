@@ -1,0 +1,18 @@
+%article.article.content
+  %h1.title= link_to article.title, content_article_path(article.permalink)
+  .level.metadata.is-mobile
+    .level-left
+      .level-item
+        = fa_icon 'folder'
+        = article.category_name
+      .level-item
+        = fa_icon 'user'
+        = article.author_name
+      .level-item
+        = fa_icon 'calendar'
+        = article.created_at.to_date.to_formatted_s(:short_ordinal)
+    .level-right.is-hidden-touch
+      .level-item
+        = fa_icon 'comments'
+        = pluralize article.comments_count, 'comment'
+  = article.content.html_safe

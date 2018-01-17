@@ -1,14 +1,14 @@
 - if account_signed_in? && @article.post?
-  = render 'shared/page_header', title: 'New Comment'
+  
+  %h3.title New Comment
 
-  %section.section#new-comment
-    .container
-      .columns.is-centered
-        .column.is-two-thirds
-          = form_with model: [:content, @article, @comment] do |f|
-            = render 'shared/error_messages', object: @comment
-            .field
-              = f.label :content, class: 'is-hidden'
-              .control
-                = f.text_area :content, class: 'textarea is-expanded', id: 'comment_content', placeholder: 'What do you think?'
-            = f.submit class: 'button is-orange'
+  = form_with model: [:content, @article, @comment] do |f|
+    = render 'shared/error_messages', object: @comment
+    .field
+      = f.label :content, class: 'is-hidden'
+      .control
+        = f.text_area :content, class: 'textarea is-expanded', id: 'comment_content', placeholder: 'What do you think?'
+    = f.submit class: 'button is-orange'
+
+- else
+  %p.notification.is-info You Must be logged in to comment.

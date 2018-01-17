@@ -1,14 +1,10 @@
-= render 'shared/page_header', title: @article.title
+- content_for :main do
+  %article.content
+    = sanitize @article.content
 
-%section.section
-  .container
-    .columns.is-centered
-      .column.is-two-thirds
-        %article.content
-          = sanitize @article.content
+  .is-divider
+  
+  = render 'content/articles/comments'  
+  = render 'content/articles/comments_form'
 
-= render 'content/articles/comments'
-
-= render 'content/articles/comments_form'
-
-- provide :title, @article.title
+= render "layouts/templates/is_two_thirds", title: @article.title

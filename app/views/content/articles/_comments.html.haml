@@ -1,5 +1,5 @@
 - if @article.comments.any?
-  = render 'shared/page_header', title: 'Comments'
+  %h2.title Comments
 
   %section.section#comments
     .container
@@ -9,7 +9,7 @@
             %article.media
               %figure.media-left
                 %p.image.is-64x64
-                  = image_tag 'https://bulma.io/images/placeholders/128x128.png'
+                  = Gravatar.tag(comment.account.email, 135).html_safe
               .media-content
                 .content
                   %p.metadata
@@ -17,3 +17,4 @@
                     = comment.account.try(:name) || 'Annon' + ','
                     = time_ago_in_words(comment.created_at) + ' ago'
                   = markdown comment.content
+  .is-divider
