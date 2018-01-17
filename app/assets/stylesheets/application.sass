@@ -14,15 +14,6 @@
   #newsletter
     display: none
 
-.tooltip 
-  @extend .notification
-  @extend .is-danger
-  margin-bottom: 10px
-  position: absolute
-  width: 150px
-  padding: 10px
-  text-align: center
-
 .StripeElement
   background-color: white
   height: 40px
@@ -42,26 +33,14 @@
 .StripeElement--webkit-autofill
   background-color: #fefde5 !important
 
-nav.profile.navbar
-  .navbar-item
-    display: flex
 
-  .navbar,
-  .navbar-menu,
-  .navbar-start,
-  .navbar-end
-    align-items: stretch
-    display: flex
-    padding: 0
+.navbar-menu
+  .is-divider-h
+    border-bottom: 2px solid $background
+    margin: 10px
+    height: 2px
 
-  .navbar-menu
-    flex-grow: 1
-    flex-shrink: 0
-
-  .navbar-start
-    justify-content: flex-start
-    margin-right: auto
-
-  .navbar-end
-    justify-content: flex-end
-    margin-left: auto
+  .is-divider
+    border-left: 1px solid #56DCFF
+    margin: auto 10px
+    height: 30px

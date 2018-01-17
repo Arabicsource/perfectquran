@@ -1,22 +1,6 @@
-= render 'shared/page_header', title: 'New Subscription'
+- content_for :main do
+  = render 'form'
 
-%section.section
-  .container
-    .columns
-      .column
-        = render 'accounts/shared/menu'
-      .column.is-three-quarters
-        = form_with url: accounts_subscription_path, method: :post, id: 'payment_form' do |f|
-          #card-errors
-
-          .field
-            #card-element.control
-
-          %p.control
-            .buttons
-              = f.submit 'Subscribe for Just $2.99 / Month', class: 'button is-orange'
-              = link_to 'cancel', accounts_profile_path, class: 'is-cancellation'
+= render "layouts/templates/is_two_thirds", title: 'New Subscription'
 
 = javascript_pack_tag 'stripe'
-
-- provide :title, 'New Subscription'

@@ -1,29 +1,20 @@
-= render 'shared/page_header', title: 'Billing History'
-= render 'accounts/shared/navbar'
+- content_for :main do
+  %table.table.is-fullwidth
+    %thead
+      %tr
+        %th Invoice
+        %th Date
+        %th Ammount
+    %tfoot
+      %tr
+        %th Invoice
+        %th  Date
+        %th Ammount
+    %tbody
+      - @charges.each do |charge|
+        %tr
+          %td= charge.id 
+          %td= charge.created_at.to_date.to_formatted_s(:long_ordinal)
+          %td $2.99
 
-%section.section
-  .container
-    .columns
-      .column.is-two-thirds
-        %section#subscription-summary
-          %h1.title Charges
-
-          %table.table.is-fullwidth
-            %thead
-              %tr
-                %th Invoice
-                %th Date
-                %th Ammount
-            %tfoot
-              %tr
-                %th Invoice
-                %th Date
-                %th Ammount
-            %tbody
-              - @charges.each do |charge|
-                %tr
-                  %td= charge.id 
-                  %td= charge.created_at.to_date.to_formatted_s(:long_ordinal)
-                  %td $2.99
-
-- provide :title, 'Billing History'
+= render "layouts/templates/is_two_thirds", title: 'Billing History'

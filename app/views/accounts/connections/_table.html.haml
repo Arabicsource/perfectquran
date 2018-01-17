@@ -1,0 +1,22 @@
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th Connection
+      %th Active?
+      %th
+  %tfoot
+    %tr
+      %th Connection
+      %th Active?
+      %th
+  %tbody
+    - @connections.each do |connection|
+      %tr{id: "connection-#{connection.id}"}
+        %td #{fa_icon(connection.provider)} #{connection.name}
+        %td= connection.active
+        %td
+          .buttons.has-addons
+            = link_to edit_accounts_connection_path(connection), class: 'button' do
+              #{fa_icon('edit')}
+            = link_to accounts_connection_path(connection), method: :delete, class: 'button is-danger', data: { confirm: 'Are you sure you want to delete this connection. There is no undo.'} do
+              #{fa_icon('trash')}

@@ -1,49 +1,14 @@
-= render 'shared/page_header', title: 'Connections'
-= render 'accounts/shared/navbar'
+- content_for :main do
+  - if @connections.any?
+    = render 'table'
+  - else
+    %p.notification.is-info You have no connected social media accounts.
 
-%section.section
-  .container
-    .columns.is-8.is-variable
-      .column.is-two-thirds
-        %section#connections
-          - if @connections.any?
-            %h1.title Connections            
-            %table.table.is-fullwidth
-              %thead
-                %tr
-                  %th Name
-                  %th Provider
-                  %th Quran
-                  %th Last Ayah
-                  %th Active?
-                  %th
-              %tfoot
-                %tr
-                  %th Name
-                  %th Provider
-                  %th Quran
-                  %th Last Ayah
-                  %th Active?
-                  %th
-              %tbody
-                - @connections.each do |connection|
-                  %tr{id: "connection-#{connection.id}"}
-                    %td= connection.name
-                    %td= connection.provider
-                    %td= connection.translation.name
-                    %td= connection.last_ayah_id
-                    %td= connection.active
-                    %td
-                      = link_to edit_accounts_connection_path(connection), class: 'button' do
-                        #{fa_icon('edit')} Edit
-                      = link_to accounts_connection_path(connection), method: :delete, class: 'button is-danger' do
-                        #{fa_icon('trash')} Delete
+- content_for :aside do
+  .buttons
+    = link_to '/auth/twitter', class: 'is-twitter-button is-fullwidth' do
+      #{fa_icon('twitter')} Connect Twitter Account
 
-      .column
-        .buttons
-          = link_to '/auth/twitter', class: 'is-twitter-button is-fullwidth' do
-            #{fa_icon('twitter')} Connect Twitter Account
+  = render 'automatic_posts_message'
 
-        = render 'automatic_posts_message'
-
-- provide :title, 'Connections'
+= render "layouts/templates/is_two_thirds", title: 'Connections'

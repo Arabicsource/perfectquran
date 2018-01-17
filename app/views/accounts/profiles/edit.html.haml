@@ -1,30 +1,4 @@
-= render 'accounts/shared/navbar'
+- content_for :main do
+  = render 'form'
 
-%section.section
-  .container
-    .columns
-      .column.is-two-thirds
-        = form_with model: @profile, url: accounts_profile_path, local: true, method: :patch, id: 'profile_form' do |f|
-          = render 'shared/error_messages', object: @profile
-
-          .field
-            = f.label :name, class: 'label'
-            .control
-              = f.text_field :name, class: 'input', id: 'profile_name'
-
-          .field
-            = f.label :username, class: 'label'
-            .control
-              = f.text_field :username, class: 'input', id: 'profile_username'
-
-          .field
-            = f.label :bio, class: 'label'
-            .control
-              = f.text_area :bio, class: 'textarea is-expanded', id: 'profile_bio'
-
-          = f.submit class: 'button is-orange'
-
-      .column
-      .column.is-one-quarter
-
-- provide :title, 'Edit Profile'
+= render "layouts/templates/is_two_thirds", title: 'Edit Profile'

@@ -1,44 +1,9 @@
-= render 'accounts/shared/navbar'
+- content_for :main do
+  = render 'summary'
+  = render 'points'
 
-%section.section
-  .container
-    .columns
-      .column.is-two-thirds
-        %section#summary
-          .columns
-            .column
-              = Gravatar.tag(current_account.email, 135).html_safe
-            .column.is-four-fifths
-              - if @profile.name.present? || @profile.username.present?
-                %h1.title
-                  - if @profile.name.present?
-                    #{@profile.name}
-                  - if @profile.username.present?
-                    <small>(@#{@profile.username})</small>
-              %h2.subtitle
-                Member since #{current_account.created_at.to_date.to_formatted_s(:long_ordinal)}
-              - if @profile.bio.present?
-                %p.content
-                  = @profile.bio
-              
+- content_for :aside do
+  .buttons
+    = link_to 'Edit Profile', edit_accounts_profile_path, class: 'button is-fullwidth'    
 
-        %section#points
-          %h1.title= number_with_delimiter @total_points
-          %h2.subtitle Total Points 
-
-          .columns.is-multiline
-            - @surahs.each do |surah|
-              .column.is-one-quarter
-                %p
-                  %strong
-                    = number_with_delimiter surah.ayahs.joins(:memories).where(memories: { account: current_account }).sum(:character_length) * 3
-                %p
-                  = surah.transliterated_name
-
-      .column
-      .column.is-one-quarter
-        .buttons
-          = link_to 'Edit Profile', edit_accounts_profile_path, class: 'button is-brown is-fullwidth'
-        
-
-- provide :title, 'Profile'
+= render "layouts/templates/is_two_thirds", title: 'Profile'
