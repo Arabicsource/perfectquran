@@ -1,32 +1,35 @@
-%section.hero.is-brown.is-fullheight
+.hero.is-brown.is-small
   .hero-body
     .container
-      .columns
-        .column
-          = image_tag 'perfectquran-stacked.jpg', alt: '', class: 'masthead-image'
-        .column
-          %h1.title Create Your PerfectQuran Account
+      %h1.title Create Your PerfectQuran Account
 
-          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: "registration-form"}) do |f|
-            = devise_error_messages!
+%section.section
+  .container
+    .columns
+      .column.is-two-thirds
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: "registration-form"}) do |f|
+          = devise_error_messages!
 
-            .field
-              = f.label :email, class: 'label'
-              .control
-                = f.email_field :email, class: 'input'
-        
-            .field
-              = f.label :password, class: 'label'
-              .control
-                = f.password_field :password, autocomplete: "off", class: 'input'
-              %p.help= "Password (#{@minimum_password_length} characters minimum)"
-        
-            .field
-              = f.label :password_confirmation, class: 'label'
-              .control
-                = f.password_field :password_confirmation, autocomplete: "off", class: 'input'
-            
-            .field
-              = f.submit "Next", class: "button is-orange is-medium"
+          .field
+            = f.label :email, class: 'label'
+            .control
+              = f.email_field :email, class: 'input'
+      
+          .field
+            = f.label :password, class: 'label'
+            .control
+              = f.password_field :password, autocomplete: "off", class: 'input'
+            %p.help= "Password (#{@minimum_password_length} characters minimum)"
+      
+          .field
+            = f.label :password_confirmation, class: 'label'
+            .control
+              = f.password_field :password_confirmation, autocomplete: "off", class: 'input'
+          
+          .field
+            = f.submit "Next", class: "button is-orange"
+
+      .column
+        = render "devise/shared/links"
 
 - provide :title, 'Register'
