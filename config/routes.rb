@@ -2,11 +2,6 @@
 
 Rails.application.routes.draw do
   namespace :accounts do
-    namespace :registrations do
-      resource :profile, only: %i[edit update]
-      resource :memory, only: :new
-      resource :subscription, only: %i[new create]
-    end
     resource :card, only: %i[edit update]
     resources :charges, only: :index
     resource :profile, only: %i[edit show update]
