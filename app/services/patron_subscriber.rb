@@ -50,7 +50,7 @@ class PatronSubscriber
   def create_charge
     Charge.create!(
       account: @account,
-      amount_in_cents: 299,
+      amount_in_cents: 500,
       payment_brand: payment_brand,
       payment_last4: payment_last4
     )
