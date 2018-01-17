@@ -1,7 +1,3 @@
 - if account_signed_in?
   = link_to quran_surah_memories_path(@surah), method: :post, remote: true, class: 'not-memorized' do
     #{fa_icon('heart-o')} #{@surah.transliterated_name}
-- else
-  %a.not-memorized{ disabled: true, title: 'You must be logged in to record a memory', data: { tooltip: true } } 
-    #{fa_icon('heart-o')} #{@surah.transliterated_name}
-  = javascript_pack_tag 'tooltips'
