@@ -1,20 +1,16 @@
 - if @article.comments.any?
   %h2.title Comments
 
-  %section.section#comments
-    .container
-      .columns.is-centered
-        .column.is-two-thirds
-          - @article.comments.includes(:account).each do |comment|
-            %article.media
-              %figure.media-left
-                %p.image.is-64x64
-                  = Gravatar.tag(comment.account.email, 135).html_safe
-              .media-content
-                .content
-                  %p.metadata
-                    = fa_icon 'user'
-                    = comment.account.try(:name) || 'Annon' + ','
-                    = time_ago_in_words(comment.created_at) + ' ago'
-                  = markdown comment.content
+  - @article.comments.includes(:account).each do |comment|
+    %article.media
+      %figure.media-left
+        %p.image.is-64x64
+          = Gravatar.tag(comment.account.email, 135).html_safe
+      .media-content
+        .content
+          %p.metadata
+            = fa_icon 'user'
+            = comment.account.try(:name) || 'Annon' + ','
+            = time_ago_in_words(comment.created_at) + ' ago'
+          = markdown comment.content
   .is-divider
