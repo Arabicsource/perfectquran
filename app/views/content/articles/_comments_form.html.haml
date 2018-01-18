@@ -10,5 +10,5 @@
         = f.text_area :content, class: 'textarea is-expanded', id: 'comment_content', placeholder: 'What do you think?'
     = f.submit class: 'button is-orange'
 
-- else
+- elsif @article.post? 
   %p.notification.is-info You Must be logged in to comment.
