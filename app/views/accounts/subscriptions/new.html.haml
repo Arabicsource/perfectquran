@@ -2,8 +2,10 @@
   = render 'accounts/shared/menu'
 
 - content_for :main do
+  %h2.title Upgrade to become a PerfectQuran Patron
+
   = render 'form'
 
-= render "layouts/templates/is_two_thirds", title: 'New Subscription'
+= render "layouts/templates/is_half", title: 'New Subscription'
 
 = javascript_pack_tag 'stripe'

@@ -3,8 +3,13 @@
 
   .field
     #card-element.control
+  
+  .field
+    %p.control
+      = f.submit 'Subscribe for Just $5 / Month', class: 'button is-orange is-fullwidth'
 
-  %p.control
-    .buttons
-      = f.submit 'Subscribe for Just $5 / Month', class: 'button is-orange'
-      = link_to 'Cancel', accounts_profile_path, class: 'button is-light'
+  .field
+    %p.control
+      By clicking Subscribe, you agree to our
+      #{link_to 'Paid Terms of Service', content_article_path('paid-terms-of-service')}.
+      Your payment method will be charged a recurring $5 monthly fee, unless you decide to cancel. No refunds for subscriptions canceled between billing cycles.
