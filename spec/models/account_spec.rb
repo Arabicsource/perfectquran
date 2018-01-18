@@ -34,6 +34,18 @@ RSpec.describe Account, type: :model do
     it { is_expected.to have_many :memories }
   end
 
+  describe '#patron?' do
+    context 'with subscription' do
+      let(:account) { create :account, :with_subscription }
+      specify { expect(account.patron?).to be_truthy }
+    end
+
+    context 'without subscription' do
+      let(:account) { create :account }
+      specify { expect(account.patron?).to be_falsey }
+    end
+  end
+
   describe '#name' do
     context 'when profile has name' do
       it 'returns profile name' do

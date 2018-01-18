@@ -49,4 +49,8 @@ class Account < ApplicationRecord
   def name
     profile.name || 'Anonymous'
   end
+
+  def patron?
+    subscription
+  end
 end

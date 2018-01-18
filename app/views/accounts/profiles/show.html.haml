@@ -1,5 +1,10 @@
 - content_for :header do
   = render 'accounts/shared/menu'
+
+  - unless current_account.patron?
+    .notification.is-info
+      Do you love PerfectQuran and want it to succeed? 
+      = link_to 'Become a Patron of our work for $5 a month', accounts_subscription_path
   
 - content_for :main do
   = render 'summary'

@@ -48,5 +48,11 @@ FactoryBot.define do
       confirmation_sent_at Time.now
       confirmation_token 'token'
     end
+
+    trait :with_subscription do
+      after(:create) do |account|
+        create :subscription, account: account
+      end
+    end
   end
 end
