@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   end
 
   namespace :content do
-    resources :pages, only: :show
     resources :articles, only: %i[index show] do
       resources :comments, only: :create
     end
