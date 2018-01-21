@@ -25,6 +25,9 @@ module Quran
              -> { includes(:translation) },
              class_name: 'Quran::Text'
 
+    has_many :taggings, as: :taggable
+    has_many :tags, through: :taggings
+
     def noble_quran_text
       texts.where(translation_id: 3).first.try(:content) || ''
     end

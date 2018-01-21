@@ -5,7 +5,7 @@
     %article.media
       %figure.media-left
         %p.image.is-64x64
-          = Gravatar.tag(comment.account.email, 135).html_safe
+          = sanitize Gravatar.tag(comment.account.email, 135)
       .media-content
         .content
           %p.metadata

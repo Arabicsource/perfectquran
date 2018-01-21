@@ -11,6 +11,7 @@
     = render 'next'
 
 - content_for :aside do
+  = render 'quran/ayahs/tags/tags'
   = render 'pagination'
   = render 'quran/surahs/information', surah: @ayah.surah
 

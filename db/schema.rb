@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180115114153) do
+ActiveRecord::Schema.define(version: 20180118214042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,6 +230,24 @@ ActiveRecord::Schema.define(version: 20180115114153) do
     t.string "payment_last4"
     t.string "current_period_end"
     t.index ["account_id"], name: "index_subscriptions_on_account_id"
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "tag_id"
+    t.string "taggable_type"
+    t.bigint "taggable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_taggings_on_account_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "thredded_categories", force: :cascade do |t|
@@ -477,6 +495,8 @@ ActiveRecord::Schema.define(version: 20180115114153) do
   add_foreign_key "quran_translations", "quran_languages", column: "language_id"
   add_foreign_key "shares", "quran_ayahs", column: "ayah_id"
   add_foreign_key "subscriptions", "accounts"
+  add_foreign_key "taggings", "accounts"
+  add_foreign_key "taggings", "tags"
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade
   add_foreign_key "thredded_messageboard_users", "thredded_user_details", on_delete: :cascade
   add_foreign_key "thredded_user_post_notifications", "accounts", column: "user_id", on_delete: :cascade

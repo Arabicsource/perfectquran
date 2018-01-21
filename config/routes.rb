@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
     resources :ayahs, only: [:show] do
       scope module: :ayahs do
-        resource :memories, :bookmarks
+        resource :memories, :bookmarks, :tag
       end
     end
   end

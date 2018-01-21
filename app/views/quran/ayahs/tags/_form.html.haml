@@ -1,0 +1,8 @@
+= form_with model: tag, url: quran_ayah_tag_path(@ayah), id: 'tag-form', method: :post do |f|
+  .field.has-addons
+    .control
+      = f.text_field :name, class: 'input'
+      - if tag.errors[:name].any?
+        %p.help.is-danger= tag.errors[:name].first
+    .control
+      = f.submit 'Tag', class: 'button is-orange'

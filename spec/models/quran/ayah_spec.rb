@@ -24,6 +24,7 @@ RSpec.describe Quran::Ayah, type: :model do
         have_many(:texts_and_included_translations).class_name('Quran::Text')
       )
     end
+    it { is_expected.to have_many(:tags).through(:taggings) }
   end
 
   context 'instance methods' do

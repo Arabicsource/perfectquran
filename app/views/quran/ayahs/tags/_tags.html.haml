@@ -1,0 +1,6 @@
+.box
+  #tag-list.field.is-grouped.is-grouped-multiline
+    = render 'quran/ayahs/tags/tag_list'
+
+  - if account_signed_in?
+    = render 'quran/ayahs/tags/form', tag: Tag.new
