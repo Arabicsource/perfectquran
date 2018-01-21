@@ -5,7 +5,9 @@
     .container
       %h1.title= title
 
-%section.section
+= yield :header 
+
+%section.section.is-white
   .container
     .columns
       .column

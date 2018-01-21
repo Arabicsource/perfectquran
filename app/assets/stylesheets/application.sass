@@ -9,6 +9,24 @@
 @import 'content/articles_index'
 @import 'accounts'
 
+
+section.section
+  &.is-white
+    background-color: $white
+
+  +desktop
+    &.is-small
+      padding: $section-padding-small
+    &.is-paddingless
+      padding: $section-padding-none
+
+.button.is-memorized
+  @extend .is-danger
+
+.button.is-not-memorized
+  @extend .is-danger,  .is-outlined
+
+
 .is-divider
   border-bottom: 15px solid $background
   margin: 3rem 0

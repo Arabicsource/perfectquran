@@ -1,7 +1,8 @@
-.container
-  %nav.breadcrumb{ aria: { label: 'breadcrumbs' } }
-    .container
-      %ul
-        %li= link_to 'Index', quran_surahs_path
-        %li= link_to @ayah.surah_name, quran_surah_path(@ayah.surah)
-        %li.is-active= link_to @ayah.number, '#', aria: { current: 'page' }
+%section.section.is-paddingless
+  .container
+    %nav.breadcrumb{ aria: { label: 'breadcrumbs' } }
+      .container
+        %ul
+          %li= link_to 'Index', quran_surahs_path
+          %li= link_to @ayah.surah_name, quran_surah_path(@ayah.surah)
+          %li.is-active= link_to @ayah.number, '#', aria: { current: 'page' }
