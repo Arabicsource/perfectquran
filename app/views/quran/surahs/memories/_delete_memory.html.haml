@@ -1,2 +1,3 @@
 = link_to quran_surah_memories_path(@surah), method: :delete, remote: true, class: 'is-memorized' do
-  #{fa_icon('heart')} #{@surah.transliterated_name}
+  %span.icon= fa_icon('heart')
+  %span Memory
