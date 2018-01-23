@@ -8,11 +8,6 @@
     = yield
     = render 'layouts/shared/newsletter' unless account_signed_in?
     = render 'layouts/shared/footer'
+
     - unless account_signed_in?
-      %p.notification.terms-notification.is-warning{data: {controller: 'notification', target: 'notification.closable' } }
-        %button.delete{data: { action: 'notification#close' } }
-        By using this site you agree to our
-        #{link_to('Terms of Service', content_article_path('terms-of-service'))},
-        #{link_to('Privacy Policy', content_article_path('privacy-policy'))}, and
-        #{link_to('Cookie Policy', content_article_path('cookie-policy'))}.
-        #{link_to('Login', new_account_session_path)} to remove this notice.
+      = render 'layouts/shared/cookie_notification'
