@@ -2,7 +2,6 @@
 %html{ html_attrs('en') }
   = render 'layouts/shared/head'
   %body{id: params[:controller].try(:gsub, '/', '-'), class: params[:action] }
-    = render '/layouts/shared/analytics'
     = render 'layouts/shared/navbar'
     = render 'layouts/shared/flash'
     = yield
