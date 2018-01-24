@@ -17,7 +17,7 @@
 - provide :title, @surah
 
 - content_for :toolbar do
-  %section.section.is-small.is-white
+  %section.section.is-small.is-white.is-hidden-touch
     .container
       .columns
         .column
@@ -30,12 +30,13 @@
               Your browser does not support the audio tag.
 
 - content_for :top do
-  .tabs.is-toggle.is-toggle-rounded.is-fullwidth.is-small.is-hidden-desktop
-    %ul
-      %li.is-active{data: {target: 'tabs.tab'}}
-        = link_to 'Surah', '#', data: {action: 'tabs#toggle'}
-      %li{data: {target: 'tabs.tab'}}
-        = link_to 'Information', '#', data: {action: 'tabs#toggle'}
+  %section.section.is-brown.is-hidden-desktop
+    .tabs.is-toggle.is-toggle-rounded.is-fullwidth.is-small
+      %ul
+        %li.is-active{data: {target: 'tabs.tab'}}
+          = link_to 'Surah', '#', data: {action: 'tabs#toggle'}
+        %li{data: {target: 'tabs.tab'}}
+          = link_to 'Information', '#', data: {action: 'tabs#toggle'}
 
 - content_for :aside do
   .box.is-hidden-touch

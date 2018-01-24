@@ -5,22 +5,21 @@
     = render 'layouts/partials/header'
     
     %div{data: { controller: 'tabs'}}
-
       = yield(:top) if content_for? :top
-
-      %section.page-header
-        .container
-          %h1= yield :title
+      = render('layouts/partials/page_header') if content_for :title
 
       %section.section.is-white.is-large
         .container
-          %section.section.is-hidden-touch
-            = yield :toolbar
+          = yield(:toolbar) if content_for :toolbar
           .columns
-            .column.is-two-thirds
-              = yield
-            .column.is-hidden-touch
-              = yield :aside
+            - if content_for :aside
+              .column.is-two-thirds
+                = yield
+              .column.is-hidden-touch
+                = yield :aside
+            - else
+              .column
+                = yield
 
       - if content_for? :bottom
         %section.section
