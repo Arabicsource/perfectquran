@@ -1,10 +1,9 @@
-- content_for :main do
-  %article.content
-    = sanitize @article.content
+%article.content
+  = sanitize @article.content
 
-  .is-divider
-  
-  = render 'content/articles/comments'  
-  = render 'content/articles/comments_form'
+.is-divider
 
-= render "layouts/templates/is_two_thirds", title: @article.title
+= render 'content/articles/comments'  
+= render 'content/articles/comments_form'
+
+- provide :title, @article.title

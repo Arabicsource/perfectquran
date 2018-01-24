@@ -1,11 +1,7 @@
-- content_for :header do
-  = render 'accounts/shared/menu'
-
-- content_for :main do
-  - if @connections.any?
-    = render 'table'
-  - else
-    %p.notification.is-info You have no connected social media accounts.
+- if @connections.any?
+  = render 'table'
+- else
+  %p.notification.is-info You have no connected social media accounts.
 
 - content_for :aside do
   .buttons
@@ -14,4 +10,7 @@
 
   = render 'automatic_posts_message'
 
-= render "layouts/templates/is_two_thirds", title: 'Connections'
+- provide :title, 'Connections'
+
+- content_for :header do
+  = render 'accounts/shared/menu'

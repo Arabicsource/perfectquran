@@ -1,8 +1,8 @@
+= render 'form'
+
+- provide :title, 'Update Payment Method'
+
 - content_for :header do
   = render 'accounts/shared/menu'
 
-- content_for :main do
-  = render 'form'
-
-= render "layouts/templates/is_two_thirds", title: 'Update Payment Method'
 = javascript_pack_tag 'stripe'

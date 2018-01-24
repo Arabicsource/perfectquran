@@ -1,23 +1,22 @@
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th Invoice
+      %th Date
+      %th Ammount
+  %tfoot
+    %tr
+      %th Invoice
+      %th  Date
+      %th Ammount
+  %tbody
+    - @charges.each do |charge|
+      %tr
+        %td= charge.id 
+        %td= charge.created_at.to_date.to_formatted_s(:long_ordinal)
+        %td $5
+
+- provide :title, 'Billing History'
+
 - content_for :header do
   = render 'accounts/shared/menu'
-
-- content_for :main do
-  %table.table.is-fullwidth
-    %thead
-      %tr
-        %th Invoice
-        %th Date
-        %th Ammount
-    %tfoot
-      %tr
-        %th Invoice
-        %th  Date
-        %th Ammount
-    %tbody
-      - @charges.each do |charge|
-        %tr
-          %td= charge.id 
-          %td= charge.created_at.to_date.to_formatted_s(:long_ordinal)
-          %td $5
-
-= render "layouts/templates/is_two_thirds", title: 'Billing History'

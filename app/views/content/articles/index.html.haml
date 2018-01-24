@@ -1,4 +1,3 @@
-- content_for :main do
-  = render @articles
+= render @articles
 
-= render "layouts/templates/is_two_thirds", title: t('content.articles.index.title')
+- provide :title, t('content.articles.index.title')

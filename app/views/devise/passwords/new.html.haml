@@ -1,7 +1,6 @@
-- content_for :main do
-  = render 'form'
+= render 'form'
 
 - content_for :aside do
   = render "devise/shared/links"
 
-= render "layouts/templates/is_two_thirds", title: 'Forgot your password?'
+- provide :title, 'Forgot your password?'
