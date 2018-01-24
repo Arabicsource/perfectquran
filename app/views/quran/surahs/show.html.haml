@@ -2,7 +2,9 @@
   - @surah.ayahs_and_included_texts.each do |ayah|
     .media
       .media-left
-        %p <strong>#{ayah.number}</strong>
+        %p 
+          = link_to quran_ayah_path(ayah) do
+            <strong>#{ayah.number}</strong>
 
       .media-content
         .content

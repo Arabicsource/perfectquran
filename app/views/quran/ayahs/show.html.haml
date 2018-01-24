@@ -22,11 +22,11 @@
 - provide :title, @ayah
 
 - content_for :aside do
-  %p.field
-    .box
+  %p.field.is-hidden-touch
+    .box.is-hidden-touch
       = render 'quran/ayahs/tags/tags'
-  %p.field
-    .box
+  %p.field.is-hidden-touch
+    .box.is-hidden-touch
       = render 'quran/surahs/partials/information', surah: @ayah.surah
 
 - content_for :top do
