@@ -6,9 +6,7 @@
     
     %div{data: { controller: 'tabs'}}
 
-      - if content_for? :top
-        %section.section.is-brown
-          = yield :top
+      = yield(:top) if content_for? :top
 
       %section.page-header
         .container
