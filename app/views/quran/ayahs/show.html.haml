@@ -30,11 +30,12 @@
       = render 'quran/surahs/partials/information', surah: @ayah.surah
 
 - content_for :top do
-  .tabs.is-toggle.is-toggle-rounded.is-fullwidth.is-small.is-hidden-desktop
-    %ul
-      %li.is-active{data: {target: 'tabs.tab'}}
-        = link_to 'Ayah', '#', data: {action: 'tabs#toggle'}
-      %li{data: {target: 'tabs.tab'}}
-        = link_to 'Info', '#', data: {action: 'tabs#toggle'}
+  %section.section.is-brown.is-hidden-desktop
+    .tabs.is-toggle.is-toggle-rounded.is-fullwidth.is-small.is-hidden-desktop
+      %ul
+        %li.is-active{data: {target: 'tabs.tab'}}
+          = link_to 'Ayah', '#', data: {action: 'tabs#toggle'}
+        %li{data: {target: 'tabs.tab'}}
+          = link_to 'Info', '#', data: {action: 'tabs#toggle'}
 
 = render 'quran/ayahs/partials/bottom_navbar'
