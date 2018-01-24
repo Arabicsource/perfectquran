@@ -1,11 +1,13 @@
+%h2.title Upgrade to become a PerfectQuran Patron
+
+= render 'form'
+
+- provide :title, 'New Subscription'
+
 - content_for :header do
   = render 'accounts/shared/menu'
 
-- content_for :main do
-  %h2.title Upgrade to become a PerfectQuran Patron
-
-  = render 'form'
-
-= render "layouts/templates/is_half", title: 'New Subscription'
+- content_for :aside do
+  &nbsp;
 
 = javascript_pack_tag 'stripe'
