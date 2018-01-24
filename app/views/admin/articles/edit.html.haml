@@ -1,13 +1,9 @@
-= render 'shared/page_header', title: t('admin.articles.edit.title', title: @article.title)
+.columns
+  .column.is-one-fifth
+    = render 'admin/shared/menu'
+  .column
+    = form_with scope: :article, url: admin_article_path(@article), local: true, method: :patch, id: 'edit_article' do |f|
 
-%section#main.section
-  .container
-    .columns
-      .column.is-one-fifth
-        = render 'admin/shared/menu'
-      .column
-        = form_with scope: :article, url: admin_article_path(@article), local: true, method: :patch, id: 'edit_article' do |f|
-
-          = render 'form_fields', f: f
+      = render 'form_fields', f: f
 
 - provide :title, t('admin.articles.edit.title', title: @article.title)

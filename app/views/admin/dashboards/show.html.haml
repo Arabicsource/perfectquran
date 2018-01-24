@@ -1,26 +1,23 @@
-= render 'shared/page_header', title: t('dashboard')
+.columns
+  .column.is-one-fifth
+    = render 'admin/shared/menu'
+  .column
+    .level
+      .level-item.has-text-centered
+        %div
+          %p.heading Accounts
+          %p.title= @accounts.length
+      .level-item.has-text-centered
+        %div
+          %p.heading Comments
+          %p.title= @comments.length
+      .level-item.has-text-centered
+        %div
+          %p.heading Memories
+          %p.title= @memories.length
+      .level-item.has-text-centered
+        %div
+          %p.heading Connections
+          %p.title= @connections.length
 
-%section#main.section
-  .container
-    .columns
-      .column.is-one-fifth
-        = render 'admin/shared/menu'
-      .column
-        .level
-          .level-item.has-text-centered
-            %div
-              %p.heading Accounts
-              %p.title= @accounts.length
-          .level-item.has-text-centered
-            %div
-              %p.heading Comments
-              %p.title= @comments.length
-          .level-item.has-text-centered
-            %div
-              %p.heading Memories
-              %p.title= @memories.length
-          .level-item.has-text-centered
-            %div
-              %p.heading Connections
-              %p.title= @connections.length
 - provide :title, t('dashboard')

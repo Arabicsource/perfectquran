@@ -1,36 +1,32 @@
-= render 'shared/page_header', title: t('articles')
-
-%section#main.section
-  .container
-    .columns
-      .column.is-one-fifth
-        = render 'admin/shared/menu'
-      .column
-        %table#articles.table.is-fullwidth
-          %tbody
-            %tr
-              %th #
-              %th Title
-              %th Permalink
-              %th Category
-              %th Visibility
-              %th Collection
-          %tfoot
-            %tr
-              %th #
-              %th Title
-              %th Permalink
-              %th Category
-              %th Visibility
-              %th Collection
-          %tbody
-            - @articles.each do |article|
-              %tr
-                %td= article.id
-                %td= link_to article.title, admin_article_path(article)
-                %td= article.permalink
-                %td= article.category.name
-                %td= article.visibility
-                %td= article.collection
+.columns
+  .column.is-one-fifth
+    = render 'admin/shared/menu'
+  .column
+    %table#articles.table.is-fullwidth
+      %tbody
+        %tr
+          %th #
+          %th Title
+          %th Permalink
+          %th Category
+          %th Visibility
+          %th Collection
+      %tfoot
+        %tr
+          %th #
+          %th Title
+          %th Permalink
+          %th Category
+          %th Visibility
+          %th Collection
+      %tbody
+        - @articles.each do |article|
+          %tr
+            %td= article.id
+            %td= link_to article.title, admin_article_path(article)
+            %td= article.permalink
+            %td= article.category.name
+            %td= article.visibility
+            %td= article.collection
 
 - provide :title, t('articles')

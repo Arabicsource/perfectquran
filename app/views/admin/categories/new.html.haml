@@ -1,12 +1,8 @@
-= render 'shared/page_header', title: t('admin.categories.new.header')
-
-%section#main.section
-  .container
-    .columns
-      .column.is-one-fifth
-        = render 'admin/shared/menu'
-      .column
-        = form_with scope: :category, url: admin_categories_path, id: 'new_category' do |f|
-          = render 'form_fields', f: f
+.columns
+  .column.is-one-fifth
+    = render 'admin/shared/menu'
+  .column
+    = form_with scope: :category, url: admin_categories_path, id: 'new_category' do |f|
+      = render 'form_fields', f: f
 
 - provide :title, t('admin.categories.new.title')

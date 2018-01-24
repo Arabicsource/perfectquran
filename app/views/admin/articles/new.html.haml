@@ -1,13 +1,9 @@
-= render 'shared/page_header', title: t('new_article')
-
-%section#main.section
-  .container
-    .columns
-      .column.is-one-fifth
-        = render 'admin/shared/menu'
-      .column
-        = form_with scope: :article, url: admin_articles_path, id: 'new_article' do |f|
-          = render 'form_fields', f: f
+.columns
+  .column.is-one-fifth
+    = render 'admin/shared/menu'
+  .column
+    = form_with scope: :article, url: admin_articles_path, id: 'new_article' do |f|
+      = render 'form_fields', f: f
 
 
 - provide :title, t('new_article')
