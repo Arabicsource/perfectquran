@@ -38,6 +38,7 @@ $addColors: ("brown":($brown, $brown-invert), "yellow":($yellow, $yellow-invert)
 $colors: map-merge($colors, $addColors)
 
 $section-padding-large: 1.5rem 1.5rem 6rem 1.5rem
+$notification-radius: 0
 
 @import 'bulma'
 
@@ -46,6 +47,14 @@ body
 
 audio
   width: 100%
+
+.notification
+  margin-bottom: 0 !important
+
+.section-divider
+  height: 15px
+  background: $background
+  margin: 1.5rem 0
 
 @import 'layout'
 

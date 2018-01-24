@@ -1,16 +1,17 @@
-%section#summary
-  .columns.is-mobile
-    .column
-      = Gravatar.tag(current_account.email, 135).html_safe
-    .column.is-four-fifths
+.media
+  .media-left
+    = sanitize Gravatar.tag(current_account.email, 60)
+  .media-content
+    .content
       - if @profile.name.present? || @profile.username.present?
-        %h1.title
+        %p
           - if @profile.name.present?
-            #{@profile.name}
+            <strong>#{@profile.name}</strong>
           - if @profile.username.present?
             <small>(@#{@profile.username})</small>
-      %h2.subtitle
-        Member since #{current_account.created_at.to_date.to_formatted_s(:long_ordinal)}
+          %br
+          Member since #{current_account.created_at.to_date.to_formatted_s(:long_ordinal)}
+
       - if @profile.bio.present?
         %p.content
           = @profile.bio
