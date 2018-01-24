@@ -1,7 +1,0 @@
-%nav.pagination{ role: 'navigation', aria: { label: 'pagination' } }
-  - if @ayah.previous?
-    = link_to quran_ayah_path(@ayah.previous), class: 'pagination-previous' do
-      Previous
-  - if @ayah.next?
-    = link_to quran_ayah_path(@ayah.next), class: 'pagination-next' do
-      Next Ayah

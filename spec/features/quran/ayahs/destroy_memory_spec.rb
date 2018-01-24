@@ -15,7 +15,7 @@ feature 'Destroy a memory on an ayah', js: true do
   end
 
   scenario 'successfully' do
-    expect { click_on 'Memory' }.to change(Memory, :count).from(1).to(0)
-    expect(page).to have_css 'a.button.is-not-memorized'
+    expect { click_on(class: 'memory') }.to change(Memory, :count).from(1).to(0)
+    expect(page).to have_css 'a.button.not-memorized'
   end
 end

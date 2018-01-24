@@ -1,19 +1,13 @@
-%nav.navbar.is-transparent{ role: 'navigation', aria: { label: 'main navigation'}, data: { controller: 'navbar' } }
+%nav.navbar.is-transparent.is-hidden-touch{ role: 'navigation', aria: { label: 'main navigation'}, data: { controller: 'navbar' } }
   .container
     .navbar-brand
       = link_to  root_url, class: 'navbar-item' do
         = image_tag 'queue.jpg'
 
-      %button.navbar-burger{ data: {action: 'navbar#toggle', target: 'navbar.toggable'}}
-        %span
-        %span
-        %span
-
-    .navbar-menu.is-hidden-touch
+    .navbar-menu
       .navbar-end
         = link_to 'Quran', quran_root_path, class: 'navbar-item'
         = link_to 'Blog', content_articles_path, class: 'navbar-item'
-        
         
         - if account_signed_in?
           = link_to 'Bookmarks', '#', class: 'navbar-item', id: 'bookmarks-modal-opener', data: { action: 'navbar#openBookmarksModal' }

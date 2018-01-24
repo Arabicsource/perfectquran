@@ -2,11 +2,33 @@
 %html{ html_attrs('en') }
   = render 'layouts/shared/head'
   %body{id: params[:controller].try(:gsub, '/', '-'), class: params[:action] }
-    = render 'layouts/shared/navbar'
-    = render 'layouts/shared/flash'
-    = yield
-    = render 'layouts/shared/newsletter' unless account_signed_in?
-    = render 'layouts/shared/footer'
+    = render 'layouts/partials/header'
+    
+    %div{data: { controller: 'tabs'}}
 
-    - unless account_signed_in?
-      = render 'layouts/shared/cookie_notification'
+      - if content_for? :top
+        %section.section.is-brown
+          = yield :top
+
+      %section.page-header
+        .container
+          %h1= yield :title
+
+      %section.section.is-white.is-large
+        .container
+          %section.section.is-hidden-touch
+            = yield :toolbar
+          .columns
+            .column.is-two-thirds
+              = yield
+            .column.is-hidden-touch
+              = yield :aside
+
+      - if content_for? :bottom
+        %section.section
+          = yield :bottom
+
+      - unless account_signed_in?
+        = render 'layouts/shared/cookie_notification'
+
+      = render 'layouts/partials/footer'

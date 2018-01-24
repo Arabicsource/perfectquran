@@ -1,7 +1,0 @@
-%section.current.content
-  %h1.is-size-4= "#{@ayah.surah_name} #{@ayah.number}"
-      
-  - @ayah.texts_and_included_translations.each do |text|
-    .ayah-text.content
-      %h2.has-text-orange-dark.is-size-5{class: ('is-hidden' if text.uthmani?)}= text.translation.name
-      %p{class: ('is-size-2 has-text-right' if text.uthmani?)}= text.content.html_safe

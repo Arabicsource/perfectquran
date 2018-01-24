@@ -1,0 +1,51 @@
+%nav#header.mobile-navbar.navbar.is-brown.is-hidden-desktop{ role: 'navigation', aria: { label: 'main navigation'}, data: { controller: 'navbar' } }
+  .container
+    .navbar-brand
+      %button.navbar-burger{ data: {action: 'navbar#toggle'}}
+        %span
+        %span
+        %span
+      
+      = link_to  root_url, class: 'brand navbar-item' do
+        = image_tag 'perfectquran.png'
+
+  %aside{data: {target: 'navbar.toggable'}}
+    %section.section
+      %button.delete.is-large{data: {action: 'navbar#toggle'}}
+      .menu
+        .container
+          - if account_signed_in?
+            %p.menu-label Account
+            %ul.menu-list
+              %li= link_to 'Profile', accounts_profile_path
+              %li= link_to 'Connections', accounts_connections_path
+              %li= link_to 'Subscription', accounts_subscription_path
+              %li= link_to 'Settings', edit_accounts_profile_path
+              %li= link_to 'Admin', admin_root_path if current_account.role?(:admin)
+              %li= link_to "Logout", destroy_account_session_path, method: :delete
+
+
+            %p.menu-label Bookmarks
+
+            - if bookmarks.any?
+              %ul.menu-list
+                - bookmarks.each do |bookmark|
+                  %li= bookmark.bookmarkable
+            - else
+              %p.has-text-danger No bookmarks
+
+          - else
+            %p.menu-label Account
+            %ul.menu-list
+              %li= link_to 'Login', new_account_session_path
+              %li= link_to 'Register', new_account_registration_path
+
+          %p.menu-label General
+          %ul.menu-list
+            %li= link_to 'Quran', quran_root_path
+            %li= link_to 'Blog', content_articles_path
+
+    %section.section
+      %p PerfectQuran &copy; 2017 - #{Time.now.year}
+      %br
+      %p All praise and thanks belongs to Allah alone.

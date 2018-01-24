@@ -1,18 +1,20 @@
-%h1.is-hidden Suwar
+%ol#surahs
+  - @surahs.each do |surah|
+    %li
+      = link_to quran_surah_path(surah) do
+        .media
+          .media-content
+            .content
+              %p
+                <strong>#{surah.id}. #{surah}</strong> <small>#{surah.arabic_name}</small> <small>#{surah.english_name}</small>
+                %br
+                #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}.
+          .media-right.is-hidden-desktop
+            = fa_icon 'angle-right'
 
-= render 'masthead'
-
-%section#main.section
-  .container
-    %ol#suwar-index
-      - @surahs.each do |surah|
-        %li.surah{id: "surah-#{surah.id}"}
-          %h2
-            = link_to quran_surah_path(surah) do
-              = "#{surah.id} #{surah.transliterated_name} #{surah.arabic_name}"  
-          %p.has-text-weight-light
-            = "#{surah.english_name}"
-            %br
-            = "#{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}."
+- content_for :top do
+  .hero-body.is-hidden-touch
+    .container.has-text-centered
+      = image_tag 'perfectquran.jpg', alt: '', class: 'masthead-image'
 
 - provide :title, 'Suwar'

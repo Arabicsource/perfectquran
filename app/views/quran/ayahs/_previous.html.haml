@@ -1,5 +1,0 @@
-- if @ayah.previous?
-  %p.previous
-    = sanitize @ayah.previous.noble_quran_text
-    = link_to quran_ayah_path(@ayah.previous) do
-      = "(#{@ayah.previous.surah_id}:#{@ayah.previous.number})"

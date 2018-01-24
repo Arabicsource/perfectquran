@@ -20,4 +20,11 @@ export default class extends Controller {
     const element = this.targets.find('bookmarks-modal');
     element.classList.remove('is-active');
   }
+
+  hideAudio(event) {
+    const audio = this.targets.find('audio');
+    audio.classList.toggle('is-hidden');
+
+    event.preventDefault();
+  }
 }

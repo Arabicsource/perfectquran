@@ -14,7 +14,7 @@ feature 'Create a memory on an ayah', js: true do
   end
 
   scenario 'successfully' do
-    expect { click_on 'Memory' }.to change(Memory, :count).from(0).to(1)
-    expect(page).to have_css 'a.button.is-memorized'
+    expect { click_on(class: 'memory') }.to change(Memory, :count).from(0).to(1)
+    expect(page).to have_css 'a.button.is-danger.memory'
   end
 end
