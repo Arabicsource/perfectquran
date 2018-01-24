@@ -21,11 +21,6 @@
               .column
                 = yield
 
-      - if content_for? :bottom
-        %section.section
-          = yield :bottom
-
-      - unless account_signed_in?
-        = render 'layouts/shared/cookie_notification'
-
+      = yield(:bottom) if content_for? :bottom
+      = render('layouts/shared/cookie_notification') unless account_signed_in?
       = render 'layouts/partials/footer'
