@@ -1,16 +1,32 @@
-- if @connections.any?
-  = render 'table'
-- else
-  %p.notification.is-info You have no connected social media accounts.
-
-- content_for :aside do
+- if browser.mobile?
   .buttons
-    = link_to '/auth/twitter', class: 'is-twitter-button is-fullwidth' do
-      #{fa_icon('twitter')} Connect Twitter Account
+    = link_to '/auth/twitter', class: 'button is-twitter is-fullwidth' do
+      %span.icon= fa_icon 'twitter'
+      %span Connect Twitter Account
+
+  - if @connections.any?
+    = render 'table'
+  - else
+    %p.notification.is-info You have no connected social media accounts.
 
   = render 'automatic_posts_message'
 
-- provide :title, 'Connections'
+- else
+  - if @connections.any?
+    = render 'table'
+  - else
+    %p.notification.is-info You have no connected social media accounts.
 
-- content_for :header do
-  = render 'accounts/shared/menu'
+  - content_for :after_header do
+    = render 'accounts/shared/menu'
+
+  - content_for :sidebar do
+    .buttons
+      = link_to '/auth/twitter', class: 'button is-twitter is-fullwidth' do
+        %span.icon= fa_icon 'twitter'
+        %span Connect Twitter Account
+
+    = render 'automatic_posts_message'
+
+- provide :title, 'Connections'
+- provide :layout_template, 'two_column'

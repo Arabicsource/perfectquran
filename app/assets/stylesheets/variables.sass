@@ -1,4 +1,7 @@
 // Variables - Colors
+$twitter: #00aced
+$twitter-invert: findColorInvert($twitter)
+
 $brown: #653100
 $brown-invert: findColorInvert($brown)
 
@@ -29,7 +32,7 @@ $tabs-toggle-link-active-background-color: $yellow
 $tabs-toggle-link-border-color: $yellow
 $tabs-toggle-link-active-color: $text
 
-$addColors: ("brown":($brown, $brown-invert), "yellow":($yellow, $yellow-invert), "orange":($orange, $orange-invert), "orange-light":($orange-light, $orange-light-invert), "orange-dark":($orange-dark, $orange-dark-invert), "alert":($alert, $alert-inverse), "notice":($notice, $notice-inverse))
+$addColors: ("twitter":($twitter, $twitter-invert), "brown":($brown, $brown-invert), "yellow":($yellow, $yellow-invert), "orange":($orange, $orange-invert), "orange-light":($orange-light, $orange-light-invert), "orange-dark":($orange-dark, $orange-dark-invert), "alert":($alert, $alert-inverse), "notice":($notice, $notice-inverse))
 $colors: map-merge($colors, $addColors)
 
 $notification-radius: 0
