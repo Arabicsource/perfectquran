@@ -3,43 +3,7 @@
 @import "sass/utilities/initial-variables"
 @import "sass/utilities/functions"
 @import "sass/utilities/derived-variables"
-
-// Variables - Colors
-$brown: #653100
-$brown-invert: findColorInvert($brown)
-
-$brown-dark: darken($brown, 5%)
-
-$yellow: #FEC70A
-$yellow-invert: findColorInvert($yellow)
-
-$orange: #FA9942
-$orange-invert: findColorInvert($orange)
-
-$orange-light: lighten($orange, 20%)
-$orange-light-invert: findColorInvert($orange-light)
-
-$orange-dark: darken($orange, 20%)
-$orange-dark-invert: findColorInvert($orange-dark)
-
-$alert: $red
-$alert-inverse: findColorInvert($alert)
-
-$notice: $green
-$notice-inverse: findColorInvert($green)
-
-$link: $orange-dark
-
-$tabs-link-color: $yellow
-$tabs-toggle-link-active-background-color: $yellow
-$tabs-toggle-link-border-color: $yellow
-$tabs-toggle-link-active-color: $text
-
-$addColors: ("brown":($brown, $brown-invert), "yellow":($yellow, $yellow-invert), "orange":($orange, $orange-invert), "orange-light":($orange-light, $orange-light-invert), "orange-dark":($orange-dark, $orange-dark-invert), "alert":($alert, $alert-inverse), "notice":($notice, $notice-inverse))
-$colors: map-merge($colors, $addColors)
-
-$notification-radius: 0
-
+@import 'variables'
 @import 'bulma'
 
 body
@@ -57,43 +21,6 @@ audio
   margin: 1.5rem 0
 
 @import 'layout'
-
-#quran-surahs.index
-  ol#surahs
-    list-style: none
-
-    li
-      padding: 1rem 0
-      border-bottom: 1px solid $background
-
-      &:first-child
-        padding-top: 0
-
-      &:hover
-        border-color: $orange
-
-        i.fa
-          color: $orange
-
-      a, a:link, a:visited
-        color: $text
-
-  +desktop
-    section.page-header
-      display: none
-
-    ol
-      column-count: 4
-
-      li
-        width: 100%
-        display: inline-block
-
-        &:first-child
-          padding-top: 1rem !important
-
-        strong
-          color: $orange-dark
 
 // Header
 nav.mobile-navbar
@@ -169,4 +96,20 @@ aside
   a:active, a:focus, a:hover
     color: $text !important
 
+#quran-surahs.index
+  ol#surahs
+    list-style: none
+
+    li
+      padding: 1rem 0
+      border-bottom: 1px solid $background
+
+      &:hover
+        border-color: $orange
+
+      a, a:link, a:visited
+        color: $text
+
+@import 'mobile'
+@import 'desktop'
 @import 'stripe'
