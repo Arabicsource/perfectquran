@@ -1,0 +1,13 @@
+%ol#surahs
+  - @surahs.each do |surah|
+    %li
+      = link_to quran_surah_path(surah) do
+        .media
+          .media-content
+            .content
+              %p
+                <strong>#{surah.id}. #{surah}</strong> <small>#{surah.arabic_name}</small> <small>#{surah.english_name}</small>
+                %br
+                #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}.
+          .media-right
+            = fa_icon 'angle-right'

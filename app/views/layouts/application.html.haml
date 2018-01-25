@@ -2,7 +2,10 @@
 %html{ html_attrs('en') }
   = render 'layouts/shared/head'
   %body{id: params[:controller].try(:gsub, '/', '-'), class: params[:action], data: { controller: 'tabs'} }
+    
     = render 'layouts/partials/navbar'
+
+    = yield :after_navbar if content_for? :after_navbar
     
     = yield(:top) if content_for? :top
     = render('layouts/partials/page_header') if content_for :title

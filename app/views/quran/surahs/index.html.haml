@@ -1,18 +1,8 @@
-%ol#surahs
-  - @surahs.each do |surah|
-    %li
-      = link_to quran_surah_path(surah) do
-        .media
-          .media-content
-            .content
-              %p
-                <strong>#{surah.id}. #{surah}</strong> <small>#{surah.arabic_name}</small> <small>#{surah.english_name}</small>
-                %br
-                #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}.
-          .media-right.is-hidden-desktop
-            = fa_icon 'angle-right'
-
-- content_for :top do
-  = render 'quran/surahs/partials/top'
+- if browser.mobile?
+  = render 'quran/surahs/partials/mobile/surah_index_list'
+- else
+  = render 'quran/surahs/partials/desktop/surah_index_list'
+  - content_for :after_navbar do
+    = render 'quran/surahs/partials/desktop/after_navbar'
 
 - provide :title, 'Suwar'
