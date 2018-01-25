@@ -7,6 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'browser'
 gem 'bulma-rails', '~> 0.6.2'
 gem 'coffee-rails', '~> 4.2'
 gem 'coveralls', require: false
