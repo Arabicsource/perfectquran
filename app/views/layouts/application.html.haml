@@ -2,7 +2,7 @@
 %html{ html_attrs('en') }
   = render 'layouts/shared/head'
   %body{id: params[:controller].try(:gsub, '/', '-'), class: params[:action] }
-    = render 'layouts/partials/header'
+    = render 'layouts/partials/navbar'
     
     %div{data: { controller: 'tabs'}}
       = yield(:top) if content_for? :top
