@@ -17,6 +17,8 @@
         %td $5
 
 - provide :title, 'Billing History'
+- provide :layout_template, 'two_column'
 
-- content_for :header do
-  = render 'accounts/shared/menu'
+- unless browser.mobile?
+  - content_for :after_header do
+    = render 'accounts/shared/menu'
