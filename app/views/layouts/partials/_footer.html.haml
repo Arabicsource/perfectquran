@@ -1,4 +1,4 @@
-%footer.footer.is-hidden-touch
+%footer.footer
   .container
     .columns
       .column.content
@@ -29,9 +29,13 @@
           = link_to 'MP3 Quran', 'http://www.mp3quran.net/eng/'
           and
           = link_to('EveryAyah', 'http://everyayah.com/data/status.php') + '.'
+
       .column
-        %p All praise and thanks belongs to Allah alone.
-      .column
+        %p.content 
+          All praise and thanks belongs to Allah alone.
+        %p.content
+          Copyright PerfectQuran &copy; 2017 - #{Time.now.year}, all rights reserved.
+
         .menu
           %p.menu-label Content
           %ul.menu-list
