@@ -2,6 +2,24 @@
   - content_for :after_navbar do
     = render 'quran/ayahs/partials/mobile/after_navbar'
 
+  .info.is-hidden{data: {target: 'tabs.tabbable'}}
+    %p.field
+      = render 'quran/ayahs/tags/tags'
+    %br
+    %p.field
+      = render 'quran/surahs/partials/information', surah: @ayah.surah
+
+  = render 'quran/ayahs/partials/bottom_navbar'  
+
+- else
+  - content_for :sidebar do
+    %p.field.is-hidden-touch
+      .box.is-hidden-touch
+        = render 'quran/ayahs/tags/tags'
+    %p.field.is-hidden-touch
+      .box.is-hidden-touch
+        = render 'quran/surahs/partials/information', surah: @ayah.surah
+
 
 .ayah{data: {target: 'tabs.tabbable'}}
   .media
@@ -17,21 +35,5 @@
           %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
           %p{class: ('is-size-4 has-text-right' if text.uthmani?)}= sanitize text.content
 
-.info.is-hidden{data: {target: 'tabs.tabbable'}}
-  %p.field
-    = render 'quran/ayahs/tags/tags'
-  %br
-  %p.field
-    = render 'quran/surahs/partials/information', surah: @ayah.surah
-
 - provide :title, @ayah
-
-- content_for :aside do
-  %p.field.is-hidden-touch
-    .box.is-hidden-touch
-      = render 'quran/ayahs/tags/tags'
-  %p.field.is-hidden-touch
-    .box.is-hidden-touch
-      = render 'quran/surahs/partials/information', surah: @ayah.surah
-
-= render 'quran/ayahs/partials/bottom_navbar'
+- provide :layout_template, 'two_column'
