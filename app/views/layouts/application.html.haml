@@ -1,26 +1,25 @@
 !!!5
 %html{ html_attrs('en') }
   = render 'layouts/shared/head'
-  %body{id: params[:controller].try(:gsub, '/', '-'), class: params[:action] }
+  %body{id: params[:controller].try(:gsub, '/', '-'), class: params[:action], data: { controller: 'tabs'} }
     = render 'layouts/partials/navbar'
     
-    %div{data: { controller: 'tabs'}}
-      = yield(:top) if content_for? :top
-      = render('layouts/partials/page_header') if content_for :title
-      = yield(:header) if content_for? :header
+    = yield(:top) if content_for? :top
+    = render('layouts/partials/page_header') if content_for :title
+    = yield(:header) if content_for? :header
 
-      %section.section.is-white.is-large
-        .container
-          = yield(:toolbar) if content_for :toolbar
-          .columns
-            - if content_for :aside
-              .column.is-two-thirds
-                = yield
-              .column
-                = yield :aside
-            - else
-              .column
-                = yield
+    %section.section.is-white.is-large
+      .container
+        = yield(:toolbar) if content_for :toolbar
+        .columns
+          - if content_for :aside
+            .column.is-two-thirds
+              = yield
+            .column
+              = yield :aside
+          - else
+            .column
+              = yield
 
       = yield(:bottom) if content_for? :bottom
       = render('layouts/shared/cookie_notification') unless account_signed_in?
