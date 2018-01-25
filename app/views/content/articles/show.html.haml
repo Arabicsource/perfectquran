@@ -1,9 +1,10 @@
 %article.content
   = sanitize @article.content
 
-.is-divider
+.section-divider
 
 = render 'content/articles/comments'  
 = render 'content/articles/comments_form'
 
 - provide :title, @article.title
+- provide :layout_template, 'two_column'
