@@ -38,7 +38,6 @@ $tabs-toggle-link-active-color: $text
 $addColors: ("brown":($brown, $brown-invert), "yellow":($yellow, $yellow-invert), "orange":($orange, $orange-invert), "orange-light":($orange-light, $orange-light-invert), "orange-dark":($orange-dark, $orange-dark-invert), "alert":($alert, $alert-inverse), "notice":($notice, $notice-inverse))
 $colors: map-merge($colors, $addColors)
 
-$section-padding-large: 1.5rem 1.5rem 6rem 1.5rem
 $notification-radius: 0
 
 @import 'bulma'
@@ -119,16 +118,11 @@ nav.mobile-navbar
 
 // section
 .section
-  padding: .75rem 1.5rem
-
   &.is-white
     background-color: $white
 
   &.is-brown
     background-color: $brown
-
-  &.is-large
-    padding: $section-padding-large
 
 .navbar.is-fixed-bottom
   box-shadow: 0 0 0 rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1)

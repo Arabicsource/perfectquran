@@ -2,15 +2,15 @@
 .section-divider
 = render 'points'
 
-- content_for :aside do
-  &nbsp;
-
 - provide :title, 'Profile'
+- provide :layout_template, 'two_column'
 
-- content_for :header do
+- content_for :after_navbar do
   - unless current_account.patron?
     .notification.is-info
       Do you love PerfectQuran and want it to succeed? 
       = link_to 'Become a Patron of our work for $5 a month', accounts_subscription_path
 
-  = render 'accounts/shared/menu'
+- unless browser.mobile?
+  - content_for :after_header do
+    = render 'accounts/shared/menu'

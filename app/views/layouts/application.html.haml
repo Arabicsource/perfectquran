@@ -8,9 +8,10 @@
     = yield :after_navbar if content_for? :after_navbar
 
     = render('layouts/partials/page_header') if content_for :title
+    = yield(:after_header) if content_for? :after_header
     = yield(:header) if content_for? :header
 
-    %section.section.is-white.is-large
+    %section.section.is-white
       .container
         - if browser.mobile? || !content_for?(:layout_template)
           = yield
