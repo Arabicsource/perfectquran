@@ -3,11 +3,10 @@
 = render 'form'
 
 - provide :title, 'New Subscription'
+- provide :layout_template, 'two_column'
 
-- content_for :header do
-  = render 'accounts/shared/menu'
-
-- content_for :aside do
-  &nbsp;
+- unless browser.mobile?
+  - content_for :after_header do
+    = render 'accounts/shared/menu'
 
 = javascript_pack_tag 'stripe'
