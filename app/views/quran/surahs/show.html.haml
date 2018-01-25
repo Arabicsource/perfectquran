@@ -1,3 +1,7 @@
+- if browser.mobile?
+  - content_for :after_navbar do
+    = render 'quran/surahs/partials/mobile/after_navbar'
+
 .surah{data: {target: 'tabs.tabbable'}}
   - @surah.ayahs_and_included_texts.each do |ayah|
     .media
@@ -30,15 +34,6 @@
           %audio{controls: true}
             %source{src: surah_audio_file(@surah.id), type: "audio/mpeg"}
               Your browser does not support the audio tag.
-
-- content_for :top do
-  %section.section.is-brown.is-hidden-desktop
-    .tabs.is-toggle.is-toggle-rounded.is-fullwidth.is-small
-      %ul
-        %li.is-active{data: {target: 'tabs.tab'}}
-          = link_to 'Surah', '#', data: {action: 'tabs#toggle'}
-        %li{data: {target: 'tabs.tab'}}
-          = link_to 'Information', '#', data: {action: 'tabs#toggle'}
 
 - content_for :aside do
   .box.is-hidden-touch

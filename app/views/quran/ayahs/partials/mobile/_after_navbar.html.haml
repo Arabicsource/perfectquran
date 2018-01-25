@@ -1,0 +1,7 @@
+%section.section.is-brown
+  .tabs.is-toggle.is-toggle-rounded.is-fullwidth.is-small
+    %ul
+      %li.is-active{data: {target: 'tabs.tab'}}
+        = link_to 'Ayah', '#', data: {action: 'tabs#toggle'}
+      %li{data: {target: 'tabs.tab'}}
+        = link_to 'Info', '#', data: {action: 'tabs#toggle'}

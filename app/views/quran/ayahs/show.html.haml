@@ -1,3 +1,8 @@
+- if browser.mobile?
+  - content_for :after_navbar do
+    = render 'quran/ayahs/partials/mobile/after_navbar'
+
+
 .ayah{data: {target: 'tabs.tabbable'}}
   .media
     .media-left
@@ -28,14 +33,5 @@
   %p.field.is-hidden-touch
     .box.is-hidden-touch
       = render 'quran/surahs/partials/information', surah: @ayah.surah
-
-- content_for :top do
-  %section.section.is-brown.is-hidden-desktop
-    .tabs.is-toggle.is-toggle-rounded.is-fullwidth.is-small.is-hidden-desktop
-      %ul
-        %li.is-active{data: {target: 'tabs.tab'}}
-          = link_to 'Ayah', '#', data: {action: 'tabs#toggle'}
-        %li{data: {target: 'tabs.tab'}}
-          = link_to 'Info', '#', data: {action: 'tabs#toggle'}
 
 = render 'quran/ayahs/partials/bottom_navbar'
