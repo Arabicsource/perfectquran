@@ -2,6 +2,30 @@
   - content_for :after_navbar do
     = render 'quran/surahs/partials/mobile/after_navbar'
 
+  .info.is-hidden{data: {target: 'tabs.tabbable'}}
+    %p.field
+      = render 'quran/surahs/partials/information', surah: @surah
+
+  = render 'quran/surahs/partials/bottom_navbar'  
+
+- else
+  - content_for :after_header do
+    %section.section.is-small.is-white.is-mobile
+      .container
+        .columns
+          .column
+            .buttons
+              = link_to 'Previous', quran_surah_path(@surah.previous), class: 'button is-orange'
+              = link_to 'Next', quran_surah_path(@surah.next), class: 'button is-orange'
+          .column.is-half
+            %audio{controls: true}
+              %source{src: surah_audio_file(@surah.id), type: "audio/mpeg"}
+                Your browser does not support the audio tag.
+    
+  - content_for :sidebar do
+    .box
+      = render 'quran/surahs/partials/information', surah: @surah
+
 .surah{data: {target: 'tabs.tabbable'}}
   - @surah.ayahs_and_included_texts.each do |ayah|
     .media
@@ -16,27 +40,5 @@
             %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
             %p{class: ('is-size-4 has-text-right' if text.uthmani?)}= sanitize text.content
 
-.info.is-hidden{data: {target: 'tabs.tabbable'}}
-  %p.field
-    = render 'quran/surahs/partials/information', surah: @surah
-
 - provide :title, @surah
-
-- content_for :toolbar do
-  %section.section.is-small.is-white.is-hidden-touch
-    .container
-      .columns
-        .column
-          .buttons
-            = link_to 'Previous', quran_surah_path(@surah.previous), class: 'button is-orange'
-            = link_to 'Next', quran_surah_path(@surah.next), class: 'button is-orange'
-        .column.is-half
-          %audio{controls: true}
-            %source{src: surah_audio_file(@surah.id), type: "audio/mpeg"}
-              Your browser does not support the audio tag.
-
-- content_for :aside do
-  .box.is-hidden-touch
-    = render 'quran/surahs/partials/information', surah: @surah
-
-= render 'quran/surahs/partials/bottom_navbar'
+- provide :layout_template, 'two_column'
