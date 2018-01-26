@@ -20,9 +20,11 @@
   - @surah.ayahs_and_included_texts.each do |ayah|
     .media
       .media-left
-        %p 
-          = link_to quran_ayah_path(ayah) do
-            <strong>#{ayah.number}</strong>
+        %p.field
+          %strong #{ayah.number}.
+
+        = link_to quran_ayah_path(ayah), class: 'button' do
+          = fa_icon 'link'
 
       .media-content
         .content
