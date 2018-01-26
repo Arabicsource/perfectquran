@@ -10,17 +10,7 @@
 
 - else
   - content_for :after_header do
-    %section.section.is-small.is-white.is-mobile
-      .container
-        .columns
-          .column
-            .buttons
-              = link_to 'Previous', quran_surah_path(@surah.previous), class: 'button is-orange'
-              = link_to 'Next', quran_surah_path(@surah.next), class: 'button is-orange'
-          .column.is-half
-            %audio{controls: true}
-              %source{src: surah_audio_file(@surah.id), type: "audio/mpeg"}
-                Your browser does not support the audio tag.
+    = render 'quran/surahs/partials/desktop/show_after_header'
     
   - content_for :sidebar do
     .box
