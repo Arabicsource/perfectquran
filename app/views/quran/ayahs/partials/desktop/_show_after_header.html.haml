@@ -1,0 +1,21 @@
+%nav.navbar.is-light.toolbar
+  .container
+    .navbar-menu
+      .navbar-start
+        = link_to 'Index', quran_root_path, class: 'navbar-item'
+        = link_to @ayah.surah, quran_surah_path(@ayah.surah), class: 'navbar-item'
+        = link_to @ayah.number, quran_ayah_path(@ayah), class: 'navbar-item is-active'
+
+      .navbar-end
+        = link_to quran_ayah_path(@ayah.previous), class: 'navbar-item' do
+          %span.icon= fa_icon 'chevron-left '
+          %span Previous
+
+        = link_to quran_ayah_path(@ayah.next), class: 'navbar-item' do
+          %span Next
+          %span.icon= fa_icon 'chevron-right'
+
+        .navbar-item
+          %audio{controls: true}
+            %source{src: ayah_audio_file(@ayah.surah_id, @ayah.number), type: "audio/mpeg"}
+              Your browser does not support the audio tag.
