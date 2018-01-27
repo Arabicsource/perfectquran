@@ -40,6 +40,30 @@ RSpec.describe Connection, type: :model do
     end
   end
 
+  context '#account_name' do
+    let!(:profile) { create :profile, name: 'name123', account: account }
+    let(:account) { create :account }
+    let(:connection) { create :connection, account: account }
+
+    specify { expect(connection.account_name).to eq 'name123' }
+  end
+
+  context '#last_ayah_reference' do
+    context 'connection has not posted previously' do
+      let(:connection) { create :connection }
+
+      specify { expect(connection.last_ayah_reference).to eq '[0:0]' }
+    end
+
+    context 'connection has previously posted' do
+      let!(:surah) { create :surah, id: 1 }
+      let!(:ayah) { create :ayah, id: 7, surah_id: 1, number: 7 }
+      let(:connection) { create :connection, last_ayah_id: 7 }
+
+      specify { expect(connection.last_ayah_reference).to eq '[1:7]' }
+    end
+  end
+
   context '#create_with_omniauth!' do
     let!(:translation) { create :translation, id: 3 }
     let(:account) { create :account }

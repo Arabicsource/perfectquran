@@ -1,0 +1,5 @@
+%nav.navbar.is-light
+  .container
+    .navbar-menu
+      .navbar-start
+        = link_to 'Connection', admin_connections_path, class: params[:controller].starts_with?('admin/connections') ? 'navbar-item is-active' : 'navbar-item'

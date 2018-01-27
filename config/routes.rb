@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'dashboards#show'
-    resources :articles, :categories, :accounts
+    resources :articles, :categories, :accounts, :connections
   end
 
   namespace :api, defaults: { format: 'json' } do

@@ -44,4 +44,22 @@ class Connection < ApplicationRecord
       c.translation_id = 3
     end
   end
+
+  def last_ayah_reference
+    if last_ayah_id.positive?
+      "[#{last_ayah.surah_id}:#{last_ayah.number}]"
+    else
+      '[0:0]'
+    end
+  end
+
+  def account_name
+    account.name || account.email
+  end
+
+  private
+
+  def last_ayah
+    @last_ayah ||= Quran::Ayah.find(last_ayah_id)
+  end
 end
