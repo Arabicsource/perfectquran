@@ -1,8 +1,7 @@
-.columns
-  .column.is-one-fifth
-    = render 'admin/shared/menu'
-  .column
-    = form_with scope: :category, url: admin_category_path(@category), method: :patch, id: 'edit_category' do |f|
-      = render 'form_fields', f: f
+= form_with scope: :category, url: admin_category_path(@category), method: :patch, id: 'edit_category' do |f|
+  = render 'form_fields', f: f
 
 - provide :title, t('admin.categories.edit.title', name: @category.name)
+
+- content_for :after_header do
+  = render 'admin/partials/navbar'
