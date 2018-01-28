@@ -13,8 +13,7 @@
     = render 'quran/surahs/partials/desktop/show_after_header'
     
   - content_for :sidebar do
-    .box
-      = render 'quran/surahs/partials/information', surah: @surah
+    = render 'quran/surahs/partials/information', surah: @surah
 
 .surah{data: {target: 'tabs.tabbable'}}
   - @surah.ayahs_and_included_texts.each do |ayah|

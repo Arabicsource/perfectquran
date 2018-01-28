@@ -20,8 +20,7 @@
       .box
         = render 'quran/ayahs/tags/tags'
     %p.field
-      .box
-        = render 'quran/surahs/partials/information', surah: @ayah.surah
+      = render 'quran/surahs/partials/information', surah: @ayah.surah
 
 
 .ayah{data: {target: 'tabs.tabbable'}}
