@@ -1,16 +1,5 @@
-.field.has-addons
-  %p.control
-    = link_to edit_admin_category_path(@category), class: 'button' do
-      %span.icon
-        = fa_icon 'edit'
-      %span
-        = t 'edit'
-  %p.control
-    = link_to admin_category_path(@category), method: :delete, class: 'button is-danger' do
-      %span.icon
-        = fa_icon 'trash'
-      %span
-        = t 'delete'
+= render 'admin/partials/tabs', action: 'show'
+
 %article.content
   %h1.title= @category.name
   %p= @category.description

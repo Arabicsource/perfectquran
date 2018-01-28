@@ -1,9 +1,5 @@
-%p.control
-  = link_to new_admin_category_path, class: 'button' do
-    %span.icon
-      = fa_icon 'plus'
-    %span
-      = t 'admin.categories.button.new'
+= render 'admin/partials/tabs', action: 'index'
+
 %table#articles.table.is-fullwidth
   %tbody
     %tr

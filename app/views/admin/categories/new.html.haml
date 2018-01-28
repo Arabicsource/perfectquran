@@ -1,3 +1,5 @@
+= render 'admin/partials/tabs', action: 'new'
+
 = form_with scope: :category, url: admin_categories_path, id: 'new_category' do |f|
   = render 'form_fields', f: f
 
