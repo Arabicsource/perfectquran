@@ -1,5 +1,16 @@
-#tag-list.field.is-grouped.is-grouped-multiline
-  = render 'quran/ayahs/tags/tag_list'
+- if account_signed_in? || @ayah.tags.any?
+  #tags.panel
+    %p.panel-heading Tags
+    - if @ayah.tags.any?
+      .panel-block
+        #tag-list.field.is-grouped.is-grouped-multiline
+          - @ayah.tags.each do |tag|
+            .control
+              .tags
+                %span.tag 
+                  %span.icon= fa_icon 'tag'
+                  %span= tag.name
 
-- if account_signed_in?
-  = render 'quran/ayahs/tags/form', tag: Tag.new
+    .panel-block
+      - if account_signed_in?
+        = render 'quran/ayahs/tags/form', tag: Tag.new

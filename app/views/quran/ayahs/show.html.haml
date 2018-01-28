@@ -16,11 +16,8 @@
     = render 'quran/ayahs/partials/desktop/show_after_header'
 
   - content_for :sidebar do
-    %p.field
-      .box
-        = render 'quran/ayahs/tags/tags'
-    %p.field
-      = render 'quran/surahs/partials/information', surah: @ayah.surah
+    = render 'quran/ayahs/tags/tags'
+    = render 'quran/surahs/partials/information', surah: @ayah.surah
 
 
 .ayah{data: {target: 'tabs.tabbable'}}
