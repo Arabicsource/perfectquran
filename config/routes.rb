@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     resource :profile, only: %i[edit show update]
     resource :subscription
     resources :connections
+
+    resource :memory do
+      scope module: :memories do
+        resources :surahs
+      end
+    end
   end
 
   namespace :admin do

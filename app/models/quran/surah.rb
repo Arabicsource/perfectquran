@@ -51,7 +51,7 @@ module Quran
     end
 
     def to_s
-      transliterated_name
+      "#{id}. #{transliterated_name}"
     end
   end
 end

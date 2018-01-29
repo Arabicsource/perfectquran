@@ -4,6 +4,7 @@
       .navbar-start
         = link_to 'Profile', accounts_profile_path, class: params[:controller].starts_with?('accounts/profiles') ? 'navbar-item is-active' : 'navbar-item'
         = link_to 'Connections', accounts_connections_path, class: params[:controller].starts_with?('accounts/connections') ? 'navbar-item is-active' : 'navbar-item'
+        = link_to 'Memorization', accounts_memory_path, class: params[:controller].starts_with?('accounts/memories') ? 'navbar-item is-active' : 'navbar-item'
         = link_to 'Subscription', accounts_subscription_path, class: params[:controller].starts_with?('accounts/subscription') ? 'navbar-item is-active' : 'navbar-item'
       .navbar-end
         = link_to 'Settings', edit_accounts_profile_path, class: 'navbar-item'

@@ -32,6 +32,10 @@ module Quran
       texts.where(translation_id: 3).first.try(:content) || ''
     end
 
+    def uthmani_text
+      texts.where(translation_id: 1).first.try(:content) || ''
+    end
+
     def surah_name
       surah.transliterated_name
     end

@@ -1,0 +1,24 @@
+%progress.progress{value: @memory_count, max: 710630}
+
+.columns
+  .column
+    %h2.subtitle Not Memorized
+    .buttons
+      - current_account.not_memorized_surahs.each do |surah|
+        = link_to surah, accounts_memory_surah_path(surah), class: 'button is-fullwidth'
+  .column
+    %h2.subtitle Partially Memorized
+    .buttons
+      - current_account.partially_memorized_surahs.each do |surah|
+        = link_to surah, accounts_memory_surah_path(surah), class: 'button is-fullwidth'
+  .column
+    %h2.subtitle Memorized
+    .buttons
+      - current_account.memorized_surahs.each do |surah|
+        = link_to surah, accounts_memory_surah_path(surah), class: 'button is-fullwidth'
+
+- provide :title, 'Quran Memorization'
+
+- unless browser.mobile?
+  - content_for :after_header do
+    = render 'accounts/shared/menu'
