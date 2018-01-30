@@ -1,0 +1,56 @@
+<div class='columns'>
+  <div class='column'>
+    <div id="progress">
+      <p><strong><%= number_to_percentage((@memory_count / 710630.0) * 100) %></strong> Memorized</p>
+      <progress class='progress is-orange' value='<%= @memory_count %>%' max='710630'>
+    </div>
+  </div>
+
+  <div class='column'>
+    <div class='tabs is-right'>
+      <ul>
+        <li><a><span class='icon'><%= fa_icon 'plus' %></span> Memorize All</a></li>
+        <li><a><span class='icon'><%= fa_icon 'minus' %></span> Forget All</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class='section-divider'></div>
+
+<div class='columns'>
+  <div class='column'>
+    <h2 class='subtitle'>Not Memorized</h2> 
+    <div class='buttons'>
+      <% @not_memorized_surahs.each do |surah| %>
+        <%= link_to surah, accounts_memory_surah_path(surah), class: 'button is-fullwidth' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='column'>
+    <h2 class='subtitle'>Partially Memorized</h2>
+    <div class='buttons'>
+      <% @partially_memorized_surahs.each do |surah| %>
+        <%= link_to surah, accounts_memory_surah_path(surah), class: 'button is-fullwidth' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='column'>
+    <h2 class='subtitle'>Memorized</h2>
+    <div class='buttons'>
+      <% @memorized_surahs.each do |surah| %>
+        <%= link_to surah, accounts_memory_surah_path(surah), class: 'button is-fullwidth' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% provide :title, 'Quran Memorization' %>
+
+<%  unless browser.mobile? %>
+  <% content_for :after_header do %>
+    <%= render 'accounts/shared/menu' %>
+  <% end %>
+<% end %>

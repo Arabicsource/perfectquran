@@ -1,34 +1,25 @@
-<%= render 'accounts/memories/surahs/partials/progress' %>
+<div class='columns'>
+  <div class='column'>
+    <%= render 'accounts/memories/surahs/partials/progress' %>
+  </div>
+  <div class='column'>
+    <div class="tabs is-right ">
+      <ul>
+        <li><a>Index</a></li>
+        <li><a>Memorize Surah</a></li>
+        <li><a>Revise</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class='section-divider'></div>
 
 <div class='columns'>
   <div class='column'>
     <h2 class='subtitle'>Not Memorized</h2>
     <% @not_memorized_ayahs.each do |ayah| %>
-      <div id="card-ayah-<%= ayah.id %>" class='card' data-controller='card' data-target='card.card'>
-        <header class="card-header" data-action='click->card#toggleVisibility'>
-          <p class="card-header-title"><%= ayah %></p>
-          <p class="card-header-icon">
-            <span class="icon"><%= fa_icon 'angle-down' %></span>
-          </p>
-        </header>
-
-        <div class="card-content is-hidden" data-target='card.toggleVisibility'>
-          <div class="content">
-            <p class="arabic"><%= sanitize ayah.uthmani_text %></p>
-          </div>
-        </div>
-
-        <footer class="card-footer is-hidden" data-target='card.toggleVisibility'>
-          <%= link_to '#', class: 'card-footer-item' do %>
-            <span class="icon"><%= fa_icon 'bob' %></span>
-            <span>Practice</span>
-          <% end %>
-          <%= link_to accounts_memory_ayah_memory_path(ayah), method: :post, remote: true, class: 'card-footer-item' do %>
-            <span class="icon"><%= fa_icon 'heart' %></span>
-            <span>Memory</span>
-          <% end %>
-        </footer>
-      </div>
+      <%= render 'accounts/memories/surahs/partials/not_memorized_card', ayah: ayah %>
     <% end %>
   </div>
 

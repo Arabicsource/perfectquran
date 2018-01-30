@@ -14,8 +14,8 @@
 
   <footer class="card-footer is-hidden" data-target='card.toggleVisibility'>
     <%= link_to '#', class: 'card-footer-item' do %>
-      <span class="icon"><%= fa_icon 'bob' %></span>
-      <span>Practice</span>
+      <span class="icon"><%= fa_icon 'heartbeat' %></span>
+      <span>Revise</span>
     <% end %>
     <%= link_to accounts_memory_ayah_memory_path(ayah), method: :post, remote: true, class: 'card-footer-item', data: {action: 'click->card#toggleVisibility'} do %>
       <span class="icon"><%= fa_icon 'heart' %></span>
