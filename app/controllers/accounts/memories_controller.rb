@@ -11,5 +11,19 @@ module Accounts
       @partially_memorized_surahs = current_account.partially_memorized_surahs
       @memorized_surahs = current_account.memorized_surahs
     end
+
+    def create
+      Quran::Ayah.all.each do |ayah|
+        Memory.find_or_create_by(account: current_account, ayah: ayah)
+      end
+
+      render :create
+    end
+
+    def destroy
+      Memory.where(account: current_account).delete_all
+
+      render :destroy
+    end
   end
 end

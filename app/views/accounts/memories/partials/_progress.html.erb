@@ -1,0 +1,4 @@
+<div id="progress">
+  <p><strong><%= number_to_percentage((@memory_count / 710630.0) * 100, strip_insignificant_zeros: true) %></strong> Memorized</p>
+  <progress class='progress is-orange' value='<%= @memory_count %>' max='710630'></progress>
+</div>

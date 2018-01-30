@@ -1,16 +1,23 @@
 <div class='columns'>
   <div class='column'>
-    <div id="progress">
-      <p><strong><%= number_to_percentage((@memory_count / 710630.0) * 100) %></strong> Memorized</p>
-      <progress class='progress is-orange' value='<%= @memory_count %>%' max='710630'>
-    </div>
+    <%= render 'accounts/memories/partials/progress' %>
   </div>
 
   <div class='column'>
     <div class='tabs is-right'>
       <ul>
-        <li><a><span class='icon'><%= fa_icon 'plus' %></span> Memorize All</a></li>
-        <li><a><span class='icon'><%= fa_icon 'minus' %></span> Forget All</a></li>
+        <li>
+          <%= link_to accounts_memory_path, method: :post, remote: true do %>
+            <span class='icon'><%= fa_icon 'plus' %></span>
+            <span>Memorize All</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to accounts_memory_path, method: :delete, remote: true do %>
+            <span class='icon'><%= fa_icon 'minus' %></span>
+            <span>Forget All</span>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
@@ -19,7 +26,7 @@
 <div class='section-divider'></div>
 
 <div class='columns'>
-  <div class='column'>
+  <div id='not-memorized' class='column'>
     <h2 class='subtitle'>Not Memorized</h2> 
     <div class='buttons'>
       <% @not_memorized_surahs.each do |surah| %>
@@ -28,7 +35,7 @@
     </div>
   </div>
 
-  <div class='column'>
+  <div id='partially-memorized' class='column'>
     <h2 class='subtitle'>Partially Memorized</h2>
     <div class='buttons'>
       <% @partially_memorized_surahs.each do |surah| %>
@@ -37,7 +44,7 @@
     </div>
   </div>
 
-  <div class='column'>
+  <div id='memorized' class='column'>
     <h2 class='subtitle'>Memorized</h2>
     <div class='buttons'>
       <% @memorized_surahs.each do |surah| %>

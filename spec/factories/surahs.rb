@@ -27,5 +27,12 @@ FactoryBot.define do
     english_name 'string'
     character_length 1
     percent_of_total 0.1
+
+    trait :with_ayahs do
+      number_of_ayahs 3
+      after(:create) do |surah|
+        create_list :ayah, 3, surah: surah
+      end
+    end
   end
 end
