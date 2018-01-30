@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     resource :memory do
       scope module: :memories do
         resources :surahs
+        resources :ayahs do
+          scope module: :ayahs do
+            resource :memory
+          end
+        end
       end
     end
   end
