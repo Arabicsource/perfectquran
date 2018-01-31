@@ -15,9 +15,22 @@ module Page
       has_text? '0.002% Memorized' # represents 100%
     end
 
+    def zero_percent_memorized?
+      has_text? '0% Memorized'
+    end
+
     def memorize_quran
       visit accounts_memory_path
       click_on 'Memorize All'
+    end
+
+    def forget_quran
+      visit accounts_memory_path
+      click_on 'Forget All'
+    end
+
+    def has_memorized_surahs?
+      has_css? '#memorized .button'
     end
 
     def has_not_memorized_surahs?
@@ -30,6 +43,10 @@ module Page
 
     def has_all_surahs_memorized?
       has_css? '#memorized .button', count: 5
+    end
+
+    def has_all_surahs_not_memorized?
+      has_css? '#not-memorized .button', count: 5
     end
   end
 end

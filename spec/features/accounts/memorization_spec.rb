@@ -9,33 +9,6 @@ feature 'Hifz', js: true do
 
   before { login_as account }
 
-  scenario 'account owner forgets all' do
-    Quran::Ayah.all.each do |ayah|
-      Memory.create(account: account, ayah: ayah)
-    end
-
-    visit accounts_memory_path
-
-    expect(Memory.count).to eq 15
-
-    click_on 'Forget All'
-
-    expect(Memory.count).to eq 0
-    expect(page).to have_text '0%'
-
-    within '#not-memorized' do
-      expect(page).to have_css '.button', count: 5
-    end
-
-    within '#partially-memorized' do
-      expect(page).not_to have_css '.button'
-    end
-
-    within '#memorized' do
-      expect(page).not_to have_css '.button'
-    end
-  end
-
   scenario 'account owner memorizes a surah' do
     visit accounts_memory_path
     click_on surahs.first
