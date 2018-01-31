@@ -6,7 +6,7 @@ include Warden::Test::Helpers
 feature 'Destroy a memory on an ayah', js: true do
   let(:surah) { create :surah, id: 1 }
   let(:account) { create :account }
-  let(:ayah) { create :ayah, surah: surah }
+  let(:ayah) { create :ayah, surah: surah, number: 1 }
 
   before do
     create :memory, ayah: ayah, account: account

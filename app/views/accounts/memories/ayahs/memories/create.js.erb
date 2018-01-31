@@ -1,7 +1,7 @@
 (function(){
   var progress = document.getElementById('progress');
-  var card = document.getElementById('card-ayah-<%= @ayah.id %>');
-  var memorizedColumn = document.getElementById('memorized-cards');
+  var card = document.getElementById('ayah-<%= @ayah.id %>');
+  var memorizedColumn = document.getElementById('memorized');
 
   progress.outerHTML = "<%= j render('accounts/memories/surahs/partials/progress') %>"
   memorizedColumn.insertAdjacentHTML('beforeend', '<%= j render('accounts/memories/surahs/partials/memorized_card', ayah: @ayah) %>');

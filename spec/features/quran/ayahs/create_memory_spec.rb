@@ -6,7 +6,7 @@ include Warden::Test::Helpers
 feature 'Create a memory on an ayah', js: true do
   let(:surah) { create :surah, id: 1 }
   let(:account) { create :account }
-  let(:ayah) { create :ayah, surah: surah }
+  let(:ayah) { create :ayah, surah: surah, number: 1 }
 
   before do
     login_as account

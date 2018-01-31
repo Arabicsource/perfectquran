@@ -14,7 +14,7 @@
 
 FactoryBot.define do
   factory :ayah, class: Quran::Ayah do
-    number 1
+    sequence(:number) { |n| n }
     character_length 1
     percent_of_total 0.1
     percent_of_surah 0.1
