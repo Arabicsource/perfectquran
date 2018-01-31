@@ -3,22 +3,26 @@
     <%= render 'accounts/memories/partials/progress' %>
   </div>
 
-  <div class='column'>
-    <div class='tabs is-right'>
+  <div class='column' data-controller='visibility'>
+    <div class='tabs is-right' data-target='visibility.visibility'>
       <ul>
         <li>
-          <%= link_to accounts_memory_path, method: :post, remote: true do %>
+          <%= link_to accounts_memory_path, method: :post, remote: true, data: {action: 'visibility#toggle'} do %>
             <span class='icon'><%= fa_icon 'plus' %></span>
             <span>Memorize All</span>
           <% end %>
         </li>
         <li>
-          <%= link_to accounts_memory_path, method: :delete, remote: true do %>
+          <%= link_to accounts_memory_path, method: :delete, remote: true, data: {action: 'visibility#toggle'} do %>
             <span class='icon'><%= fa_icon 'minus' %></span>
             <span>Forget All</span>
           <% end %>
         </li>
       </ul>
+    </div>
+
+    <div class='notification is-info is-hidden' data-target='visibility.visibility'>
+      <p>This may take a while...</p>
     </div>
   </div>
 </div>
