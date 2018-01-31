@@ -22,7 +22,7 @@ FactoryBot.define do
     order_of_revelation 1
     revelation_type 'meccan'
     permalink 'string'
-    transliterated_name 'string'
+    transliterated_name 'transliterated'
     arabic_name 'string'
     english_name 'string'
     character_length 1

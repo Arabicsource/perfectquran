@@ -5,9 +5,18 @@
   <div class='column'>
     <div class="tabs is-right ">
       <ul>
-        <li><a>Index</a></li>
-        <li><a>Memorize Surah</a></li>
-        <li><a>Revise</a></li>
+        <li>
+          <%= link_to accounts_memory_surah_memory_path(@surah), method: :post, remote: true do %>
+            <span class='icon'><%= fa_icon 'plus' %></span>
+            <span>Memorize <%= @surah.transliterated_name %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to accounts_memory_surah_memory_path(@surah), method: :delete, remote: true do %>
+            <span class='icon'><%= fa_icon 'minus' %></span>
+            <span>Forget <%= @surah.transliterated_name %></span>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
@@ -16,14 +25,14 @@
 <div class='section-divider'></div>
 
 <div class='columns'>
-  <div class='column'>
+  <div id='not-memorized' class='column'>
     <h2 class='subtitle'>Not Memorized</h2>
     <% @not_memorized_ayahs.each do |ayah| %>
       <%= render 'accounts/memories/surahs/partials/not_memorized_card', ayah: ayah %>
     <% end %>
   </div>
 
-  <div id='memorized-cards' class="column">
+  <div id='memorized' class="column">
     <h2 class='subtitle'>Memorized</h2>
     <% @memorized_ayahs.each do |ayah| %>
       <%= render 'accounts/memories/surahs/partials/memorized_card', ayah: ayah %>
