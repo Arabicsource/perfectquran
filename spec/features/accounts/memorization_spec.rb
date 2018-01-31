@@ -125,4 +125,30 @@ feature 'Hifz', js: true do
       expect(page).to have_css '.card', count: 1
     end
   end
+
+  scenario 'account forgets an ayah' do
+    create :memory, ayah: surahs.first.ayahs.first, account: account
+
+    visit accounts_memory_path
+    click_on surahs.first
+
+    expect(Memory.count).to eq 1
+
+    page.find(:xpath, "//*[text()='#{surahs.first.ayahs.first}']").click
+
+    within '#memorized' do
+      click_on 'Forget'
+    end
+
+    expect(Memory.count).to eq 0
+    expect(page).to have_text '0%'
+
+    within '#not-memorized' do
+      expect(page).to have_css '.card', count: 3
+    end
+
+    within '#memorized' do
+      expect(page).not_to have_css '.card'
+    end
+  end
 end

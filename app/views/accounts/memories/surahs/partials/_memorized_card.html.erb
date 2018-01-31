@@ -1,4 +1,4 @@
-<div id="card-ayah-<%= ayah.id %>" class='card' data-controller='card' data-target='card.card'>
+<div id="ayah-<%= ayah.id %>" class='card' data-controller='card' data-target='card.card'>
   <header class="card-header" data-action='click->card#toggleVisibility'>
     <p class="card-header-title"><%= ayah %></p>
     <p class="card-header-icon">
@@ -13,13 +13,9 @@
   </div>
 
   <footer class="card-footer is-hidden" data-target='card.toggleVisibility'>
-    <%= link_to '#', class: 'card-footer-item' do %>
-      <span class="icon"><%= fa_icon 'heartbeat' %></span>
-      <span>Revise</span>
-    <% end %>
-    <%= link_to accounts_memory_ayah_memory_path(ayah), method: :post, remote: true, class: 'card-footer-item', data: {action: 'click->card#toggleVisibility'} do %>
-      <span class="icon"><%= fa_icon 'heart' %></span>
-      <span>Memorized</span>
+    <%= link_to accounts_memory_ayah_memory_path(ayah), method: :delete, remote: true, class: 'card-footer-item', data: {action: 'click->card#toggleVisibility'} do %>
+      <span class="icon"><%= fa_icon 'heart-o' %></span>
+      <span>Forget</span>
     <% end %>
   </footer>
 </div>
