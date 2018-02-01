@@ -33,7 +33,7 @@
   <div id='not-memorized' class='column'>
     <h2 class='subtitle'>Not Memorized</h2> 
     <div class='buttons'>
-      <% @not_memorized_surahs.each do |surah| %>
+      <% @hifz_manager.not_memorized_surahs.each do |surah| %>
         <%= link_to surah, accounts_memory_surah_path(surah), class: 'button is-fullwidth' %>
       <% end %>
     </div>
@@ -42,7 +42,7 @@
   <div id='partially-memorized' class='column'>
     <h2 class='subtitle'>Partially Memorized</h2>
     <div class='buttons'>
-      <% @partially_memorized_surahs.each do |surah| %>
+      <% @hifz_manager.partially_memorized_surahs.each do |surah| %>
         <%= link_to surah, accounts_memory_surah_path(surah), class: 'button is-fullwidth' %>
       <% end %>
     </div>
@@ -51,7 +51,7 @@
   <div id='memorized' class='column'>
     <h2 class='subtitle'>Memorized</h2>
     <div class='buttons'>
-      <% @memorized_surahs.each do |surah| %>
+      <% @hifz_manager.memorized_surahs.each do |surah| %>
         <%= link_to surah, accounts_memory_surah_path(surah), class: 'button is-fullwidth' %>
       <% end %>
     </div>
