@@ -70,6 +70,13 @@ RSpec.describe Quran::Ayah, type: :model do
         expect(second.previous).to eq(first)
       end
 
+      it 'first returns last' do
+        first = create :ayah, id: 1
+        last = create :ayah, id: 6236
+
+        expect(first.previous).to eq(last)
+      end
+
       it 'returns nil if ayah id is not found' do
         ayah = create :ayah
 
@@ -98,6 +105,13 @@ RSpec.describe Quran::Ayah, type: :model do
         second = create :ayah, id: 2
 
         expect(first.next).to eq(second)
+      end
+
+      it 'last returns first' do
+        first = create :ayah, id: 1
+        last = create :ayah, id: 6236
+
+        expect(last.next).to eq(first)
       end
 
       it 'returns nil if ayah id is not found' do
