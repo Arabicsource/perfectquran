@@ -2,46 +2,26 @@
 
 # :nodoc:
 class HifzManager
+  attr_reader :not_memorized_surahs, :partially_memorized_surahs,
+              :memorized_surahs
+
   def initialize(account)
     @account = account
-    @memories = Memory.where(account: account)
-    @ayah_ids = @memories.map(&:ayah_id)
     @not_memorized_surahs = []
     @partially_memorized_surahs = []
     @memorized_surahs = []
+    build_surah_groups
   end
 
-  def memory_count
-    Quran::Ayah.where(id: @ayah_ids).sum(:character_length)
-  end
-
-  def not_memorized_surahs
-    group_surahs unless surahs_grouped?
-    @not_memorized_surahs
-  end
-
-  def partially_memorized_surahs
-    group_surahs unless surahs_grouped?
-    @partially_memorized_surahs
-  end
-
-  def memorized_surahs
-    group_surahs unless surahs_grouped?
-    @memorized_surahs
+  def memory_length
+    memorized_ayahs.sum(:character_length)
   end
 
   private
 
-  def surahs_grouped?
-    @not_memorized_surahs.any? ||
-    @partially_memorized_surahs.any? ||
-    @memorized_surahs.any?
-  end
-
-  def group_surahs
+  def build_surah_groups
     Quran::Surah.all.each do |surah|
-      ayah_ids = surah.ayahs.pluck :id
-      memory_count = Memory.where(ayah: ayah_ids, account: @account).count
+      memory_count = memories.where(ayah: surah.ayah_ids).count
 
       if memory_count.zero?
         @not_memorized_surahs << surah
@@ -51,5 +31,15 @@ class HifzManager
         @partially_memorized_surahs << surah
       end
     end
+  end
+
+  def memorized_ayahs
+    Quran::Ayah
+      .left_outer_joins(:memories)
+      .where(memories: { account: @account })
+  end
+
+  def memories
+    Memory.where(account: @account)
   end
 end

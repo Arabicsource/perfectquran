@@ -11,7 +11,7 @@ RSpec.describe HifzManager do
       ayahs = create_list :ayah, 3, character_length: 2
       ayahs.each { |a| create :memory, account: account, ayah: a }
 
-      expect(hifz_manager.memory_count).to eq 6
+      expect(hifz_manager.memory_length).to eq 6
     end
   end
 
