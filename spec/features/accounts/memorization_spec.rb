@@ -30,30 +30,6 @@ feature 'Hifz', js: true do
     end
   end
 
-  scenario 'account owner forgets a surah' do
-    Quran::Ayah.all.each do |ayah|
-      Memory.create(account: account, ayah: ayah)
-    end
-
-    visit accounts_memory_path
-    click_on surahs.first
-
-    expect(Memory.count).to eq 15
-
-    click_on 'Forget transliterated'
-
-    expect(Memory.count).to eq 12
-    expect(page).to have_text '0%'
-
-    within '#not-memorized' do
-      expect(page).to have_css '.card', count: 3
-    end
-
-    within '#memorized' do
-      expect(page).not_to have_css '.card'
-    end
-  end
-
   scenario 'account owner memorizes an ayah' do
     visit accounts_memory_path
     click_on surahs.first
