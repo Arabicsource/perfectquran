@@ -10,7 +10,7 @@ class AyahTwitterizer
     @hashtags = hashtags
   end
 
-  def run!
+  def run
     "#{content} #{reference} #{url} #{hashtags}".strip
   end
 

@@ -8,10 +8,10 @@ RSpec.describe AyahTwitterizer do
   let(:hashtags) { '#hashtag123' }
 
   context 'when successful' do
-    before { @result = AyahTwitterizer.new(text, ayah, hashtags).run! }
+    before { @result = AyahTwitterizer.new(text, ayah, hashtags).run }
 
     it 'returns true' do
-      expect(AyahTwitterizer.new(text, ayah, hashtags).run!).to be_truthy
+      expect(AyahTwitterizer.new(text, ayah, hashtags).run).to be_truthy
     end
 
     specify { expect(@result).to include 'text123' }
@@ -22,7 +22,7 @@ RSpec.describe AyahTwitterizer do
     context 'with &#8217;' do
       let(:text) { 'text&#8217;123' }
 
-      before { @result = AyahTwitterizer.new(text, ayah, hashtags).run! }
+      before { @result = AyahTwitterizer.new(text, ayah, hashtags).run }
 
       specify { expect(@result).not_to include '&#8217;' }
       specify { expect(@result).to include "text'123" }
@@ -31,7 +31,7 @@ RSpec.describe AyahTwitterizer do
     context 'when text is too long' do
       let(:text) { 'a' * 300 }
 
-      before { @result = AyahTwitterizer.new(text, ayah, hashtags).run! }
+      before { @result = AyahTwitterizer.new(text, ayah, hashtags).run }
 
       specify { expect(@result.length).to eq 280 }
     end
@@ -40,7 +40,7 @@ RSpec.describe AyahTwitterizer do
       let(:hashtags) { '' }
       let(:expected) { 'text123 [3:6] https://perfectquran.co/3/6' }
 
-      before { @result = AyahTwitterizer.new(text, ayah, hashtags).run! }
+      before { @result = AyahTwitterizer.new(text, ayah, hashtags).run }
 
       specify { expect(@result).to eq expected }
     end
