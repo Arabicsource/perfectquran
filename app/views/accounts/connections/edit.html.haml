@@ -5,7 +5,7 @@
 
 - unless browser.mobile?
   - content_for :after_header do
-    = render 'accounts/shared/menu'
+    = render 'accounts/partials/desktop/navbar'
 
   - content_for :sidebar do
-    = render 'automatic_posts_message'      
+    = render 'automatic_posts_message'
