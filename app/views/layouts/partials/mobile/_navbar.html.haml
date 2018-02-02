@@ -17,6 +17,7 @@
           - if account_signed_in?
             %p.menu-label Account
             %ul.menu-list
+              %li= link_to t('layouts.partials.mobile.navbar.memorization'), accounts_memory_path
               %li= link_to 'Profile', accounts_profile_path
               %li= link_to 'Connections', accounts_connections_path
               %li= link_to 'Subscription', accounts_subscription_path

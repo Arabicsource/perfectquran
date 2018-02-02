@@ -8,13 +8,13 @@
         <li>
           <%= link_to accounts_memory_surah_memory_path(@surah), method: :post, remote: true do %>
             <span class='icon'><%= fa_icon 'plus' %></span>
-            <span>Memorize <%= @surah.transliterated_name %></span>
+            <span>Memorize Surah</span>
           <% end %>
         </li>
         <li>
           <%= link_to accounts_memory_surah_memory_path(@surah), method: :delete, remote: true do %>
             <span class='icon'><%= fa_icon 'minus' %></span>
-            <span>Forget <%= @surah.transliterated_name %></span>
+            <span>Forget Surah</span>
           <% end %>
         </li>
       </ul>

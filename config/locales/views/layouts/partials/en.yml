@@ -1,0 +1,6 @@
+en:
+  layouts:
+    partials:
+      mobile:
+        navbar:
+          memorization: 'Hifz'

@@ -9,13 +9,13 @@
         <li>
           <%= link_to accounts_memory_path, method: :post, remote: true, data: {action: 'visibility#toggle'} do %>
             <span class='icon'><%= fa_icon 'plus' %></span>
-            <span>Memorize All</span>
+            <span>Memorize Quran</span>
           <% end %>
         </li>
         <li>
           <%= link_to accounts_memory_path, method: :delete, remote: true, data: {action: 'visibility#toggle'} do %>
             <span class='icon'><%= fa_icon 'minus' %></span>
-            <span>Forget All</span>
+            <span>Forget Quran</span>
           <% end %>
         </li>
       </ul>
