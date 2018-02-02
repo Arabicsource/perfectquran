@@ -13,16 +13,16 @@ module Page
 
     def memorize_quran
       visit accounts_memory_path
-      click_on 'Memorize All'
+      click_on 'Memorize Quran'
     end
 
     def forget_quran
       visit accounts_memory_path
-      click_on 'Forget All'
+      click_on 'Forget Quran'
     end
 
     def forget_surah
-      click_on 'Forget transliterated'
+      click_on 'Forget Surah'
     end
 
     def visit_surah

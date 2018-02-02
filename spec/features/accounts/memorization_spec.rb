@@ -16,7 +16,7 @@ feature 'Hifz', js: true do
     expect(Memory.count).to eq 0
     expect(page).to have_text '0% Memorized'
 
-    click_on 'Memorize transliterated'
+    click_on 'Memorize Surah'
 
     expect(Memory.count).to eq 3
     expect(page).to have_text '300% Memorized' # represents 100%
