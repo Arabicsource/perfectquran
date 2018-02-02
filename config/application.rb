@@ -28,6 +28,9 @@ module Perfectquran
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    # Load translation subdirectories
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
     # CORS
     config.middleware.insert_before 0, Rack::Cors do
       allow do

@@ -1,0 +1,10 @@
+en:
+  accounts:
+    partials:
+      desktop:
+        navbar:
+          profile: 'Profile'
+          connections: 'Connections'
+          memorization: 'Hifz'
+          subscription: 'Subscription'
+          settings: 'Settings'
