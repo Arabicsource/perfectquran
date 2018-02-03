@@ -37,12 +37,6 @@
           Copyright PerfectQuran &copy; 2017 - #{Time.now.year}, all rights reserved.
 
         .menu
-          %p.menu-label Content
-          %ul.menu-list
-            %li
-              = link_to 'Quran', quran_root_path
-              - Article.published_pages.each do |page|
-                %li= link_to page.title, content_article_path(page.permalink)
           %p.menu-label Social Media Profiles
           %ul.menu-list
             %li
