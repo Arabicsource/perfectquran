@@ -1,6 +1,6 @@
 !!!5
 %html{ html_attrs('en') }
-  = render 'layouts/shared/head'
+  = render 'layouts/mobile/head'
   %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]} #{browser.mobile? ? 'mobile' : 'desktop'}", data: { controller: 'tabs'} }
 
     = render 'layouts/partials/navbar'
@@ -16,7 +16,7 @@
         - if browser.mobile? || !content_for?(:layout_template)
           = yield
         - else
-          .columns.is-centered
+          .columns
             = render "layouts/templates/#{yield(:layout_template)}"
 
     = yield(:toolbar) if content_for :toolbar

@@ -6,6 +6,6 @@
           .media-content
             .content
               %p
-                <strong>#{surah.id}. #{surah}</strong> <small>#{surah.arabic_name}</small> <small>#{surah.english_name}</small>
-                %br
+                <strong>#{surah}</strong><br>
+                #{surah.english_name} #{surah.arabic_name}<br>
                 #{surah.revelation_type.capitalize}. #{surah.number_of_ayahs} Ayat. Revealed #{surah.order_of_revelation.ordinalize}.

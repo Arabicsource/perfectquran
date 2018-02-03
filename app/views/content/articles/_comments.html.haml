@@ -1,4 +1,6 @@
 - if @article.comments.any?
+  .section-divider
+
   %h2.title Comments
 
   - @article.comments.includes(:account).each do |comment|
@@ -13,5 +15,3 @@
             = comment.account.try(:name) || 'Annon' + ','
             = time_ago_in_words(comment.created_at) + ' ago'
           = markdown comment.content
-  
-  .section-divider

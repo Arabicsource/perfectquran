@@ -1,0 +1,44 @@
+- if browser.mobile? && article.page?
+  %p.byline 
+    Published: #{short_ordinal(article.created_at)}
+    %br
+    Updated: #{short_ordinal(article.updated_at)}
+
+- elsif browser.mobile? && article.post?
+  %p.byline.has-text-centered
+    %span.icon= fa_icon 'folder'
+    %span= article.category_name
+    %span.icon= fa_icon 'user'
+    %span= article.author_name
+  %p.byline.has-text-centered
+    %span.icon= fa_icon 'calendar'
+    %span= article.created_at.to_date.to_formatted_s(:short_ordinal)
+    %span.icon= fa_icon 'comments'
+    %span= pluralize article.comments_count, 'comment'
+
+- elsif article.post?
+  .byline.level
+    .level-left
+      .level-item
+        %span.icon= fa_icon 'folder'
+        %span= article.category_name
+      .level-item
+        %span.icon= fa_icon 'user'
+        %span= article.author_name
+      .level-item
+        %span.icon= fa_icon 'calendar'
+        %span= article.created_at.to_date.to_formatted_s(:short_ordinal)
+    .level-right
+      .level-item
+        %span.icon= fa_icon 'comments'
+        %span= pluralize article.comments_count, 'comment'
+
+- else
+  .byline.level
+    .level-left
+    .level-right
+      - unless article.created_at == article.updated_at
+        .level-item
+          Updated:   #{short_ordinal(article.updated_at)}
+      .level-item
+        Published: #{short_ordinal(article.created_at)}

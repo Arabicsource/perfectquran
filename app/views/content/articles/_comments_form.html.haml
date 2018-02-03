@@ -1,5 +1,6 @@
 - if account_signed_in? && @article.post?
-  
+  .section-divider
+
   %h3.title New Comment
 
   = form_with model: [:content, @article, @comment] do |f|
