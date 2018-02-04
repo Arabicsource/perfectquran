@@ -4,5 +4,17 @@
   = render 'quran/surahs/partials/desktop/surah_index_list'
   - content_for :after_navbar do
     = render 'quran/surahs/partials/desktop/after_navbar'
+    
+    .hero
+      .hero-body
+        .container
+          .columns
+            .column
+              = form_with url: quran_texts_path, method: :get, local: true do |f|
+                .field.has-addons
+                  .control
+                    = f.text_field :terms, id: 'search-terms-input', class: 'input', placeholder: 'Search the Quran'
+                  .control
+                    = f.submit 'Search', class: 'button is-orange'
 
 - provide :title, 'Suwar'

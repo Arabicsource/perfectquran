@@ -1,0 +1,11 @@
+.content
+  %p.has-text-orange-dark Your search for <strong>#{@terms}</strong> returned <strong>#{@results.total_count}</strong> results.
+
+  - @results.each do |result|
+    .section-divider
+    %p.search-result 
+      = sanitize result.search_highlights[:content]
+      = link_to result.reference, quran_ayah_path(result.ayah)
+
+- provide :title, "Search Results"
+- provide :layout_template, 'single'

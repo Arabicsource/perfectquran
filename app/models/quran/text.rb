@@ -13,10 +13,13 @@
 module Quran
   # :nodoc:
   class Text < ApplicationRecord
+    searchkick word_middle: [:content], highlight: [:content]
+
     default_scope { order('id asc') }
 
     belongs_to :translation, class_name: 'Quran::Translation'
     belongs_to :ayah
+    has_one :surah, through: :ayah
 
     def uthmani?
       translation_id == 1
@@ -24,6 +27,10 @@ module Quran
 
     def twitterize
       Twitterize.new(self).call
+    end
+
+    def reference
+      "[#{surah.id}:#{ayah.number}]"
     end
   end
 end

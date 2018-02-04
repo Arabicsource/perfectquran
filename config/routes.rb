@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     root 'surahs#index'
 
     resources :memories, only: :new
+    resources :texts, only: :index
 
     resources :surahs, only: %i[index show] do
       scope module: :surahs do
