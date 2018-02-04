@@ -1,6 +1,7 @@
 = render 'form'
 
-- content_for :aside do
+- content_for :sidebar do
   = render "devise/shared/links"
 
 - provide :title, 'Resend confirmation instructions'
+- provide :layout_template, 'two_column'

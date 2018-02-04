@@ -25,6 +25,24 @@ audio
   &.is-brown
     background-color: $brown
 
+//
+// Newsletter
+//
+.newsletter
+  @extend .hero, .is-orange
+
+  border-top: 0.25rem solid $orange-dark
+  border-bottom: 0.25rem solid $orange-dark
+
+//
+// Patron Banner
+//
+section.patron-banner
+  @extend .is-info
+
+  border-top: 0.25rem solid darken($info, 20%)
+  border-bottom: 0.25rem solid darken($info, 20%)
+
 
 #quran-surahs.index
   ol

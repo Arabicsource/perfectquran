@@ -5,12 +5,6 @@
 - provide :title, 'Profile'
 - provide :layout_template, 'two_column'
 
-- content_for :after_navbar do
-  - unless current_account.patron?
-    .notification.is-info
-      Do you love PerfectQuran and want it to succeed? 
-      = link_to 'Become a Patron of our work for $5 a month', accounts_subscription_path
-
 - unless browser.mobile?
   - content_for :after_header do
     = render 'accounts/partials/desktop/navbar'

@@ -1,10 +1,7 @@
 = render 'form'
 
-%p.field
-  .is-hidden-desktop
-    = render "devise/shared/links"
-
-- content_for :aside do
+- content_for :sidebar do
   = render "devise/shared/links"
 
 - provide :title, 'Create Your PerfectQuran Account'
+- provide :layout_template, 'two_column'
