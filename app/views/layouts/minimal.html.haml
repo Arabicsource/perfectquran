@@ -4,3 +4,5 @@
   %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]} #{browser.mobile? ? 'mobile' : 'desktop'}", data: { controller: 'tabs'} }
 
     = yield
+
+    = render '/layouts/shared/analytics'

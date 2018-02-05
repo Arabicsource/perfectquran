@@ -1,6 +1,6 @@
 !!!5
 %html{ html_attrs('en') }
-  = render 'layouts/shared/head'
+  = render 'layouts/application/head'
   %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]} #{browser.mobile? ? 'mobile' : 'desktop'}", data: { controller: 'tabs'} }
 
     = render 'layouts/partials/navbar'
@@ -25,3 +25,4 @@
     = render 'layouts/shared/patron_banner' unless account_patron?
     = render 'layouts/shared/newsletter'
     = render 'layouts/partials/footer'
+    = render '/layouts/shared/analytics'
