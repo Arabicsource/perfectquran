@@ -11,7 +11,7 @@ gem 'browser'
 gem 'bulma-rails', '~> 0.6.2'
 gem 'coffee-rails', '~> 4.2'
 gem 'coveralls', require: false
-gem 'devise'
+gem 'devise', '4.4.1'
 gem 'font-awesome-rails'
 gem 'haml'
 gem 'jbuilder', '~> 2.5'

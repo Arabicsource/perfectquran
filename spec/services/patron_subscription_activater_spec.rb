@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe PatronSubscriptionActivater do
   let(:stripe_helper) { StripeMock.create_test_helper }
-  let(:plan) { stripe_helper.create_plan id: 'plan' }
+  let(:plan) { stripe_helper.create_plan id: 1 }
   let(:token) { stripe_helper.generate_card_token }
   let(:account) { create :account }
   let(:customer) { Stripe::Customer.create(source: token) }
