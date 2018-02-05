@@ -1,6 +1,6 @@
 !!!5
 %html{ html_attrs('en') }
-  = render 'layouts/landing/head'
+  = render 'layouts/minimal/head'
   %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]} #{browser.mobile? ? 'mobile' : 'desktop'}", data: { controller: 'tabs'} }
 
     = yield

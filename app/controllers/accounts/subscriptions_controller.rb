@@ -15,7 +15,7 @@ module Accounts
 
     def new
       @subscription = Subscription.new
-      render layout: 'landing'
+      render layout: 'minimal'
     end
 
     def create
