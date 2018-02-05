@@ -24,7 +24,7 @@ describe 'DELETE /accounts/memory', type: :request do
     it 'returns successfully' do
       delete valid_url
 
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'changes memory count' do

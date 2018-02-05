@@ -8,7 +8,7 @@ RSpec.describe 'Surahs API', type: :request do
 
     get '/api/v1/surahs'
 
-    expect(response).to be_success
+    expect(response).to be_successful
     expect(JSON.parse(response.body).length).to eq(5)
   end
 
@@ -27,7 +27,7 @@ RSpec.describe 'Surahs API', type: :request do
     get "/api/v1/surahs/#{surah.id}"
     json = JSON.parse(response.body)
 
-    expect(response).to be_success
+    expect(response).to be_successful
     expect(json['id']).to eq 1
     expect(json['number_of_ayahs']).to eq 7
     expect(json['order_of_revelation']).to eq 5

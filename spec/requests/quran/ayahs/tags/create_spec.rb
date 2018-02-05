@@ -21,7 +21,7 @@ describe 'POST /quran/ayahs/:ayah_id/tags', type: :request do
       it 'redirects' do
         post url, params: valid_params
 
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       specify do

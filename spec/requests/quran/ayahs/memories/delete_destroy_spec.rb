@@ -33,7 +33,7 @@ describe 'DELETE /quran/ayahs/:ayah_id/memories', type: :request do
         it 'returns successfully' do
           delete valid_url
 
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it 'deletes a memory' do

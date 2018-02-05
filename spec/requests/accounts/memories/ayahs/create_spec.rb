@@ -25,7 +25,7 @@ describe 'POST /accounts/memory/ayahs', type: :request do
     it 'returns successfully' do
       post valid_url
 
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'changes memory count' do
