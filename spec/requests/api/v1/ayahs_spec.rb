@@ -6,7 +6,7 @@ RSpec.describe 'Ayahs API', type: :request do
   describe 'GET /api/v1/ayahs' do
     it 'returns a success response' do
       get '/api/v1/ayahs'
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'returns all ayahs' do
@@ -23,7 +23,7 @@ RSpec.describe 'Ayahs API', type: :request do
 
     it 'returns a success response' do
       get "/api/v1/ayahs/#{@ayah.id}"
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'returns a specific ayah' do
@@ -43,7 +43,7 @@ RSpec.describe 'Ayahs API', type: :request do
 
     it 'returns a success response' do
       get "/api/v1/surah/#{@ayah.surah.id}/ayah/#{@ayah.number}"
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'returns a specific ayah' do

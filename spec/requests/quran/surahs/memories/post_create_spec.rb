@@ -31,7 +31,7 @@ describe 'POST /quran/ayahs/:ayah_id/memories', type: :request do
         it 'returns successfully' do
           post valid_url
 
-          expect(response).to be_success
+          expect(response).to be_successful
         end
 
         it 'creates a memory' do

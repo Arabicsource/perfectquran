@@ -22,7 +22,7 @@ describe 'DELETE /quran/ayahs/:ayah_id/bookmarks', type: :request do
       it 'returns success' do
         delete valid_url
 
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'deletes a bookmark' do

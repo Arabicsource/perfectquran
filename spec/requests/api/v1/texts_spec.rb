@@ -10,7 +10,7 @@ RSpec.describe 'Texts API', type: :request do
       get(
         "/api/v1/text/ayah/#{@text.ayah_id}/translation/#{@text.translation_id}"
       )
-      expect(response).to be_success
+      expect(response).to be_successful
     end
 
     it 'returns a specific text' do
