@@ -9,6 +9,8 @@
         = link_to 'Quran', quran_root_path, class: 'navbar-item'
         = link_to 'Blog', content_articles_path, class: 'navbar-item'
         = link_to 'About', content_article_path('about'), class: 'navbar-item'
+
+        = render 'layouts/application/navbar_search'
         
       .navbar-end
         - if account_signed_in?
