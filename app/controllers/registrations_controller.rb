@@ -7,6 +7,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(_resource)
-    accounts_profile_path
+    accounts_root_path
   end
 end

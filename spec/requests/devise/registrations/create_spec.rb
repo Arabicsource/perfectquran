@@ -13,7 +13,7 @@ describe '/devise/registrations/create', type: :request do
   context 'without account' do
     it 'redirects' do
       post '/', params: valid_params
-      expect(response).to redirect_to accounts_profile_path
+      expect(response).to redirect_to accounts_root_path
     end
 
     it 'creates account' do

@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   namespace :accounts do
+    root 'profiles#show'
     resource :card, only: %i[edit update]
     resources :charges, only: :index
     resource :profile, only: %i[edit show update]

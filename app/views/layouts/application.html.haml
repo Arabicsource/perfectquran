@@ -10,6 +10,7 @@
     = render('layouts/partials/page_header') if content_for :title
     = yield(:after_header) if content_for? :after_header
     = yield(:header) if content_for? :header
+    = render 'layouts/shared/flash'    
 
     %section.section.is-white
       .container
