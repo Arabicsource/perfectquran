@@ -1,7 +1,7 @@
 !!!5
 %html{ html_attrs('en') }
   = render 'layouts/application/head'
-  %body{id: params[:controller].try(:gsub, '/', '-'), class: 'application'}
+  %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]} application"}
 
     = render 'layouts/application/navbar'
 

@@ -23,7 +23,6 @@ nav.navbar
 section.hero.is-brown
   border-top: 1rem solid $brown-dark
 
-// PAGE HEADER
 section.page-header
   padding: 0 1.5rem 0.5rem 1.5rem
   font-weight: bold
@@ -33,14 +32,9 @@ section.page-header
   color: $brown-invert
   font-size: 2rem
 
-.navbar.is-fixed-bottom
-  box-shadow: 0 0 0 rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1)
-
-  .navbar-item
-    width: 25%
-    
-    i.fa
-      margin: 0 auto
+nav.toolbar
+  audio
+    width: 600px
 
 .media
   .media-left
@@ -56,63 +50,25 @@ section.page-header
     i.fa
       font-size: 1.5rem
 
-aside
-  height: 100%
-  width: 0
-  position: fixed
-  top: 0
-  left: 0
-  background-color: $black
-  overflow-x: hidden
-  padding-top: 1.5rem
-  transition: 0.2s
-  z-index: 999
-
-  .menu
-    width: 75%
-
-  button
-    float: right
-    margin-bottom: 1rem
-
-  &.is-active
-    width: 100%
-
-  a, a:link, a:visited
-    color: $yellow !important
-
-  a:active, a:focus, a:hover
-    color: $text !important
-
 #quran-surahs.index
+  section.page-header
+    display: none
+
   ol#surahs
     list-style: none
+    column-count: 4
 
     li
       padding: 1rem 0
       border-bottom: 1px solid $background
+      width: 100%
+      display: inline-block
 
       &:hover
         border-color: $orange
 
-      a, a:link, a:visited
-        color: $text
-
-body.desktop
-  nav.toolbar
-    audio
-      width: 600px
-
-#quran-surahs.index.desktop
-  section.page-header
-    display: none
-
-  ol
-    column-count: 4
-
-    li
-      width: 100%
-      display: inline-block
-
       strong
         color: $orange-dark
+      a, a:link, a:visited
+
+        color: $text
