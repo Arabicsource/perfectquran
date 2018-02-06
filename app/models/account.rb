@@ -80,14 +80,6 @@ class Account < ApplicationRecord
   private
 
   def subscribe_to_newsletter
-    list_id = '3821a40607'
-    gibbon = Gibbon::Request.new
-    hashed_email = Digest::MD5.hexdigest email
-
-    begin
-      gibbon.lists(list_id).members(hashed_email).upsert(body: {email_address: email, status: "subscribed"})      
-    rescue => exception
-      false
-    end
+    ::MailingList::Subscriber.new(email).subscribe
   end
 end
