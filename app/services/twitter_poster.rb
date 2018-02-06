@@ -13,9 +13,24 @@ class TwitterPoster
     @text = text
   end
 
-  def run!
-    @client.update(@text)
-  rescue
-    false
+  def call
+    begin
+      client.update(text)
+      success_response
+    rescue => exception
+      failure_response(exception.message)
+    end
+  end
+
+  private
+
+  attr_reader :text, :client
+
+  def success_response
+    OpenStruct.new successful?: true
+  end
+
+  def failure_response(message)
+    OpenStruct.new successful?: false, error: message
   end
 end

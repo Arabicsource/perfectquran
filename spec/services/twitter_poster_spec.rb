@@ -8,22 +8,25 @@ RSpec.describe TwitterPoster do
   let(:text) { 'text' }
 
   context 'when successful' do
-    it 'returns true' do
+    before do
       allow_any_instance_of(Twitter::REST::Client).to(
-        receive(:update).with(text).and_return(true)
+        receive(:update).with(text)
       )
+    end
 
-      expect(TwitterPoster.new(token, secret, text).run!).to be_truthy
+    specify do
+      expect(TwitterPoster.new(token, secret, text).call).to be_successful
     end
   end
 
   context 'when failure' do
-    it 'returns false' do
+    before do
       allow_any_instance_of(Twitter::REST::Client).to(
         receive(:update).with(text).and_raise('Exception')
       )
-
-      expect(TwitterPoster.new(token, secret, text).run!).to be_falsey
     end
+
+    specify { expect(TwitterPoster.new(token, secret, text).call).not_to be_successful }
+    specify { expect(TwitterPoster.new(token, secret, text).call.error).to eq('Exception') }
   end
 end

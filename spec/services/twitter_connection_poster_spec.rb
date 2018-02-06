@@ -15,7 +15,7 @@ RSpec.describe TwitterConnectionPoster do
     end
 
     it 'returns true' do
-      allow_any_instance_of(TwitterPoster).to receive(:run!).and_return(true)
+      allow_any_instance_of(TwitterPoster).to receive(:call).and_return(true)
 
       expect(TwitterConnectionPoster.new(connection).run!).to be_truthy
     end
@@ -69,7 +69,7 @@ RSpec.describe TwitterConnectionPoster do
 
     before do
       allow_any_instance_of(TwitterPoster).to(
-        receive(:run!).and_raise('Exception')
+        receive(:call).and_raise('Exception')
       )
     end
 

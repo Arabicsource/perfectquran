@@ -27,7 +27,7 @@ class TwitterConnectionPoster
   end
 
   def post_tweet
-    TwitterPoster.new(token, secret, twitterized_text).run!
+    TwitterPoster.new(token, secret, twitterized_text).call
   end
 
   def twitterized_text
