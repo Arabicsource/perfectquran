@@ -102,8 +102,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
-    capybara-user_agent (0.0.3)
-      capybara (~> 2.0, >= 2.0.2)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.2.2)
@@ -153,6 +151,9 @@ GEM
     ffi (1.9.18)
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
+    gibbon (3.2.0)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -404,12 +405,12 @@ DEPENDENCIES
   capistrano-rails (~> 1.2)
   capistrano-rvm
   capybara
-  capybara-user_agent
   coffee-rails (~> 4.2)
   coveralls
   devise (= 4.4.1)
   factory_bot_rails
   font-awesome-rails
+  gibbon
   haml
   jbuilder (~> 2.5)
   launchy

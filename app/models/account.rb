@@ -29,6 +29,7 @@ class Account < ApplicationRecord
   default_scope { order('id desc') }
 
   after_create :create_profile!
+  after_create :subscribe_to_newsletter
 
   has_one :profile
   has_one :subscription
@@ -74,5 +75,19 @@ class Account < ApplicationRecord
     end
 
     not_memorized_ayahs
+  end
+
+  private
+
+  def subscribe_to_newsletter
+    list_id = '3821a40607'
+    gibbon = Gibbon::Request.new
+    hashed_email = Digest::MD5.hexdigest email
+
+    begin
+      gibbon.lists(list_id).members(hashed_email).upsert(body: {email_address: email, status: "subscribed"})      
+    rescue => exception
+      false
+    end
   end
 end

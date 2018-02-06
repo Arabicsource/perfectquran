@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'coveralls', require: false
 gem 'devise', '4.4.1'
 gem 'font-awesome-rails'
+gem 'gibbon'
 gem 'haml'
 gem 'jbuilder', '~> 2.5'
 gem 'omniauth'

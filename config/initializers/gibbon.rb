@@ -1,0 +1,1 @@
+Gibbon::Request.api_key = Rails.application.secrets.mailchip_api_key
