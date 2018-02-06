@@ -1,7 +1,7 @@
 !!!5
 %html{ html_attrs('en') }
   = render 'layouts/application/head'
-  %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]} #{browser.mobile? ? 'mobile' : 'desktop'}", data: { controller: 'tabs'} }
+  %body{id: params[:controller].try(:gsub, '/', '-'), class: 'application'}
 
     = render 'layouts/application/navbar'
 
@@ -10,11 +10,11 @@
     = render('layouts/partials/page_header') if content_for :title
     = yield(:after_header) if content_for? :after_header
     = yield(:header) if content_for? :header
-    = render 'layouts/shared/flash'    
+    = render 'layouts/shared/flash'
 
     %section.section.is-white
       .container
-        - if browser.mobile? || !content_for?(:layout_template)
+        - unless content_for?(:layout_template)
           = yield
         - else
           .columns.is-centered
