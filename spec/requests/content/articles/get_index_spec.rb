@@ -10,4 +10,13 @@ describe 'GET Content::Articles#index', type: :request do
 
     expect(response).to be_successful
   end
+
+  context 'when mobile' do
+    before do
+      mobile_browser
+      get content_articles_path
+    end
+
+    specify { expect(response).to be_successful }
+  end
 end

@@ -10,15 +10,27 @@ RSpec.shared_examples 'an account get request' do
   end
 
   context 'with account' do
-    before do
-      login_as account
-      get url
+    context 'when application' do
+      before do
+        login_as account
+        get url
+      end
+
+      specify { expect(response).to be_successful }
+
+      specify do
+        expect(response.body).to include "<title>#{title} | Perfect Quran</title>"
+      end
     end
 
-    specify { expect(response).to be_successful }
+    context 'when mobile' do
+      before do
+        mobile_browser
+        login_as account
+        get url
+      end
 
-    specify do
-      expect(response.body).to include "<title>#{title} | Perfect Quran</title>"
+      specify { expect(response).to be_successful }
     end
   end
 end

@@ -1,33 +1,33 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+# require "browser/rails"
 
 describe 'Ayahs', type: :request do
-  context 'GET show' do
-    it 'responds successfully' do
-      ayah = create :ayah
+  let!(:ayah) { create :ayah, id: 2 }
+  let!(:previous) { create :ayah, id: 1}
+  let!(:next) { create :ayah, id: 3 }
 
-      get quran_ayah_path(ayah)
+  describe 'GET quran_ayah_path(ayah)' do
+    context 'when application' do
+      before { get quran_ayah_path(ayah) }
 
-      expect(response).to be_successful
+      specify { expect(response).to be_successful }
+    end
+
+    context 'when mobile' do
+      before do
+        mobile_browser
+        get quran_ayah_path(ayah)
+      end
+  
+      specify { expect(response).to be_successful }
     end
   end
 
-  context 'GET /:surah_id/:ayah_number' do
-    it 'responds successfully' do
-      ayah = create :ayah
+  describe 'GET /:surah_id/:ayah_number' do
+    before { get "/#{ayah.surah.id}/#{ayah.number}" }
 
-      get "/#{ayah.surah.id}/#{ayah.number}"
-
-      expect(response).to be_successful
-    end
-
-    it 'renders quran/surahs/show' do
-      ayah = create :ayah
-
-      get "/#{ayah.surah.id}/#{ayah.number}"
-
-      expect(response).to render_template 'quran/ayahs/show'
-    end
+    specify { expect(response).to be_successful }
   end
 end

@@ -6,9 +6,11 @@ include Warden::Test::Helpers
 feature 'Destroy a memory on an ayah', js: true do
   let(:surah) { create :surah, id: 1 }
   let(:account) { create :account }
-  let(:ayah) { create :ayah, surah: surah, number: 1 }
+  let(:ayah) { create :ayah, id: 2, surah: surah, number: 1 }
 
   before do
+    create :ayah, id: 1
+    create :ayah, id: 3
     create :memory, ayah: ayah, account: account
     login_as account
     visit quran_ayah_path(ayah)

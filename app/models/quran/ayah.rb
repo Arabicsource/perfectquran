@@ -40,20 +40,12 @@ module Quran
       surah.transliterated_name
     end
 
-    def previous?
-      previous.present?
-    end
-
     def previous
       @previous ||= if id > 1
                       self.class.find_by id: id - 1
                     else
                       self.class.find_by id: 6236
                     end
-    end
-
-    def next?
-      self.next.present?
     end
 
     def next

@@ -10,10 +10,8 @@
     = link_to quran_surah_path(@ayah.surah), class: 'navbar-item' do
       = fa_icon 'list-ol'
 
-    - if @ayah.previous?
-      = link_to quran_ayah_path(@ayah.previous), class: 'navbar-item' do
-        = fa_icon 'chevron-left'
+    = link_to quran_ayah_path(@ayah.previous), class: 'navbar-item' do
+      = fa_icon 'chevron-left'
 
-    - if @ayah.next?
-      = link_to quran_ayah_path(@ayah.next), class: 'navbar-item' do
-        = fa_icon 'chevron-right'
+    = link_to quran_ayah_path(@ayah.next), class: 'navbar-item' do
+      = fa_icon 'chevron-right'

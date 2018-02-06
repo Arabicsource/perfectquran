@@ -37,4 +37,13 @@ describe '/content/articles/show', type: :request do
       expect { get url }.to raise_exception(ActiveRecord::RecordNotFound)
     end
   end
+
+  context 'when mobile' do
+    before do
+      mobile_browser
+      get content_articles_path
+    end
+
+    specify { expect(response).to be_successful }
+  end
 end

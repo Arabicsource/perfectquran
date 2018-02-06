@@ -7,15 +7,13 @@
         = link_to @ayah.number, quran_ayah_path(@ayah), class: 'navbar-item is-active'
 
       .navbar-end
-        - if @ayah.previous?
-          = link_to quran_ayah_path(@ayah.previous), class: 'navbar-item' do
-            %span.icon= fa_icon 'chevron-left '
-            %span Previous
+        = link_to quran_ayah_path(@ayah.previous), class: 'navbar-item' do
+          %span.icon= fa_icon 'chevron-left '
+          %span Previous
         
-        - if @ayah.next?
-          = link_to quran_ayah_path(@ayah.next), class: 'navbar-item' do
-            %span Next
-            %span.icon= fa_icon 'chevron-right'
+        = link_to quran_ayah_path(@ayah.next), class: 'navbar-item' do
+          %span Next
+          %span.icon= fa_icon 'chevron-right'
 
         .navbar-item
           %audio{controls: true}
