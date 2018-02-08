@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resource :subscription
     resources :connections
 
+    resource :email_preferences, only: :edit
+
     resource :memory do
       scope module: :memories do
         resources :surahs do

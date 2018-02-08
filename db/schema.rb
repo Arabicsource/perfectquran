@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_05_131420) do
+ActiveRecord::Schema.define(version: 2018_02_08_114001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_email_preferences", force: :cascade do |t|
+    t.bigint "account_id"
+    t.boolean "general"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_account_email_preferences_on_account_id"
+  end
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -495,6 +503,7 @@ ActiveRecord::Schema.define(version: 2018_02_05_131420) do
     t.index ["user_id", "postable_id"], name: "thredded_user_topic_read_states_user_postable", unique: true
   end
 
+  add_foreign_key "account_email_preferences", "accounts"
   add_foreign_key "articles", "accounts"
   add_foreign_key "articles", "categories"
   add_foreign_key "bookmarks", "accounts"

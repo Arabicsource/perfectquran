@@ -1,0 +1,12 @@
+<%= form_with model: @email_preference, method: :patch, id: 'email-preferences-form' do |f| %>
+  <div class='field'>
+    <div class='control'>
+      <%= f.label :global, class: 'checkbox' do %>
+        <%= f.check_box :global %>
+        Global
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% provide :title, 'Edit Email Preferences' %>
