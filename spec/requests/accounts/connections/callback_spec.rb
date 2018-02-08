@@ -36,7 +36,7 @@ describe 'GET Accounts::Connections#callback', type: :request do
         get uri
 
         expect(response).to(
-          redirect_to(edit_accounts_connection_path(Connection.last))
+          redirect_to(edit_account_connection_path(Connection.last))
         )
       end
     end
@@ -54,7 +54,7 @@ describe 'GET Accounts::Connections#callback', type: :request do
         get uri
 
         expect(response).to(
-          redirect_to(edit_accounts_connection_path(connection))
+          redirect_to(edit_account_connection_path(connection))
         )
       end
 

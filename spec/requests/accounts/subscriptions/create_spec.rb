@@ -5,8 +5,8 @@ require 'rails_helper'
 describe 'POST Accounts::Subscriptions#create', type: :request do
   let(:account) { create :account }
   let(:klass) { Subscription }
-  let(:url) { accounts_subscription_path }
-  let(:redirect_path) { accounts_subscription_path }
+  let(:url) { account_subscription_path }
+  let(:redirect_path) { account_subscription_path }
   let(:stripe_helper) { StripeMock.create_test_helper }
   let(:valid_params) { { stripeToken: stripe_helper.generate_card_token } }
   let(:invalid_params) { { stripeToken: '' } }

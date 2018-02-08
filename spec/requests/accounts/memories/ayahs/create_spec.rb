@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-describe 'POST /accounts/memory/ayahs', type: :request do
+describe 'POST /account/memory/ayahs', type: :request do
   let(:account) { create :account }
   let(:ayah) { create :ayah }
-  let(:valid_url) { "/accounts/memory/ayahs/#{ayah.id}/memory.js" }
+  let(:valid_url) { "/account/memory/ayahs/#{ayah.id}/memory.js" }
 
   context 'without account' do
     it 'returns unauthorized' do

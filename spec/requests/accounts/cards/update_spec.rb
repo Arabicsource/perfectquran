@@ -6,7 +6,7 @@ describe 'PATCH Accounts::Cards#update', type: :request do
   let(:account) { create :account }
   let(:stripe_helper) { StripeMock.create_test_helper }
   let(:invalid_params) { { stripeToken: '' } }
-  let(:uri) { accounts_card_path }
+  let(:uri) { account_card_path }
 
   let(:valid_params) do
     { stripeToken: stripe_helper.generate_card_token(last4: '4000') }
@@ -34,7 +34,7 @@ describe 'PATCH Accounts::Cards#update', type: :request do
       it 'redirects' do
         patch uri, params: valid_params
 
-        expect(response).to redirect_to accounts_subscription_path
+        expect(response).to redirect_to account_subscription_path
       end
 
       it 'updates subscription' do
@@ -48,7 +48,7 @@ describe 'PATCH Accounts::Cards#update', type: :request do
       it 'does not redirect' do
         patch uri, params: invalid_params
 
-        expect(response).not_to redirect_to accounts_subscription_path
+        expect(response).not_to redirect_to account_subscription_path
       end
 
       it 'does not update subscription' do

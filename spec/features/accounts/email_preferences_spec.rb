@@ -9,7 +9,7 @@ feature 'Email Preferences' do
   background { login_as account }
 
   scenario 'for account' do
-    visit accounts_root_path
+    visit account_root_path
 
     click_on 'accounts-navbar-settings-link'
     click_on 'Email Preferences'

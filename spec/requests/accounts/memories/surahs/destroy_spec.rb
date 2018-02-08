@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-describe 'POST /accounts/memory/surahs', type: :request do
+describe 'POST /account/memory/surahs', type: :request do
   let(:surah) { create :surah, :with_ayahs }
   let(:account) { create :account }
-  let(:valid_url) { "/accounts/memory/surahs/#{surah.id}/memory.js" }
+  let(:valid_url) { "/account/memory/surahs/#{surah.id}/memory.js" }
 
   before { surah.ayahs.each { |a| create :memory, ayah: a, account: account } }
 

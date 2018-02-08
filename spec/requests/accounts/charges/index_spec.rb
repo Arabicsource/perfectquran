@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe '/accounts/charges/index', type: :request do
-  let(:url) { accounts_charges_path }
+describe '/account/charges/index', type: :request do
+  let(:url) { account_charges_path }
   let(:account) { create :account }
   let(:title) { 'Billing History' }
 

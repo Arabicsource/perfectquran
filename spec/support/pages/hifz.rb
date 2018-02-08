@@ -12,12 +12,12 @@ module Page
     end
 
     def memorize_quran
-      visit accounts_memory_path
+      visit account_memory_path
       click_on 'Memorize Quran'
     end
 
     def forget_quran
-      visit accounts_memory_path
+      visit account_memory_path
       click_on 'Forget Quran'
     end
 
@@ -26,7 +26,7 @@ module Page
     end
 
     def visit_surah
-      visit accounts_memory_path
+      visit account_memory_path
       click_on @surahs.first
     end
 

@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-describe 'POST /accounts/memory', type: :request do
+describe 'POST /account/memory', type: :request do
   let(:account) { create :account }
-  let(:valid_url) { '/accounts/memory.js' }
+  let(:valid_url) { '/account/memory.js' }
   let!(:surahs) { create_list :surah, 5, :with_ayahs }
 
   context 'without account' do

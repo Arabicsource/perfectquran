@@ -1,0 +1,9 @@
+(function(){
+  var progress = document.getElementById('progress');
+  var card = document.getElementById('ayah-<%= @ayah.id %>');
+  var notMemorizedColumn = document.getElementById('not-memorized');
+
+  progress.outerHTML = "<%= j render('account/memories/surahs/partials/progress') %>"
+  notMemorizedColumn.insertAdjacentHTML('beforeend', '<%= j render('account/memories/surahs/partials/not_memorized_card', ayah: @ayah) %>');
+  card.classList.add('is-hidden');
+})();

@@ -6,7 +6,7 @@ describe 'Accounts::Connections#update', type: :request do
   let(:uthmani) { create :translation, id: 1 }
   let(:account) { create :account }
   let(:connection) { create :connection, account: account }
-  let(:uri) { accounts_connection_path(connection) }
+  let(:uri) { account_connection_path(connection) }
 
   let(:invalid_params) do
     { connection: { active: '', translation_id: '', hashtags: 'a' * 61 } }
@@ -34,7 +34,7 @@ describe 'Accounts::Connections#update', type: :request do
         connection.reload
       end
 
-      specify { expect(response).to redirect_to accounts_connections_path }
+      specify { expect(response).to redirect_to account_connections_path }
       specify { expect(connection.active).to be_truthy }
       specify { expect(connection.translation).to eq uthmani }
       specify { expect(connection.hashtags).to eq '#hash123' }
@@ -43,7 +43,7 @@ describe 'Accounts::Connections#update', type: :request do
     context 'when failure' do
       before { patch uri, params: invalid_params }
 
-      specify { expect(response).not_to redirect_to accounts_connections_path }
+      specify { expect(response).not_to redirect_to account_connections_path }
       specify { expect(connection.reload.active).to be_falsey }
     end
   end

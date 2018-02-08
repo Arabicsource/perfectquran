@@ -1,0 +1,49 @@
+<div class='columns'>
+  <div class='column'>
+    <%= render 'account/memories/surahs/partials/progress' %>
+  </div>
+  <div class='column'>
+    <div class="tabs is-right ">
+      <ul>
+        <li>
+          <%= link_to account_memory_surah_memory_path(@surah), method: :post, remote: true do %>
+            <span class='icon'><%= fa_icon 'plus' %></span>
+            <span>Memorize Surah</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to account_memory_surah_memory_path(@surah), method: :delete, remote: true do %>
+            <span class='icon'><%= fa_icon 'minus' %></span>
+            <span>Forget Surah</span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class='section-divider'></div>
+
+<div class='columns'>
+  <div id='not-memorized' class='column'>
+    <h2 class='subtitle'>Not Memorized</h2>
+    <% @not_memorized_ayahs.each do |ayah| %>
+      <%= render 'account/memories/surahs/partials/not_memorized_card', ayah: ayah %>
+    <% end %>
+  </div>
+
+  <div id='memorized' class="column">
+    <h2 class='subtitle'>Memorized</h2>
+    <% @memorized_ayahs.each do |ayah| %>
+      <%= render 'account/memories/surahs/partials/memorized_card', ayah: ayah %>
+    <% end %>
+  </div>
+</div>
+
+<% provide :title, "Memorization: #{@surah.transliterated_name}" %>
+
+<% unless browser.mobile? %>
+  <% content_for :after_header do %>
+    <%= render 'account/partials/desktop/navbar' %>
+  <% end %>
+<% end %>

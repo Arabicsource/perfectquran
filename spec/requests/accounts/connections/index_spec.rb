@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe '/accounts/connections/index', type: :request do
-  let(:url) { accounts_connections_path }
+describe '/account/connections/index', type: :request do
+  let(:url) { account_connections_path }
   let(:account) { create :account }
   let(:title) { 'Connections' }
 

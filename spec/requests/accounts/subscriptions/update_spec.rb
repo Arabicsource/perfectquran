@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe 'PATCH /accounts/subscriptions/update', type: :request do
-  let(:uri) { accounts_subscription_path }
+describe 'PATCH /account/subscriptions/update', type: :request do
+  let(:uri) { account_subscription_path }
   let(:account) { create :account }
 
   context 'without account' do
@@ -21,7 +21,7 @@ describe 'PATCH /accounts/subscriptions/update', type: :request do
       it 'redirects' do
         patch uri
 
-        expect(response).to redirect_to accounts_profile_path
+        expect(response).to redirect_to account_profile_path
       end
     end
 
@@ -31,7 +31,7 @@ describe 'PATCH /accounts/subscriptions/update', type: :request do
       it 'redirects' do
         patch uri
 
-        expect(response).to redirect_to accounts_subscription_path
+        expect(response).to redirect_to account_subscription_path
       end
     end
 
@@ -49,7 +49,7 @@ describe 'PATCH /accounts/subscriptions/update', type: :request do
       it 'redirects' do
         patch uri
 
-        expect(response).to redirect_to accounts_subscription_path
+        expect(response).to redirect_to account_subscription_path
       end
 
       it 'updates subscription' do

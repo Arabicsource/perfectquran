@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe '/accounts/subscriptions/new', type: :request do
-  let(:url) { new_accounts_subscription_path }
+describe '/account/subscriptions/new', type: :request do
+  let(:url) { new_account_subscription_path }
   let(:account) { create :account }
   let(:title) { 'New Subscription' }
 

@@ -13,20 +13,20 @@ describe '/devise/registrations/create', type: :request do
 
   context 'without account' do
     it 'redirects' do
-      post '/', params: valid_params
-      expect(response).to redirect_to accounts_root_path
+      post account_registration_path, params: valid_params
+      expect(response).to redirect_to account_root_path
     end
 
     it 'creates account' do
-      expect { post '/', params: valid_params }.to change(Account, :count).by(1)
+      expect { post account_registration_path, params: valid_params }.to change(Account, :count).by(1)
     end
 
     it 'creates profile' do
-      expect { post '/', params: valid_params }.to change(Profile, :count).by(1)
+      expect { post account_registration_path, params: valid_params }.to change(Profile, :count).by(1)
     end
 
     it 'sends an email' do
-      expect { post '/', params: valid_params }.to change { ActionMailer::Base.deliveries.count }.by(1)
+      expect { post account_registration_path, params: valid_params }.to change { ActionMailer::Base.deliveries.count }.by(1)
     end
 
     it 'calls mail list subscriber' do
@@ -38,7 +38,7 @@ describe '/devise/registrations/create', type: :request do
 
       expect(subscriber).to receive(:subscribe)
 
-      post '/', params: valid_params
+      post account_registration_path, params: valid_params
     end
   end
 end

@@ -1,0 +1,10 @@
+= render 'summary'
+.section-divider
+= render 'points'
+
+- provide :title, 'Profile'
+- provide :layout_template, 'two_column'
+
+- unless browser.mobile?
+  - content_for :after_header do
+    = render 'account/partials/desktop/navbar'

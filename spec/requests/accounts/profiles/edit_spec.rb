@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe '/accounts/profiles/edit', type: :request do
-  let(:url) { edit_accounts_profile_path }
+describe '/account/profiles/edit', type: :request do
+  let(:url) { edit_account_profile_path }
   let(:account) { create :account }
   let(:title) { 'Edit Profile' }
 

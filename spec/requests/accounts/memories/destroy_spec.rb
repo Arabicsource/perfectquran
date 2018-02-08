@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-describe 'DELETE /accounts/memory', type: :request do
+describe 'DELETE /account/memory', type: :request do
   let(:account) { create :account }
-  let(:valid_url) { '/accounts/memory.js' }
+  let(:valid_url) { '/account/memory.js' }
 
   context 'without account' do
     it 'returns unauthorized' do

@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-describe '/accounts/connections/edit', type: :request do
+describe '/account/connections/edit', type: :request do
   let(:connection) { create :connection, account: account }
-  let(:url) { edit_accounts_connection_path(connection) }
+  let(:url) { edit_account_connection_path(connection) }
   let(:account) { create :account }
   let(:title) { 'Edit Connection' }
 

@@ -19,16 +19,16 @@
             %span Bookmarks
 
           .navbar-item.has-dropdown.is-hoverable
-            = link_to accounts_profile_path, class: 'navbar-link' do
+            = link_to account_profile_path, class: 'navbar-link' do
               %span.icon= fa_icon 'user'
               %span Account
 
             .navbar-dropdown
-              = link_to 'Hifz', accounts_memory_path, class: 'navbar-item'
-              = link_to 'Connections', accounts_connections_path, class: 'navbar-item'
-              = link_to 'Subscription', accounts_subscription_path, class: 'navbar-item'
+              = link_to 'Hifz', account_memory_path, class: 'navbar-item'
+              = link_to 'Connections', account_connections_path, class: 'navbar-item'
+              = link_to 'Subscription', account_subscription_path, class: 'navbar-item'
               .navbar-divider
-              = link_to 'Settings', edit_accounts_profile_path, class: 'navbar-item'
+              = link_to 'Settings', edit_account_profile_path, class: 'navbar-item'
               = link_to 'Admin', admin_root_path, class: 'navbar-item' if current_account.role?(:admin)              
               .navbar-divider
               = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'

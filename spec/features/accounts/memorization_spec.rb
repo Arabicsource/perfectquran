@@ -10,7 +10,7 @@ feature 'Hifz', js: true do
   before { login_as account }
 
   scenario 'account owner memorizes a surah' do
-    visit accounts_memory_path
+    visit account_memory_path
     click_on surahs.first
 
     expect(Memory.count).to eq 0
@@ -31,7 +31,7 @@ feature 'Hifz', js: true do
   end
 
   scenario 'account owner memorizes an ayah' do
-    visit accounts_memory_path
+    visit account_memory_path
     click_on surahs.first
 
     expect(Memory.count).to eq 0
@@ -54,7 +54,7 @@ feature 'Hifz', js: true do
   scenario 'account forgets an ayah' do
     create :memory, ayah: surahs.first.ayahs.first, account: account
 
-    visit accounts_memory_path
+    visit account_memory_path
     click_on surahs.first
 
     expect(Memory.count).to eq 1

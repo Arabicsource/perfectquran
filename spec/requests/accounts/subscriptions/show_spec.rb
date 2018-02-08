@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe '/accounts/subscriptions/show', type: :request do
-  let(:url) { accounts_subscription_path }
+describe '/account/subscriptions/show', type: :request do
+  let(:url) { account_subscription_path }
   let(:account) { create :account }
   let(:title) { 'Subscription' }
 
@@ -22,7 +22,7 @@ describe '/accounts/subscriptions/show', type: :request do
     it 'redirects to new subscription path' do
       get url
 
-      expect(response).to redirect_to new_accounts_subscription_path
+      expect(response).to redirect_to new_account_subscription_path
     end
   end
 end

@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-describe 'DELETE /accounts/memory/ayahs', type: :request do
+describe 'DELETE /account/memory/ayahs', type: :request do
   let(:surah) { create :surah }
   let(:account) { create :account }
   let(:ayah) { create :ayah, surah: surah }
-  let(:valid_url) { "/accounts/memory/ayahs/#{ayah.id}/memory.js" }
+  let(:valid_url) { "/account/memory/ayahs/#{ayah.id}/memory.js" }
 
   before { create :memory, ayah: ayah, account: account }
 

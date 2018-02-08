@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'Accounts::Connections#destroy', type: :request do
   let(:account) { create :account }
   let(:connection) { create :connection, account: account }
-  let(:uri) { "/accounts/connections/#{connection.id}" }
+  let(:uri) { "/account/connections/#{connection.id}" }
 
   context 'without account' do
     it 'redirects to the login page' do
@@ -22,7 +22,7 @@ describe 'Accounts::Connections#destroy', type: :request do
       it 'redirects' do
         delete uri
 
-        expect(response).to redirect_to accounts_connections_path
+        expect(response).to redirect_to account_connections_path
       end
 
       it 'deletes connection' do

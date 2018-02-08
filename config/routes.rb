@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :accounts do
+  devise_for :accounts,
+              path: '/account',
+              path_names: { sign_up: 'register' },
+              controllers: { registrations: 'account/registrations' }
+
+  namespace :account do
     root 'profiles#show'
     resource :card, only: %i[edit update]
     resources :charges, only: :index
@@ -66,12 +71,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :accounts,
-             path: '',
-             path_names: { sign_up: 'register' },
-             controllers: { registrations: 'registrations' }
-
-  get 'auth/:provider/callback', to: 'accounts/connections#callback'
+  get 'auth/:provider/callback', to: 'account/connections#callback'  
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'quran/surahs#show', as: :surah
 
