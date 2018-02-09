@@ -2,11 +2,27 @@
   <div class='field'>
     <div class='control'>
       <%= f.label :general, class: 'checkbox' do %>
-        <%= f.check_box :general, id: 'account_email_preferences_general' %>
-        General
+        <div class='media'>
+          <div class='media-left'>
+            <%= f.check_box :general %>
+          </div>
+          <div class='media-content'>
+            <div class='content'>
+              <p>
+                <strong>General</strong><br>
+                We'll send you periodic updates about the PerfectQuran project.
+              </p>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
 <% end %>
 
 <% provide :title, 'Edit Email Preferences' %>
+<% provide :layout_template, 'two_column_sidebar_left' %>
+
+<%= content_for :sidebar do %>
+  <%= render 'account/shared/application/menu' %>
+<% end %>
