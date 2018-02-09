@@ -29,10 +29,12 @@ class Account < ApplicationRecord
   default_scope { order('id desc') }
 
   after_create :create_profile!
+  after_create :create_email_preference!
   after_create :subscribe_to_newsletter
 
   has_one :profile
   has_one :subscription
+  has_one :email_preference
   has_many :connections
   has_many :memories
 

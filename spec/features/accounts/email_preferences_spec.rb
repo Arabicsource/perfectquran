@@ -14,8 +14,6 @@ feature 'Email Preferences' do
     click_on 'accounts-navbar-settings-link'
     click_on 'Email Preferences'
 
-    pending
-
-    expect(page).to have_field('email-preferences-general', checked: true)
+    expect(page).to have_field('account_email_preferences_general', checked: true)
   end
 end

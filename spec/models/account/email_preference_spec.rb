@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  account_id :integer
-#  general    :boolean
+#  general    :boolean          default(TRUE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

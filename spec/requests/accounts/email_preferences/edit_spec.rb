@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe '/account/email_preferences/edit', type: :request do
-  let(:url) { edit_account_email_preferences_path }
+  let(:url) { edit_account_email_preference_path }
   let(:account) { create :account }
   let(:title) { 'Edit Email Preferences' }
 

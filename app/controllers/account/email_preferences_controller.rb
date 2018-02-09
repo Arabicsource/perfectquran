@@ -4,7 +4,7 @@ class Account
   # :nodoc:
   class EmailPreferencesController < Account::BaseController
     def edit
-      # @email_preference = EmailPreference.find_by(account: current_account)
+      @email_preference = current_account.email_preference
     end
   end
 end

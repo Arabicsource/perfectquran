@@ -30,6 +30,7 @@ RSpec.describe Account, type: :model do
   context 'associations' do
     it { is_expected.to have_one :profile }
     it { is_expected.to have_one :subscription }
+    it { is_expected.to have_one :email_preference }
     it { is_expected.to have_many :connections }
     it { is_expected.to have_many :memories }
   end
@@ -79,6 +80,8 @@ RSpec.describe Account, type: :model do
     it 'creates profile' do
       expect { create :account }.to change(Profile, :count).by(1)
     end
+
+    specify { expect { create :account }.to change(Account::EmailPreference, :count).by(1) }
   end
 
   describe 'Account.all' do

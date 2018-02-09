@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_08_114001) do
+ActiveRecord::Schema.define(version: 2018_02_08_180905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "account_email_preferences", force: :cascade do |t|
     t.bigint "account_id"
-    t.boolean "general"
+    t.boolean "general", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_account_email_preferences_on_account_id"

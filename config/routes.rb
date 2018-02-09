@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resource :subscription
     resources :connections
 
-    resource :email_preferences, only: :edit
+    resource :email_preference, only: %i[edit update]
 
     resource :memory do
       scope module: :memories do
