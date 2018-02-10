@@ -82,6 +82,6 @@ class Account < ApplicationRecord
   private
 
   def subscribe_to_newsletter
-    ::MailingList::Subscriber.new(email).subscribe
+    ::MailingList::Updater.new(email).subscribe
   end
 end

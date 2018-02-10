@@ -32,7 +32,7 @@ describe '/devise/registrations/create', type: :request do
     it 'calls mail list subscriber' do
       subscriber = double(:subscriber)
 
-      expect(MailingList::Subscriber).to(
+      expect(MailingList::Updater).to(
         receive(:new).with(email).and_return(subscriber)
       )
 
