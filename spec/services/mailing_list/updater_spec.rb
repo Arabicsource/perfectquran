@@ -12,6 +12,7 @@ RSpec.describe MailingList::Updater do
   let(:unsubscribe_body) { {body: {email_address: email, status: "unsubscribed"}} }
   let(:unsubscribe_body) { {body: {email_address: email, status: "unsubscribed"}} }
   let(:subscribe_to_daily_ayah_body) { { body: {interests: {'dailyayahid' => true} } } }
+  let(:unsubscribe_from_daily_ayah_body) { { body: {interests: {'dailyayahid' => false} } } }
 
   before do
     allow(Gibbon::Request).to receive(:new).and_return(gibbon)
@@ -76,6 +77,23 @@ RSpec.describe MailingList::Updater do
 
     specify do
       expect(MailingList::Updater.new(email).subscribe_to_daily_ayah).to be_successful
+    end
+  end
+
+  context 'when unsubscribing from daily ayah with exception' do
+    before do
+      expect(member)
+        .to receive(:upsert).with(unsubscribe_from_daily_ayah_body).and_raise('Exception')
+    end
+    
+    specify do
+      expect(MailingList::Updater.new(email).unsubscribe_from_daily_ayah)
+        .not_to be_successful
+    end
+
+    specify do
+      expect(MailingList::Updater.new(email).unsubscribe_from_daily_ayah.error)
+        .to eq 'Exception'
     end
   end
 end

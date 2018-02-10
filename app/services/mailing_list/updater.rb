@@ -22,6 +22,10 @@ module MailingList
       update_mailing_list(subscribe_to_daily_ayah_message)
     end
 
+    def unsubscribe_from_daily_ayah
+      update_mailing_list(unsubscribe_from_daily_ayah_message)
+    end
+
     private
 
     attr_reader :gibbon, :email
@@ -47,6 +51,10 @@ module MailingList
 
     def subscribe_to_daily_ayah_message
       { body: { interests: { DAILY_AYAH_ID => true } } }
+    end
+
+    def unsubscribe_from_daily_ayah_message
+      { body: { interests: { DAILY_AYAH_ID => false } } }
     end
 
     def success_response

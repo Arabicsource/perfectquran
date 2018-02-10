@@ -1,4 +1,4 @@
-<%= form_with model: @email_preference, method: :patch, id: 'email-preferences-form' do |f| %>
+<%= form_with model: @email_preference, method: :patch, local: true, id: 'email-preferences-form' do |f| %>
   <div class='field'>
     <div class='control'>
       <%= f.label :general, class: 'checkbox' do %>

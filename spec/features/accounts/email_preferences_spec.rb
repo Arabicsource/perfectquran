@@ -52,4 +52,22 @@ feature 'Email Preferences' do
     expect(page).to have_field('account_email_preference_daily_ayah', checked: true)
     expect(page).to have_css '.notification', text: 'Your email preferences have been updated'
   end
+
+  scenario 'when account unsubscribes from daily ayah' do
+    account.email_preference.toggle!(:daily_ayah)
+
+    allow(MailingList::Updater).to(
+      receive(:new).with(account.email).and_return(updater)
+    )
+
+    allow(updater).to(
+      receive(:unsubscribe_from_daily_ayah).and_return(successful_response)
+    )
+
+    page.find('#account_email_preference_daily_ayah').set(false)
+    click_on 'Save Email Preferences'
+
+    expect(page).to have_field('account_email_preference_daily_ayah', checked: false)
+    expect(page).to have_css '.notification', text: 'Your email preferences have been updated'
+  end
 end
