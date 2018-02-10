@@ -7,6 +7,7 @@
 #  general    :boolean          default(TRUE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  daily_ayah :boolean          default(FALSE)
 #
 
 require 'rails_helper'

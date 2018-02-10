@@ -3,6 +3,7 @@
 module MailingList
   class Updater
     LIST_ID = Rails.application.secrets.mailchimp_list_id
+    DAILY_AYAH_ID = Rails.application.secrets.mailchimp_daily_ayah_id
 
     def initialize(email)
       @gibbon = Gibbon::Request.new
@@ -15,6 +16,10 @@ module MailingList
 
     def unsubscribe
       update_mailing_list(unsubscribe_message)
+    end
+
+    def subscribe_to_daily_ayah
+      update_mailing_list(subscribe_to_daily_ayah_message)
     end
 
     private
@@ -38,6 +43,10 @@ module MailingList
 
     def unsubscribe_message
       { body: { email_address: email, status: "unsubscribed" } }
+    end
+
+    def subscribe_to_daily_ayah_message
+      { body: { interests: { DAILY_AYAH_ID => true } } }
     end
 
     def success_response
