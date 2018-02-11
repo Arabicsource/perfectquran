@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_10_105138) do
+ActiveRecord::Schema.define(version: 2018_02_11_131823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -208,6 +208,13 @@ ActiveRecord::Schema.define(version: 2018_02_10_105138) do
     t.index ["account_id"], name: "index_quran_bookmarks_on_account_id"
     t.index ["bookmarkable_id", "bookmarkable_type"], name: "index_quran_bookmarks_on_bookmarkable_id_and_bookmarkable_type"
     t.index ["bookmarkable_type", "bookmarkable_id"], name: "index_quran_bookmarks_on_bookmarkable_type_and_bookmarkable_id"
+  end
+
+  create_table "quran_daily_ayahs", force: :cascade do |t|
+    t.bigint "quran_ayah_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quran_ayah_id"], name: "index_quran_daily_ayahs_on_quran_ayah_id"
   end
 
   create_table "quran_languages", force: :cascade do |t|
@@ -521,6 +528,7 @@ ActiveRecord::Schema.define(version: 2018_02_10_105138) do
   add_foreign_key "profiles", "accounts"
   add_foreign_key "quran_ayahs", "quran_surahs", column: "surah_id"
   add_foreign_key "quran_bookmarks", "accounts"
+  add_foreign_key "quran_daily_ayahs", "quran_ayahs"
   add_foreign_key "quran_texts", "quran_ayahs", column: "ayah_id"
   add_foreign_key "quran_texts", "quran_translations", column: "translation_id"
   add_foreign_key "quran_translations", "quran_languages", column: "language_id"
