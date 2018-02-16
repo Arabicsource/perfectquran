@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module MailingList
+  # :nodoc:
   class Updater
     LIST_ID = Rails.application.secrets.mailchimp_list_id
     DAILY_AYAH_ID = Rails.application.secrets.mailchimp_daily_ayah_id
@@ -31,22 +32,20 @@ module MailingList
     attr_reader :gibbon, :email
 
     def update_mailing_list(message_body)
-      begin
-        gibbon.lists(LIST_ID)
-              .members(md5_hashed_email)
-              .upsert(message_body)
-        success_response
-      rescue => exception
-        failure_response(exception.message)
-      end
+      gibbon.lists(LIST_ID)
+            .members(md5_hashed_email)
+            .upsert(message_body)
+      success_response
+    rescue StandardError => exception
+      failure_response(exception.message)
     end
 
     def subscribe_message
-      { body: { email_address: email, status: "subscribed" } }
+      { body: { email_address: email, status: 'subscribed' } }
     end
 
     def unsubscribe_message
-      { body: { email_address: email, status: "unsubscribed" } }
+      { body: { email_address: email, status: 'unsubscribed' } }
     end
 
     def subscribe_to_daily_ayah_message

@@ -19,7 +19,8 @@ RSpec.shared_examples 'an account get request' do
       specify { expect(response).to be_successful }
 
       specify do
-        expect(response.body).to include "<title>#{title} | Perfect Quran</title>"
+        expect(response.body)
+          .to include "<title>#{title} | Perfect Quran</title>"
       end
     end
 

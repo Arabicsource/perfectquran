@@ -81,7 +81,10 @@ RSpec.describe Account, type: :model do
       expect { create :account }.to change(Profile, :count).by(1)
     end
 
-    specify { expect { create :account }.to change(Account::EmailPreference, :count).by(1) }
+    specify do
+      expect { create :account }
+        .to(change(Account::EmailPreference, :count).by(1))
+    end
   end
 
   describe 'Account.all' do

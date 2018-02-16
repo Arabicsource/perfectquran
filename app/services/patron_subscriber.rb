@@ -13,7 +13,7 @@ class PatronSubscriber
     create_external_subscription
     create_subscription
     create_charge
-  rescue
+  rescue StandardError
     false
   end
 

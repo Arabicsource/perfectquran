@@ -5,7 +5,7 @@ require 'rails_helper'
 
 describe 'Ayahs', type: :request do
   let!(:ayah) { create :ayah, id: 2 }
-  let!(:previous) { create :ayah, id: 1}
+  let!(:previous) { create :ayah, id: 1 }
   let!(:next) { create :ayah, id: 3 }
 
   describe 'GET quran_ayah_path(ayah)' do
@@ -20,7 +20,7 @@ describe 'Ayahs', type: :request do
         mobile_browser
         get quran_ayah_path(ayah)
       end
-  
+
       specify { expect(response).to be_successful }
     end
   end

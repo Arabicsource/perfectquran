@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-include Warden::Test::Helpers
 
 feature 'Searching' do
   let!(:texts) { create_list :text, 3, content: 'abc123' }

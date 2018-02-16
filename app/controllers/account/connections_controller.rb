@@ -67,7 +67,7 @@ class Account
         token: auth[:credentials][:token],
         secret: auth[:credentials][:secret]
       )
-    rescue
+    rescue StandardError
       false
     end
 

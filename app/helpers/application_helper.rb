@@ -19,6 +19,6 @@ module ApplicationHelper
   end
 
   def account_patron?
-    current_account && current_account.patron?
+    current_account&.patron?
   end
 end

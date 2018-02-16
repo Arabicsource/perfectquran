@@ -24,6 +24,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include RequestSpecHelper, type: :request
   config.include MobileHelper, type: :request
+  config.include Warden::Test::Helpers, type: :feature
 end
 
 Shoulda::Matchers.configure do |config|
@@ -32,4 +33,3 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
-

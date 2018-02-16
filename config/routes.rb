@@ -2,9 +2,9 @@
 
 Rails.application.routes.draw do
   devise_for :accounts,
-              path: '/account',
-              path_names: { sign_up: 'register' },
-              controllers: { registrations: 'account/registrations' }
+             path: '/account',
+             path_names: { sign_up: 'register' },
+             controllers: { registrations: 'account/registrations' }
 
   namespace :account do
     root 'profiles#show'
@@ -73,7 +73,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'auth/:provider/callback', to: 'account/connections#callback'  
+  get 'auth/:provider/callback', to: 'account/connections#callback'
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'quran/surahs#show', as: :surah
 

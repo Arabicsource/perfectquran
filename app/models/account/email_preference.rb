@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: account_email_preferences
@@ -10,6 +12,9 @@
 #  daily_ayah :boolean          default(FALSE)
 #
 
-class Account::EmailPreference < ApplicationRecord
-  belongs_to :account
+class Account
+  # :nodoc:
+  class EmailPreference < ApplicationRecord
+    belongs_to :account
+  end
 end

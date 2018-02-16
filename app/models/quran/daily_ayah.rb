@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: quran_daily_ayahs
@@ -8,6 +10,9 @@
 #  updated_at    :datetime         not null
 #
 
-class Quran::DailyAyah < ApplicationRecord
-  belongs_to :quran_ayah, class_name: 'Quran::Ayah'
+module Quran
+  # :nodoc:
+  class DailyAyah < ApplicationRecord
+    belongs_to :quran_ayah, class_name: 'Quran::Ayah'
+  end
 end

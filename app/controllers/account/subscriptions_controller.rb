@@ -29,11 +29,11 @@ class Account
     end
 
     def update
-      if reactivate_patron_subscription
-        flash[:success] = I18n.t('accounts.subscriptions.update.success')
-      else
-        flash[:success] = I18n.t('accounts.subscriptions.update.error')
-      end
+      flash[:success] = if reactivate_patron_subscription
+                          I18n.t('accounts.subscriptions.update.success')
+                        else
+                          I18n.t('accounts.subscriptions.update.error')
+                        end
 
       redirect_to account_subscription_path
     end

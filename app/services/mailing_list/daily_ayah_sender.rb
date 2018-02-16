@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module MailingList
+  # :nodoc:
   class DailyAyahSender
     LIST_ID = Rails.application.secrets.mailchimp_list_id
     SEGMENT_ID = 12583
@@ -17,16 +18,16 @@ module MailingList
           saved_segment_id: SEGMENT_ID
         }
       }
- 
+
       settings = {
         subject_line: title,
         title: title,
-        from_name: "PerfectQuran",
-        reply_to: "quran.is.perfect@gmail.com"
+        from_name: 'PerfectQuran',
+        reply_to: 'quran.is.perfect@gmail.com'
       }
 
       body = {
-        type: "regular",
+        type: 'regular',
         recipients: recipients,
         settings: settings
       }
@@ -67,10 +68,10 @@ module MailingList
     def ayah
       ayah_id = Quran::DailyAyah.last.try(:quran_ayah_id).to_i
 
-      ayah = if ayah_id == 0 || ayah_id == 6236
+      ayah = if ayah_id.zero? || ayah_id == 6236
                Quran::Ayah.first
              else
-              Quran::Ayah.find(ayah_id + 1)
+               Quran::Ayah.find(ayah_id + 1)
              end
 
       ayah

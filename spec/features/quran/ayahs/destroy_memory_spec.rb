@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-include Warden::Test::Helpers
 
 feature 'Destroy a memory on an ayah', js: true do
   let(:surah) { create :surah, id: 1 }

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-include Warden::Test::Helpers
 
 feature 'Hifz', js: true do
   scenario 'account owner forgets all' do

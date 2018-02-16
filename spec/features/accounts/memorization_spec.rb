@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-include Warden::Test::Helpers
 
 feature 'Hifz', js: true do
   let!(:surahs) { create_list :surah, 5, :with_ayahs }

@@ -10,7 +10,7 @@ class PaymentMethodUpdater
   def run!
     update_external_customer
     update_subscription
-  rescue
+  rescue StandardError
     false
   end
 

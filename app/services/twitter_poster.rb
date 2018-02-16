@@ -14,12 +14,10 @@ class TwitterPoster
   end
 
   def call
-    begin
-      client.update(text)
-      success_response
-    rescue => exception
-      failure_response(exception.message)
-    end
+    client.update(text)
+    success_response
+  rescue StandardError => exception
+    failure_response(exception.message)
   end
 
   private

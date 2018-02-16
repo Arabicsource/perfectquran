@@ -14,7 +14,7 @@ class TwitterConnectionPoster
   def run!
     post_tweet
     update_connection
-  rescue
+  rescue StandardError
     false
   end
 

@@ -11,7 +11,14 @@ feature 'Registration' do
     fill_in 'Password confirmation', with: 'password'
     click_on 'registration-form-submit'
 
-    expect(page).to have_css '.notification', text: 'Alhamdulillah! You have successfully registered.'
+    expect(page)
+      .to(
+        have_css(
+          '.notification',
+          text: 'Alhamdulillah! You have successfully registered.'
+        )
+      )
+
     expect(current_url).to eq account_root_url
   end
 end

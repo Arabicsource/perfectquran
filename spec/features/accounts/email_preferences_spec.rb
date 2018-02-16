@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-include Warden::Test::Helpers
 
 feature 'Email Preferences' do
   let(:account) { create :account }
@@ -17,8 +16,10 @@ feature 'Email Preferences' do
   end
 
   scenario 'for newly created account' do
-    expect(page).to have_field('account_email_preference_general', checked: true)
-    expect(page).to have_field('account_email_preference_daily_ayah', checked: false)
+    expect(page)
+      .to(have_field('account_email_preference_general', checked: true))
+    expect(page)
+      .to(have_field('account_email_preference_daily_ayah', checked: false))
   end
 
   scenario 'when account unsubscribes from general' do
@@ -33,8 +34,15 @@ feature 'Email Preferences' do
     page.find('#account_email_preference_general').set(false)
     click_on 'Save Email Preferences'
 
-    expect(page).to have_field('account_email_preference_general', checked: false)
-    expect(page).to have_css '.notification', text: 'Your email preferences have been updated'
+    expect(page)
+      .to(have_field('account_email_preference_general', checked: false))
+    expect(page)
+      .to(
+        have_css(
+          '.notification',
+          text: 'Your email preferences have been updated'
+        )
+      )
   end
 
   scenario 'when account subscribes to daily ayahs' do
@@ -49,8 +57,14 @@ feature 'Email Preferences' do
     page.find('#account_email_preference_daily_ayah').set(true)
     click_on 'Save Email Preferences'
 
-    expect(page).to have_field('account_email_preference_daily_ayah', checked: true)
-    expect(page).to have_css '.notification', text: 'Your email preferences have been updated'
+    expect(page)
+      .to(have_field('account_email_preference_daily_ayah', checked: true))
+    expect(page)
+      .to(
+        have_css(
+          '.notification', text: 'Your email preferences have been updated'
+        )
+      )
   end
 
   scenario 'when account unsubscribes from daily ayah' do
@@ -67,7 +81,14 @@ feature 'Email Preferences' do
     page.find('#account_email_preference_daily_ayah').set(false)
     click_on 'Save Email Preferences'
 
-    expect(page).to have_field('account_email_preference_daily_ayah', checked: false)
-    expect(page).to have_css '.notification', text: 'Your email preferences have been updated'
+    expect(page)
+      .to(have_field('account_email_preference_daily_ayah', checked: false))
+    expect(page)
+      .to(
+        have_css(
+          '.notification',
+          text: 'Your email preferences have been updated'
+        )
+      )
   end
 end

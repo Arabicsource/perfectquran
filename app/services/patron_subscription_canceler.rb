@@ -10,7 +10,7 @@ class PatronSubscriptionCanceler
   def run!
     cancel_external_subscription
     cancel_subscription
-  rescue
+  rescue StandardError
     false
   end
 

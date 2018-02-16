@@ -8,11 +8,26 @@ RSpec.describe MailingList::Updater do
   let(:gibbon) { double(:gibbon) }
   let(:list) { double(:list) }
   let(:member) { double(:member) }
-  let(:subscribe_body) { {body: {email_address: email, status: "subscribed"}} }
-  let(:unsubscribe_body) { {body: {email_address: email, status: "unsubscribed"}} }
-  let(:unsubscribe_body) { {body: {email_address: email, status: "unsubscribed"}} }
-  let(:subscribe_to_daily_ayah_body) { { body: {interests: {'dailyayahid' => true} } } }
-  let(:unsubscribe_from_daily_ayah_body) { { body: {interests: {'dailyayahid' => false} } } }
+
+  let(:subscribe_body) do
+    { body: { email_address: email, status: 'subscribed' } }
+  end
+
+  let(:unsubscribe_body) do
+    { body: { email_address: email, status: 'unsubscribed' } }
+  end
+
+  let(:unsubscribe_body) do
+    { body: { email_address: email, status: 'unsubscribed' } }
+  end
+
+  let(:subscribe_to_daily_ayah_body) do
+    { body: { interests: { 'dailyayahid' => true } } }
+  end
+
+  let(:unsubscribe_from_daily_ayah_body) do
+    { body: { interests: { 'dailyayahid' => false } } }
+  end
 
   before do
     allow(Gibbon::Request).to receive(:new).and_return(gibbon)
@@ -34,7 +49,7 @@ RSpec.describe MailingList::Updater do
         receive(:upsert).with(subscribe_body).and_raise('Exception')
       )
     end
-    
+
     specify do
       expect(MailingList::Updater.new(email).subscribe)
         .not_to be_successful
@@ -60,7 +75,7 @@ RSpec.describe MailingList::Updater do
       expect(member)
         .to receive(:upsert).with(unsubscribe_body).and_raise('Exception')
     end
-    
+
     specify do
       expect(MailingList::Updater.new(email).unsubscribe)
         .not_to be_successful
@@ -73,19 +88,24 @@ RSpec.describe MailingList::Updater do
   end
 
   context 'when subscribing to daily ayah' do
-    before { expect(member).to receive(:upsert).with(subscribe_to_daily_ayah_body) }
+    before do
+      expect(member).to(receive(:upsert)).with(subscribe_to_daily_ayah_body)
+    end
 
     specify do
-      expect(MailingList::Updater.new(email).subscribe_to_daily_ayah).to be_successful
+      expect(MailingList::Updater
+        .new(email).subscribe_to_daily_ayah).to be_successful
     end
   end
 
   context 'when unsubscribing from daily ayah with exception' do
     before do
       expect(member)
-        .to receive(:upsert).with(unsubscribe_from_daily_ayah_body).and_raise('Exception')
+        .to((receive :upsert))
+        .with(unsubscribe_from_daily_ayah_body)
+        .and_raise('Exception')
     end
-    
+
     specify do
       expect(MailingList::Updater.new(email).unsubscribe_from_daily_ayah)
         .not_to be_successful

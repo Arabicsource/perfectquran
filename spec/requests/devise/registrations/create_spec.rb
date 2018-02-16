@@ -18,15 +18,18 @@ describe '/devise/registrations/create', type: :request do
     end
 
     it 'creates account' do
-      expect { post account_registration_path, params: valid_params }.to change(Account, :count).by(1)
+      expect { post account_registration_path, params: valid_params }
+        .to(change(Account, :count).by(1))
     end
 
     it 'creates profile' do
-      expect { post account_registration_path, params: valid_params }.to change(Profile, :count).by(1)
+      expect { post account_registration_path, params: valid_params }
+        .to(change(Profile, :count).by(1))
     end
 
     it 'sends an email' do
-      expect { post account_registration_path, params: valid_params }.to change { ActionMailer::Base.deliveries.count }.by(1)
+      expect { post account_registration_path, params: valid_params }
+        .to(change { ActionMailer::Base.deliveries.count }.by(1))
     end
 
     it 'calls mail list subscriber' do

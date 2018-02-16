@@ -10,7 +10,7 @@ class PatronSubscriptionActivater
   def run!
     activate_external_subscription
     activate_subscription
-  rescue
+  rescue StandardError
     false
   end
 

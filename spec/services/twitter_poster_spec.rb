@@ -26,7 +26,13 @@ RSpec.describe TwitterPoster do
       )
     end
 
-    specify { expect(TwitterPoster.new(token, secret, text).call).not_to be_successful }
-    specify { expect(TwitterPoster.new(token, secret, text).call.error).to eq('Exception') }
+    specify do
+      expect(TwitterPoster.new(token, secret, text).call).not_to be_successful
+    end
+
+    specify do
+      expect(TwitterPoster.new(token, secret, text).call.error)
+        .to eq('Exception')
+    end
   end
 end

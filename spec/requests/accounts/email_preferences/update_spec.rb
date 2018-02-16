@@ -52,7 +52,7 @@ describe 'POST account_email_preference_path', type: :request do
         )
 
         expect { patch url, params: valid_params }
-          .to change{email_preference.reload.general}
+          .to(change { email_preference.reload.general })
       end
 
       specify do
@@ -77,7 +77,7 @@ describe 'POST account_email_preference_path', type: :request do
         )
 
         expect { patch url, params: valid_params }
-          .not_to change{email_preference.reload.general}
+          .not_to(change { email_preference.reload.general })
       end
 
       specify do
@@ -100,7 +100,7 @@ describe 'POST account_email_preference_path', type: :request do
         )
 
         expect { patch url, params: unsubscribe_params }
-          .to change{email_preference.reload.general}
+          .to(change { email_preference.reload.general })
       end
 
       specify do
@@ -123,7 +123,7 @@ describe 'POST account_email_preference_path', type: :request do
         )
 
         expect { patch url, params: unsubscribe_params }
-          .not_to change{email_preference.reload.general}
+          .not_to(change { email_preference.reload.general })
       end
 
       specify do
@@ -146,7 +146,7 @@ describe 'POST account_email_preference_path', type: :request do
         )
 
         expect { patch url, params: daily_ayah_params }
-          .to change{email_preference.reload.daily_ayah}
+          .to(change { email_preference.reload.daily_ayah })
       end
 
       specify do
@@ -167,7 +167,7 @@ describe 'POST account_email_preference_path', type: :request do
         )
 
         expect { patch url, params: daily_ayah_params }
-          .not_to change{email_preference.reload.daily_ayah}
+          .not_to(change { email_preference.reload.daily_ayah })
       end
 
       specify do
@@ -190,7 +190,7 @@ describe 'POST account_email_preference_path', type: :request do
         )
 
         expect { patch url, params: unsubscribe_daily_ayah_params }
-          .to change{email_preference.reload.daily_ayah}
+          .to(change { email_preference.reload.daily_ayah })
       end
 
       specify do
@@ -213,7 +213,7 @@ describe 'POST account_email_preference_path', type: :request do
         )
 
         expect { patch url, params: unsubscribe_daily_ayah_params }
-          .not_to change{email_preference.reload.daily_ayah}
+          .not_to(change { email_preference.reload.daily_ayah })
       end
 
       specify do
