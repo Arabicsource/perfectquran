@@ -50,7 +50,7 @@ group :development do
   gem 'capistrano-passenger', '~> 0.2.0'
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-rvm'
-  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rubocop', '~> 0.52.1', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'stripe-ruby-mock', '~> 2.5.0', require: 'stripe_mock'
