@@ -22,7 +22,7 @@
 # :nodoc:
 class Connection < ApplicationRecord
   belongs_to :account
-  belongs_to :translation, class_name: 'Quran::Translation'
+  belongs_to :translation
 
   validates :name, presence: true
   validates :provider, presence: true
@@ -60,6 +60,6 @@ class Connection < ApplicationRecord
   private
 
   def last_ayah
-    @last_ayah ||= Quran::Ayah.find(last_ayah_id)
+    @last_ayah ||= Ayah.find(last_ayah_id)
   end
 end

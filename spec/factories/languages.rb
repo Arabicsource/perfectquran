@@ -10,7 +10,7 @@
 #
 
 FactoryBot.define do
-  factory :language, class: Quran::Language do
+  factory :language do
     name 'string'
     direction 'string'
   end

@@ -33,12 +33,12 @@ class Account
             account: current_account, ayah_id: @surah.ayah_ids
           ).map(&:ayah_id)
 
-          @memory_count = Quran::Ayah.where(id: ayah_ids)
+          @memory_count = Ayah.where(id: ayah_ids)
                                      .sum(:character_length)
         end
 
         def load_resources
-          @ayah = Quran::Ayah.find_by(id: params[:ayah_id])
+          @ayah = Ayah.find_by(id: params[:ayah_id])
           @surah = @ayah.surah
         end
       end

@@ -27,7 +27,7 @@ module Quran
       end
 
       def load_ayah
-        @ayah = Quran::Ayah.find(params[:ayah_id])
+        @ayah = Ayah.find(params[:ayah_id])
       end
 
       def load_tag

@@ -30,7 +30,7 @@ describe 'DELETE /account/memory', type: :request do
     it 'changes memory count' do
       create_list :surah, 5, :with_ayahs
 
-      Quran::Ayah.all.each do |ayah|
+      Ayah.all.each do |ayah|
         Memory.create(account: account, ayah: ayah)
       end
 

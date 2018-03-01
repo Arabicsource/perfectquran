@@ -14,5 +14,5 @@
 # :nodoc:
 class Memory < ApplicationRecord
   belongs_to :account
-  belongs_to :ayah, class_name: 'Quran::Ayah'
+  belongs_to :ayah
 end

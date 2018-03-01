@@ -18,7 +18,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Quran::Surah, type: :model do
+RSpec.describe Surah, type: :model do
   context 'associations' do
     it { is_expected.to have_many(:memories).through(:ayahs) }
   end

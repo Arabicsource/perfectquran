@@ -8,7 +8,7 @@ class Account
     end
 
     def create
-      Quran::Ayah.all.each do |ayah|
+      Ayah.all.each do |ayah|
         Memory.find_or_create_by(account: current_account, ayah: ayah)
       end
 

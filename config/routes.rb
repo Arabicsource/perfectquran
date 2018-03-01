@@ -73,6 +73,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/quran/ayahs/:id', to: 'quran/ayahs#show', as: :ayah
   get 'auth/:provider/callback', to: 'account/connections#callback'
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:permalink', to: 'quran/surahs#show', as: :surah

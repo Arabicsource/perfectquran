@@ -20,7 +20,7 @@ class HifzManager
   private
 
   def build_surah_groups
-    Quran::Surah.all.each do |surah|
+    Surah.all.each do |surah|
       memory_count = memories.where(ayah: surah.ayah_ids).count
 
       if memory_count.zero?
@@ -34,7 +34,7 @@ class HifzManager
   end
 
   def memorized_ayahs
-    Quran::Ayah
+    Ayah
       .left_outer_joins(:memories)
       .where(memories: { account: @account })
   end

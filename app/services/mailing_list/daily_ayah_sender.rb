@@ -69,9 +69,9 @@ module MailingList
       ayah_id = Quran::DailyAyah.last.try(:quran_ayah_id).to_i
 
       ayah = if ayah_id.zero? || ayah_id == 6236
-               Quran::Ayah.first
+               Ayah.first
              else
-               Quran::Ayah.find(ayah_id + 1)
+               Ayah.find(ayah_id + 1)
              end
 
       ayah

@@ -6,10 +6,10 @@ class Account
     before_action :load_profile, only: %i[show edit update]
 
     def show
-      @total_points = Quran::Ayah.joins(:memories)
+      @total_points = Ayah.joins(:memories)
                                  .where(memories: { account: current_account })
                                  .sum(:character_length) * 3
-      @surahs = Quran::Surah.joins(:memories)
+      @surahs = Surah.joins(:memories)
                             .where(memories: { account: current_account }).uniq
     end
 

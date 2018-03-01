@@ -8,7 +8,7 @@ module Quran
 
       return unless @terms
 
-      @results = Quran::Text.search(
+      @results = Text.search(
         @terms, fields: [:content], highlight: true
       )
     end

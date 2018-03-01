@@ -6,7 +6,7 @@ class Account
       # :nodoc:
       class MemoriesController < Account::BaseController
         def create
-          @surah = Quran::Surah.find_by(id: params[:surah_id])
+          @surah = Surah.find_by(id: params[:surah_id])
 
           @surah.ayahs.each do |ayah|
             Memory.find_or_create_by(ayah: ayah, account: current_account)
@@ -16,7 +16,7 @@ class Account
         end
 
         def destroy
-          @surah = Quran::Surah.find_by(id: params[:surah_id])
+          @surah = Surah.find_by(id: params[:surah_id])
 
           Memory.where(account: current_account, ayah: @surah.ayahs).delete_all
 

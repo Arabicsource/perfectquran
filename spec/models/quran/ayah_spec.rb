@@ -16,7 +16,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Quran::Ayah, type: :model do
+RSpec.describe Ayah, type: :model do
   it { is_expected.to belong_to :surah }
   it { is_expected.to have_many :texts }
   it { is_expected.to have_many :memories }
@@ -24,7 +24,7 @@ RSpec.describe Quran::Ayah, type: :model do
 
   it do
     is_expected.to(
-      have_many(:texts_and_included_translations).class_name('Quran::Text')
+      have_many(:texts_and_included_translations)
     )
   end
 

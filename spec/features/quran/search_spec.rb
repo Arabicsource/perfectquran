@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'Searching' do
   let!(:texts) { create_list :text, 3, content: 'abc123' }
 
-  before { Quran::Text.reindex }
+  before { Text.reindex }
 
   scenario 'the quran' do
     visit quran_root_path

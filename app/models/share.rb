@@ -10,5 +10,5 @@
 #  updated_at :datetime         not null
 #
 class Share < ApplicationRecord
-  belongs_to :ayah, class_name: 'Quran::Ayah'
+  belongs_to :ayah
 end

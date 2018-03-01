@@ -17,7 +17,7 @@
 #
 
 FactoryBot.define do
-  factory :surah, class: Quran::Surah do
+  factory :surah do
     number_of_ayahs 1
     order_of_revelation 1
     revelation_type 'meccan'

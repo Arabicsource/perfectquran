@@ -11,7 +11,7 @@
 #
 
 FactoryBot.define do
-  factory :translation, class: Quran::Translation do
+  factory :translation do
     name 'string'
     description 'string'
     language

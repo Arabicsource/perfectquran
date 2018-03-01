@@ -5,11 +5,11 @@ module Api
     # :nodoc:
     class SurahsController < Api::V1::BaseController
       def index
-        render json: Quran::Surah.all
+        render json: Surah.all
       end
 
       def show
-        render json: Quran::Surah.find(params[:id])
+        render json: Surah.find(params[:id])
       end
     end
   end

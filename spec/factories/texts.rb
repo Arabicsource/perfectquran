@@ -11,7 +11,7 @@
 #
 
 FactoryBot.define do
-  factory :text, class: Quran::Text do
+  factory :text do
     content 'string'
     translation
     ayah
