@@ -9,7 +9,7 @@ module Quran
 
       def create
         @ayah = Ayah.find_by(id: params[:ayah_id])
-        @bookmark = Quran::Bookmark.new(
+        @bookmark = Bookmark.new(
           bookmarkable: @ayah, account: current_account
         )
 
@@ -22,7 +22,7 @@ module Quran
 
       def destroy
         @ayah = Ayah.find_by(id: params[:ayah_id])
-        @bookmark = Quran::Bookmark.find_by(
+        @bookmark = Bookmark.find_by(
           bookmarkable: @ayah, account: current_account
         )
 

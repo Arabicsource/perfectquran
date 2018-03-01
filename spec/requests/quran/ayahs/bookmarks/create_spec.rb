@@ -24,7 +24,7 @@ describe 'POST /quran/ayahs/:ayah_id/bookmarks', type: :request do
       end
 
       specify do
-        expect { post valid_url }.to change(Quran::Bookmark, :count).by(1)
+        expect { post valid_url }.to change(Bookmark, :count).by(1)
       end
     end
 
@@ -36,7 +36,7 @@ describe 'POST /quran/ayahs/:ayah_id/bookmarks', type: :request do
       end
 
       specify do
-        expect { post invalid_url }.not_to change(Quran::Bookmark, :count)
+        expect { post invalid_url }.not_to change(Bookmark, :count)
       end
     end
   end

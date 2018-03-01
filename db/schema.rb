@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_01_144727) do
+ActiveRecord::Schema.define(version: 2018_03_01_150438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,13 +92,13 @@ ActiveRecord::Schema.define(version: 2018_03_01_144727) do
   end
 
   create_table "bookmarks", force: :cascade do |t|
-    t.bigint "account_id"
+    t.string "bookmarkable_type"
     t.bigint "bookmarkable_id"
+    t.bigint "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "bookmarkable_type"
     t.index ["account_id"], name: "index_bookmarks_on_account_id"
-    t.index ["bookmarkable_id"], name: "index_bookmarks_on_bookmarkable_id"
+    t.index ["bookmarkable_type", "bookmarkable_id"], name: "index_bookmarks_on_bookmarkable_type_and_bookmarkable_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -282,7 +282,6 @@ ActiveRecord::Schema.define(version: 2018_03_01_144727) do
   add_foreign_key "articles", "categories"
   add_foreign_key "ayahs", "surahs"
   add_foreign_key "bookmarks", "accounts"
-  add_foreign_key "bookmarks", "ayahs", column: "bookmarkable_id"
   add_foreign_key "charges", "accounts"
   add_foreign_key "comments", "accounts"
   add_foreign_key "comments", "articles"

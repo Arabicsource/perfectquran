@@ -26,7 +26,7 @@ describe 'DELETE /quran/ayahs/:ayah_id/bookmarks', type: :request do
       end
 
       it 'deletes a bookmark' do
-        expect { delete valid_url }.to change(Quran::Bookmark, :count).by(-1)
+        expect { delete valid_url }.to change(Bookmark, :count).by(-1)
       end
     end
 
@@ -38,7 +38,7 @@ describe 'DELETE /quran/ayahs/:ayah_id/bookmarks', type: :request do
       end
 
       it 'does not delete a bookmark' do
-        expect { delete invalid_url }.not_to change(Quran::Bookmark, :count)
+        expect { delete invalid_url }.not_to change(Bookmark, :count)
       end
     end
   end

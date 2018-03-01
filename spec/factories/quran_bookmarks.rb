@@ -13,6 +13,6 @@
 #
 
 FactoryBot.define do
-  factory :bookmark, class: Quran::Bookmark do
+  factory :bookmark do
   end
 end
