@@ -1,0 +1,30 @@
+= form_with model: @email_preference, method: :patch, local: true, id: 'email-preferences-form' do |f|
+  .field
+    .control
+      = f.label :general, class: 'checkbox' do
+        .media
+          .media-left
+            = f.check_box :general
+
+          .media-content
+            .content
+              %p
+                <strong>General</strong><br>
+                We'll send you periodic updates about the PerfectQuran project.
+
+  .field
+    .control
+      = f.label :daily_ayah, class: 'checkbox' do
+        .media
+          .media-left
+            = f.check_box :daily_ayah
+
+          .media-content
+            .content
+              %p
+                <strong>Daily Ayah</strong><br>
+                Recieve an ayah direct to your inbox once a day.
+
+  .field
+    .control
+      = f.submit 'Save Email Preferences', class: 'button is-primary'

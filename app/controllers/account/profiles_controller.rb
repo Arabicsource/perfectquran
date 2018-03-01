@@ -5,10 +5,6 @@ class Account
   class ProfilesController < Account::BaseController
     before_action :load_profile, only: %i[edit update]
 
-    def edit
-      render layout: 'replacement'
-    end
-
     def update
       if @profile.update_attributes(profile_params)
         flash[:success] = 'Alhamdulillah, Your profile was updated'

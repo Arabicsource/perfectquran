@@ -8,7 +8,6 @@ class Account
 
     def index
       @connections = Connection.where(account: current_account)
-      render layout: 'replacement'
     end
 
     def edit; end

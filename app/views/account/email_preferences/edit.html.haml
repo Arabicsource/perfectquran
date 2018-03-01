@@ -1,0 +1,14 @@
+%section.section
+  .container
+    .columns
+      .column
+        = render 'account/shared/menu'
+
+      .column.is-two-thirds
+        %header
+          %h1.title Edit Email Preferences
+
+        %section
+          = render 'form'
+
+- provide :title, 'Edit Email Preferences'
