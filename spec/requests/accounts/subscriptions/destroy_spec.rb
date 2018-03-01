@@ -21,7 +21,7 @@ describe 'DELETE /account/subscriptions/destroy', type: :request do
       it 'redirects' do
         delete uri
 
-        expect(response).to redirect_to account_profile_path
+        expect(response).to redirect_to edit_account_profile_path
       end
     end
 

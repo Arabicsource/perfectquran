@@ -10,7 +10,7 @@ class Account
     def update
       if @profile.update_attributes(profile_params)
         flash[:success] = 'Alhamdulillah, Your profile was updated'
-        redirect_to account_profile_path
+        redirect_to edit_account_profile_path
       else
         render :edit
       end

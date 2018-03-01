@@ -67,7 +67,7 @@ class Account
     end
 
     def require_subscription
-      redirect_to account_profile_path unless @subscription
+      redirect_to edit_account_profile_path unless @subscription
     end
 
     def require_cancelled_subscription

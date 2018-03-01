@@ -21,7 +21,7 @@ describe 'PATCH /account/subscriptions/update', type: :request do
       it 'redirects' do
         patch uri
 
-        expect(response).to redirect_to account_profile_path
+        expect(response).to redirect_to edit_account_profile_path
       end
     end
 

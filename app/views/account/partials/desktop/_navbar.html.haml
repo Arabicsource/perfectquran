@@ -3,7 +3,6 @@
     .navbar-menu
       .navbar-start
         = link_to t('accounts.partials.desktop.navbar.memorization'), account_memory_path, class: params[:controller].starts_with?('account/memories') ? 'navbar-item is-active' : 'navbar-item'        
-        = link_to t('accounts.partials.desktop.navbar.profile'), account_profile_path, class: params[:controller].starts_with?('accounts/profiles') ? 'navbar-item is-active' : 'navbar-item'
         = link_to t('accounts.partials.desktop.navbar.connections'), account_connections_path, class: params[:controller].starts_with?('accounts/connections') ? 'navbar-item is-active' : 'navbar-item'
         = link_to t('accounts.partials.desktop.navbar.subscription'), account_subscription_path, class: params[:controller].starts_with?('accounts/subscription') ? 'navbar-item is-active' : 'navbar-item'
       .navbar-end

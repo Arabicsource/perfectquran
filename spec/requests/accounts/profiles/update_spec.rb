@@ -26,7 +26,7 @@ describe '/account/profiles/update', type: :request do
     describe 'when success' do
       before { patch account_profile_path, params: valid_params }
 
-      specify { expect(response).to redirect_to account_profile_path }
+      specify { expect(response).to redirect_to edit_account_profile_path }
       specify { expect(account.reload.profile.name).to eq 'name123' }
       specify { expect(account.reload.profile.username).to eq 'username123' }
       specify { expect(account.reload.profile.bio).to eq 'bio123' }
