@@ -1,24 +1,14 @@
-%table.table.is-fullwidth
-  %thead
-    %tr
-      %th Invoice
-      %th Date
-      %th Ammount
-  %tfoot
-    %tr
-      %th Invoice
-      %th  Date
-      %th Ammount
-  %tbody
-    - @charges.each do |charge|
-      %tr
-        %td= charge.id 
-        %td= charge.created_at.to_date.to_formatted_s(:long_ordinal)
-        %td $5
+%section.section
+  .container
+    .columns
+      .column
+        = render 'account/shared/menu'
+
+      .column.is-two-thirds
+        %header
+          %h1.title Billing Histroy
+
+        %section
+          = render 'table'
 
 - provide :title, 'Billing History'
-- provide :layout_template, 'two_column'
-
-- unless browser.mobile?
-  - content_for :after_header do
-    = render 'account/partials/desktop/navbar'
