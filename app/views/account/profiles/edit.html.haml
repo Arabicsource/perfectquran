@@ -1,8 +1,9 @@
 %section.section
   .container
     .columns
-      .column
-        = render 'account/shared/menu'
+      - unless browser.mobile?
+        .column
+          = render 'account/shared/menu'
 
       .column.is-two-thirds
         %header

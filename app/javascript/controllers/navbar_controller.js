@@ -1,6 +1,14 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
+  toggle_menu() {
+    const burger = this.targets.find('burger')
+    const menu = this.targets.find('menu')
+
+    burger.classList.toggle('is-active')
+    menu.classList.toggle('is-active')
+  }
+
   toggle() {
     const elements = this.targets.findAll("toggable");
     

@@ -1,18 +1,43 @@
-%nav.navbar.is-light{ role: 'navigation', aria: { label: 'main navigation'} }
+%nav.navbar.is-light{data: {controller: 'navbar'}, role: 'navigation', aria: { label: 'main navigation'} }
   .container
     .navbar-brand
       = link_to  root_url, class: 'navbar-item' do
         = image_tag 'queue.jpg'
 
-    .navbar-menu
+      .navbar-burger{data: {action: 'click->navbar#toggle_menu', target: 'navbar.burger'}}
+        %span
+        %span
+        %span
+
+    .navbar-menu{data: {target: 'navbar.menu'}}
       .navbar-start
         = render 'layouts/application/navbar_search'
 
       .navbar-end
-        - if account_signed_in?
-          = link_to 'Admin', admin_root_path, class: 'navbar-item' if current_account.role? :admin
-          = link_to 'Account', edit_account_profile_path, class: 'navbar-item'
-          = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'
+        - if browser.mobile?
+          %nav.menu.mobile
+            %p.menu-label Connections
+            %ul.menu-list
+              %li= link_to 'List', account_connections_path
+              %li= link_to 'Connect Twitter Account', '/auth/twitter'
+          
+            %p.menu-label Settings
+            %ul.menu-list
+              %li= link_to 'Edit Profile', edit_account_profile_path
+              %li= link_to 'Email Preferences', edit_account_email_preference_path
+          
+            %p.menu-label Patronage
+            %ul.menu-list
+              %li= link_to 'Current Subscription', account_subscription_path if current_account.patron?
+              %li= link_to 'New Subscription', new_account_subscription_path unless current_account.patron?
+              %li= link_to 'Billing History', account_charges_path
+              %li= link_to 'Update Payment Method', edit_account_card_path
+
         - else
-          = link_to 'Login', new_account_session_path, class: 'navbar-item'
-          = link_to 'Register', new_account_registration_path, class: 'navbar-item'
+          - if account_signed_in?
+            = link_to 'Admin', admin_root_path, class: 'navbar-item' if current_account.role? :admin
+            = link_to 'Account', edit_account_profile_path, class: 'navbar-item'
+            = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'
+          - else
+            = link_to 'Login', new_account_session_path, class: 'navbar-item'
+            = link_to 'Register', new_account_registration_path, class: 'navbar-item'
