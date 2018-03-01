@@ -12,24 +12,7 @@ Rails.application.routes.draw do
     resource :profile, only: %i[edit update]
     resource :subscription
     resources :connections
-
     resource :email_preference, only: %i[edit update]
-
-    resource :memory do
-      scope module: :memories do
-        resources :surahs do
-          scope module: :surahs do
-            resource :memory
-          end
-        end
-
-        resources :ayahs do
-          scope module: :ayahs do
-            resource :memory
-          end
-        end
-      end
-    end
   end
 
   namespace :admin do

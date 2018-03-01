@@ -1,6 +1,0 @@
-<div id="progress">
-  <p><strong><%= number_to_percentage((@memory_count / @surah.character_length.to_f) * 100, precision: 0) %></strong> Memorized</p>
-  <progress class='progress is-orange' value='<%= @memory_count %>' max='<%= @surah.character_length %>'>
-    <%= (@memory_count / @surah.character_length) %>
-  </progress>
-</div>
