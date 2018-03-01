@@ -32,7 +32,7 @@ class Account < ApplicationRecord
   after_create :create_email_preference!
   after_create :subscribe_to_newsletter
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_one :subscription
   has_one :email_preference
   has_many :connections

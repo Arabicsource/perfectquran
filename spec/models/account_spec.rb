@@ -89,7 +89,7 @@ RSpec.describe Account, type: :model do
 
   describe 'Account.all' do
     it 'returns users ordered by id desc' do
-      Account.delete_all
+      Account.destroy_all
       FactoryBot.create(:account, email: 'first@example.com')
       FactoryBot.create(:account, email: 'second@example.com')
       FactoryBot.create(:account, email: 'third@example.com')

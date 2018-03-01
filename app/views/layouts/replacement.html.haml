@@ -1,0 +1,14 @@
+!!!5
+%html{ html_attrs('en') }
+  = render 'layouts/replacement/head'
+  %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]}"}
+
+    = render 'layouts/shared/flash'
+    = render 'layouts/replacement/navbar'
+
+    = yield 
+
+    = render 'layouts/shared/patron_banner' unless account_patron?
+    = render 'layouts/application/newsletter' unless account_signed_in?
+    = render 'layouts/partials/footer'
+    = render 'layouts/shared/analytics'
