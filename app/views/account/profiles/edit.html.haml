@@ -1,11 +1,14 @@
-= render 'form'
+%section.section
+  .container
+    .columns
+      .column
+        = render 'account/shared/menu'
+
+      .column.is-two-thirds
+        %header
+          %h1.title Edit Profile
+
+        %section
+          = render 'form'
 
 - provide :title, 'Edit Profile'
-- provide :layout_template, 'two_column_sidebar_left'
-
-- unless browser.mobile?
-  - content_for :after_header do
-    = render 'account/partials/desktop/navbar'
-
-  - content_for :sidebar do
-    = render 'account/shared/application/menu'

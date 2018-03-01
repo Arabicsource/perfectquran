@@ -1,0 +1,17 @@
+%nav.menu
+  %p.menu-label Connections
+  %ul.menu-list
+    %li= link_to 'List', account_connections_path
+    %li= link_to 'Connect Twitter Account', '/auth/twitter'
+
+  %p.menu-label Settings
+  %ul.menu-list
+    %li= link_to 'Edit Profile', edit_account_profile_path
+    %li= link_to 'Email Preferences', edit_account_email_preference_path
+
+  %p.menu-label Patronage
+  %ul.menu-list
+    %li= link_to 'Current Subscription', account_subscription_path if current_account.patron?
+    %li= link_to 'New Subscription', new_account_subscription_path unless current_account.patron?
+    %li= link_to 'Billing History', account_charges_path
+    %li= link_to 'Update Payment Method', edit_account_card_path

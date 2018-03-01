@@ -11,7 +11,6 @@ feature 'Email Preferences' do
     login_as account
     visit edit_account_profile_path
 
-    click_on 'accounts-navbar-settings-link'
     click_on 'Email Preferences'
   end
 
