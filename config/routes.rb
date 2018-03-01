@@ -7,7 +7,6 @@ Rails.application.routes.draw do
              controllers: { registrations: 'account/registrations' }
 
   namespace :account do
-    root 'profiles#show'
     resource :card, only: %i[edit update]
     resources :charges, only: :index
     resource :profile, only: %i[edit show update]

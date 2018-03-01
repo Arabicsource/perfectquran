@@ -61,6 +61,7 @@ group :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'launchy'
+  gem 'mocha'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'

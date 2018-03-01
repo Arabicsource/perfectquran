@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-unless Quran::Surah.first
+unless Surah.first
   surahs = YAML.load_file("#{Rails.root}/db/seeds/surahs.yml")
   surahs.each do |surah|
-    Quran::Surah.find_or_create_by!(id: surah['id']) do |s|
+    Surah.find_or_create_by!(id: surah['id']) do |s|
       s.id = surah['id']
       s.number_of_ayahs = surah['number_of_ayahs']
       s.order_of_revelation = surah['order_of_revelation']
@@ -19,45 +19,45 @@ unless Quran::Surah.first
 end
 
 # add languages
-unless Quran::Language.first
+unless Language.first
   languages = YAML.load_file("#{Rails.root}/db/seeds/languages.yml")
   languages.each do |lang|
-    Quran::Language.find_or_create_by!(lang)
+    Language.find_or_create_by!(lang)
   end
 end
 
 # add qurans
-unless Quran::Translation.first
+unless Translation.first
   translations = YAML.load_file("#{Rails.root}/db/seeds/translations.yml")
   translations.each do |translation|
-    Quran::Translation.find_or_create_by!(translation)
+    Translation.find_or_create_by!(translation)
   end
 end
 
 # add ayahs
-unless Quran::Ayah.first
+unless Ayah.first
   ayahs = YAML.load_file("#{Rails.root}/db/seeds/ayahs.yml")
   ayahs.each do |ayah|
-    Quran::Ayah.find_or_create_by!(ayah)
+    Ayah.find_or_create_by!(ayah)
   end
 end
 
 # add Uthmani text
-unless Quran::Text.where(translation_id: 1).first
+unless Text.where(translation_id: 1).first
   one = YAML.load_file("#{Rails.root}/db/seeds/texts/1.yml")
   one.each do |t|
-    Quran::Text.find_or_create_by!(t)
+    Text.find_or_create_by!(t)
   end
 end
 
-unless Quran::Text.where(translation_id: 2).first
+unless Text.where(translation_id: 2).first
   one = YAML.load_file("#{Rails.root}/db/seeds/texts/2.yml")
   one.each do |t|
-    Quran::Text.find_or_create_by!(t)
+    Text.find_or_create_by!(t)
   end
 end
 
-unless Quran::Text.where(translation_id: 3).first
+unless Text.where(translation_id: 3).first
   sql = File.read("#{Rails.root}/db/seeds/texts/3.sql")
   sql.each_line do |query|
     puts query

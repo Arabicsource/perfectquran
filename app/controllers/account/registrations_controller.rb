@@ -6,9 +6,5 @@ class Account
     private def sign_up_params
       params.require(:account).permit(:email, :password, :password_confirmation)
     end
-
-    def after_sign_up_path_for(_resource)
-      account_root_path
-    end
   end
 end
