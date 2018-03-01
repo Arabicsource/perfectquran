@@ -9,7 +9,7 @@ feature 'Email Preferences' do
 
   background do
     login_as account
-    visit account_root_path
+    visit edit_account_profile_path
 
     click_on 'accounts-navbar-settings-link'
     click_on 'Email Preferences'

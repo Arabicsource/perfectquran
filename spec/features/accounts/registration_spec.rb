@@ -19,6 +19,6 @@ feature 'Registration' do
         )
       )
 
-    expect(current_url).to eq account_root_url
+    expect(current_url).to eq root_url
   end
 end
