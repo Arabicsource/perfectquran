@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :account do
     resource :card, only: %i[edit update]
     resources :charges, only: :index
-    resource :profile, only: %i[edit show update]
+    resource :profile, only: %i[edit update]
     resource :subscription
     resources :connections
 

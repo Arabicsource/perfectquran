@@ -3,15 +3,7 @@
 class Account
   # :nodoc:
   class ProfilesController < Account::BaseController
-    before_action :load_profile, only: %i[show edit update]
-
-    def show
-      @total_points = Ayah.joins(:memories)
-                                 .where(memories: { account: current_account })
-                                 .sum(:character_length) * 3
-      @surahs = Surah.joins(:memories)
-                            .where(memories: { account: current_account }).uniq
-    end
+    before_action :load_profile, only: %i[edit update]
 
     def edit; end
 
