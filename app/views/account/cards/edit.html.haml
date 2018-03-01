@@ -1,10 +1,15 @@
-= render 'form'
+%section.section
+  .container
+    .columns
+      .column
+        = render 'account/shared/menu'
+
+      .column.is-two-thirds
+        %header
+          %h1.title Update Payment Method
+
+        %section
+          = render 'form'
 
 - provide :title, 'Update Payment Method'
-- provide :layout_template, 'two_column'
-
-- unless browser.mobile?
-  - content_for :after_header do
-    = render 'account/partials/desktop/navbar'
-
 = javascript_pack_tag 'stripe'
