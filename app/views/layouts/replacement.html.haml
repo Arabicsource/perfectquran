@@ -8,7 +8,7 @@
 
     = yield 
 
-    = render 'layouts/shared/patron_banner' unless account_patron?
-    = render 'layouts/application/newsletter' unless account_signed_in?
+    = render 'layouts/shared/patron_banner' unless Current.account.patron?
+    = render 'layouts/shared/newsletter' unless account_signed_in?
     = render 'layouts/partials/footer'
     = render 'layouts/shared/analytics'

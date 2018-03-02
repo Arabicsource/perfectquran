@@ -2,6 +2,8 @@
 
 # :nodoc:
 class ApplicationController < ActionController::Base
+  include CurrentAccount
+
   layout :select_layout
 
   private

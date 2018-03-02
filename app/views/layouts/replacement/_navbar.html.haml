@@ -21,26 +21,33 @@
               %li= link_to 'Quran', quran_root_path
               %li= link_to 'Blog', content_articles_path
 
-            %p.menu-label Connections
-            %ul.menu-list
-              %li= link_to 'List', account_connections_path
-              %li= link_to 'Connect Twitter Account', '/auth/twitter'
+            - if account_signed_in?
+              %p.menu-label Connections
+              %ul.menu-list
+                %li= link_to 'List', account_connections_path
+                %li= link_to 'Connect Twitter Account', '/auth/twitter'
           
-            %p.menu-label Settings
-            %ul.menu-list
-              %li= link_to 'Edit Profile', edit_account_profile_path
-              %li= link_to 'Email Preferences', edit_account_email_preference_path
-          
-            %p.menu-label Patronage
-            %ul.menu-list
-              %li= link_to 'Current Subscription', account_subscription_path if current_account.patron?
-              %li= link_to 'New Subscription', new_account_subscription_path unless current_account.patron?
-              %li= link_to 'Billing History', account_charges_path
-              %li= link_to 'Update Payment Method', edit_account_card_path
+              %p.menu-label Settings
+              %ul.menu-list
+                %li= link_to 'Edit Profile', edit_account_profile_path
+                %li= link_to 'Email Preferences', edit_account_email_preference_path
+            
+              %p.menu-label Patronage
+              %ul.menu-list
+                %li= link_to 'Current Subscription', account_subscription_path if Current.account.patron?
+                %li= link_to 'New Subscription', new_account_subscription_path unless Current.account.patron?
+                %li= link_to 'Billing History', account_charges_path
+                %li= link_to 'Update Payment Method', edit_account_card_path
 
-            %p.menu-label Account
-            %ul.menu-list
-              %li= link_to "Logout", destroy_account_session_path, method: :delete
+              %p.menu-label Account
+              %ul.menu-list
+                %li= link_to "Logout", destroy_account_session_path, method: :delete
+
+            - else
+              %p.menu-label Account
+              %ul.menu-list
+                %li= link_to 'Login', new_account_session_path
+                %li= link_to 'Register', new_account_registration_path
 
         - else
           - if account_signed_in?

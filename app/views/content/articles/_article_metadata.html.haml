@@ -1,4 +1,4 @@
-.level.is-mobile
+.level
   .level-left
     .level-item
       %span.icon
@@ -15,3 +15,8 @@
         = fa_icon 'calendar'
       %span
         = article.created_at.to_date.to_formatted_s(:short_ordinal)
+    .level-item
+      %span.icon
+        = fa_icon 'comments'
+      %span
+        = pluralize article.comments_count, 'comment'

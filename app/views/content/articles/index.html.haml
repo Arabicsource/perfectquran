@@ -1,10 +1,11 @@
 %section.section
   .container
     .columns
-      .column
+      - unless browser.mobile?
+        .column
 
       .column.is-three-quarters
-        %header
+        %header.is-hidden
           %h1.title Blog
         
         %section

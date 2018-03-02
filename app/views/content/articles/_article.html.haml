@@ -1,7 +1,8 @@
 %article.media
-  .content
-    %h1.title= link_to article.title, content_article_path(article.permalink)
+  .media-content
+    .content
+      %h2.title= link_to article.title, content_article_path(article.permalink)
 
-    = render 'content/articles/partials/desktop/article_metadata', article: article
+      = render 'content/articles/article_metadata', article: article
 
-= sanitize article.content
+      = sanitize article.content
