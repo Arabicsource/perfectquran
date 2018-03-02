@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_01_150438) do
+ActiveRecord::Schema.define(version: 2018_03_02_065424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,8 +85,6 @@ ActiveRecord::Schema.define(version: 2018_03_01_150438) do
   create_table "ayahs", force: :cascade do |t|
     t.integer "number"
     t.integer "character_length"
-    t.float "percent_of_total"
-    t.float "percent_of_surah"
     t.bigint "surah_id"
     t.index ["surah_id"], name: "index_ayahs_on_surah_id"
   end
@@ -147,10 +145,10 @@ ActiveRecord::Schema.define(version: 2018_03_01_150438) do
   end
 
   create_table "daily_ayahs", force: :cascade do |t|
-    t.bigint "quran_ayah_id"
+    t.bigint "ayah_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["quran_ayah_id"], name: "index_daily_ayahs_on_quran_ayah_id"
+    t.index ["ayah_id"], name: "index_daily_ayahs_on_ayah_id"
   end
 
   create_table "facebook_shares", force: :cascade do |t|
@@ -241,7 +239,6 @@ ActiveRecord::Schema.define(version: 2018_03_01_150438) do
     t.string "arabic_name"
     t.string "english_name"
     t.integer "character_length"
-    t.float "percent_of_total"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -287,7 +284,7 @@ ActiveRecord::Schema.define(version: 2018_03_01_150438) do
   add_foreign_key "comments", "articles"
   add_foreign_key "connections", "accounts"
   add_foreign_key "connections", "translations"
-  add_foreign_key "daily_ayahs", "ayahs", column: "quran_ayah_id"
+  add_foreign_key "daily_ayahs", "ayahs"
   add_foreign_key "facebook_shares", "ayahs"
   add_foreign_key "memories", "accounts"
   add_foreign_key "memories", "ayahs"

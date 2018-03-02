@@ -32,8 +32,6 @@ RSpec.describe 'Ayahs API', type: :request do
       expect(json['id']).to eq(@ayah.id)
       expect(json['number']).to eq(@ayah.number)
       expect(json['character_length']).to eq(@ayah.character_length)
-      expect(json['percent_of_total']).to eq(@ayah.percent_of_total)
-      expect(json['percent_of_surah']).to eq(@ayah.percent_of_surah)
       expect(json['surah_id']).to eq(@ayah.surah_id)
     end
   end
@@ -52,8 +50,6 @@ RSpec.describe 'Ayahs API', type: :request do
       expect(json['id']).to eq(@ayah.id)
       expect(json['number']).to eq(@ayah.number)
       expect(json['character_length']).to eq(@ayah.character_length)
-      expect(json['percent_of_total']).to eq(@ayah.percent_of_total)
-      expect(json['percent_of_surah']).to eq(@ayah.percent_of_surah)
       expect(json['surah_id']).to eq(@ayah.surah_id)
     end
   end

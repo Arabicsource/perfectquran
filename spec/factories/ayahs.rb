@@ -16,8 +16,6 @@ FactoryBot.define do
   factory :ayah do
     sequence(:number) { |n| n }
     character_length 1
-    percent_of_total 0.1
-    percent_of_surah 0.1
     surah
   end
 end

@@ -21,8 +21,7 @@ RSpec.describe 'Surahs API', type: :request do
                            transliterated_name: 'Al-Fatihah',
                            arabic_name: 'arabic',
                            english_name: 'open',
-                           character_length: 12,
-                           percent_of_total: 0.1
+                           character_length: 12
 
     get "/api/v1/surahs/#{surah.id}"
     json = JSON.parse(response.body)
@@ -37,6 +36,5 @@ RSpec.describe 'Surahs API', type: :request do
     expect(json['arabic_name']).to eq 'arabic'
     expect(json['english_name']).to eq 'open'
     expect(json['character_length']).to eq 12
-    expect(json['percent_of_total']).to eq 0.1
   end
 end
