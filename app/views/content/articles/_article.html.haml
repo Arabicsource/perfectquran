@@ -1,11 +1,7 @@
-%article.content
-  %h1.title= link_to article.title, content_article_path(article.permalink)
+%article.media
+  .content
+    %h1.title= link_to article.title, content_article_path(article.permalink)
 
-  - if browser.mobile?
-    = render 'content/articles/partials/mobile/article_metadata', article: article
-  - else
     = render 'content/articles/partials/desktop/article_metadata', article: article
 
-  = sanitize article.content
-
-.section-divider
+= sanitize article.content

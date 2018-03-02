@@ -1,4 +1,13 @@
-= render @articles
+%section.section
+  .container
+    .columns
+      .column
 
-- provide :title, t('content.articles.index.title')
-- provide :layout_template, 'two_column'
+      .column.is-three-quarters
+        %header
+          %h1.title Blog
+        
+        %section
+          = render @articles
+
+- provide :title, 'Blog'

@@ -1,7 +1,7 @@
 - if @article.comments.any?
   .section-divider
 
-  %h2.title Comments
+  %h3.subtitle Comments
 
   - @article.comments.includes(:account).each do |comment|
     %article.media

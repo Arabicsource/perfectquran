@@ -5,6 +5,7 @@ module Content
   class ArticlesController < ApplicationController
     def index
       @articles = Article.includes(:category, :account).published_posts
+      render layout: 'replacement'
     end
 
     def show

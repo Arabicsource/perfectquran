@@ -1,7 +1,5 @@
 - if account_signed_in? && @article.post?
-  .section-divider
-
-  %h3.title New Comment
+  %h3.subtitle New Comment
 
   = form_with model: [:content, @article, @comment] do |f|
     = render 'shared/error_messages', object: @comment
@@ -12,4 +10,4 @@
     = f.submit class: 'button is-orange'
 
 - elsif @article.post? 
-  %p.notification.is-info You Must be logged in to comment.
+%p.notification.is-info You Must be logged in to comment.
