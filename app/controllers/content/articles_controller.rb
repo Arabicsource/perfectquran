@@ -13,6 +13,7 @@ module Content
         permalink: params[:id], visibility: 'published'
       )
       @comment = Comment.new
+      render layout: 'replacement'
     end
   end
 end

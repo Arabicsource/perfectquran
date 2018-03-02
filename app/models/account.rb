@@ -35,6 +35,8 @@ class Account < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_one :subscription
   has_one :email_preference
+
+  has_many :articles, dependent: :destroy
   has_many :connections
   has_many :memories
 

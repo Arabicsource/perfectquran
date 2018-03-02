@@ -30,7 +30,7 @@ RSpec.describe Article, type: :model do
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_presence_of :content }
     it { is_expected.to validate_presence_of :permalink }
-    it { is_expected.to validate_uniqueness_of :permalink }
+    it { is_expected.to validate_uniqueness_of(:permalink).case_insensitive }
   end
 
   context 'enums' do
@@ -49,6 +49,7 @@ RSpec.describe Article, type: :model do
 
   context 'default scope' do
     it 'returns records in desc order' do
+      Article.destroy_all
       create :article, title: 'first'
       create :article, title: 'second'
       create :article, title: 'third'
@@ -107,6 +108,7 @@ RSpec.describe Article, type: :model do
 
   context '#published_posts' do
     it 'returns published pages' do
+      Article.destroy_all
       create :article, title: 'first', collection: :post, visibility: :published
       create :article, title: 'second', collection: :post, visibility: :draft
       create :article, title: 'third', collection: :page, visibility: :published

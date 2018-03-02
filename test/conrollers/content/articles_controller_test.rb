@@ -24,4 +24,44 @@ class Content::ArticlesControllerTest < ActionDispatch::IntegrationTest
     get content_articles_path
     assert_response :success
   end
+
+  test 'get show' do
+    get content_article_path('one')
+    assert_response :success
+  end
+
+  test 'get show when draft' do
+    draft = articles(:draft)
+
+    assert_raises ActiveRecord::RecordNotFound do
+      get content_article_path(draft.permalink)
+    end
+  end
+
+  test 'get show when trash' do
+    trash = articles(:trash)
+
+    assert_raises ActiveRecord::RecordNotFound do
+      get content_article_path(trash.permalink)
+    end
+  end
+
+  test 'get show when logged in' do
+    login_as accounts(:abdullah)
+    get content_article_path('one')
+    assert_response :success
+  end
+
+  test 'get show on mobile' do
+    mobile_browser
+    get content_article_path('one')
+    assert_response :success
+  end
+
+  test 'get show on mobile when logged in' do
+    login_as accounts(:abdullah)
+    mobile_browser
+    get content_article_path('one')
+    assert_response :success
+  end
 end
