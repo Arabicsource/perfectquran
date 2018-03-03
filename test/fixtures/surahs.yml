@@ -1,0 +1,1140 @@
+surah_1:
+  id: 1
+  number_of_ayahs: 7
+  order_of_revelation: 5
+  revelation_type: meccan
+  permalink: al-fatihah
+  transliterated_name: Al-Fatihah
+  arabic_name: الفاتحة
+  english_name: The Opening
+  character_length: 285
+surah_2:
+  id: 2
+  number_of_ayahs: 286
+  order_of_revelation: 87
+  revelation_type: medinan
+  permalink: al-baqarah
+  transliterated_name: Al-Baqarah
+  arabic_name: البقرة
+  english_name: The Cow
+  character_length: 56669
+surah_3:
+  id: 3
+  number_of_ayahs: 200
+  order_of_revelation: 89
+  revelation_type: medinan
+  permalink: ali-imran
+  transliterated_name: Ali Imran
+  arabic_name: آل عمران
+  english_name: The Family Of Imran
+  character_length: 32091
+surah_4:
+  id: 4
+  number_of_ayahs: 176
+  order_of_revelation: 92
+  revelation_type: medinan
+  permalink: an-nisa
+  transliterated_name: An-Nisa
+  arabic_name: النساء
+  english_name: Women
+  character_length: 34963
+surah_5:
+  id: 5
+  number_of_ayahs: 120
+  order_of_revelation: 112
+  revelation_type: medinan
+  permalink: al-maidah
+  transliterated_name: Al-Maidah
+  arabic_name: المائدة
+  english_name: The Table Spread
+  character_length: 26189
+surah_6:
+  id: 6
+  number_of_ayahs: 165
+  order_of_revelation: 55
+  revelation_type: meccan
+  permalink: al-anam
+  transliterated_name: Al-Anam
+  arabic_name: الأنعام
+  english_name: Cattle, Livestock
+  character_length: 27835
+surah_7:
+  id: 7
+  number_of_ayahs: 206
+  order_of_revelation: 39
+  revelation_type: meccan
+  permalink: al-araf
+  transliterated_name: Al-Araf
+  arabic_name: الأعراف
+  english_name: The Heights
+  character_length: 30995
+surah_8:
+  id: 8
+  number_of_ayahs: 75
+  order_of_revelation: 88
+  revelation_type: medinan
+  permalink: al-anfal
+  transliterated_name: Al-Anfal
+  arabic_name: الأنفال
+  english_name: Spoils Of War
+  character_length: 11590
+surah_9:
+  id: 9
+  number_of_ayahs: 129
+  order_of_revelation: 113
+  revelation_type: medinan
+  permalink: at-tawbah
+  transliterated_name: At-Tawbah
+  arabic_name: التوبة
+  english_name: Repentance
+  character_length: 23682
+surah_10:
+  id: 10
+  number_of_ayahs: 109
+  order_of_revelation: 51
+  revelation_type: meccan
+  permalink: yunus
+  transliterated_name: Yunus
+  arabic_name: يونس
+  english_name: Jonah
+  character_length: 16441
+surah_11:
+  id: 11
+  number_of_ayahs: 123
+  order_of_revelation: 52
+  revelation_type: meccan
+  permalink: hud
+  transliterated_name: Hud
+  arabic_name: هود
+  english_name: Hud
+  character_length: 17105
+surah_12:
+  id: 12
+  number_of_ayahs: 111
+  order_of_revelation: 53
+  revelation_type: meccan
+  permalink: yusuf
+  transliterated_name: Yusuf
+  arabic_name: يوسف
+  english_name: Joseph
+  character_length: 15893
+surah_13:
+  id: 13
+  number_of_ayahs: 43
+  order_of_revelation: 96
+  revelation_type: medinan
+  permalink: ar-rad
+  transliterated_name: Ar-Rad
+  arabic_name: الرعد
+  english_name: The Thunder
+  character_length: 7770
+surah_14:
+  id: 14
+  number_of_ayahs: 52
+  order_of_revelation: 72
+  revelation_type: meccan
+  permalink: ibrahim
+  transliterated_name: Ibrahim
+  arabic_name: ابراهيم
+  english_name: Abraham
+  character_length: 7651
+surah_15:
+  id: 15
+  number_of_ayahs: 99
+  order_of_revelation: 54
+  revelation_type: meccan
+  permalink: al-hijr
+  transliterated_name: Al-Hijr
+  arabic_name: الحجر
+  english_name: Rock City
+  character_length: 6062
+surah_16:
+  id: 16
+  number_of_ayahs: 128
+  order_of_revelation: 70
+  revelation_type: meccan
+  permalink: an-nahl
+  transliterated_name: An-Nahl
+  arabic_name: النحل
+  english_name: The Bee
+  character_length: 16924
+surah_17:
+  id: 17
+  number_of_ayahs: 111
+  order_of_revelation: 50
+  revelation_type: meccan
+  permalink: al-isra
+  transliterated_name: Al-Isra
+  arabic_name: الإسراء
+  english_name: The Night Journey
+  character_length: 14345
+surah_18:
+  id: 18
+  number_of_ayahs: 110
+  order_of_revelation: 69
+  revelation_type: meccan
+  permalink: al-kahf
+  transliterated_name: Al-Kahf
+  arabic_name: الكهف
+  english_name: The Cave
+  character_length: 14204
+surah_19:
+  id: 19
+  number_of_ayahs: 98
+  order_of_revelation: 44
+  revelation_type: meccan
+  permalink: maryam
+  transliterated_name: Maryam
+  arabic_name: مريم
+  english_name: Mary
+  character_length: 8581
+surah_20:
+  id: 20
+  number_of_ayahs: 135
+  order_of_revelation: 45
+  revelation_type: meccan
+  permalink: taha
+  transliterated_name: Taha
+  arabic_name: طه
+  english_name: Ta-ha
+  character_length: 11753
+surah_21:
+  id: 21
+  number_of_ayahs: 112
+  order_of_revelation: 73
+  revelation_type: meccan
+  permalink: al-anbya
+  transliterated_name: Al-Anbya
+  arabic_name: الأنبياء
+  english_name: The Prophets
+  character_length: 10814
+surah_22:
+  id: 22
+  number_of_ayahs: 78
+  order_of_revelation: 103
+  revelation_type: medinan
+  permalink: al-haj
+  transliterated_name: Al-Hajj
+  arabic_name: الحج
+  english_name: The Pilgrimage
+  character_length: 11477
+surah_23:
+  id: 23
+  number_of_ayahs: 118
+  order_of_revelation: 74
+  revelation_type: meccan
+  permalink: al-muminun
+  transliterated_name: Al-Muminun
+  arabic_name: المؤمنون
+  english_name: The Believers
+  character_length: 9521
+surah_24:
+  id: 24
+  number_of_ayahs: 64
+  order_of_revelation: 102
+  revelation_type: medinan
+  permalink: an-nur
+  transliterated_name: An-Nur
+  arabic_name: النور
+  english_name: Light
+  character_length: 12435
+surah_25:
+  id: 25
+  number_of_ayahs: 77
+  order_of_revelation: 42
+  revelation_type: meccan
+  permalink: al-furqan
+  transliterated_name: Al-Furqan
+  arabic_name: الفرقان
+  english_name: The Criterion
+  character_length: 8252
+surah_26:
+  id: 26
+  number_of_ayahs: 227
+  order_of_revelation: 47
+  revelation_type: meccan
+  permalink: ash-shuara
+  transliterated_name: Ash-Shuara
+  arabic_name: الشعراء
+  english_name: The Poets
+  character_length: 11804
+surah_27:
+  id: 27
+  number_of_ayahs: 93
+  order_of_revelation: 48
+  revelation_type: meccan
+  permalink: an-naml
+  transliterated_name: An-Naml
+  arabic_name: النمل
+  english_name: The Ants
+  character_length: 10345
+surah_28:
+  id: 28
+  number_of_ayahs: 88
+  order_of_revelation: 49
+  revelation_type: meccan
+  permalink: al-qasas
+  transliterated_name: Al-Qasas
+  arabic_name: القصص
+  english_name: The Story
+  character_length: 12827
+surah_29:
+  id: 29
+  number_of_ayahs: 69
+  order_of_revelation: 85
+  revelation_type: meccan
+  permalink: al-ankabut
+  transliterated_name: Al-Ankabut
+  arabic_name: العنكبوت
+  english_name: The Spider
+  character_length: 9196
+surah_30:
+  id: 30
+  number_of_ayahs: 60
+  order_of_revelation: 84
+  revelation_type: meccan
+  permalink: ar-rum
+  transliterated_name: Ar-Rum
+  arabic_name: الروم
+  english_name: The Romans
+  character_length: 7504
+surah_31:
+  id: 31
+  number_of_ayahs: 34
+  order_of_revelation: 57
+  revelation_type: meccan
+  permalink: luqman
+  transliterated_name: Luqman
+  arabic_name: لقمان
+  english_name: Luqman
+  character_length: 4727
+surah_32:
+  id: 32
+  number_of_ayahs: 30
+  order_of_revelation: 75
+  revelation_type: meccan
+  permalink: as-sajdah
+  transliterated_name: As-Sajdah
+  arabic_name: السجدة
+  english_name: The Prostration
+  character_length: 3340
+surah_33:
+  id: 33
+  number_of_ayahs: 73
+  order_of_revelation: 90
+  revelation_type: medinan
+  permalink: al-ahzab
+  transliterated_name: Al-Ahzab
+  arabic_name: الأحزاب
+  english_name: The Coalition
+  character_length: 12261
+surah_34:
+  id: 34
+  number_of_ayahs: 54
+  order_of_revelation: 58
+  revelation_type: meccan
+  permalink: saba
+  transliterated_name: Saba
+  arabic_name: سبإ
+  english_name: Sheba
+  character_length: 7797
+surah_35:
+  id: 35
+  number_of_ayahs: 45
+  order_of_revelation: 43
+  revelation_type: meccan
+  permalink: fatir
+  transliterated_name: Fatir
+  arabic_name: فاطر
+  english_name: The Originator
+  character_length: 7015
+surah_36:
+  id: 36
+  number_of_ayahs: 83
+  order_of_revelation: 41
+  revelation_type: meccan
+  permalink: ya-sin
+  transliterated_name: Ya-Sin
+  arabic_name: يس
+  english_name: Ya-sin
+  character_length: 6525
+surah_37:
+  id: 37
+  number_of_ayahs: 182
+  order_of_revelation: 56
+  revelation_type: meccan
+  permalink: as-saffat
+  transliterated_name: As-Saffat
+  arabic_name: الصافات
+  english_name: Drawn up in Ranks
+  character_length: 8084
+surah_38:
+  id: 38
+  number_of_ayahs: 88
+  order_of_revelation: 38
+  revelation_type: meccan
+  permalink: sad
+  transliterated_name: Sad
+  arabic_name: ص
+  english_name: The letter Sad
+  character_length: 6620
+surah_39:
+  id: 39
+  number_of_ayahs: 75
+  order_of_revelation: 59
+  revelation_type: meccan
+  permalink: az-zumar
+  transliterated_name: Az-Zumar
+  arabic_name: الزمر
+  english_name: The Troops
+  character_length: 10546
+surah_40:
+  id: 40
+  number_of_ayahs: 85
+  order_of_revelation: 60
+  revelation_type: meccan
+  permalink: ghafir
+  transliterated_name: Ghafir
+  arabic_name: غافر
+  english_name: The Forgiver
+  character_length: 10952
+surah_41:
+  id: 41
+  number_of_ayahs: 54
+  order_of_revelation: 61
+  revelation_type: meccan
+  permalink: fussilat
+  transliterated_name: Fussilat
+  arabic_name: فصلت
+  english_name: Explained in Detail
+  character_length: 7283
+surah_42:
+  id: 42
+  number_of_ayahs: 53
+  order_of_revelation: 62
+  revelation_type: meccan
+  permalink: ash-shuraa
+  transliterated_name: Ash-Shuraa
+  arabic_name: الشورى
+  english_name: Consultation
+  character_length: 7635
+surah_43:
+  id: 43
+  number_of_ayahs: 89
+  order_of_revelation: 63
+  revelation_type: meccan
+  permalink: az-zukhruf
+  transliterated_name: Az-Zukhruf
+  arabic_name: الزخرف
+  english_name: Ornaments of Gold
+  character_length: 7746
+surah_44:
+  id: 44
+  number_of_ayahs: 59
+  order_of_revelation: 64
+  revelation_type: meccan
+  permalink: ad-dukhan
+  transliterated_name: Ad-Dukhan
+  arabic_name: الدخان
+  english_name: Smoke
+  character_length: 3127
+surah_45:
+  id: 45
+  number_of_ayahs: 37
+  order_of_revelation: 65
+  revelation_type: meccan
+  permalink: al-jathiyah
+  transliterated_name: Al-Jathiyah
+  arabic_name: الجاثية
+  english_name: Crouching
+  character_length: 4477
+surah_46:
+  id: 46
+  number_of_ayahs: 35
+  order_of_revelation: 66
+  revelation_type: meccan
+  permalink: al-ahqaf
+  transliterated_name: Al-Ahqaf
+  arabic_name: الأحقاف
+  english_name: The Dunes
+  character_length: 5759
+surah_47:
+  id: 47
+  number_of_ayahs: 38
+  order_of_revelation: 95
+  revelation_type: medinan
+  permalink: muhammad
+  transliterated_name: Muhammad
+  arabic_name: محمد
+  english_name: Muhammad
+  character_length: 5217
+surah_48:
+  id: 48
+  number_of_ayahs: 29
+  order_of_revelation: 111
+  revelation_type: medinan
+  permalink: al-fath
+  transliterated_name: Al-Fath
+  arabic_name: الفتح
+  english_name: The Victory
+  character_length: 5347
+surah_49:
+  id: 49
+  number_of_ayahs: 18
+  order_of_revelation: 106
+  revelation_type: medinan
+  permalink: al-hujurat
+  transliterated_name: Al-Hujurat
+  arabic_name: الحجرات
+  english_name: The Inner Apartments
+  character_length: 3300
+surah_50:
+  id: 50
+  number_of_ayahs: 45
+  order_of_revelation: 34
+  revelation_type: meccan
+  permalink: qaf
+  transliterated_name: Qaf
+  arabic_name: ق
+  english_name: The letter Qaf
+  character_length: 3264
+surah_51:
+  id: 51
+  number_of_ayahs: 60
+  order_of_revelation: 67
+  revelation_type: meccan
+  permalink: adh-dhariyat
+  transliterated_name: Adh-Dhariyat
+  arabic_name: الذاريات
+  english_name: The Winnowing Winds
+  character_length: 3264
+surah_52:
+  id: 52
+  number_of_ayahs: 49
+  order_of_revelation: 76
+  revelation_type: meccan
+  permalink: at-tur
+  transliterated_name: At-Tur
+  arabic_name: الطور
+  english_name: The Mount
+  character_length: 2831
+surah_53:
+  id: 53
+  number_of_ayahs: 62
+  order_of_revelation: 23
+  revelation_type: meccan
+  permalink: an-najm
+  transliterated_name: An-Najm
+  arabic_name: النجم
+  english_name: The Star
+  character_length: 3087
+surah_54:
+  id: 54
+  number_of_ayahs: 55
+  order_of_revelation: 37
+  revelation_type: meccan
+  permalink: al-qamar
+  transliterated_name: Al-Qamar
+  arabic_name: القمر
+  english_name: The Moon
+  character_length: 3206
+surah_55:
+  id: 55
+  number_of_ayahs: 78
+  order_of_revelation: 97
+  revelation_type: medinan
+  permalink: ar-rahman
+  transliterated_name: Ar-Rahman
+  arabic_name: الرحمن
+  english_name: The Beneficent
+  character_length: 3511
+surah_56:
+  id: 56
+  number_of_ayahs: 96
+  order_of_revelation: 46
+  revelation_type: meccan
+  permalink: al-waqiah
+  transliterated_name: Al-Waqiah
+  arabic_name: الواقعة
+  english_name: The Inevitable
+  character_length: 3635
+surah_57:
+  id: 57
+  number_of_ayahs: 29
+  order_of_revelation: 94
+  revelation_type: medinan
+  permalink: al-hadid
+  transliterated_name: Al-Hadid
+  arabic_name: الحديد
+  english_name: Iron
+  character_length: 5433
+surah_58:
+  id: 58
+  number_of_ayahs: 22
+  order_of_revelation: 105
+  revelation_type: medinan
+  permalink: al-mujadila
+  transliterated_name: Al-Mujadila
+  arabic_name: المجادلة
+  english_name: The Pleading Woman
+  character_length: 4409
+surah_59:
+  id: 59
+  number_of_ayahs: 24
+  order_of_revelation: 101
+  revelation_type: medinan
+  permalink: al-hashr
+  transliterated_name: Al-Hashr
+  arabic_name: الحشر
+  english_name: The Exile
+  character_length: 4179
+surah_60:
+  id: 60
+  number_of_ayahs: 13
+  order_of_revelation: 91
+  revelation_type: medinan
+  permalink: al-mumtahanah
+  transliterated_name: Al-Mumtahanah
+  arabic_name: الممتحنة
+  english_name: Examining Her
+  character_length: 3356
+surah_61:
+  id: 61
+  number_of_ayahs: 14
+  order_of_revelation: 109
+  revelation_type: medinan
+  permalink: as-saf
+  transliterated_name: As-Saf
+  arabic_name: الصف
+  english_name: Battle Array
+  character_length: 2048
+surah_62:
+  id: 62
+  number_of_ayahs: 11
+  order_of_revelation: 110
+  revelation_type: medinan
+  permalink: al-jumuah
+  transliterated_name: Al-Jumuah
+  arabic_name: الجمعة
+  english_name: Friday
+  character_length: 1618
+surah_63:
+  id: 63
+  number_of_ayahs: 11
+  order_of_revelation: 104
+  revelation_type: medinan
+  permalink: al-munafiqun
+  transliterated_name: Al-Munafiqun
+  arabic_name: المنافقون
+  english_name: The Hypocrites
+  character_length: 1722
+surah_64:
+  id: 64
+  number_of_ayahs: 18
+  order_of_revelation: 108
+  revelation_type: medinan
+  permalink: at-taghabun
+  transliterated_name: At-Taghabun
+  arabic_name: التغابن
+  english_name: Mutual Disillusion
+  character_length: 2329
+surah_65:
+  id: 65
+  number_of_ayahs: 12
+  order_of_revelation: 99
+  revelation_type: medinan
+  permalink: at-talaq
+  transliterated_name: At-Talaq
+  arabic_name: الطلاق
+  english_name: Divorce
+  character_length: 2672
+surah_66:
+  id: 66
+  number_of_ayahs: 12
+  order_of_revelation: 107
+  revelation_type: medinan
+  permalink: at-tahrim
+  transliterated_name: At-Tahrim
+  arabic_name: التحريم
+  english_name: Prohibition
+  character_length: 2369
+surah_67:
+  id: 67
+  number_of_ayahs: 30
+  order_of_revelation: 77
+  revelation_type: meccan
+  permalink: al-mulk
+  transliterated_name: Al-Mulk
+  arabic_name: الملك
+  english_name: The Sovereignty
+  character_length: 2901
+surah_68:
+  id: 68
+  number_of_ayahs: 52
+  order_of_revelation: 2
+  revelation_type: meccan
+  permalink: al-qalam
+  transliterated_name: Al-Qalam
+  arabic_name: القلم
+  english_name: The Pen
+  character_length: 2723
+surah_69:
+  id: 69
+  number_of_ayahs: 52
+  order_of_revelation: 78
+  revelation_type: meccan
+  permalink: al-haqqah
+  transliterated_name: Al-Haqqah
+  arabic_name: الحاقة
+  english_name: The Reality
+  character_length: 2382
+surah_70:
+  id: 70
+  number_of_ayahs: 44
+  order_of_revelation: 79
+  revelation_type: meccan
+  permalink: al-maarij
+  transliterated_name: Al-Maarij
+  arabic_name: المعارج
+  english_name: The Ascending Stairways
+  character_length: 2038
+surah_71:
+  id: 71
+  number_of_ayahs: 28
+  order_of_revelation: 71
+  revelation_type: meccan
+  permalink: nuh
+  transliterated_name: Nuh
+  arabic_name: نوح
+  english_name: Noah
+  character_length: 2048
+surah_72:
+  id: 72
+  number_of_ayahs: 28
+  order_of_revelation: 40
+  revelation_type: meccan
+  permalink: al-jinn
+  transliterated_name: Al-Jinn
+  arabic_name: الجن
+  english_name: The Jinn
+  character_length: 2423
+surah_73:
+  id: 73
+  number_of_ayahs: 20
+  order_of_revelation: 3
+  revelation_type: meccan
+  permalink: al-muzzammil
+  transliterated_name: Al-Muzzammil
+  arabic_name: المزمل
+  english_name: The Enshrouded One
+  character_length: 1831
+surah_74:
+  id: 74
+  number_of_ayahs: 56
+  order_of_revelation: 4
+  revelation_type: meccan
+  permalink: al-muddaththir
+  transliterated_name: Al-Muddaththir
+  arabic_name: المدثر
+  english_name: The Cloaked One
+  character_length: 2216
+surah_75:
+  id: 75
+  number_of_ayahs: 40
+  order_of_revelation: 31
+  revelation_type: meccan
+  permalink: al-qiyamah
+  transliterated_name: Al-Qiyamah
+  arabic_name: القيامة
+  english_name: Resurrection
+  character_length: 1459
+surah_76:
+  id: 76
+  number_of_ayahs: 31
+  order_of_revelation: 98
+  revelation_type: medinan
+  permalink: al-insan
+  transliterated_name: Al-Insan
+  arabic_name: الانسان
+  english_name: Man
+  character_length: 2289
+surah_77:
+  id: 77
+  number_of_ayahs: 50
+  order_of_revelation: 33
+  revelation_type: meccan
+  permalink: al-mursalat
+  transliterated_name: Al-Mursalat
+  arabic_name: المرسلات
+  english_name: The Emissaries
+  character_length: 1769
+surah_78:
+  id: 78
+  number_of_ayahs: 40
+  order_of_revelation: 80
+  revelation_type: meccan
+  permalink: an-naba
+  transliterated_name: An-Naba
+  arabic_name: النبإ
+  english_name: The Announcement
+  character_length: 1633
+surah_79:
+  id: 79
+  number_of_ayahs: 46
+  order_of_revelation: 81
+  revelation_type: meccan
+  permalink: an-naziat
+  transliterated_name: An-Naziat
+  arabic_name: النازعات
+  english_name: Those who Drag forth
+  character_length: 1636
+surah_80:
+  id: 80
+  number_of_ayahs: 42
+  order_of_revelation: 24
+  revelation_type: meccan
+  permalink: abasa
+  transliterated_name: Abasa
+  arabic_name: عبس
+  english_name: He frowned
+  character_length: 1215
+surah_81:
+  id: 81
+  number_of_ayahs: 29
+  order_of_revelation: 7
+  revelation_type: meccan
+  permalink: at-takwir
+  transliterated_name: At-Takwir
+  arabic_name: التكوير
+  english_name: The Overthrowing
+  character_length: 899
+surah_82:
+  id: 82
+  number_of_ayahs: 19
+  order_of_revelation: 82
+  revelation_type: meccan
+  permalink: al-infitar
+  transliterated_name: Al-Infitar
+  arabic_name: الإنفطار
+  english_name: The Cleaving
+  character_length: 698
+surah_83:
+  id: 83
+  number_of_ayahs: 36
+  order_of_revelation: 86
+  revelation_type: meccan
+  permalink: al-mutaffifin
+  transliterated_name: Al-Mutaffifin
+  arabic_name: المطففين
+  english_name: Defrauding
+  character_length: 1568
+surah_84:
+  id: 84
+  number_of_ayahs: 25
+  order_of_revelation: 83
+  revelation_type: meccan
+  permalink: al-inshiqaq
+  transliterated_name: Al-Inshiqaq
+  arabic_name: الإنشقاق
+  english_name: Splitting Open
+  character_length: 939
+surah_85:
+  id: 85
+  number_of_ayahs: 22
+  order_of_revelation: 27
+  revelation_type: meccan
+  permalink: al-buruj
+  transliterated_name: Al-Buruj
+  arabic_name: البروج
+  english_name: Constellations
+  character_length: 967
+surah_86:
+  id: 86
+  number_of_ayahs: 17
+  order_of_revelation: 36
+  revelation_type: meccan
+  permalink: at-tariq
+  transliterated_name: At-Tariq
+  arabic_name: الطارق
+  english_name: The Morning Star
+  character_length: 533
+surah_87:
+  id: 87
+  number_of_ayahs: 19
+  order_of_revelation: 8
+  revelation_type: meccan
+  permalink: al-ala
+  transliterated_name: Al-Ala
+  arabic_name: الأعلى
+  english_name: The Most High
+  character_length: 628
+surah_88:
+  id: 88
+  number_of_ayahs: 26
+  order_of_revelation: 68
+  revelation_type: meccan
+  permalink: al-ghashiyah
+  transliterated_name: Al-Ghashiyah
+  arabic_name: الغاشية
+  english_name: The Overwhelming
+  character_length: 808
+surah_89:
+  id: 89
+  number_of_ayahs: 30
+  order_of_revelation: 10
+  revelation_type: meccan
+  permalink: al-fajr
+  transliterated_name: Al-Fajr
+  arabic_name: الفجر
+  english_name: The Dawn
+  character_length: 1238
+surah_90:
+  id: 90
+  number_of_ayahs: 20
+  order_of_revelation: 35
+  revelation_type: meccan
+  permalink: al-balad
+  transliterated_name: Al-Balad
+  arabic_name: البلد
+  english_name: The City
+  character_length: 724
+surah_91:
+  id: 91
+  number_of_ayahs: 15
+  order_of_revelation: 26
+  revelation_type: meccan
+  permalink: ash-shams
+  transliterated_name: Ash-Shams
+  arabic_name: الشمس
+  english_name: The Sun
+  character_length: 505
+surah_92:
+  id: 92
+  number_of_ayahs: 21
+  order_of_revelation: 9
+  revelation_type: meccan
+  permalink: al-layl
+  transliterated_name: Al-Layl
+  arabic_name: الليل
+  english_name: The Night
+  character_length: 668
+surah_93:
+  id: 93
+  number_of_ayahs: 11
+  order_of_revelation: 11
+  revelation_type: meccan
+  permalink: ad-duhaa
+  transliterated_name: Ad-Duhaa
+  arabic_name: الضحى
+  english_name: The Morning Hours
+  character_length: 356
+surah_94:
+  id: 94
+  number_of_ayahs: 8
+  order_of_revelation: 12
+  revelation_type: meccan
+  permalink: ash-sharh
+  transliterated_name: Ash-Sharh
+  arabic_name: الشرح
+  english_name: Consolation
+  character_length: 214
+surah_95:
+  id: 95
+  number_of_ayahs: 8
+  order_of_revelation: 28
+  revelation_type: meccan
+  permalink: at-tin
+  transliterated_name: At-Tin
+  arabic_name: التين
+  english_name: The Fig
+  character_length: 323
+surah_96:
+  id: 96
+  number_of_ayahs: 19
+  order_of_revelation: 1
+  revelation_type: meccan
+  permalink: al-alaq
+  transliterated_name: Al-Alaq
+  arabic_name: العلق
+  english_name: The Clot
+  character_length: 611
+surah_97:
+  id: 97
+  number_of_ayahs: 5
+  order_of_revelation: 25
+  revelation_type: meccan
+  permalink: al-qadr
+  transliterated_name: Al-Qadr
+  arabic_name: القدر
+  english_name: Power, Fate
+  character_length: 249
+surah_98:
+  id: 98
+  number_of_ayahs: 8
+  order_of_revelation: 100
+  revelation_type: medinan
+  permalink: al-bayyinah
+  transliterated_name: Al-Bayyinah
+  arabic_name: البينة
+  english_name: The Evidence
+  character_length: 872
+surah_99:
+  id: 99
+  number_of_ayahs: 8
+  order_of_revelation: 93
+  revelation_type: medinan
+  permalink: az-zalzalah
+  transliterated_name: Az-Zalzalah
+  arabic_name: الزلزلة
+  english_name: The Earthquake
+  character_length: 332
+surah_100:
+  id: 100
+  number_of_ayahs: 11
+  order_of_revelation: 14
+  revelation_type: meccan
+  permalink: al-adiyat
+  transliterated_name: Al-Adiyat
+  arabic_name: العاديات
+  english_name: The Chargers
+  character_length: 359
+surah_101:
+  id: 101
+  number_of_ayahs: 11
+  order_of_revelation: 30
+  revelation_type: meccan
+  permalink: al-qariah
+  transliterated_name: Al-Qariah
+  arabic_name: القارعة
+  english_name: The Calamity
+  character_length: 321
+surah_102:
+  id: 102
+  number_of_ayahs: 8
+  order_of_revelation: 16
+  revelation_type: meccan
+  permalink: at-takathur
+  transliterated_name: At-Takathur
+  arabic_name: التكاثر
+  english_name: Competition
+  character_length: 258
+surah_103:
+  id: 103
+  number_of_ayahs: 3
+  order_of_revelation: 13
+  revelation_type: meccan
+  permalink: al-asr
+  transliterated_name: Al-Asr
+  arabic_name: العصر
+  english_name: The Declining Day
+  character_length: 145
+surah_104:
+  id: 104
+  number_of_ayahs: 9
+  order_of_revelation: 32
+  revelation_type: meccan
+  permalink: al-humazah
+  transliterated_name: Al-Humazah
+  arabic_name: الهمزة
+  english_name: The Traducer
+  character_length: 298
+surah_105:
+  id: 105
+  number_of_ayahs: 5
+  order_of_revelation: 19
+  revelation_type: meccan
+  permalink: al-fil
+  transliterated_name: Al-Fil
+  arabic_name: الفيل
+  english_name: The Elephant
+  character_length: 207
+surah_106:
+  id: 106
+  number_of_ayahs: 4
+  order_of_revelation: 29
+  revelation_type: meccan
+  permalink: quraysh
+  transliterated_name: Quraysh
+  arabic_name: قريش
+  english_name: Quraysh
+  character_length: 161
+surah_107:
+  id: 107
+  number_of_ayahs: 7
+  order_of_revelation: 17
+  revelation_type: meccan
+  permalink: al-maun
+  transliterated_name: Al-Maun
+  arabic_name: الماعون
+  english_name: Almsgiving
+  character_length: 231
+surah_108:
+  id: 108
+  number_of_ayahs: 3
+  order_of_revelation: 15
+  revelation_type: meccan
+  permalink: al-kawthar
+  transliterated_name: Al-Kawthar
+  arabic_name: الكوثر
+  english_name: Abundance
+  character_length: 92
+surah_109:
+  id: 109
+  number_of_ayahs: 6
+  order_of_revelation: 18
+  revelation_type: meccan
+  permalink: al-kafirun
+  transliterated_name: Al-Kafirun
+  arabic_name: الكافرون
+  english_name: The Disbelievers
+  character_length: 205
+surah_110:
+  id: 110
+  number_of_ayahs: 3
+  order_of_revelation: 114
+  revelation_type: medinan
+  permalink: an-nasr
+  transliterated_name: An-Nasr
+  arabic_name: النصر
+  english_name: Divine Support
+  character_length: 170
+surah_111:
+  id: 111
+  number_of_ayahs: 5
+  order_of_revelation: 6
+  revelation_type: meccan
+  permalink: al-masad
+  transliterated_name: Al-Masad
+  arabic_name: المسد
+  english_name: The Palm Fibre
+  character_length: 179
+surah_112:
+  id: 112
+  number_of_ayahs: 4
+  order_of_revelation: 22
+  revelation_type: meccan
+  permalink: al-ikhlas
+  transliterated_name: Al-Ikhlas
+  arabic_name: الإخلاص
+  english_name: Sincerity
+  character_length: 102
+surah_113:
+  id: 113
+  number_of_ayahs: 5
+  order_of_revelation: 20
+  revelation_type: meccan
+  permalink: al-falaq
+  transliterated_name: Al-Falaq
+  arabic_name: الفلق
+  english_name: The Dawn
+  character_length: 154
+surah_114:
+  id: 114
+  number_of_ayahs: 6
+  order_of_revelation: 21
+  revelation_type: meccan
+  permalink: an-nas
+  transliterated_name: An-Nas
+  arabic_name: الناس
+  english_name: Mankind
+  character_length: 159

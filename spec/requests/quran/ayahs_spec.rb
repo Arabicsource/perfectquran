@@ -4,9 +4,7 @@ require 'rails_helper'
 # require "browser/rails"
 
 describe 'Ayahs', type: :request do
-  let!(:ayah) { create :ayah, id: 2 }
-  let!(:previous) { create :ayah, id: 1 }
-  let!(:next) { create :ayah, id: 3 }
+  let!(:ayah) { Ayah.second }
 
   describe 'GET quran_ayah_path(ayah)' do
     context 'when application' do

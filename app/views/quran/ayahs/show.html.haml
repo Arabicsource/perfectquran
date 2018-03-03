@@ -1,38 +1,74 @@
-- if browser.mobile?
-  - content_for :after_navbar do
-    = render 'quran/ayahs/partials/mobile/after_navbar'
+.container
+  %nav.breadcrumb{aria: {label: "breadcrumbs"}}
+    %ul
+      %li= link_to 'Study', quran_root_path
+      %li= link_to @ayah.surah, quran_surah_path(@ayah.surah)
+      %li.is-active= link_to @ayah.number, quran_ayah_path(@ayah), aria: {current: "page"}
 
-  .info.is-hidden{data: {target: 'tabs.tabbable'}}
-    %p.field
-      = render 'quran/ayahs/tags/tags'
-    %br
-    %p.field
-      = render 'quran/surahs/partials/information', surah: @ayah.surah
+%section.section
+  .container
+    .columns
+      .column
+        %header
+          %h1.title= @ayah
+          %h2.subtitle= @ayah.surah.description
 
-  = render 'quran/ayahs/partials/bottom_navbar'  
+      -# .column
+      -#   .buttons
+      -#     %a.button
+      -#       %span.icon= fa_icon 'heart'
+      -#       %span Memory
 
-- else
-  - content_for :after_header do
-    = render 'quran/ayahs/partials/desktop/show_after_header'
+      -#     %a.button
+      -#       %span.icon= fa_icon 'bookmark'
+      -#       %span Bookmark
+        
+      .column.is-one-fifth.is-hidden-mobile
+        %nav.pagination
+          %a.pagination-previous Previous
+          %a.pagination-next Next Ayah
 
-  - content_for :sidebar do
-    = render 'quran/ayahs/tags/tags'
-    = render 'quran/surahs/partials/information', surah: @ayah.surah
+    .columns.is-variable.is-6
+      .column.is-three-fifths
+        %section.is-hidden-touch
+          %audio{controls: true}
+            %source{src: ayah_audio_file(@ayah.surah_id, @ayah.number), type: "audio/mpeg"}
+              Your browser does not support the audio tag.
 
+        %main
+          .media
+            .media-content
+              .content
+                %p
+                  %small
+                    %span.has-text-grey= truncate sanitize(@ayah.previous.noble_quran_text), length: 75
+                    = link_to quran_ayah_path(@ayah.previous) do
+                      (#{@ayah.previous.surah_id}:#{@ayah.previous.number})
 
-.ayah{data: {target: 'tabs.tabbable'}}
-  .media
-    .media-left
-      %p.field
-        = render 'quran/ayahs/partials/memory_button', ayah: @ayah
-      %p.field
-        = render 'quran/ayahs/partials/bookmark_button', ayah: @ayah
+          .media
+            .media-content
+              .content
+                - @ayah.texts_and_included_translations.each do |text|
+                  %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
+                  %p{class: ('is-size-4 has-text-right' if text.uthmani?)}= sanitize text.content
 
-    .media-content
-      .content
-        - @ayah.texts_and_included_translations.each do |text|
-          %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
-          %p{class: ('arabic' if text.uthmani?)}= sanitize text.content
+          .media
+            .media-content
+              .content
+                %p
+                  %small
+                    %span.has-text-grey= truncate sanitize(@ayah.next.noble_quran_text), length: 75
+                    = link_to quran_ayah_path(@ayah.next) do
+                      (#{@ayah.next.surah_id}:#{@ayah.next.number})
 
+        %nav.pagination.is-hidden-tablet
+          %a.pagination-previous Previous
+          %a.pagination-next Next Ayah
+
+      .column
+        %aside
+          = render 'quran/ayahs/tags/tags', tag: @tag, taggable: @ayah
+          = render 'quran/surahs/partials/information', surah: @ayah.surah
+          
+= render 'mobile_navbar'
 - provide :title, @ayah
-- provide :layout_template, 'two_column'

@@ -32,7 +32,11 @@ class Surah < ApplicationRecord
     end
   end
 
+  def description
+    "#{english_name} - #{arabic_name}"
+  end
+
   def to_s
-    "#{id}. #{transliterated_name}"
+    transliterated_name
   end
 end

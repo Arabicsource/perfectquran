@@ -31,20 +31,17 @@ RSpec.describe Surah, type: :model do
 
   describe '#ayahs' do
     it 'returns ayahs in Ascending order' do
-      surah = create :surah
-      create(:ayah, id: 3, surah: surah)
-      create(:ayah, id: 1, surah: surah)
-      create(:ayah, id: 2, surah: surah)
+      surah = Surah.first
 
-      expect(surah.ayahs.map(&:id)).to eq [1, 2, 3]
+      expect(surah.ayahs.map(&:id)).to eq [1, 2, 3, 4, 5, 6, 7]
     end
   end
 
   describe '#next' do
     before do
-      @first = create :surah, id: 1
-      @second = create :surah, id: 2
-      @third = create :surah, id: 3
+      @first = Surah.first
+      @second = Surah.second
+      @third = Surah.third
     end
 
     specify 'returns the next surah' do
@@ -52,15 +49,15 @@ RSpec.describe Surah, type: :model do
     end
 
     specify 'returns first surah if current surah is last' do
-      expect(@third.next).to eq(@first)
+      expect(Surah.last.next).to eq(@first)
     end
   end
 
   describe '#previous' do
     before do
-      @first = create :surah, id: 1
-      @second = create :surah, id: 2
-      @third = create :surah, id: 3
+      @first = Surah.first
+      @second = Surah.second
+      @third = Surah.third
     end
 
     specify 'returns the previous surah' do
@@ -68,7 +65,7 @@ RSpec.describe Surah, type: :model do
     end
 
     specify 'returns the last surah if the current surah is first' do
-      expect(@first.previous).to eq(@third)
+      expect(@first.previous).to eq(Surah.last)
     end
   end
 end

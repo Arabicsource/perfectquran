@@ -21,11 +21,9 @@ RSpec.describe Text, type: :model do
 
   describe '#reference' do
     it 'returns a reference to the ayah the text belongs to' do
-      surah = create :surah, id: 2
-      ayah = create :ayah, number: 3, surah: surah
-      text = create :text, ayah: ayah
+      text = Text.where(ayah_id: 7).first
 
-      expect(text.reference).to eq '[2:3]'
+      expect(text.reference).to eq '[1:7]'
     end
   end
 

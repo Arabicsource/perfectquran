@@ -1,0 +1,104 @@
+uthmani_1:
+  content: Uthmani 1
+  translation_id: 1
+  ayah_id: 1
+
+uthmani_2:
+  content: Uthmani 2
+  translation_id: 1
+  ayah_id: 2
+
+uthmani_3:
+  content: Uthmani 3
+  translation_id: 1
+  ayah_id: 3
+
+uthmani_4:
+  content: Uthmani 4
+  translation_id: 1
+  ayah_id: 4
+
+uthmani_5:
+  content: Uthmani 5
+  translation_id: 1
+  ayah_id: 5
+
+uthmani_6:
+  content: Uthmani 6
+  translation_id: 1
+  ayah_id: 6
+
+uthmani_7:
+  content: Uthmani 7
+  translation_id: 1
+  ayah_id: 7
+
+transliteration_1:
+  content: Transliteration 1
+  translation_id: 2
+  ayah_id: 1
+
+transliteration_2:
+  content: Transliteration 2
+  translation_id: 2
+  ayah_id: 2
+
+transliteration_3:
+  content: Transliteration 3
+  translation_id: 2
+  ayah_id: 3
+
+transliteration_4:
+  content: Transliteration 4
+  translation_id: 2
+  ayah_id: 4
+
+transliteration_5:
+  content: Transliteration 5
+  translation_id: 2
+  ayah_id: 5
+
+transliteration_6:
+  content: Transliteration 6
+  translation_id: 2
+  ayah_id: 6
+
+transliteration_7:
+  content: Transliteration 7
+  translation_id: 2
+  ayah_id: 7
+
+noble_quran_1:
+  content: Noble Quran 1
+  translation_id: 3
+  ayah_id: 1
+
+noble_quran_2:
+  content: Noble Quran 2
+  translation_id: 3
+  ayah_id: 2
+
+noble_quran_3:
+  content: Noble Quran 3
+  translation_id: 3
+  ayah_id: 3
+
+noble_quran_4:
+  content: Noble Quran 4
+  translation_id: 3
+  ayah_id: 4
+
+noble_quran_5:
+  content: Noble Quran 5
+  translation_id: 3
+  ayah_id: 5
+
+noble_quran_6:
+  content: Noble Quran 6
+  translation_id: 3
+  ayah_id: 6
+
+noble_quran_7:
+  content: Noble Quran 7
+  translation_id: 3
+  ayah_id: 7

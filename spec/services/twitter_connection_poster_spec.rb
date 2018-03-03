@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe TwitterConnectionPoster do
   let(:account) { create :account }
-  let(:translation) { create :translation, id: 3 }
-  let(:ayah) { create :ayah, id: 1 }
+  let(:translation) { Translation.find_by(id: 3) }
+  let(:ayah) { Ayah.first }
 
   context 'when successful' do
     let!(:text) { create :text, translation: translation, ayah: ayah }
@@ -28,9 +28,6 @@ RSpec.describe TwitterConnectionPoster do
   end
 
   context 'when last ayah' do
-    let(:ayah) { create :ayah, id: 1 }
-    let!(:text) { create :text, translation: translation, ayah: ayah }
-
     let(:connection) do
       create(
         :connection,
@@ -46,9 +43,6 @@ RSpec.describe TwitterConnectionPoster do
   end
 
   context 'when middle ayah' do
-    let(:ayah) { create :ayah, id: 6 }
-    let!(:text) { create :text, translation: translation, ayah: ayah }
-
     let(:connection) do
       create(
         :connection, account: account, last_ayah_id: 5, translation: translation

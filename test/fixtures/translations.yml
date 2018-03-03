@@ -1,0 +1,605 @@
+tranlation_1:
+  id: 1
+  name: Uthmani
+  description: Allah
+  language_id: 1
+
+tranlation_2:
+  id: 2
+  name: Transliteration
+  description: English Transliteration
+  language_id: 2
+
+tranlation_3:
+  id: 3
+  name: The Noble Quran
+  description: Muhammad al-Hilali and Muhammad Khan
+  language_id: 2
+
+tranlation_4:
+  id: 4
+  name: Yusuf Ali
+  description: Abdullah Yusuf Ali
+  language_id: 2
+
+tranlation_5:
+  id: 5
+  name: Pickthall
+  description: Mohammed Marmaduke William Pickthall
+  language_id: 2
+
+tranlation_6:
+  id: 6
+  name: Saheeh International
+  description: Saheeh International
+  language_id: 2
+
+tranlation_7:
+  id: 7
+  name: Sarwar
+  description: Muhammad Sarwar
+  language_id: 2
+
+tranlation_8:
+  id: 8
+  name: Shakir
+  description: Mohammad Habib Shakir
+  language_id: 2
+
+tranlation_9:
+  id: 9
+  name: Qaribullah & Darwish
+  description: Hasan al-Fatih Qaribullah and Ahmad Darwish
+  language_id: 2
+
+tranlation_10:
+  id: 10
+  name: Arberry
+  description: A. J. Arberry
+  language_id: 2
+
+tranlation_11:
+  id: 11
+  name: Asad
+  description: Muhammad Asad
+  language_id: 2
+
+tranlation_12:
+  id: 12
+  name: Maududi
+  description: Abul Ala Maududi
+  language_id: 2
+
+tranlation_13:
+  id: 13
+  name: Ahmed Ali
+  description: Ahmed Ali
+  language_id: 2
+
+tranlation_14:
+  id: 14
+  name: Daryabadi
+  description: Abdul Majid Daryabadi
+  language_id: 2
+
+tranlation_15:
+  id: 15
+  name: Wahiduddin Khan
+  description: Wahiduddin Khan
+  language_id: 2
+
+tranlation_16:
+  id: 16
+  name: Ahmed Raza Khan
+  description: Ahmed Raza Khan
+  language_id: 2
+
+tranlation_17:
+  id: 17
+  name: Sherif Ahmeti
+  description: Sherif Ahmeti
+  language_id: 3
+
+tranlation_18:
+  id: 18
+  name: Feti Mehdiu
+  description: Feti Mehdiu
+  language_id: 3
+
+tranlation_19:
+  id: 19
+  name: Efendi Nahi
+  description: Hasan Efendi Nahi
+  language_id: 3
+
+tranlation_20:
+  id: 20
+  name: Məmmədəliyev & Bünyadov
+  description: Vasim Mammadaliyev and Ziya Bunyadov
+  language_id: 4
+
+tranlation_21:
+  id: 21
+  name: Musayev
+  description: Alikhan Musayev
+  language_id: 4
+
+tranlation_22:
+  id: 22
+  name: মুহিউদ্দীন খান
+  description: Muhiuddin Khan
+  language_id: 5
+
+tranlation_23:
+  id: 23
+  name: Korkut
+  description: Besim Korkut
+  language_id: 6
+
+tranlation_24:
+  id: 24
+  name: Mlivo
+  description: Mustafa Mlivo
+  language_id: 6
+
+tranlation_25:
+  id: 25
+  name: Теофанов
+  description: Tzvetan Theophanov
+  language_id: 7
+
+tranlation_26:
+  id: 26
+  name: Ma Jian
+  description: Ma Jian
+  language_id: 8
+
+tranlation_27:
+  id: 27
+  name: Ma Jian (Traditional)
+  description: Ma Jian
+  language_id: 8
+
+tranlation_28:
+  id: 28
+  name: Hrbek
+  description: Preklad I. Hrbek
+  language_id: 9
+
+tranlation_29:
+  id: 29
+  name: Nykl
+  description: A. R. Nykl
+  language_id: 9
+
+tranlation_30:
+  id: 30
+  name: ދިވެހި
+  description: Office of the President of Maldives
+  language_id: 10
+
+tranlation_31:
+  id: 31
+  name: Keyzer
+  description: Salomo Keyzer
+  language_id: 11
+
+tranlation_32:
+  id: 32
+  name: De Heilige Koran
+  description: Sufyan Siregar
+  language_id: 11
+
+tranlation_33:
+  id: 33
+  name: Hamidullah
+  description: Muhammad Hamidullah
+  language_id: 12
+
+tranlation_34:
+  id: 34
+  name: Abu Rida
+  description: Abu Rida Muhammad ibn Ahmad ibn Rassoul
+  language_id: 13
+
+tranlation_35:
+  id: 35
+  name: Bubenheim & Elyas
+  description: A. S. F. Bubenheim and N. Elyas
+  language_id: 13
+
+tranlation_36:
+  id: 36
+  name: Khoury
+  description: Adel Theodor Khoury
+  language_id: 13
+
+tranlation_37:
+  id: 37
+  name: Zaidan
+  description: Amir Zaidan
+  language_id: 13
+
+tranlation_38:
+  id: 38
+  name: Gumi
+  description: Abubakar Mahmoud Gumi
+  language_id: 14
+
+tranlation_39:
+  id: 39
+  name: फ़ारूक़ ख़ान & अहमद
+  description: Muhammad Farooq Khan and Muhammad Ahmed
+  language_id: 15
+
+tranlation_40:
+  id: 40
+  name: फ़ारूक़ ख़ान & नदवी
+  description: Suhel Farooq Khan and Saifur Rahman Nadwi
+  language_id: 15
+
+tranlation_41:
+  id: 41
+  name: Bahasa Indonesia
+  description: Unknown
+  language_id: 16
+
+tranlation_42:
+  id: 42
+  name: Quraish Shihab
+  description: Muhammad Quraish Shihab et al.
+  language_id: 16
+
+tranlation_43:
+  id: 43
+  name: Piccardo
+  description: Hamza Roberto Piccardo
+  language_id: 17
+
+tranlation_44:
+  id: 44
+  name: Japanese
+  description: Unknown
+  language_id: 18
+
+tranlation_45:
+  id: 45
+  name: Korean
+  description: Unknown
+  language_id: 19
+
+tranlation_46:
+  id: 46
+  name: ته‌فسیری ئاسان
+  description: Burhan Muhammad-Amin
+  language_id: 20
+
+tranlation_47:
+  id: 47
+  name: Basmeih
+  description: Abdullah Muhammad Basmeih
+  language_id: 21
+
+tranlation_48:
+  id: 48
+  name: അബ്ദുല്‍ ഹമീദ് & പറപ്പൂര്‍
+  description: Cheriyamundam Abdul Hameed and Kunhi Mohammed Parappoor
+  language_id: 22
+
+tranlation_49:
+  id: 49
+  name: കാരകുന്ന് & എളയാവൂര്
+  description: Muhammad Karakunnu and Vanidas Elayavoor
+  language_id: 22
+
+tranlation_50:
+  id: 50
+  name: Einar Berg
+  description: Einar Berg
+  language_id: 23
+
+tranlation_51:
+  id: 51
+  name: انصاریان
+  description: Hussain Ansarian
+  language_id: 24
+
+tranlation_52:
+  id: 52
+  name: بهرام پور
+  description: Abolfazl Bahrampour
+  language_id: 24
+
+tranlation_53:
+  id: 53
+  name: فولادوند
+  description: Mohammad Mahdi Fooladvand
+  language_id: 24
+
+tranlation_54:
+  id: 54
+  name: الهی قمشه‌ای
+  description: Mahdi Elahi Ghomshei
+  language_id: 24
+
+tranlation_55:
+  id: 55
+  name: خرمدل
+  description: Mostafa Khorramdel
+  language_id: 24
+
+tranlation_56:
+  id: 56
+  name: خرمشاهی
+  description: Baha'oddin Khorramshahi
+  language_id: 24
+
+tranlation_57:
+  id: 57
+  name: مکارم شیرازی
+  description: Naser Makarem Shirazi
+  language_id: 24
+
+tranlation_58:
+  id: 58
+  name: معزی
+  description: Mohammad Kazem Moezzi
+  language_id: 24
+
+tranlation_59:
+  id: 59
+  name: آیتی
+  description: AbdolMohammad Ayati
+  language_id: 24
+
+tranlation_60:
+  id: 60
+  name: مجتبوی
+  description: Sayyed Jalaloddin Mojtabavi
+  language_id: 24
+
+tranlation_61:
+  id: 61
+  name: صادقی تهرانی
+  description: Mohammad Sadeqi Tehrani
+  language_id: 24
+
+tranlation_62:
+  id: 62
+  name: Bielawskiego
+  description: Józefa Bielawskiego
+  language_id: 25
+
+tranlation_63:
+  id: 63
+  name: El-Hayek
+  description: Samir El-Hayek
+  language_id: 26
+
+tranlation_64:
+  id: 64
+  name: Grigore
+  description: George Grigore
+  language_id: 27
+
+tranlation_65:
+  id: 65
+  name: Абу Адель
+  description: Abu Adel
+  language_id: 28
+
+tranlation_66:
+  id: 66
+  name: Крачковский
+  description: Ignaty Yulianovich Krachkovsky
+  language_id: 28
+
+tranlation_67:
+  id: 67
+  name: Кулиев
+  description: Elmir Kuliev
+  language_id: 28
+
+tranlation_68:
+  id: 68
+  name: Аль-Мунтахаб
+  description: Ministry of Awqaf, Egypt
+  language_id: 28
+
+tranlation_69:
+  id: 69
+  name: Османов
+  description: Magomed-Nuri Osmanovich Osmanov
+  language_id: 28
+
+tranlation_70:
+  id: 70
+  name: Порохова
+  description: V. Porokhova
+  language_id: 28
+
+tranlation_71:
+  id: 71
+  name: Саблуков
+  description: Gordy Semyonovich Sablukov
+  language_id: 28
+
+tranlation_72:
+  id: 72
+  name: امروٽي
+  description: Taj Mehmood Amroti
+  language_id: 29
+
+tranlation_73:
+  id: 73
+  name: Abduh
+  description: Mahmud Muhammad Abduh
+  language_id: 30
+
+tranlation_74:
+  id: 74
+  name: Asad
+  description: Muhammad Asad - Abdurrasak Pérez
+  language_id: 31
+
+tranlation_75:
+  id: 75
+  name: Cortes
+  description: Julio Cortes 
+  language_id: 31
+
+tranlation_76:
+  id: 76
+  name: Al-Barwani
+  description: Ali Muhsin Al-Barwani
+  language_id: 32
+
+tranlation_77:
+  id: 77
+  name: Bernström
+  description: Knut Bernström
+  language_id: 33
+
+tranlation_78:
+  id: 78
+  name: Оятӣ
+  description: AbdolMohammad Ayati
+  language_id: 34
+
+tranlation_79:
+  id: 79
+  name: ஜான் டிரஸ்ட்
+  description: Jan Turst Foundation
+  language_id: 35
+
+tranlation_80:
+  id: 80
+  name: Yakub Ibn Nugman
+  description: Yakub Ibn Nugman
+  language_id: 36
+
+tranlation_81:
+  id: 81
+  name: ภาษาไทย
+  description: King Fahad Quran Complex
+  language_id: 37
+
+tranlation_82:
+  id: 82
+  name: Çeviriyazı
+  description: Muhammet Abay
+  language_id: 38
+
+tranlation_83:
+  id: 83
+  name: Süleyman Ateş
+  description: Suleyman Ates
+  language_id: 38
+
+tranlation_84:
+  id: 84
+  name: Alİ Bulaç
+  description: Alİ Bulaç
+  language_id: 38
+
+tranlation_85:
+  id: 85
+  name: Diyanet İşleri
+  description: Diyanet Isleri
+  language_id: 38
+
+tranlation_86:
+  id: 86
+  name: Abdulbakî Gölpınarlı
+  description: Abdulbaki Golpinarli
+  language_id: 38
+
+tranlation_87:
+  id: 87
+  name: Öztürk
+  description: Yasar Nuri Ozturk
+  language_id: 38
+
+tranlation_88:
+  id: 88
+  name: Diyanet Vakfı
+  description: Diyanet Vakfi
+  language_id: 38
+
+tranlation_89:
+  id: 89
+  name: Elmalılı Hamdi Yazır
+  description: Elmalili Hamdi Yazir
+  language_id: 38
+
+tranlation_90:
+  id: 90
+  name: Suat Yıldırım
+  description: Suat Yildirim
+  language_id: 38
+
+tranlation_91:
+  id: 91
+  name: Edip Yüksel
+  description: Edip Yüksel
+  language_id: 38
+
+tranlation_92:
+  id: 92
+  name: احمد علی
+  description: Ahmed Ali
+  language_id: 39
+
+tranlation_93:
+  id: 93
+  name: جالندہری
+  description: Fateh Muhammad Jalandhry
+  language_id: 39
+
+tranlation_94:
+  id: 94
+  name: علامہ جوادی
+  description: Syed Zeeshan Haider Jawadi
+  language_id: 39
+
+tranlation_95:
+  id: 95
+  name: محمد جوناگڑھی
+  description: Muhammad Junagarhi
+  language_id: 39
+
+tranlation_96:
+  id: 96
+  name: احمد رضا خان
+  description: Ahmed Raza Khan
+  language_id: 39
+
+tranlation_97:
+  id: 97
+  name: ابوالاعلی مودودی
+  description: Abul A'ala Maududi
+  language_id: 39
+
+tranlation_98:
+  id: 98
+  name: محمد حسین نجفی
+  description: Ayatollah Muhammad Hussain Najafi 
+  language_id: 39
+
+tranlation_99:
+  id: 99
+  name: طاہر القادری
+  description: Tahir ul Qadri
+  language_id: 39
+
+tranlation_100:
+  id: 100
+  name: محمد صالح
+  description: Muhammad Saleh
+  language_id: 40
+
+tranlation_101:
+  id: 101
+  name: Мухаммад Содик
+  description: Muhammad Sodik Muhammad Yusuf
+  language_id: 41

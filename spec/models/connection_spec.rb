@@ -56,8 +56,6 @@ RSpec.describe Connection, type: :model do
     end
 
     context 'connection has previously posted' do
-      let!(:surah) { create :surah, id: 1 }
-      let!(:ayah) { create :ayah, id: 7, surah_id: 1, number: 7 }
       let(:connection) { create :connection, last_ayah_id: 7 }
 
       specify { expect(connection.last_ayah_reference).to eq '[1:7]' }
@@ -65,7 +63,6 @@ RSpec.describe Connection, type: :model do
   end
 
   context '#create_with_omniauth!' do
-    let!(:translation) { create :translation, id: 3 }
     let(:account) { create :account }
 
     let(:auth_hash) do

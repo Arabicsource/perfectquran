@@ -10,11 +10,9 @@ RSpec.describe 'Ayahs API', type: :request do
     end
 
     it 'returns all ayahs' do
-      create_list :ayah, 5
-
       get '/api/v1/ayahs'
 
-      expect(JSON.parse(response.body).length).to eq(5)
+      expect(JSON.parse(response.body).length).to eq(6236)
     end
   end
 

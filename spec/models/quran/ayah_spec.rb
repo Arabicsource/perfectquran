@@ -29,13 +29,7 @@ RSpec.describe Ayah, type: :model do
   end
 
   describe '.noble_quran_text' do
-    before do
-      @ayah = create :ayah
-      translation = create :translation, id: 3
-      create :text, translation: translation, ayah: @ayah, content: 'abc123'
-    end
-
-    specify { expect(@ayah.noble_quran_text).to eq 'abc123' }
+    specify { expect(Ayah.first.noble_quran_text).to eq 'Noble Quran 1' }
   end
 
   describe '.surah_name' do
@@ -49,9 +43,9 @@ RSpec.describe Ayah, type: :model do
 
   describe '.previous' do
     before do
-      @first = create :ayah, id: 1
-      @second = create :ayah, id: 2
-      @last = create :ayah, id: 6236
+      @first = Ayah.first
+      @second = Ayah.second
+      @last = Ayah.last
     end
 
     specify { expect(@second.previous).to eq(@first) }
@@ -60,9 +54,9 @@ RSpec.describe Ayah, type: :model do
 
   describe '.next' do
     before do
-      @first = create :ayah, id: 1
-      @second = create :ayah, id: 2
-      @last = create :ayah, id: 6236
+      @first = Ayah.first
+      @second = Ayah.second
+      @last = Ayah.last
     end
 
     specify { expect(@first.next).to eq(@second) }

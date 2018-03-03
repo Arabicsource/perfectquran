@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'Accounts::Connections#update', type: :request do
-  let(:uthmani) { create :translation, id: 1 }
+  let(:uthmani) { Translation.first }
   let(:account) { create :account }
   let(:connection) { create :connection, account: account }
   let(:uri) { account_connection_path(connection) }

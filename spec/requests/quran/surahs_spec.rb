@@ -46,9 +46,7 @@ describe 'Surahs', type: :request do
 
   context 'GET show' do
     it 'responds successfully' do
-      surah = create :surah
-
-      get quran_surah_path(surah)
+      get quran_surah_path(1)
 
       expect(response).to be_successful
     end
@@ -56,17 +54,13 @@ describe 'Surahs', type: :request do
 
   context 'GET permalink' do
     it 'responds successfully' do
-      surah = create :surah
-
-      get "/#{surah.permalink}"
+      get "/al-fatihah"
 
       expect(response).to be_successful
     end
 
     it 'renders quran/surahs/show' do
-      surah = create :surah
-
-      get "/#{surah.permalink}"
+      get "/al-fatihah"
 
       expect(response).to render_template 'quran/surahs/show'
     end

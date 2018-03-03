@@ -39,13 +39,12 @@ $notification-radius: none
 
 @import 'bulma'
 
-// SECTION.SECTION
-section.section
-  header
-    margin-bottom: 3rem
+@import 'layout/section'
 
-  section
-    margin-bottom: 3rem
+@import 'components/breadcrumbs'
+@import 'components/navbar'
+
+@import 'views/quran/ayahs/show'
 
 // NAVBAR
 .navbar
@@ -177,7 +176,7 @@ section.patron-banner
     margin-top: 0
 
 // STUDY-SURAHS.INDEX
-#study-surahs.index
+#quran-surahs.index
   .hero.is-brown
     border-top: 15px solid $brown-dark
 
@@ -201,7 +200,7 @@ section.patron-banner
         color: $text
 
 // STUDY-SURAHS.SHOW, STUDY-AYAHS.SHOW
-#study-surahs.show, #study-ayahs.show
+#quran-surahs.show, #quran-ayahs.show
   audio
     width: 100%
 
