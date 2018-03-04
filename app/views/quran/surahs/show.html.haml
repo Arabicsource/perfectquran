@@ -1,35 +1,53 @@
-- if browser.mobile?
-  - content_for :after_navbar do
-    = render 'quran/surahs/partials/mobile/after_navbar'
+.container
+  %nav.breadcrumb{aria: {label: "breadcrumbs"}}
+    %ul
+      %li= link_to 'Study', quran_root_path
+      %li.is-active= link_to @surah, quran_surah_path(@surah), aria: {current: "page"}
 
-  .info.is-hidden{data: {target: 'tabs.tabbable'}}
-    %p.field
-      = render 'quran/surahs/partials/information', surah: @surah
+%section.section
+  .container
+    = render 'header'
 
-  = render 'quran/surahs/partials/bottom_navbar'  
+    .columns.is-variable.is-6
+      .column.is-three-fifths
+        %section
+          %audio.is-hidden-touch{controls: true}
+            %source{src: surah_audio_file(@surah.id), type: "audio/mpeg"}
+              Your browser does not support the audio tag.
 
-- else
-  - content_for :after_header do
-    = render 'quran/surahs/partials/desktop/show_after_header'
-    
-  - content_for :sidebar do
-    = render 'quran/surahs/partials/information', surah: @surah
+        %main
+          - @surah.ayahs_and_included_texts.each do |ayah|
+            .media
+              .media-left
+                %p.field
+                  %strong #{ayah.number}.
 
-.surah{data: {target: 'tabs.tabbable'}}
-  - @surah.ayahs_and_included_texts.each do |ayah|
-    .media
-      .media-left
-        %p.field
-          %strong #{ayah.number}.
+              .media-content
+                .content
+                  - ayah.texts_and_included_translations.each do |text|
+                    %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
+                    %p{class: ('is-size-4 has-text-right' if text.uthmani?)}= sanitize text.content
 
-        = link_to quran_ayah_path(ayah), class: 'button' do
-          = fa_icon 'link'
+      .column
+        %aside
+          = render 'information', surah: @surah
 
-      .media-content
-        .content
-          - ayah.texts_and_included_translations.each do |text|
-            %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
-            %p{class: ('is-size-4 has-text-right' if text.uthmani?)}= sanitize text.content
+%nav.navbar.is-fixed-bottom.is-hidden-desktop{data: {controller: 'navbar'}}
+  %audio{controls: true, data: {target: 'navbar.audio'}}
+    %source{src: surah_audio_file(@surah.id), type: "audio/mpeg"}
+      Your browser does not support the audio tag.
 
+  .navbar-brand
+    = link_to quran_root_path, class: 'navbar-item' do
+      = fa_icon 'list-ol'
+
+    %a.navbar-item
+
+    = link_to quran_surah_path(@surah.previous), class: 'navbar-item' do
+      = fa_icon 'chevron-left'
+
+    = link_to quran_surah_path(@surah.next), class: 'navbar-item' do
+      = fa_icon 'chevron-right'
+
+= render 'mobile_navbar'
 - provide :title, @surah
-- provide :layout_template, 'two_column'

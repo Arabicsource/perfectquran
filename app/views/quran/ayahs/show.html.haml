@@ -68,7 +68,7 @@
       .column
         %aside
           = render 'quran/ayahs/tags/tags', tag: @tag, taggable: @ayah
-          = render 'quran/surahs/partials/information', surah: @ayah.surah
+          = render 'quran/surahs/information', surah: @ayah.surah
           
 = render 'mobile_navbar'
 - provide :title, @ayah

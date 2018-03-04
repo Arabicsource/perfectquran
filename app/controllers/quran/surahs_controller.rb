@@ -13,6 +13,8 @@ module Quran
                else
                  Surah.find_by(permalink: params[:permalink])
                end
+
+      render layout: 'replacement'
     end
   end
 end
