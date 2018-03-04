@@ -25,8 +25,8 @@
         
       .column.is-one-fifth.is-hidden-mobile
         %nav.pagination
-          %a.pagination-previous Previous
-          %a.pagination-next Next Ayah
+          = link_to 'Previous', quran_ayah_path(@ayah.previous), class: 'pagination-previous'
+          = link_to 'Next Ayah', quran_ayah_path(@ayah.next), class: 'pagination-next'
 
     .columns.is-variable.is-6
       .column.is-three-fifths

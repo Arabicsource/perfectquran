@@ -11,6 +11,6 @@
                   %span.icon= fa_icon 'tag'
                   %span= tag.name
 
-    .panel-block
-      - if account_signed_in?
+    - if account_signed_in?
+      .panel-block
         = render 'quran/ayahs/tags/form', tag: Tag.new
