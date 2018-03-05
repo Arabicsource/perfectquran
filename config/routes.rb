@@ -36,13 +36,15 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :quran do
+  namespace :study do
     root 'surahs#index'
 
+    resources :surahs, only: %i[index show]
+  end
+
+  namespace :quran do
     resources :memories, only: :new
     resources :texts, only: :index
-
-    resources :surahs, only: %i[index show]
 
     resources :ayahs, only: [:show] do
       scope module: :ayahs do
@@ -54,7 +56,7 @@ Rails.application.routes.draw do
   get '/quran/ayahs/:id', to: 'quran/ayahs#show', as: :ayah
   get 'auth/:provider/callback', to: 'account/connections#callback'
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
-  get '/:permalink', to: 'quran/surahs#show', as: :surah
+  get '/:permalink', to: 'study/surahs#show', as: :surah
 
-  root to: 'quran/surahs#index'
+  root to: 'study/surahs#index'
 end

@@ -7,7 +7,7 @@
     = link_to '', class: 'navbar-item', data: { action: 'navbar#hideAudio'} do
       = fa_icon 'headphones'
 
-    = link_to quran_surah_path(@ayah.surah), class: 'navbar-item' do
+    = link_to study_surah_path(@ayah.surah), class: 'navbar-item' do
       = fa_icon 'list-ol'
 
     = link_to quran_ayah_path(@ayah.previous), class: 'navbar-item' do

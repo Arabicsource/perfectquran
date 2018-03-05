@@ -1,8 +1,8 @@
 .container
   %nav.breadcrumb{aria: {label: "breadcrumbs"}}
     %ul
-      %li= link_to 'Study', quran_root_path
-      %li= link_to @ayah.surah, quran_surah_path(@ayah.surah)
+      %li= link_to 'Study', study_root_path
+      %li= link_to @ayah.surah, study_surah_path(@ayah.surah)
       %li.is-active= link_to @ayah.number, quran_ayah_path(@ayah), aria: {current: "page"}
 
 %section.section

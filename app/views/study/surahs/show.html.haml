@@ -1,12 +1,31 @@
 .container
   %nav.breadcrumb{aria: {label: "breadcrumbs"}}
     %ul
-      %li= link_to 'Study', quran_root_path
-      %li.is-active= link_to @surah, quran_surah_path(@surah), aria: {current: "page"}
+      %li= link_to 'Study', study_root_path
+      %li.is-active= link_to @surah, study_surah_path(@surah), aria: {current: "page"}
 
 %section.section
   .container
-    = render 'header'
+    .columns
+      .column
+        %header
+          %h1.title= @surah
+          %h2.subtitle= @surah.description
+    
+      -# .column
+      -#   .buttons
+      -#     %a.button
+      -#       %span.icon= fa_icon 'heart'
+      -#       %span Memory
+    
+      -#     %a.button
+      -#       %span.icon= fa_icon 'bookmark'
+      -#       %span Bookmark
+        
+      .column.is-one-fifth.is-hidden-mobile
+        %nav.pagination
+          = link_to 'Previous', study_surah_path(@surah.previous), class: 'pagination-previous'
+          = link_to 'Next Surah', study_surah_path(@surah.next), class: 'pagination-next'
 
     .columns.is-variable.is-6
       .column.is-three-fifths
@@ -38,15 +57,15 @@
       Your browser does not support the audio tag.
 
   .navbar-brand
-    = link_to quran_root_path, class: 'navbar-item' do
+    = link_to study_root_path, class: 'navbar-item' do
       = fa_icon 'list-ol'
 
     %a.navbar-item
 
-    = link_to quran_surah_path(@surah.previous), class: 'navbar-item' do
+    = link_to study_surah_path(@surah.previous), class: 'navbar-item' do
       = fa_icon 'chevron-left'
 
-    = link_to quran_surah_path(@surah.next), class: 'navbar-item' do
+    = link_to study_surah_path(@surah.next), class: 'navbar-item' do
       = fa_icon 'chevron-right'
 
 = render 'mobile_navbar'
