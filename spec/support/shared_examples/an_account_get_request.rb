@@ -18,15 +18,5 @@ RSpec.shared_examples 'an account get request' do
 
       specify { expect(response).to be_successful }
     end
-
-    context 'when mobile' do
-      before do
-        mobile_browser
-        login_as account
-        get url
-      end
-
-      specify { expect(response).to be_successful }
-    end
   end
 end

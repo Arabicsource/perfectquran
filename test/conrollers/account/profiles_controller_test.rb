@@ -11,11 +11,4 @@ class Account::ProfilesControllerTest < ActionDispatch::IntegrationTest
     get edit_account_profile_path
     assert_response :success
   end
-
-  test 'get edit with account on mobile' do
-    login_as accounts(:abdullah)
-    mobile_browser
-    get edit_account_profile_path
-    assert_response :success
-  end
 end

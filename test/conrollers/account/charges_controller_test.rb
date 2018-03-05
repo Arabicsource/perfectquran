@@ -11,11 +11,4 @@ class Account::ChargesControllerTest < ActionDispatch::IntegrationTest
     get account_charges_path
     assert_response :success
   end
-
-  test 'get index with account on mobile' do
-    login_as accounts(:abdullah)
-    mobile_browser
-    get account_charges_path
-    assert_response :success
-  end
 end

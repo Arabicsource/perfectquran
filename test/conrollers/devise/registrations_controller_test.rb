@@ -6,12 +6,6 @@ class Devise::RegistrationsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'get new without account on mobile' do
-    mobile_browser
-    get new_account_registration_path
-    assert_response :success
-  end
-
   test 'get new with account' do
     login_as accounts(:abdullah)
     get new_account_registration_path

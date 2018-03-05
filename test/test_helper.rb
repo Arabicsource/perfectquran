@@ -11,9 +11,3 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
-
-class ActionDispatch::IntegrationTest
-  def mobile_browser
-    Browser::Generic.any_instance.stubs(:mobile?).returns(true)
-  end
-end

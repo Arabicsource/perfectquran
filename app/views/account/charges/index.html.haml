@@ -1,9 +1,8 @@
 %section.section
   .container
     .columns
-      - unless browser.mobile?
-        .column.is-one-fifth
-          = render 'account/shared/menu'
+      .column.is-one-fifth.is-hidden-touch
+        = render 'account/shared/menu'
 
       .column
         %header

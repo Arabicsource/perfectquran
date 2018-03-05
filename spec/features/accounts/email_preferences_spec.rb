@@ -11,7 +11,9 @@ feature 'Email Preferences' do
     login_as account
     visit edit_account_profile_path
 
-    click_on 'Email Preferences'
+    within '.aside' do
+      click_on 'Email Preferences'
+    end
   end
 
   scenario 'for newly created account' do

@@ -12,15 +12,6 @@ describe 'Ayahs', type: :request do
 
       specify { expect(response).to be_successful }
     end
-
-    context 'when mobile' do
-      before do
-        mobile_browser
-        get quran_ayah_path(ayah)
-      end
-
-      specify { expect(response).to be_successful }
-    end
   end
 
   describe 'GET /:surah_id/:ayah_number' do

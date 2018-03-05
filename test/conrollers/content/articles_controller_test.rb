@@ -12,19 +12,6 @@ class Content::ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'get index without account on mobile' do
-    mobile_browser
-    get content_articles_path
-    assert_response :success
-  end
-
-  test 'get index with account on mobile' do
-    login_as accounts(:abdullah)
-    mobile_browser
-    get content_articles_path
-    assert_response :success
-  end
-
   test 'get show' do
     get content_article_path('one')
     assert_response :success
@@ -48,19 +35,6 @@ class Content::ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test 'get show when logged in' do
     login_as accounts(:abdullah)
-    get content_article_path('one')
-    assert_response :success
-  end
-
-  test 'get show on mobile' do
-    mobile_browser
-    get content_article_path('one')
-    assert_response :success
-  end
-
-  test 'get show on mobile when logged in' do
-    login_as accounts(:abdullah)
-    mobile_browser
     get content_article_path('one')
     assert_response :success
   end

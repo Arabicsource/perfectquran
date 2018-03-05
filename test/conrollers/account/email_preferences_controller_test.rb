@@ -11,11 +11,4 @@ class Account::EmailPreferencesControllerTest < ActionDispatch::IntegrationTest
     get edit_account_email_preference_path
     assert_response :success
   end
-
-  test 'get edit with account on mobile' do
-    login_as accounts(:abdullah)
-    mobile_browser
-    get edit_account_email_preference_path
-    assert_response :success
-  end
 end
