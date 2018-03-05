@@ -1,9 +1,17 @@
-= render 'admin/partials/tabs', action: 'new'
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
 
-= form_with scope: :category, url: admin_categories_path, id: 'new_category' do |f|
-  = render 'form_fields', f: f
+      .column
+        %header
+          %h1.title New Category
 
-- provide :title, t('admin.categories.new.title')
+        %section
+          = form_with scope: :category, url: admin_categories_path, id: 'new_category' do |f|
+            = render 'form_fields', f: f
 
-- content_for :after_header do
-  = render 'admin/partials/navbar'
+      .column.is-one-fifth
+
+- provide :title, 'New Category'

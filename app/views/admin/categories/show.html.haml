@@ -1,10 +1,35 @@
-= render 'admin/partials/tabs', action: 'show'
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
 
-%article.content
-  %h1.title= @category.name
-  %p= @category.description
+      .column
+        %header
+          %h1.title= @category.name
 
-- provide :title, t('admin.categories.show.title', name: @category.name)
+        %section
+          .content
+            %p= @category.description
 
-- content_for :after_header do
-  = render 'admin/partials/navbar'
+      .column.is-one-fifth
+        %nav.menu.has-text-right
+          %ul.menu-list
+            %li
+              = link_to admin_categories_path do
+                %span List
+                %span.icon= fa_icon 'list'
+            %li
+              = link_to new_admin_category_path do
+                %span New
+                %span.icon= fa_icon 'plus'
+            %li
+              = link_to edit_admin_category_path @category do
+                %span Edit
+                %span.icon= fa_icon 'edit'
+            %li
+              = link_to admin_category_path @category, method: :delete, class: 'has-text-danger' do
+                %span Delete
+                %span.icon= fa_icon 'trash'
+
+- provide :title, @category.name

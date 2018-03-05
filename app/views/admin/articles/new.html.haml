@@ -1,8 +1,23 @@
-= form_with scope: :article, url: admin_articles_path, id: 'new_article' do |f|
-  = render 'form_fields', f: f
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
 
+      .column
+        %header
+          %h1.title New Article
 
-- provide :title, t('new_article')
+        %section
+          = form_with scope: :article, url: admin_articles_path, id: 'new_article' do |f|
+            = render 'form_fields', f: f
 
-- content_for :after_header do
-  = render 'admin/partials/navbar'
+      .column.is-one-fifth
+        %nav.menu.has-text-right
+          %ul.menu-list
+            %li
+              = link_to admin_articles_path do
+                %span List
+                %span.icon= fa_icon 'list'
+
+- provide :title, 'New Article'

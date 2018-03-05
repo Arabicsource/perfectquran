@@ -1,0 +1,16 @@
+%nav.menu
+  %p.menu-label General
+  %ul.menu-list
+    %li= link_to 'Dashboard', admin_root_path
+
+  %p.menu-label Accounts
+  %ul.menu-list
+    %li= link_to 'List', admin_accounts_path
+    %li= link_to 'Connections', admin_connections_path
+
+  %p.menu-label Content
+  %ul.menu-list
+    %li= link_to 'New Article', new_admin_article_path
+    %li= link_to 'Articles', admin_articles_path
+    %li= link_to 'New Category', new_admin_category_path
+    %li= link_to 'Categories', admin_categories_path

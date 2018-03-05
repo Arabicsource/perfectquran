@@ -1,7 +1,23 @@
-= form_with scope: :article, url: admin_article_path(@article), local: true, method: :patch, id: 'edit_article' do |f|
-  = render 'form_fields', f: f
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
 
-- provide :title, t('admin.articles.edit.title', title: @article.title)
+      .column
+        %header
+          %h1.title Edit Article
 
-- content_for :after_header do
-  = render 'admin/partials/navbar'
+        %section
+          = form_with scope: :article, url: admin_article_path(@article), local: true, method: :patch, id: 'edit_article' do |f|
+            = render 'form_fields', f: f
+
+      .column.is-one-fifth
+        %nav.menu.has-text-right
+          %ul.menu-list
+            %li
+              = link_to admin_article_path @article do
+                %span Show
+                %span.icon= fa_icon 'eye'
+
+- provide :title, 'Edit Article'

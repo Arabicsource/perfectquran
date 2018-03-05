@@ -3,6 +3,7 @@
 module Admin
   # :nodoc:
   class BaseController < ApplicationController
+    layout 'replacement'
     before_action :authenticate_account!, :authorize_account!
 
     private def authorize_account!

@@ -1,34 +1,35 @@
-.field.has-addons
-  %p.control
-    = link_to admin_articles_path, class: 'button' do
-      %span.icon
-        = fa_icon 'list'
-      %span
-        = t 'index'
-  %p.control
-    = link_to new_admin_article_path, class: 'button' do
-      %span.icon
-        = fa_icon 'plus'
-      %span
-        = t 'new'
-  %p.control
-    = link_to edit_admin_article_path(@article), class: 'button' do
-      %span.icon
-        = fa_icon 'edit'
-      %span
-        = t 'edit'
-  %p.control
-    = link_to admin_article_path(@article), method: :delete, class: 'button is-danger' do
-      %span.icon
-        = fa_icon 'trash'
-      %span
-        = t 'delete'
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
 
-%article.content
-  %h1.title= @article.title
-  = sanitize @article.content
+      .column
+        %header
+          %h1.title= @article.title
 
-- provide :title, t('admin.articles.show.title', title: @article.title)
+        %section
+          .content
+            = sanitize @article.content
 
-- content_for :after_header do
-  = render 'admin/partials/navbar'
+      .column.is-one-fifth
+        %nav.menu.has-text-right
+          %ul.menu-list
+            %li
+              = link_to admin_articles_path do
+                %span List
+                %span.icon= fa_icon 'list'
+            %li
+              = link_to new_admin_article_path do
+                %span New
+                %span.icon= fa_icon 'plus'
+            %li
+              = link_to edit_admin_article_path @article do
+                %span Edit
+                %span.icon= fa_icon 'edit'
+            %li
+              = link_to admin_article_path(@article), method: :delete, class: 'has-text-danger' do
+                %span Delete
+                %span.icon= fa_icon 'trash'
+
+- provide :title, @article.title

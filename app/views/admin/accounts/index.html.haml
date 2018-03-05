@@ -1,22 +1,14 @@
-%table#articles.table.is-fullwidth
-  %tbody
-    %tr
-      %th #
-      %th Email
-      %th Role
-  %tfoot
-    %tr
-      %th #
-      %th Email
-      %th Role
-  %tbody
-    - @accounts.each do |account|
-      %tr
-        %td= account.id
-        %td= link_to account.email, admin_account_path(account)
-        %td= account.role
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
+
+      .column
+        %header
+          %h1.title Accounts
+
+        %section
+          = render 'table'
 
 - provide :title, 'Accounts'
-
-- content_for :after_header do
-  = render 'admin/partials/navbar'

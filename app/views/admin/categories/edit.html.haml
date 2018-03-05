@@ -1,9 +1,23 @@
-= render 'admin/partials/tabs', action: 'edit'
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
 
-= form_with scope: :category, url: admin_category_path(@category), method: :patch, id: 'edit_category' do |f|
-  = render 'form_fields', f: f
+      .column
+        %header
+          %h1.title Edit Category
 
-- provide :title, t('admin.categories.edit.title', name: @category.name)
+        %section
+          = form_with scope: :category, url: admin_category_path(@category), method: :patch, id: 'edit_category' do |f|
+            = render 'form_fields', f: f
 
-- content_for :after_header do
-  = render 'admin/partials/navbar'
+      .column.is-one-fifth
+        %nav.menu.has-text-right
+          %ul.menu-list
+            %li
+              = link_to admin_category_path @category do
+                %span Show
+                %span.icon= fa_icon 'eye'
+
+- provide :title, 'Edit Category'

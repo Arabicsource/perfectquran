@@ -1,22 +1,30 @@
-.level
-  .level-item.has-text-centered
-    %div
-      %p.heading Accounts
-      %p.title= @accounts.length
-  .level-item.has-text-centered
-    %div
-      %p.heading Comments
-      %p.title= @comments.length
-  .level-item.has-text-centered
-    %div
-      %p.heading Memories
-      %p.title= @memories.length
-  .level-item.has-text-centered
-    %div
-      %p.heading Connections
-      %p.title= @connections.length
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
 
-- provide :title, t('dashboard')
+      .column
+        %header
+          %h1.title Dashboard
 
-- content_for :after_header do
-  = render 'admin/partials/navbar'
+        %section
+          .level
+            .level-item.has-text-centered
+              %div
+                %p.heading Accounts
+                %p.title= @accounts.length
+            .level-item.has-text-centered
+              %div
+                %p.heading Comments
+                %p.title= @comments.length
+            .level-item.has-text-centered
+              %div
+                %p.heading Memories
+                %p.title= @memories.length
+            .level-item.has-text-centered
+              %div
+                %p.heading Connections
+                %p.title= @connections.length
+
+- provide :title, 'Dashboard'

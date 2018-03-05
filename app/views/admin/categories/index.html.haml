@@ -1,24 +1,14 @@
-= render 'admin/partials/tabs', action: 'index'
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
 
-%table#articles.table.is-fullwidth
-  %tbody
-    %tr
-      %th #
-      %th Name
-      %th Description
-  %tfoot
-    %tr
-      %th #
-      %th Name
-      %th Descrption
-  %tbody
-    - @categories.each do |category|
-      %tr
-        %td= category.id
-        %td= link_to category.name, admin_category_path(category)
-        %td= category.description
+      .column
+        %header
+          %h1.title Categories
 
-- provide :title, t('admin.categories.index.title')
+        %section
+          = render 'table'
 
-- content_for :after_header do
-  = render 'admin/partials/navbar'
+- provide :title, 'Categories'

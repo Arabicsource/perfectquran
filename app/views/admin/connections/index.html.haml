@@ -1,25 +1,14 @@
-%table.table.is-fullwidth
-  %tbody
-    %tr
-      %th Name
-      %th Account
-      %th Last Ayah
-      %th Active?
-  %tfoot
-    %tr
-      %th Name
-      %th Account
-      %th Last Ayah
-      %th Active?
-  %tbody
-    - @connections.each do |connection|
-      %tr
-        %td= link_to connection.name, "https://twitter.com/#{connection.name}"
-        %td= connection.account_name
-        %td= connection.last_ayah_reference
-        %td= connection.active? ? fa_icon('check') : fa_icon('times')
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
+
+      .column
+        %header
+          %h1.title Connections
+
+        %section
+          = render 'table'
 
 - provide :title, 'Connections'
-
-- content_for :after_header do
-  = render 'admin/partials/navbar'

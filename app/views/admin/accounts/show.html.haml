@@ -1,40 +1,18 @@
-- if @account.profile
-  %section
-    %h1.title Profile Details
-    %table.table.is-fullwidth.is-bordered
-      %tbody
-        %tr
-          %th Name
-          %td= @account.profile.name
-        %tr
-          %th Username
-          %td= @account.profile.username
-        %tr
-          %th Bio
-          %td= @account.profile.bio
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
 
-- if @account.connections.any?
-  %section
-    %h1.title Connections
-    %table.table.is-fullwidth.is-bordered
-      %tbody
-        - @account.connections.each do |connection|
-          %tr
-            %td= connection.id
-            %td= connection.provider_uid
-            %td= connection.provider
+      .column
+        %header
+          %h1.title= "Account: #{@account.email}"
 
-- if @account.memories.any?
-  %section
-    %h1.title Memories
-    %table.table.is-fullwidth.is-bordered
-      %tbody
-        - @account.memories.each do |memory|
-          %tr
-            %td= memory.id
-            %td= memory.ayah_id
+        %section
+          = render 'profile_details'
+          = render 'connection_details'
+          = render 'memory_details'
+
+      .column.is-one-fifth
 
 - provide :title, "Account: #{@account.email}"
-
-- content_for :after_header do
-  = render 'admin/partials/navbar'
