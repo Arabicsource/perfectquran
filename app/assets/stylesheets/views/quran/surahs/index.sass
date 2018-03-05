@@ -1,0 +1,25 @@
+#quran-surahs.index
+  .hero.is-brown
+    border-top: 15px solid $brown-dark
+
+  ol#surahs
+    list-style: none
+
+    li
+      padding: 1rem 0
+      border-bottom: 1px solid $border
+      width: 100%
+      display: inline-block
+
+      &:hover
+        border-color: $orange
+
+      strong
+        color: $orange-dark
+
+      a, a:link, a:visited
+        color: $text
+
++desktop
+  ol#surahs
+    column-count: 4

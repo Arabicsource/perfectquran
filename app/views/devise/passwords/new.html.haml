@@ -1,7 +1,14 @@
-= render 'form'
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth.is-hidden-touch
+        = render "devise/shared/links"
 
-- content_for :sidebar do
-  = render "devise/shared/links"
+      .column.is-three-fifths
+        %header
+          %h1.title Forgot your password?
+
+        %section
+          = render 'form'
 
 - provide :title, 'Forgot your password?'
-- provide :layout_template, 'two_column'

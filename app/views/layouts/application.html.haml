@@ -1,29 +1,14 @@
 !!!5
 %html{ html_attrs('en') }
-  = render 'layouts/application/head'
-  %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]} application"}
+  = render 'layouts/head'
+  %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]}"}
 
-    = render 'layouts/application/navbar'
+    = render 'layouts/flash'
+    = render 'layouts/navbar'
 
-    = yield :after_navbar if content_for? :after_navbar
+    = yield 
 
-    = render('layouts/partials/page_header') if content_for :title
-    = yield(:after_header) if content_for? :after_header
-    = yield(:header) if content_for? :header
-    = render 'layouts/shared/flash'
-
-    %section.section.is-white
-      .container
-        - unless content_for?(:layout_template)
-          = yield
-        - else
-          .columns.is-centered
-            = render "layouts/templates/#{yield(:layout_template)}"
-
-    = yield(:toolbar) if content_for :toolbar
-    = yield(:bottom) if content_for? :bottom
-    = render('layouts/shared/cookie_notification') unless account_signed_in?
-    = render 'layouts/shared/patron_banner' unless account_patron?
-    = render 'layouts/shared/newsletter'
-    = render 'layouts/partials/footer'
-    = render '/layouts/shared/analytics'
+    = render 'layouts/patron_banner' unless Current.account.patron?
+    = render 'layouts/newsletter' unless account_signed_in?
+    = render 'layouts/footer'
+    = render('layouts/cookie_notification') unless account_signed_in?

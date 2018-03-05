@@ -11,7 +11,7 @@
 
     .navbar-menu{data: {target: 'navbar.menu'}}
       .navbar-start
-        = render 'layouts/application/navbar_search'
+        = render 'layouts/navbar_search'
 
       .navbar-end
         - if browser.mobile?
@@ -48,6 +48,8 @@
               %ul.menu-list
                 %li= link_to 'Login', new_account_session_path
                 %li= link_to 'Register', new_account_registration_path
+                %li= link_to 'Password Reset', new_account_password_path
+                %li= link_to 'Confirmation Instructions', new_account_confirmation_path
 
         - else
           - if account_signed_in?

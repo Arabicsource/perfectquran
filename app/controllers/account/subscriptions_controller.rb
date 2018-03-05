@@ -15,7 +15,6 @@ class Account
 
     def new
       @subscription = Subscription.new
-      render layout: 'minimal'
     end
 
     def create

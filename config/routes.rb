@@ -42,11 +42,7 @@ Rails.application.routes.draw do
     resources :memories, only: :new
     resources :texts, only: :index
 
-    resources :surahs, only: %i[index show] do
-      scope module: :surahs do
-        resource :memories
-      end
-    end
+    resources :surahs, only: %i[index show]
 
     resources :ayahs, only: [:show] do
       scope module: :ayahs do

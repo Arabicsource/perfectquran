@@ -1,11 +1,19 @@
-.content
-  %p.has-text-orange-dark Your search for <strong>#{@terms}</strong> returned <strong>#{@results.total_count}</strong> results.
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
 
-  - @results.each do |result|
-    .section-divider
-    %p.search-result 
-      = sanitize result.search_highlights[:content]
-      = link_to result.reference, quran_ayah_path(result.ayah)
+      .column
+        %header
+          %h1.title Search Results
+          %h2.subtitle Your search for <strong>#{@terms}</strong> returned <strong>#{@results.total_count}</strong> results.
+
+        %section
+          - @results.each do |result|
+            .media
+              .media-content
+                .content
+                  = sanitize result.search_highlights[:content]
+                  = link_to result.reference, quran_ayah_path(result.ayah)
 
 - provide :title, "Search Results"
-- provide :layout_template, 'single'

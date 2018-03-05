@@ -11,8 +11,6 @@ module Quran
                   surah_id: params[:surah_id], number: params[:number]
                 )
               end
-
-      render layout: 'replacement'
     end
   end
 end
