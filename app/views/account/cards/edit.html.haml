@@ -2,15 +2,17 @@
   .container
     .columns
       - unless browser.mobile?
-        .column
+        .column.is-one-fifth
           = render 'account/shared/menu'
 
-      .column.is-two-thirds
+      .column
         %header
           %h1.title Update Payment Method
 
         %section
           = render 'form'
+
+      .column.is-one-fifth
 
 - provide :title, 'Update Payment Method'
 = javascript_pack_tag 'stripe'

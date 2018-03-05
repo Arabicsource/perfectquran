@@ -1,8 +1,14 @@
-= render 'table'
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'account/shared/menu'
 
-- provide :title, 'Subscription'
-- provide :layout_template, 'two_column'
+      .column
+        %header
+          %h1.title Current Subscription
 
-- unless browser.mobile?
-  - content_for :after_header do
-    = render 'account/partials/desktop/navbar'
+        %section
+          = render 'table'
+
+- provide :title, 'Current Subscription'
