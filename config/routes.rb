@@ -41,12 +41,10 @@ Rails.application.routes.draw do
 
     resources :surahs, only: %i[index show]
     resources :ayahs, only: :show
+    resource :search, only: :show
   end
 
   namespace :quran do
-    resources :memories, only: :new
-    resources :texts, only: :index
-
     resources :ayahs, only: [] do
       scope module: :ayahs do
         resource :tag

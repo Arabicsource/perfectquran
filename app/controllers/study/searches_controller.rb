@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-module Quran
+module Study
   # :nodoc:
-  class TextsController < Quran::BaseController
-    def index
+  class SearchesController < ApplicationController
+    def show
       @terms = params[:terms]
 
-      return unless @terms
+      return redirect_to root_url if @terms.nil? || @terms.empty?
 
       @results = Text.search(
         @terms, fields: [:content], highlight: true
