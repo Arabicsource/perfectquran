@@ -1,0 +1,13 @@
+= form_with model: tag, url: tags_path, id: 'tag-form', method: :post do |f|
+  = f.hidden_field :taggable_id, value: taggable.id
+  = f.hidden_field :taggable_type, value: taggable.class
+  
+  .field.has-addons
+    .control
+      = f.text_field :name, class: 'input'
+      - if tag.errors.any?
+        - tag.errors.full_messages.each do |message|
+          %p.help.is-danger= message
+    
+    .control
+      = f.submit 'Add New Tag', class: 'button is-orange'

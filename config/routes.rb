@@ -44,13 +44,7 @@ Rails.application.routes.draw do
     resource :search, only: :show
   end
 
-  namespace :quran do
-    resources :ayahs, only: [] do
-      scope module: :ayahs do
-        resource :tag
-      end
-    end
-  end
+  resources :tags, only: :create
 
   get '/study/ayahs/:id', to: 'study/ayahs#show', as: :ayah
   get 'auth/:provider/callback', to: 'account/connections#callback'

@@ -4,6 +4,8 @@ module Study
   # :nodoc:
   class AyahsController < Quran::BaseController
     def show
+      @tag = Tag.new
+
       @ayah = if params[:surah_id].nil?
                 Ayah.find(params[:id])
               else
