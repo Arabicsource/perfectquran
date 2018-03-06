@@ -1,9 +1,0 @@
-%span#bookmark-button
-  - if bookmarked? ayah
-    = link_to quran_ayah_bookmarks_path(@ayah), method: :delete, remote: true, class: 'button is-large is-info is-inverted' do
-      %span.icon.is-medium
-        = fa_icon 'bookmark'
-  - else
-    = link_to quran_ayah_bookmarks_path(@ayah), method: :post, remote: true,  class: 'button is-large' do
-      %span.icon.is-medium
-        = fa_icon 'bookmark-o'

@@ -14,6 +14,6 @@
               .media-content
                 .content
                   = sanitize result.search_highlights[:content]
-                  = link_to result.reference, quran_ayah_path(result.ayah)
+                  = link_to result.reference, study_ayah_path(result.ayah)
 
 - provide :title, "Search Results"

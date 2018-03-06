@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Quran
+module Study
   # :nodoc:
   class AyahsController < Quran::BaseController
     def show

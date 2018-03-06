@@ -1,9 +1,0 @@
-%span#memory-button
-  - if memorized? ayah, current_account
-    = link_to quran_ayah_memories_path(@ayah), method: :delete, remote: true, class: 'button is-large is-danger is-inverted memory' do
-      %span.icon.is-medium
-        = fa_icon 'heart'
-  - else
-    = link_to quran_ayah_memories_path(@ayah), method: :post, remote: true,  class: 'button is-large memory not-memorized' do
-      %span.icon.is-medium
-        = fa_icon 'heart-o'

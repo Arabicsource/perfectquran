@@ -9,8 +9,8 @@
 
     %a.navbar-item
 
-    = link_to quran_ayah_path(@ayah.previous), class: 'navbar-item' do
+    = link_to study_ayah_path(@ayah.previous), class: 'navbar-item' do
       = fa_icon 'chevron-left'
 
-    = link_to quran_ayah_path(@ayah.next), class: 'navbar-item' do
+    = link_to study_ayah_path(@ayah.next), class: 'navbar-item' do
       = fa_icon 'chevron-right'
