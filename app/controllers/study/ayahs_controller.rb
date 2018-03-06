@@ -2,7 +2,7 @@
 
 module Study
   # :nodoc:
-  class AyahsController < Quran::BaseController
+  class AyahsController < ApplicationController
     def show
       @tag = Tag.new
 
