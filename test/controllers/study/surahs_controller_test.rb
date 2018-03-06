@@ -6,6 +6,11 @@ class Study::SurahsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'get index as json' do
+    get '/study/surahs.json'
+    assert_response :success
+  end
+
   test 'get index when logged in' do
     login_as accounts(:abdullah)
     get study_surahs_path
@@ -35,6 +40,11 @@ class Study::SurahsControllerTest < ActionDispatch::IntegrationTest
 
   test 'get show with permalink' do
     get '/al-fatihah'
+    assert_response :success
+  end
+
+  test 'get show as json' do
+    get '/study/surahs/1.json'
     assert_response :success
   end
 end
