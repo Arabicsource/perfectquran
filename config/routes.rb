@@ -26,6 +26,14 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :hifz do
+    root 'dashboards#show'
+
+    resources :juzs, only: %i[index]
+    resources :pages, only: %i[index]
+    resources :surahs, only: %i[index]
+  end
+
   namespace :study do
     root 'surahs#index'
 

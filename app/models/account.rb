@@ -81,6 +81,26 @@ class Account < ApplicationRecord
     not_memorized_ayahs
   end
 
+  def memorized_percentage(from: nil)
+
+  end
+
+  def memorized_ayahs_count
+
+  end
+
+  def memorized_surahs_count
+
+  end
+
+  def memorized_pages_count
+
+  end
+
+  def memorized_juzs_count
+
+  end
+
   private
 
   def subscribe_to_newsletter
