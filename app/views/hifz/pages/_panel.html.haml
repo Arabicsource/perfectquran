@@ -1,0 +1,28 @@
+.card{data: {controller:'audio-player'}}
+  %header.card-header
+    -# %p.card-header-title= audible.current_ayah
+    -# = link_to hifz_page_ayah_memories_path(audible, audible.current_ayah), method: :post, class: audible.current_ayah.memorized? ? 'card-header-icon has-text-memorized' : 'card-header-icon has-text-dark' do
+      -# %span.icon= fa_icon('heart')
+
+  .card-content
+    .content
+      -# %p.uthmani-text= audible.current_ayah.uthmani_text
+
+      %p.is-hidden{data: {target: 'audio-player.transliteration'}}
+        <span class='has-text-primary'>Transliteration</span><br>
+        -# = sanitize audible.current_ayah.transliterated_text
+
+      %p.is-hidden{data: {target: 'audio-player.translation'}}
+        <span class='has-text-primary'>The Noble Quran</span><br>
+        -# = audible.current_ayah.noble_quran_text
+
+    -# = render 'hifz/pages/controls', audible: audible
+
+  .card-footer
+    = link_to '#', class: 'card-footer-item', data: {action: 'audio-player#translation'} do
+      The Noble Quran
+
+    = link_to '#', class: 'card-footer-item', data: {action: 'audio-player#transliteration'} do
+      Transliteration
+
+  -# %span{data: {target: 'audio-player.src', src: "#{ayah_audio_file(audible.current_ayah.surah_id, audible.current_ayah.number)}"}}
