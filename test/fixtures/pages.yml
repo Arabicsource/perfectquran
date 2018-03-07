@@ -1,0 +1,2416 @@
+page_1:
+  id: 1
+  character_length: 285
+  juz_id: 1
+page_2:
+  id: 2
+  character_length: 346
+  juz_id: 1
+page_3:
+  id: 3
+  character_length: 1177
+  juz_id: 1
+page_4:
+  id: 4
+  character_length: 1234
+  juz_id: 1
+page_5:
+  id: 5
+  character_length: 1122
+  juz_id: 1
+page_6:
+  id: 6
+  character_length: 1292
+  juz_id: 1
+page_7:
+  id: 7
+  character_length: 1287
+  juz_id: 1
+page_8:
+  id: 8
+  character_length: 1179
+  juz_id: 1
+page_9:
+  id: 9
+  character_length: 1170
+  juz_id: 1
+page_10:
+  id: 10
+  character_length: 1210
+  juz_id: 1
+page_11:
+  id: 11
+  character_length: 1259
+  juz_id: 1
+page_12:
+  id: 12
+  character_length: 1125
+  juz_id: 1
+page_13:
+  id: 13
+  character_length: 1155
+  juz_id: 1
+page_14:
+  id: 14
+  character_length: 1099
+  juz_id: 1
+page_15:
+  id: 15
+  character_length: 1129
+  juz_id: 1
+page_16:
+  id: 16
+  character_length: 1126
+  juz_id: 1
+page_17:
+  id: 17
+  character_length: 1151
+  juz_id: 1
+page_18:
+  id: 18
+  character_length: 1202
+  juz_id: 1
+page_19:
+  id: 19
+  character_length: 1355
+  juz_id: 1
+page_20:
+  id: 20
+  character_length: 1221
+  juz_id: 1
+page_21:
+  id: 21
+  character_length: 1198
+  juz_id: 1
+page_22:
+  id: 22
+  character_length: 1225
+  juz_id: 2
+page_23:
+  id: 23
+  character_length: 1182
+  juz_id: 2
+page_24:
+  id: 24
+  character_length: 1241
+  juz_id: 2
+page_25:
+  id: 25
+  character_length: 1233
+  juz_id: 2
+page_26:
+  id: 26
+  character_length: 1186
+  juz_id: 2
+page_27:
+  id: 27
+  character_length: 1281
+  juz_id: 2
+page_28:
+  id: 28
+  character_length: 1100
+  juz_id: 2
+page_29:
+  id: 29
+  character_length: 1177
+  juz_id: 2
+page_30:
+  id: 30
+  character_length: 1463
+  juz_id: 2
+page_31:
+  id: 31
+  character_length: 1010
+  juz_id: 2
+page_32:
+  id: 32
+  character_length: 1111
+  juz_id: 2
+page_33:
+  id: 33
+  character_length: 1313
+  juz_id: 2
+page_34:
+  id: 34
+  character_length: 1174
+  juz_id: 2
+page_35:
+  id: 35
+  character_length: 1263
+  juz_id: 2
+page_36:
+  id: 36
+  character_length: 1379
+  juz_id: 2
+page_37:
+  id: 37
+  character_length: 1393
+  juz_id: 2
+page_38:
+  id: 38
+  character_length: 1247
+  juz_id: 2
+page_39:
+  id: 39
+  character_length: 1066
+  juz_id: 2
+page_40:
+  id: 40
+  character_length: 1094
+  juz_id: 2
+page_41:
+  id: 41
+  character_length: 1027
+  juz_id: 2
+page_42:
+  id: 42
+  character_length: 1287
+  juz_id: 3
+page_43:
+  id: 43
+  character_length: 1164
+  juz_id: 3
+page_44:
+  id: 44
+  character_length: 1226
+  juz_id: 3
+page_45:
+  id: 45
+  character_length: 1149
+  juz_id: 3
+page_46:
+  id: 46
+  character_length: 1006
+  juz_id: 3
+page_47:
+  id: 47
+  character_length: 1203
+  juz_id: 3
+page_48:
+  id: 48
+  character_length: 1213
+  juz_id: 3
+page_49:
+  id: 49
+  character_length: 1219
+  juz_id: 3
+page_50:
+  id: 50
+  character_length: 1169
+  juz_id: 3
+page_51:
+  id: 51
+  character_length: 1139
+  juz_id: 3
+page_52:
+  id: 52
+  character_length: 1139
+  juz_id: 3
+page_53:
+  id: 53
+  character_length: 1238
+  juz_id: 3
+page_54:
+  id: 54
+  character_length: 1299
+  juz_id: 3
+page_55:
+  id: 55
+  character_length: 1202
+  juz_id: 3
+page_56:
+  id: 56
+  character_length: 1166
+  juz_id: 3
+page_57:
+  id: 57
+  character_length: 1147
+  juz_id: 3
+page_58:
+  id: 58
+  character_length: 1230
+  juz_id: 3
+page_59:
+  id: 59
+  character_length: 1246
+  juz_id: 3
+page_60:
+  id: 60
+  character_length: 1145
+  juz_id: 3
+page_61:
+  id: 61
+  character_length: 1150
+  juz_id: 3
+page_62:
+  id: 62
+  character_length: 1246
+  juz_id: 4
+page_63:
+  id: 63
+  character_length: 1261
+  juz_id: 4
+page_64:
+  id: 64
+  character_length: 1149
+  juz_id: 4
+page_65:
+  id: 65
+  character_length: 1213
+  juz_id: 4
+page_66:
+  id: 66
+  character_length: 1215
+  juz_id: 4
+page_67:
+  id: 67
+  character_length: 1110
+  juz_id: 4
+page_68:
+  id: 68
+  character_length: 1207
+  juz_id: 4
+page_69:
+  id: 69
+  character_length: 956
+  juz_id: 4
+page_70:
+  id: 70
+  character_length: 1278
+  juz_id: 4
+page_71:
+  id: 71
+  character_length: 1225
+  juz_id: 4
+page_72:
+  id: 72
+  character_length: 1244
+  juz_id: 4
+page_73:
+  id: 73
+  character_length: 1307
+  juz_id: 4
+page_74:
+  id: 74
+  character_length: 1104
+  juz_id: 4
+page_75:
+  id: 75
+  character_length: 1215
+  juz_id: 4
+page_76:
+  id: 76
+  character_length: 1091
+  juz_id: 4
+page_77:
+  id: 77
+  character_length: 1375
+  juz_id: 4
+page_78:
+  id: 78
+  character_length: 1235
+  juz_id: 4
+page_79:
+  id: 79
+  character_length: 990
+  juz_id: 4
+page_80:
+  id: 80
+  character_length: 1131
+  juz_id: 4
+page_81:
+  id: 81
+  character_length: 973
+  juz_id: 4
+page_82:
+  id: 82
+  character_length: 1104
+  juz_id: 5
+page_83:
+  id: 83
+  character_length: 1069
+  juz_id: 5
+page_84:
+  id: 84
+  character_length: 1081
+  juz_id: 5
+page_85:
+  id: 85
+  character_length: 1227
+  juz_id: 5
+page_86:
+  id: 86
+  character_length: 1267
+  juz_id: 5
+page_87:
+  id: 87
+  character_length: 1335
+  juz_id: 5
+page_88:
+  id: 88
+  character_length: 1074
+  juz_id: 5
+page_89:
+  id: 89
+  character_length: 1182
+  juz_id: 5
+page_90:
+  id: 90
+  character_length: 1405
+  juz_id: 5
+page_91:
+  id: 91
+  character_length: 1237
+  juz_id: 5
+page_92:
+  id: 92
+  character_length: 1297
+  juz_id: 5
+page_93:
+  id: 93
+  character_length: 1066
+  juz_id: 5
+page_94:
+  id: 94
+  character_length: 1385
+  juz_id: 5
+page_95:
+  id: 95
+  character_length: 1164
+  juz_id: 5
+page_96:
+  id: 96
+  character_length: 1140
+  juz_id: 5
+page_97:
+  id: 97
+  character_length: 1098
+  juz_id: 5
+page_98:
+  id: 98
+  character_length: 1125
+  juz_id: 5
+page_99:
+  id: 99
+  character_length: 1157
+  juz_id: 5
+page_100:
+  id: 100
+  character_length: 1299
+  juz_id: 5
+page_101:
+  id: 101
+  character_length: 1208
+  juz_id: 5
+page_102:
+  id: 102
+  character_length: 1225
+  juz_id: 6
+page_103:
+  id: 103
+  character_length: 1314
+  juz_id: 6
+page_104:
+  id: 104
+  character_length: 1182
+  juz_id: 6
+page_105:
+  id: 105
+  character_length: 1186
+  juz_id: 6
+page_106:
+  id: 106
+  character_length: 1152
+  juz_id: 6
+page_107:
+  id: 107
+  character_length: 1330
+  juz_id: 6
+page_108:
+  id: 108
+  character_length: 1145
+  juz_id: 6
+page_109:
+  id: 109
+  character_length: 1082
+  juz_id: 6
+page_110:
+  id: 110
+  character_length: 966
+  juz_id: 6
+page_111:
+  id: 111
+  character_length: 1229
+  juz_id: 6
+page_112:
+  id: 112
+  character_length: 1177
+  juz_id: 6
+page_113:
+  id: 113
+  character_length: 1103
+  juz_id: 6
+page_114:
+  id: 114
+  character_length: 1115
+  juz_id: 6
+page_115:
+  id: 115
+  character_length: 1102
+  juz_id: 6
+page_116:
+  id: 116
+  character_length: 1280
+  juz_id: 6
+page_117:
+  id: 117
+  character_length: 1450
+  juz_id: 6
+page_118:
+  id: 118
+  character_length: 1405
+  juz_id: 6
+page_119:
+  id: 119
+  character_length: 1228
+  juz_id: 6
+page_120:
+  id: 120
+  character_length: 1105
+  juz_id: 6
+page_121:
+  id: 121
+  character_length: 1024
+  juz_id: 7
+page_122:
+  id: 122
+  character_length: 1246
+  juz_id: 7
+page_123:
+  id: 123
+  character_length: 1402
+  juz_id: 7
+page_124:
+  id: 124
+  character_length: 1237
+  juz_id: 7
+page_125:
+  id: 125
+  character_length: 1326
+  juz_id: 7
+page_126:
+  id: 126
+  character_length: 1166
+  juz_id: 7
+page_127:
+  id: 127
+  character_length: 1351
+  juz_id: 7
+page_128:
+  id: 128
+  character_length: 1125
+  juz_id: 7
+page_129:
+  id: 129
+  character_length: 1137
+  juz_id: 7
+page_130:
+  id: 130
+  character_length: 1427
+  juz_id: 7
+page_131:
+  id: 131
+  character_length: 1332
+  juz_id: 7
+page_132:
+  id: 132
+  character_length: 1256
+  juz_id: 7
+page_133:
+  id: 133
+  character_length: 1226
+  juz_id: 7
+page_134:
+  id: 134
+  character_length: 1197
+  juz_id: 7
+page_135:
+  id: 135
+  character_length: 1280
+  juz_id: 7
+page_136:
+  id: 136
+  character_length: 1133
+  juz_id: 7
+page_137:
+  id: 137
+  character_length: 1179
+  juz_id: 7
+page_138:
+  id: 138
+  character_length: 1195
+  juz_id: 7
+page_139:
+  id: 139
+  character_length: 1309
+  juz_id: 7
+page_140:
+  id: 140
+  character_length: 1293
+  juz_id: 7
+page_141:
+  id: 141
+  character_length: 1227
+  juz_id: 7
+page_142:
+  id: 142
+  character_length: 1211
+  juz_id: 8
+page_143:
+  id: 143
+  character_length: 1201
+  juz_id: 8
+page_144:
+  id: 144
+  character_length: 1194
+  juz_id: 8
+page_145:
+  id: 145
+  character_length: 946
+  juz_id: 8
+page_146:
+  id: 146
+  character_length: 1114
+  juz_id: 8
+page_147:
+  id: 147
+  character_length: 1155
+  juz_id: 8
+page_148:
+  id: 148
+  character_length: 1168
+  juz_id: 8
+page_149:
+  id: 149
+  character_length: 1191
+  juz_id: 8
+page_150:
+  id: 150
+  character_length: 1339
+  juz_id: 8
+page_151:
+  id: 151
+  character_length: 1036
+  juz_id: 8
+page_152:
+  id: 152
+  character_length: 1335
+  juz_id: 8
+page_153:
+  id: 153
+  character_length: 1268
+  juz_id: 8
+page_154:
+  id: 154
+  character_length: 1350
+  juz_id: 8
+page_155:
+  id: 155
+  character_length: 1261
+  juz_id: 8
+page_156:
+  id: 156
+  character_length: 1314
+  juz_id: 8
+page_157:
+  id: 157
+  character_length: 1216
+  juz_id: 8
+page_158:
+  id: 158
+  character_length: 1191
+  juz_id: 8
+page_159:
+  id: 159
+  character_length: 1139
+  juz_id: 8
+page_160:
+  id: 160
+  character_length: 1069
+  juz_id: 8
+page_161:
+  id: 161
+  character_length: 1021
+  juz_id: 8
+page_162:
+  id: 162
+  character_length: 1293
+  juz_id: 9
+page_163:
+  id: 163
+  character_length: 1133
+  juz_id: 9
+page_164:
+  id: 164
+  character_length: 1128
+  juz_id: 9
+page_165:
+  id: 165
+  character_length: 1189
+  juz_id: 9
+page_166:
+  id: 166
+  character_length: 1165
+  juz_id: 9
+page_167:
+  id: 167
+  character_length: 1169
+  juz_id: 9
+page_168:
+  id: 168
+  character_length: 1146
+  juz_id: 9
+page_169:
+  id: 169
+  character_length: 1250
+  juz_id: 9
+page_170:
+  id: 170
+  character_length: 1124
+  juz_id: 9
+page_171:
+  id: 171
+  character_length: 1029
+  juz_id: 9
+page_172:
+  id: 172
+  character_length: 1249
+  juz_id: 9
+page_173:
+  id: 173
+  character_length: 1223
+  juz_id: 9
+page_174:
+  id: 174
+  character_length: 1315
+  juz_id: 9
+page_175:
+  id: 175
+  character_length: 1220
+  juz_id: 9
+page_176:
+  id: 176
+  character_length: 1162
+  juz_id: 9
+page_177:
+  id: 177
+  character_length: 1019
+  juz_id: 9
+page_178:
+  id: 178
+  character_length: 1175
+  juz_id: 9
+page_179:
+  id: 179
+  character_length: 1164
+  juz_id: 9
+page_180:
+  id: 180
+  character_length: 1172
+  juz_id: 9
+page_181:
+  id: 181
+  character_length: 1080
+  juz_id: 9
+page_182:
+  id: 182
+  character_length: 1143
+  juz_id: 10
+page_183:
+  id: 183
+  character_length: 1141
+  juz_id: 10
+page_184:
+  id: 184
+  character_length: 1205
+  juz_id: 10
+page_185:
+  id: 185
+  character_length: 1211
+  juz_id: 10
+page_186:
+  id: 186
+  character_length: 1280
+  juz_id: 10
+page_187:
+  id: 187
+  character_length: 1182
+  juz_id: 10
+page_188:
+  id: 188
+  character_length: 1100
+  juz_id: 10
+page_189:
+  id: 189
+  character_length: 1209
+  juz_id: 10
+page_190:
+  id: 190
+  character_length: 1118
+  juz_id: 10
+page_191:
+  id: 191
+  character_length: 1038
+  juz_id: 10
+page_192:
+  id: 192
+  character_length: 1066
+  juz_id: 10
+page_193:
+  id: 193
+  character_length: 1071
+  juz_id: 10
+page_194:
+  id: 194
+  character_length: 1120
+  juz_id: 10
+page_195:
+  id: 195
+  character_length: 1041
+  juz_id: 10
+page_196:
+  id: 196
+  character_length: 1155
+  juz_id: 10
+page_197:
+  id: 197
+  character_length: 1078
+  juz_id: 10
+page_198:
+  id: 198
+  character_length: 1119
+  juz_id: 10
+page_199:
+  id: 199
+  character_length: 1172
+  juz_id: 10
+page_200:
+  id: 200
+  character_length: 1276
+  juz_id: 10
+page_201:
+  id: 201
+  character_length: 1130
+  juz_id: 11
+page_202:
+  id: 202
+  character_length: 1151
+  juz_id: 11
+page_203:
+  id: 203
+  character_length: 1222
+  juz_id: 11
+page_204:
+  id: 204
+  character_length: 1167
+  juz_id: 11
+page_205:
+  id: 205
+  character_length: 1092
+  juz_id: 11
+page_206:
+  id: 206
+  character_length: 1168
+  juz_id: 11
+page_207:
+  id: 207
+  character_length: 1007
+  juz_id: 11
+page_208:
+  id: 208
+  character_length: 1139
+  juz_id: 11
+page_209:
+  id: 209
+  character_length: 1181
+  juz_id: 11
+page_210:
+  id: 210
+  character_length: 1150
+  juz_id: 11
+page_211:
+  id: 211
+  character_length: 1314
+  juz_id: 11
+page_212:
+  id: 212
+  character_length: 1293
+  juz_id: 11
+page_213:
+  id: 213
+  character_length: 1324
+  juz_id: 11
+page_214:
+  id: 214
+  character_length: 1272
+  juz_id: 11
+page_215:
+  id: 215
+  character_length: 1235
+  juz_id: 11
+page_216:
+  id: 216
+  character_length: 1074
+  juz_id: 11
+page_217:
+  id: 217
+  character_length: 1300
+  juz_id: 11
+page_218:
+  id: 218
+  character_length: 1256
+  juz_id: 11
+page_219:
+  id: 219
+  character_length: 1211
+  juz_id: 11
+page_220:
+  id: 220
+  character_length: 1202
+  juz_id: 11
+page_221:
+  id: 221
+  character_length: 1120
+  juz_id: 11
+page_222:
+  id: 222
+  character_length: 1182
+  juz_id: 12
+page_223:
+  id: 223
+  character_length: 1216
+  juz_id: 12
+page_224:
+  id: 224
+  character_length: 1203
+  juz_id: 12
+page_225:
+  id: 225
+  character_length: 1242
+  juz_id: 12
+page_226:
+  id: 226
+  character_length: 1201
+  juz_id: 12
+page_227:
+  id: 227
+  character_length: 1207
+  juz_id: 12
+page_228:
+  id: 228
+  character_length: 1373
+  juz_id: 12
+page_229:
+  id: 229
+  character_length: 1177
+  juz_id: 12
+page_230:
+  id: 230
+  character_length: 1288
+  juz_id: 12
+page_231:
+  id: 231
+  character_length: 1150
+  juz_id: 12
+page_232:
+  id: 232
+  character_length: 1171
+  juz_id: 12
+page_233:
+  id: 233
+  character_length: 1206
+  juz_id: 12
+page_234:
+  id: 234
+  character_length: 1190
+  juz_id: 12
+page_235:
+  id: 235
+  character_length: 1051
+  juz_id: 12
+page_236:
+  id: 236
+  character_length: 1182
+  juz_id: 12
+page_237:
+  id: 237
+  character_length: 1192
+  juz_id: 12
+page_238:
+  id: 238
+  character_length: 1148
+  juz_id: 12
+page_239:
+  id: 239
+  character_length: 1337
+  juz_id: 12
+page_240:
+  id: 240
+  character_length: 1171
+  juz_id: 12
+page_241:
+  id: 241
+  character_length: 1269
+  juz_id: 12
+page_242:
+  id: 242
+  character_length: 1232
+  juz_id: 13
+page_243:
+  id: 243
+  character_length: 1219
+  juz_id: 13
+page_244:
+  id: 244
+  character_length: 1139
+  juz_id: 13
+page_245:
+  id: 245
+  character_length: 1137
+  juz_id: 13
+page_246:
+  id: 246
+  character_length: 1106
+  juz_id: 13
+page_247:
+  id: 247
+  character_length: 1208
+  juz_id: 13
+page_248:
+  id: 248
+  character_length: 1171
+  juz_id: 13
+page_249:
+  id: 249
+  character_length: 1114
+  juz_id: 13
+page_250:
+  id: 250
+  character_length: 1171
+  juz_id: 13
+page_251:
+  id: 251
+  character_length: 1410
+  juz_id: 13
+page_252:
+  id: 252
+  character_length: 1360
+  juz_id: 13
+page_253:
+  id: 253
+  character_length: 1310
+  juz_id: 13
+page_254:
+  id: 254
+  character_length: 1269
+  juz_id: 13
+page_255:
+  id: 255
+  character_length: 910
+  juz_id: 13
+page_256:
+  id: 256
+  character_length: 1127
+  juz_id: 13
+page_257:
+  id: 257
+  character_length: 1127
+  juz_id: 13
+page_258:
+  id: 258
+  character_length: 1167
+  juz_id: 13
+page_259:
+  id: 259
+  character_length: 1173
+  juz_id: 13
+page_260:
+  id: 260
+  character_length: 1169
+  juz_id: 13
+page_261:
+  id: 261
+  character_length: 1114
+  juz_id: 13
+page_262:
+  id: 262
+  character_length: 1008
+  juz_id: 14
+page_263:
+  id: 263
+  character_length: 1194
+  juz_id: 14
+page_264:
+  id: 264
+  character_length: 1104
+  juz_id: 14
+page_265:
+  id: 265
+  character_length: 1135
+  juz_id: 14
+page_266:
+  id: 266
+  character_length: 1188
+  juz_id: 14
+page_267:
+  id: 267
+  character_length: 958
+  juz_id: 14
+page_268:
+  id: 268
+  character_length: 1068
+  juz_id: 14
+page_269:
+  id: 269
+  character_length: 1136
+  juz_id: 14
+page_270:
+  id: 270
+  character_length: 1232
+  juz_id: 14
+page_271:
+  id: 271
+  character_length: 1178
+  juz_id: 14
+page_272:
+  id: 272
+  character_length: 1269
+  juz_id: 14
+page_273:
+  id: 273
+  character_length: 1283
+  juz_id: 14
+page_274:
+  id: 274
+  character_length: 1341
+  juz_id: 14
+page_275:
+  id: 275
+  character_length: 1172
+  juz_id: 14
+page_276:
+  id: 276
+  character_length: 1108
+  juz_id: 14
+page_277:
+  id: 277
+  character_length: 1141
+  juz_id: 14
+page_278:
+  id: 278
+  character_length: 1144
+  juz_id: 14
+page_279:
+  id: 279
+  character_length: 1027
+  juz_id: 14
+page_280:
+  id: 280
+  character_length: 1120
+  juz_id: 14
+page_281:
+  id: 281
+  character_length: 1180
+  juz_id: 14
+page_282:
+  id: 282
+  character_length: 1034
+  juz_id: 15
+page_283:
+  id: 283
+  character_length: 1315
+  juz_id: 15
+page_284:
+  id: 284
+  character_length: 1208
+  juz_id: 15
+page_285:
+  id: 285
+  character_length: 1298
+  juz_id: 15
+page_286:
+  id: 286
+  character_length: 1366
+  juz_id: 15
+page_287:
+  id: 287
+  character_length: 1222
+  juz_id: 15
+page_288:
+  id: 288
+  character_length: 1195
+  juz_id: 15
+page_289:
+  id: 289
+  character_length: 1199
+  juz_id: 15
+page_290:
+  id: 290
+  character_length: 1201
+  juz_id: 15
+page_291:
+  id: 291
+  character_length: 1203
+  juz_id: 15
+page_292:
+  id: 292
+  character_length: 1258
+  juz_id: 15
+page_293:
+  id: 293
+  character_length: 1166
+  juz_id: 15
+page_294:
+  id: 294
+  character_length: 1198
+  juz_id: 15
+page_295:
+  id: 295
+  character_length: 1190
+  juz_id: 15
+page_296:
+  id: 296
+  character_length: 1209
+  juz_id: 15
+page_297:
+  id: 297
+  character_length: 1288
+  juz_id: 15
+page_298:
+  id: 298
+  character_length: 1298
+  juz_id: 15
+page_299:
+  id: 299
+  character_length: 1255
+  juz_id: 15
+page_300:
+  id: 300
+  character_length: 1213
+  juz_id: 15
+page_301:
+  id: 301
+  character_length: 1242
+  juz_id: 15
+page_302:
+  id: 302
+  character_length: 1239
+  juz_id: 16
+page_303:
+  id: 303
+  character_length: 1347
+  juz_id: 16
+page_304:
+  id: 304
+  character_length: 1405
+  juz_id: 16
+page_305:
+  id: 305
+  character_length: 908
+  juz_id: 16
+page_306:
+  id: 306
+  character_length: 1153
+  juz_id: 16
+page_307:
+  id: 307
+  character_length: 1221
+  juz_id: 16
+page_308:
+  id: 308
+  character_length: 1268
+  juz_id: 16
+page_309:
+  id: 309
+  character_length: 1353
+  juz_id: 16
+page_310:
+  id: 310
+  character_length: 1237
+  juz_id: 16
+page_311:
+  id: 311
+  character_length: 1146
+  juz_id: 16
+page_312:
+  id: 312
+  character_length: 1000
+  juz_id: 16
+page_313:
+  id: 313
+  character_length: 1114
+  juz_id: 16
+page_314:
+  id: 314
+  character_length: 1300
+  juz_id: 16
+page_315:
+  id: 315
+  character_length: 1204
+  juz_id: 16
+page_316:
+  id: 316
+  character_length: 1345
+  juz_id: 16
+page_317:
+  id: 317
+  character_length: 1229
+  juz_id: 16
+page_318:
+  id: 318
+  character_length: 1178
+  juz_id: 16
+page_319:
+  id: 319
+  character_length: 1211
+  juz_id: 16
+page_320:
+  id: 320
+  character_length: 1157
+  juz_id: 16
+page_321:
+  id: 321
+  character_length: 1310
+  juz_id: 16
+page_322:
+  id: 322
+  character_length: 982
+  juz_id: 17
+page_323:
+  id: 323
+  character_length: 1228
+  juz_id: 17
+page_324:
+  id: 324
+  character_length: 1175
+  juz_id: 17
+page_325:
+  id: 325
+  character_length: 1028
+  juz_id: 17
+page_326:
+  id: 326
+  character_length: 1156
+  juz_id: 17
+page_327:
+  id: 327
+  character_length: 1106
+  juz_id: 17
+page_328:
+  id: 328
+  character_length: 1142
+  juz_id: 17
+page_329:
+  id: 329
+  character_length: 1037
+  juz_id: 17
+page_330:
+  id: 330
+  character_length: 972
+  juz_id: 17
+page_331:
+  id: 331
+  character_length: 988
+  juz_id: 17
+page_332:
+  id: 332
+  character_length: 1072
+  juz_id: 17
+page_333:
+  id: 333
+  character_length: 1261
+  juz_id: 17
+page_334:
+  id: 334
+  character_length: 1150
+  juz_id: 17
+page_335:
+  id: 335
+  character_length: 1082
+  juz_id: 17
+page_336:
+  id: 336
+  character_length: 1262
+  juz_id: 17
+page_337:
+  id: 337
+  character_length: 1157
+  juz_id: 17
+page_338:
+  id: 338
+  character_length: 1194
+  juz_id: 17
+page_339:
+  id: 339
+  character_length: 1060
+  juz_id: 17
+page_340:
+  id: 340
+  character_length: 1175
+  juz_id: 17
+page_341:
+  id: 341
+  character_length: 1064
+  juz_id: 17
+page_342:
+  id: 342
+  character_length: 1039
+  juz_id: 18
+page_343:
+  id: 343
+  character_length: 1284
+  juz_id: 18
+page_344:
+  id: 344
+  character_length: 1276
+  juz_id: 18
+page_345:
+  id: 345
+  character_length: 1277
+  juz_id: 18
+page_346:
+  id: 346
+  character_length: 1251
+  juz_id: 18
+page_347:
+  id: 347
+  character_length: 1134
+  juz_id: 18
+page_348:
+  id: 348
+  character_length: 1138
+  juz_id: 18
+page_349:
+  id: 349
+  character_length: 1122
+  juz_id: 18
+page_350:
+  id: 350
+  character_length: 1319
+  juz_id: 18
+page_351:
+  id: 351
+  character_length: 1312
+  juz_id: 18
+page_352:
+  id: 352
+  character_length: 1311
+  juz_id: 18
+page_353:
+  id: 353
+  character_length: 1243
+  juz_id: 18
+page_354:
+  id: 354
+  character_length: 1346
+  juz_id: 18
+page_355:
+  id: 355
+  character_length: 1350
+  juz_id: 18
+page_356:
+  id: 356
+  character_length: 1350
+  juz_id: 18
+page_357:
+  id: 357
+  character_length: 1271
+  juz_id: 18
+page_358:
+  id: 358
+  character_length: 1092
+  juz_id: 18
+page_359:
+  id: 359
+  character_length: 1093
+  juz_id: 18
+page_360:
+  id: 360
+  character_length: 1130
+  juz_id: 18
+page_361:
+  id: 361
+  character_length: 1109
+  juz_id: 18
+page_362:
+  id: 362
+  character_length: 1223
+  juz_id: 19
+page_363:
+  id: 363
+  character_length: 1126
+  juz_id: 19
+page_364:
+  id: 364
+  character_length: 1200
+  juz_id: 19
+page_365:
+  id: 365
+  character_length: 1167
+  juz_id: 19
+page_366:
+  id: 366
+  character_length: 1045
+  juz_id: 19
+page_367:
+  id: 367
+  character_length: 1155
+  juz_id: 19
+page_368:
+  id: 368
+  character_length: 1190
+  juz_id: 19
+page_369:
+  id: 369
+  character_length: 1286
+  juz_id: 19
+page_370:
+  id: 370
+  character_length: 1139
+  juz_id: 19
+page_371:
+  id: 371
+  character_length: 1204
+  juz_id: 19
+page_372:
+  id: 372
+  character_length: 1198
+  juz_id: 19
+page_373:
+  id: 373
+  character_length: 1170
+  juz_id: 19
+page_374:
+  id: 374
+  character_length: 1226
+  juz_id: 19
+page_375:
+  id: 375
+  character_length: 1164
+  juz_id: 19
+page_376:
+  id: 376
+  character_length: 1072
+  juz_id: 19
+page_377:
+  id: 377
+  character_length: 1239
+  juz_id: 19
+page_378:
+  id: 378
+  character_length: 1225
+  juz_id: 19
+page_379:
+  id: 379
+  character_length: 1224
+  juz_id: 19
+page_380:
+  id: 380
+  character_length: 1383
+  juz_id: 19
+page_381:
+  id: 381
+  character_length: 1081
+  juz_id: 19
+page_382:
+  id: 382
+  character_length: 1149
+  juz_id: 20
+page_383:
+  id: 383
+  character_length: 1191
+  juz_id: 20
+page_384:
+  id: 384
+  character_length: 1260
+  juz_id: 20
+page_385:
+  id: 385
+  character_length: 1029
+  juz_id: 20
+page_386:
+  id: 386
+  character_length: 1114
+  juz_id: 20
+page_387:
+  id: 387
+  character_length: 1291
+  juz_id: 20
+page_388:
+  id: 388
+  character_length: 1152
+  juz_id: 20
+page_389:
+  id: 389
+  character_length: 1152
+  juz_id: 20
+page_390:
+  id: 390
+  character_length: 1102
+  juz_id: 20
+page_391:
+  id: 391
+  character_length: 1164
+  juz_id: 20
+page_392:
+  id: 392
+  character_length: 1217
+  juz_id: 20
+page_393:
+  id: 393
+  character_length: 1230
+  juz_id: 20
+page_394:
+  id: 394
+  character_length: 1179
+  juz_id: 20
+page_395:
+  id: 395
+  character_length: 1222
+  juz_id: 20
+page_396:
+  id: 396
+  character_length: 1055
+  juz_id: 20
+page_397:
+  id: 397
+  character_length: 1204
+  juz_id: 20
+page_398:
+  id: 398
+  character_length: 1149
+  juz_id: 20
+page_399:
+  id: 399
+  character_length: 1085
+  juz_id: 20
+page_400:
+  id: 400
+  character_length: 1057
+  juz_id: 20
+page_401:
+  id: 401
+  character_length: 1055
+  juz_id: 20
+page_402:
+  id: 402
+  character_length: 1150
+  juz_id: 21
+page_403:
+  id: 403
+  character_length: 1258
+  juz_id: 21
+page_404:
+  id: 404
+  character_length: 1012
+  juz_id: 21
+page_405:
+  id: 405
+  character_length: 1195
+  juz_id: 21
+page_406:
+  id: 406
+  character_length: 1145
+  juz_id: 21
+page_407:
+  id: 407
+  character_length: 1151
+  juz_id: 21
+page_408:
+  id: 408
+  character_length: 1265
+  juz_id: 21
+page_409:
+  id: 409
+  character_length: 1286
+  juz_id: 21
+page_410:
+  id: 410
+  character_length: 1201
+  juz_id: 21
+page_411:
+  id: 411
+  character_length: 1049
+  juz_id: 21
+page_412:
+  id: 412
+  character_length: 1229
+  juz_id: 21
+page_413:
+  id: 413
+  character_length: 1263
+  juz_id: 21
+page_414:
+  id: 414
+  character_length: 1186
+  juz_id: 21
+page_415:
+  id: 415
+  character_length: 1107
+  juz_id: 21
+page_416:
+  id: 416
+  character_length: 1174
+  juz_id: 21
+page_417:
+  id: 417
+  character_length: 1059
+  juz_id: 21
+page_418:
+  id: 418
+  character_length: 1130
+  juz_id: 21
+page_419:
+  id: 419
+  character_length: 1269
+  juz_id: 21
+page_420:
+  id: 420
+  character_length: 1297
+  juz_id: 21
+page_421:
+  id: 421
+  character_length: 1203
+  juz_id: 21
+page_422:
+  id: 422
+  character_length: 1123
+  juz_id: 22
+page_423:
+  id: 423
+  character_length: 1302
+  juz_id: 22
+page_424:
+  id: 424
+  character_length: 1204
+  juz_id: 22
+page_425:
+  id: 425
+  character_length: 1226
+  juz_id: 22
+page_426:
+  id: 426
+  character_length: 1245
+  juz_id: 22
+page_427:
+  id: 427
+  character_length: 1262
+  juz_id: 22
+page_428:
+  id: 428
+  character_length: 1029
+  juz_id: 22
+page_429:
+  id: 429
+  character_length: 1265
+  juz_id: 22
+page_430:
+  id: 430
+  character_length: 1226
+  juz_id: 22
+page_431:
+  id: 431
+  character_length: 1169
+  juz_id: 22
+page_432:
+  id: 432
+  character_length: 1250
+  juz_id: 22
+page_433:
+  id: 433
+  character_length: 1298
+  juz_id: 22
+page_434:
+  id: 434
+  character_length: 1116
+  juz_id: 22
+page_435:
+  id: 435
+  character_length: 1369
+  juz_id: 22
+page_436:
+  id: 436
+  character_length: 1185
+  juz_id: 22
+page_437:
+  id: 437
+  character_length: 1179
+  juz_id: 22
+page_438:
+  id: 438
+  character_length: 1175
+  juz_id: 22
+page_439:
+  id: 439
+  character_length: 1336
+  juz_id: 22
+page_440:
+  id: 440
+  character_length: 986
+  juz_id: 22
+page_441:
+  id: 441
+  character_length: 1174
+  juz_id: 22
+page_442:
+  id: 442
+  character_length: 1162
+  juz_id: 23
+page_443:
+  id: 443
+  character_length: 1200
+  juz_id: 23
+page_444:
+  id: 444
+  character_length: 1144
+  juz_id: 23
+page_445:
+  id: 445
+  character_length: 1074
+  juz_id: 23
+page_446:
+  id: 446
+  character_length: 1166
+  juz_id: 23
+page_447:
+  id: 447
+  character_length: 1228
+  juz_id: 23
+page_448:
+  id: 448
+  character_length: 1146
+  juz_id: 23
+page_449:
+  id: 449
+  character_length: 1200
+  juz_id: 23
+page_450:
+  id: 450
+  character_length: 1092
+  juz_id: 23
+page_451:
+  id: 451
+  character_length: 1120
+  juz_id: 23
+page_452:
+  id: 452
+  character_length: 1132
+  juz_id: 23
+page_453:
+  id: 453
+  character_length: 1189
+  juz_id: 23
+page_454:
+  id: 454
+  character_length: 1322
+  juz_id: 23
+page_455:
+  id: 455
+  character_length: 1305
+  juz_id: 23
+page_456:
+  id: 456
+  character_length: 1259
+  juz_id: 23
+page_457:
+  id: 457
+  character_length: 1281
+  juz_id: 23
+page_458:
+  id: 458
+  character_length: 1052
+  juz_id: 23
+page_459:
+  id: 459
+  character_length: 1315
+  juz_id: 23
+page_460:
+  id: 460
+  character_length: 1338
+  juz_id: 23
+page_461:
+  id: 461
+  character_length: 1241
+  juz_id: 23
+page_462:
+  id: 462
+  character_length: 1100
+  juz_id: 24
+page_463:
+  id: 463
+  character_length: 1147
+  juz_id: 24
+page_464:
+  id: 464
+  character_length: 1181
+  juz_id: 24
+page_465:
+  id: 465
+  character_length: 1112
+  juz_id: 24
+page_466:
+  id: 466
+  character_length: 1158
+  juz_id: 24
+page_467:
+  id: 467
+  character_length: 1034
+  juz_id: 24
+page_468:
+  id: 468
+  character_length: 1148
+  juz_id: 24
+page_469:
+  id: 469
+  character_length: 1133
+  juz_id: 24
+page_470:
+  id: 470
+  character_length: 1179
+  juz_id: 24
+page_471:
+  id: 471
+  character_length: 1118
+  juz_id: 24
+page_472:
+  id: 472
+  character_length: 1113
+  juz_id: 24
+page_473:
+  id: 473
+  character_length: 1042
+  juz_id: 24
+page_474:
+  id: 474
+  character_length: 1054
+  juz_id: 24
+page_475:
+  id: 475
+  character_length: 1146
+  juz_id: 24
+page_476:
+  id: 476
+  character_length: 1151
+  juz_id: 24
+page_477:
+  id: 477
+  character_length: 1088
+  juz_id: 24
+page_478:
+  id: 478
+  character_length: 1281
+  juz_id: 24
+page_479:
+  id: 479
+  character_length: 1269
+  juz_id: 24
+page_480:
+  id: 480
+  character_length: 1131
+  juz_id: 24
+page_481:
+  id: 481
+  character_length: 1302
+  juz_id: 24
+page_482:
+  id: 482
+  character_length: 1212
+  juz_id: 25
+page_483:
+  id: 483
+  character_length: 1094
+  juz_id: 25
+page_484:
+  id: 484
+  character_length: 1245
+  juz_id: 25
+page_485:
+  id: 485
+  character_length: 1117
+  juz_id: 25
+page_486:
+  id: 486
+  character_length: 1298
+  juz_id: 25
+page_487:
+  id: 487
+  character_length: 1331
+  juz_id: 25
+page_488:
+  id: 488
+  character_length: 1200
+  juz_id: 25
+page_489:
+  id: 489
+  character_length: 963
+  juz_id: 25
+page_490:
+  id: 490
+  character_length: 1191
+  juz_id: 25
+page_491:
+  id: 491
+  character_length: 1271
+  juz_id: 25
+page_492:
+  id: 492
+  character_length: 1183
+  juz_id: 25
+page_493:
+  id: 493
+  character_length: 1142
+  juz_id: 25
+page_494:
+  id: 494
+  character_length: 1132
+  juz_id: 25
+page_495:
+  id: 495
+  character_length: 1214
+  juz_id: 25
+page_496:
+  id: 496
+  character_length: 991
+  juz_id: 25
+page_497:
+  id: 497
+  character_length: 1218
+  juz_id: 25
+page_498:
+  id: 498
+  character_length: 918
+  juz_id: 25
+page_499:
+  id: 499
+  character_length: 1285
+  juz_id: 25
+page_500:
+  id: 500
+  character_length: 1225
+  juz_id: 25
+page_501:
+  id: 501
+  character_length: 1431
+  juz_id: 25
+page_502:
+  id: 502
+  character_length: 1107
+  juz_id: 26
+page_503:
+  id: 503
+  character_length: 1337
+  juz_id: 26
+page_504:
+  id: 504
+  character_length: 1352
+  juz_id: 26
+page_505:
+  id: 505
+  character_length: 1292
+  juz_id: 26
+page_506:
+  id: 506
+  character_length: 1207
+  juz_id: 26
+page_507:
+  id: 507
+  character_length: 1351
+  juz_id: 26
+page_508:
+  id: 508
+  character_length: 1446
+  juz_id: 26
+page_509:
+  id: 509
+  character_length: 1157
+  juz_id: 26
+page_510:
+  id: 510
+  character_length: 1263
+  juz_id: 26
+page_511:
+  id: 511
+  character_length: 1081
+  juz_id: 26
+page_512:
+  id: 512
+  character_length: 1239
+  juz_id: 26
+page_513:
+  id: 513
+  character_length: 1261
+  juz_id: 26
+page_514:
+  id: 514
+  character_length: 1219
+  juz_id: 26
+page_515:
+  id: 515
+  character_length: 1143
+  juz_id: 26
+page_516:
+  id: 516
+  character_length: 1382
+  juz_id: 26
+page_517:
+  id: 517
+  character_length: 1322
+  juz_id: 26
+page_518:
+  id: 518
+  character_length: 1097
+  juz_id: 26
+page_519:
+  id: 519
+  character_length: 1312
+  juz_id: 26
+page_520:
+  id: 520
+  character_length: 1009
+  juz_id: 26
+page_521:
+  id: 521
+  character_length: 1248
+  juz_id: 26
+page_522:
+  id: 522
+  character_length: 1292
+  juz_id: 27
+page_523:
+  id: 523
+  character_length: 988
+  juz_id: 27
+page_524:
+  id: 524
+  character_length: 1225
+  juz_id: 27
+page_525:
+  id: 525
+  character_length: 1188
+  juz_id: 27
+page_526:
+  id: 526
+  character_length: 1145
+  juz_id: 27
+page_527:
+  id: 527
+  character_length: 1299
+  juz_id: 27
+page_528:
+  id: 528
+  character_length: 999
+  juz_id: 27
+page_529:
+  id: 529
+  character_length: 1290
+  juz_id: 27
+page_530:
+  id: 530
+  character_length: 1277
+  juz_id: 27
+page_531:
+  id: 531
+  character_length: 862
+  juz_id: 27
+page_532:
+  id: 532
+  character_length: 1248
+  juz_id: 27
+page_533:
+  id: 533
+  character_length: 1201
+  juz_id: 27
+page_534:
+  id: 534
+  character_length: 999
+  juz_id: 27
+page_535:
+  id: 535
+  character_length: 1173
+  juz_id: 27
+page_536:
+  id: 536
+  character_length: 1183
+  juz_id: 27
+page_537:
+  id: 537
+  character_length: 1025
+  juz_id: 27
+page_538:
+  id: 538
+  character_length: 1345
+  juz_id: 27
+page_539:
+  id: 539
+  character_length: 1332
+  juz_id: 27
+page_540:
+  id: 540
+  character_length: 1256
+  juz_id: 27
+page_541:
+  id: 541
+  character_length: 1238
+  juz_id: 27
+page_542:
+  id: 542
+  character_length: 1143
+  juz_id: 28
+page_543:
+  id: 543
+  character_length: 1385
+  juz_id: 28
+page_544:
+  id: 544
+  character_length: 1397
+  juz_id: 28
+page_545:
+  id: 545
+  character_length: 1087
+  juz_id: 28
+page_546:
+  id: 546
+  character_length: 1277
+  juz_id: 28
+page_547:
+  id: 547
+  character_length: 1193
+  juz_id: 28
+page_548:
+  id: 548
+  character_length: 1106
+  juz_id: 28
+page_549:
+  id: 549
+  character_length: 1342
+  juz_id: 28
+page_550:
+  id: 550
+  character_length: 1470
+  juz_id: 28
+page_551:
+  id: 551
+  character_length: 1075
+  juz_id: 28
+page_552:
+  id: 552
+  character_length: 1517
+  juz_id: 28
+page_553:
+  id: 553
+  character_length: 1098
+  juz_id: 28
+page_554:
+  id: 554
+  character_length: 1137
+  juz_id: 28
+page_555:
+  id: 555
+  character_length: 1105
+  juz_id: 28
+page_556:
+  id: 556
+  character_length: 1279
+  juz_id: 28
+page_557:
+  id: 557
+  character_length: 1050
+  juz_id: 28
+page_558:
+  id: 558
+  character_length: 1241
+  juz_id: 28
+page_559:
+  id: 559
+  character_length: 1431
+  juz_id: 28
+page_560:
+  id: 560
+  character_length: 1196
+  juz_id: 28
+page_561:
+  id: 561
+  character_length: 1173
+  juz_id: 28
+page_562:
+  id: 562
+  character_length: 1175
+  juz_id: 29
+page_563:
+  id: 563
+  character_length: 1291
+  juz_id: 29
+page_564:
+  id: 564
+  character_length: 1022
+  juz_id: 29
+page_565:
+  id: 565
+  character_length: 1388
+  juz_id: 29
+page_566:
+  id: 566
+  character_length: 1134
+  juz_id: 29
+page_567:
+  id: 567
+  character_length: 1298
+  juz_id: 29
+page_568:
+  id: 568
+  character_length: 1082
+  juz_id: 29
+page_569:
+  id: 569
+  character_length: 1253
+  juz_id: 29
+page_570:
+  id: 570
+  character_length: 1178
+  juz_id: 29
+page_571:
+  id: 571
+  character_length: 1271
+  juz_id: 29
+page_572:
+  id: 572
+  character_length: 1152
+  juz_id: 29
+page_573:
+  id: 573
+  character_length: 1271
+  juz_id: 29
+page_574:
+  id: 574
+  character_length: 1108
+  juz_id: 29
+page_575:
+  id: 575
+  character_length: 1187
+  juz_id: 29
+page_576:
+  id: 576
+  character_length: 1351
+  juz_id: 29
+page_577:
+  id: 577
+  character_length: 1133
+  juz_id: 29
+page_578:
+  id: 578
+  character_length: 1115
+  juz_id: 29
+page_579:
+  id: 579
+  character_length: 1402
+  juz_id: 29
+page_580:
+  id: 580
+  character_length: 1029
+  juz_id: 29
+page_581:
+  id: 581
+  character_length: 1239
+  juz_id: 29
+page_582:
+  id: 582
+  character_length: 1007
+  juz_id: 30
+page_583:
+  id: 583
+  character_length: 1072
+  juz_id: 30
+page_584:
+  id: 584
+  character_length: 1190
+  juz_id: 30
+page_585:
+  id: 585
+  character_length: 1215
+  juz_id: 30
+page_586:
+  id: 586
+  character_length: 899
+  juz_id: 30
+page_587:
+  id: 587
+  character_length: 937
+  juz_id: 30
+page_588:
+  id: 588
+  character_length: 1250
+  juz_id: 30
+page_589:
+  id: 589
+  character_length: 1018
+  juz_id: 30
+page_590:
+  id: 590
+  character_length: 967
+  juz_id: 30
+page_591:
+  id: 591
+  character_length: 1020
+  juz_id: 30
+page_592:
+  id: 592
+  character_length: 949
+  juz_id: 30
+page_593:
+  id: 593
+  character_length: 984
+  juz_id: 30
+page_594:
+  id: 594
+  character_length: 978
+  juz_id: 30
+page_595:
+  id: 595
+  character_length: 937
+  juz_id: 30
+page_596:
+  id: 596
+  character_length: 806
+  juz_id: 30
+page_597:
+  id: 597
+  character_length: 934
+  juz_id: 30
+page_598:
+  id: 598
+  character_length: 936
+  juz_id: 30
+page_599:
+  id: 599
+  character_length: 803
+  juz_id: 30
+page_600:
+  id: 600
+  character_length: 652
+  juz_id: 30
+page_601:
+  id: 601
+  character_length: 650
+  juz_id: 30
+page_602:
+  id: 602
+  character_length: 484
+  juz_id: 30
+page_603:
+  id: 603
+  character_length: 554
+  juz_id: 30
+page_604:
+  id: 604
+  character_length: 415
+  juz_id: 30

@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
-juzs = YAML.load_file("#{Rails.root}/db/seeds/juzs.yml")
-juzs.each do |juz|
-  Juz.find_or_create_by! juz
+pages = YAML.load_file("#{Rails.root}/db/seeds/pages.yml")
+pages.each do |page|
+  Page.find_or_create_by! page
 end
+
+# juzs = YAML.load_file("#{Rails.root}/db/seeds/juzs.yml")
+# juzs.each do |juz|
+#   Juz.find_or_create_by! juz
+# end
 
 # unless Surah.first
 #   surahs = YAML.load_file("#{Rails.root}/db/seeds/surahs.yml")

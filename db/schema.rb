@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_07_065838) do
+ActiveRecord::Schema.define(version: 2018_03_07_075219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -204,6 +204,12 @@ ActiveRecord::Schema.define(version: 2018_03_07_065838) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.integer "character_length"
+    t.bigint "juz_id"
+    t.index ["juz_id"], name: "index_pages_on_juz_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "name"
     t.string "username"
@@ -293,6 +299,7 @@ ActiveRecord::Schema.define(version: 2018_03_07_065838) do
   add_foreign_key "memories", "accounts"
   add_foreign_key "memories", "ayahs"
   add_foreign_key "menu_links", "menus"
+  add_foreign_key "pages", "juzs"
   add_foreign_key "profiles", "accounts"
   add_foreign_key "shares", "ayahs"
   add_foreign_key "subscriptions", "accounts"
