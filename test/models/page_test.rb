@@ -1,6 +1,18 @@
 require 'test_helper'
 
 class PageTest < ActiveSupport::TestCase
+  test 'previous' do
+    assert_equal pages(:page_2).previous, pages(:page_1)
+  end
+
+  test 'previous when first' do
+    assert_equal pages(:page_1).previous, pages(:page_604)
+  end
+
+  test 'previous when last' do
+    assert_equal pages(:page_604).previous, pages(:page_603)
+  end
+
   test 'description' do
     skip
     surah = surahs(:surah_1)

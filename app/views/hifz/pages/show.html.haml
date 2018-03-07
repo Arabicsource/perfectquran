@@ -9,9 +9,9 @@
         .column
           .field.has-addons
             %p.control
-              = link_to 'hifz_page_path(@page.previous)', class: 'button' do
+              = link_to hifz_page_path(@page.previous), class: 'button' do
                 %span.icon.is-small= fa_icon 'angle-left'
-                -# %span= @page.previous
+                %span= @page.previous
 
             %p.control
               = link_to 'hifz_page_path(@page.next)', class: 'button' do

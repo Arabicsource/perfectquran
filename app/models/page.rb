@@ -1,6 +1,14 @@
 class Page < ApplicationRecord
   belongs_to :juz
 
+  def previous
+    @previous ||= if id == 1
+                    Page.last
+                  else
+                    Page.find id - 1
+                  end
+  end
+
   def reference
 
   end
