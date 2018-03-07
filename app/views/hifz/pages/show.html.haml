@@ -14,8 +14,8 @@
                 %span= @page.previous
 
             %p.control
-              = link_to 'hifz_page_path(@page.next)', class: 'button' do
-                -# %span= @page.next
+              = link_to hifz_page_path(@page.next), class: 'button' do
+                %span= @page.next
                 %span.icon.is-small= fa_icon 'angle-right'
 
     %section

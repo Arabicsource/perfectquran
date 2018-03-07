@@ -9,6 +9,14 @@ class Page < ApplicationRecord
                   end
   end
 
+  def next
+    @next ||= if id == 604
+                Page.first
+              else
+                Page.find id + 1
+              end
+  end
+
   def reference
 
   end
