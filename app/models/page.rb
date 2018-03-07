@@ -4,4 +4,8 @@ class Page < ApplicationRecord
   def reference
 
   end
+
+  def to_s
+    "Page #{id}"
+  end
 end

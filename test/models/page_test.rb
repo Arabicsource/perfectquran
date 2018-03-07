@@ -8,8 +8,7 @@ class PageTest < ActiveSupport::TestCase
   end
 
   test 'to_s' do
-    skip
-    surah = surahs(:surah_1)
-    assert_equal 'Al-Fatihah', surah.to_s
+    page = pages(:page_1)
+    assert_equal 'Page 1', page.to_s
   end
 end
