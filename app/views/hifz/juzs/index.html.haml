@@ -1,0 +1,23 @@
+%section.section
+  .container
+    %header
+      %h1.title Juzs
+      %h2.subtitle Quran Divided into 30 Parts
+
+    %section
+      %ul
+        - @juzs.each do |juz|
+          %li.field
+            .media
+              .media-left
+                = link_to '', class: false ? 'button is-large is-text has-text-memorized' : 'button is-large is-text has-text-dark', method: :post do
+                  = fa_icon 'heart'
+            
+              .media-content
+                = link_to '', class: 'has-text-dark' do
+                  #{juz}<br>#{juz.description}
+                
+              .media-right
+                %p.is-size-4.has-text-grey-lighter 0%
+
+= provide :title, 'Hifz Juzs'

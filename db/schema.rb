@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_02_065424) do
+ActiveRecord::Schema.define(version: 2018_03_07_065838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,6 +168,10 @@ ActiveRecord::Schema.define(version: 2018_03_02_065424) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "juzs", force: :cascade do |t|
+    t.integer "character_length"
   end
 
   create_table "languages", force: :cascade do |t|
