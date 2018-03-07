@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
-pages = YAML.load_file("#{Rails.root}/db/seeds/pages.yml")
-pages.each do |page|
-  Page.find_or_create_by! page
+ayahs = YAML.load_file("#{Rails.root}/db/seeds/ayahs.yml")
+ayahs.each do |ayah|
+  a = Ayah.find(ayah['id'])
+  a.update_attribute(:page_id, ayah['page_id'])
 end
+
+# pages = YAML.load_file("#{Rails.root}/db/seeds/pages.yml")
+# pages.each do |page|
+#   Page.find_or_create_by! page
+# end
 
 # juzs = YAML.load_file("#{Rails.root}/db/seeds/juzs.yml")
 # juzs.each do |juz|

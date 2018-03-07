@@ -1,4 +1,6 @@
 class Page < ApplicationRecord
+  include Ayahable
+
   belongs_to :juz
 
   def previous

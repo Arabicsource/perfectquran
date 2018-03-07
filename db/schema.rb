@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_07_075219) do
+ActiveRecord::Schema.define(version: 2018_03_07_110347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 2018_03_07_075219) do
     t.integer "number"
     t.integer "character_length"
     t.bigint "surah_id"
+    t.bigint "page_id"
+    t.index ["page_id"], name: "index_ayahs_on_page_id"
     t.index ["surah_id"], name: "index_ayahs_on_surah_id"
   end
 
@@ -287,6 +289,7 @@ ActiveRecord::Schema.define(version: 2018_03_07_075219) do
   add_foreign_key "account_email_preferences", "accounts"
   add_foreign_key "articles", "accounts"
   add_foreign_key "articles", "categories"
+  add_foreign_key "ayahs", "pages"
   add_foreign_key "ayahs", "surahs"
   add_foreign_key "bookmarks", "accounts"
   add_foreign_key "charges", "accounts"
