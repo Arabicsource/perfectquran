@@ -14,7 +14,7 @@
                   = fa_icon 'heart'
             
               .media-content
-                = link_to hifz_page_path(Page.first), class: 'has-text-dark' do
+                = link_to hifz_juz_page_path(juz, juz.first_page), class: 'has-text-dark' do
                   #{juz}<br>#{juz.description}
                 
               .media-right

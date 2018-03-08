@@ -29,7 +29,10 @@ Rails.application.routes.draw do
   namespace :hifz do
     root 'dashboards#show'
 
-    resources :juzs, only: %i[index]
+    resources :juzs, only: %i[index] do
+      resources :pages, only: %i[show]
+    end
+
     resources :surahs, only: %i[index]
 
     resources :pages, only: %i[index show] do
