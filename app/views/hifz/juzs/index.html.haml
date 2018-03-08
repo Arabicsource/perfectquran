@@ -10,7 +10,7 @@
           %li.field
             .media
               .media-left
-                = link_to '', class: false ? 'button is-large is-text has-text-memorized' : 'button is-large is-text has-text-dark', method: :post do
+                = link_to hifz_juz_memory_path(juz), class: juz.memorized? ? 'button is-large is-text has-text-memorized' : 'button is-large is-text has-text-dark', method: :post do
                   = fa_icon 'heart'
             
               .media-content

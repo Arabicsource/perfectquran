@@ -16,6 +16,16 @@ class JuzTest < ActiveSupport::TestCase
     assert_equal pages(:page_22), juzs(:juz_2).first_page
   end
 
+  test 'memorized?' do
+    Current.account = accounts(:abdullah)
+    juz = juzs(:juz_1)
+    jm = JuzMemory.create(account: Current.account, juz: juz, character_length: 55)
+    assert_not juz.memorized?
+
+    jm.update_attribute(:character_length, juz.character_length)
+    assert juz.memorized?
+  end
+
   test 'description' do
     skip
   end

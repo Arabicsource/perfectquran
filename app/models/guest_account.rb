@@ -22,4 +22,8 @@ class GuestAccount
   def memorized_juzs_count
     0
   end
+
+  def guest?
+    true
+  end
 end

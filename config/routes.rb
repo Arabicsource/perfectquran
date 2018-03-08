@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
     resources :juzs, only: %i[index] do
       resources :pages, only: %i[show]
+      resource :memory, only: %i[create]
     end
 
     resources :surahs, only: %i[index]

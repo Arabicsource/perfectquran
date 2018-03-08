@@ -106,6 +106,10 @@ class Account < ApplicationRecord
 
   end
 
+  def guest?
+    false
+  end
+
   private
 
   def subscribe_to_newsletter
