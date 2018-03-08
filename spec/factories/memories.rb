@@ -14,6 +14,5 @@
 FactoryBot.define do
   factory :memory do
     account
-    ayah
   end
 end
