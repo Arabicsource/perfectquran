@@ -34,8 +34,16 @@ class JuzTest < ActiveSupport::TestCase
     assert_equal 148, Current.account.memories.count
   end
 
+  test 'memorized_percentage' do
+    Current.account = accounts(:abdullah)
+    assert juzs(:juz_1).memorized_percentage.zero?
+
+    ayahs(:ayah_1).memorize
+    assert_equal 0.1629362833376211, juzs(:juz_1).memorized_percentage
+  end
+
   test 'description' do
-    skip
+    assert_equal 'Al-Fatihah: 1 - Al-Baqarah: 141', juzs(:juz_1).description
   end
 
   test 'to_s' do

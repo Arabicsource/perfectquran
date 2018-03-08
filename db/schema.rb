@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_08_211904) do
+ActiveRecord::Schema.define(version: 2018_03_08_232258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(version: 2018_03_08_211904) do
   create_table "juz_memories", force: :cascade do |t|
     t.bigint "account_id"
     t.bigint "juz_id"
-    t.integer "character_length"
+    t.integer "character_length", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_juz_memories_on_account_id"

@@ -18,6 +18,6 @@
                   #{juz}<br>#{juz.description}
                 
               .media-right
-                %p.is-size-4.has-text-grey-lighter 0%
+                %p.is-size-4.has-text-grey-lighter= number_to_percentage(juz.memorized_percentage, strip_insignificant_zeros: true)
 
 = provide :title, 'Hifz Juzs'

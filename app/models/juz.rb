@@ -8,8 +8,16 @@ class Juz < ApplicationRecord
     pages.first
   end
 
-  def description
+  def first_ayah
+    ayahs.first
+  end
 
+  def last_ayah
+    ayahs.last
+  end
+
+  def description
+    "#{first_ayah.surah_name}: #{first_ayah.number} - #{last_ayah.surah_name}: #{last_ayah.number}"
   end
 
   def to_s
@@ -26,6 +34,10 @@ class Juz < ApplicationRecord
         return false
       end
     end
+  end
+
+  def memorized_percentage
+    (juz_memory.character_length / character_length.to_f) * 100
   end
 
   private
