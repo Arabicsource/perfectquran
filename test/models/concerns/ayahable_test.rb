@@ -19,4 +19,13 @@ class AyahableTest < ActiveSupport::TestCase
     pages(:page_1).current_ayah = ayahs(:ayah_8)
     assert_equal ayahs(:ayah_1), pages(:page_1).current_ayah
   end
+
+  test 'current_ayah?' do
+    assert pages(:page_1).current_ayah?(ayahs(:ayah_1))
+    assert_not pages(:page_1).current_ayah?(ayahs(:ayah_2))
+
+    pages(:page_1).current_ayah = ayahs(:ayah_2)
+    assert_not pages(:page_1).current_ayah?(ayahs(:ayah_1))
+    assert pages(:page_1).current_ayah?(ayahs(:ayah_2))
+  end
 end
