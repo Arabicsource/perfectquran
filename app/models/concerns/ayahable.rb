@@ -32,4 +32,12 @@ module Ayahable
   def last_ayah
     ayahs.last
   end
+
+  def next_ayah
+    next_ayah? ? current_ayah.next : first_ayah
+  end
+
+  def next_ayah?
+    current_ayah.id < last_ayah.id
+  end
 end

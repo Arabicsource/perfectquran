@@ -53,4 +53,24 @@ class AyahableTest < ActiveSupport::TestCase
     assert_equal ayahs(:ayah_7), pages(:page_1).last_ayah
     assert_equal ayahs(:ayah_12), pages(:page_2).last_ayah
   end
+
+  test 'next_ayah' do
+    assert_equal ayahs(:ayah_2), pages(:page_1).next_ayah
+
+    pages(:page_1).current_ayah = ayahs(:ayah_7)
+    assert_equal ayahs(:ayah_1), pages(:page_1).next_ayah
+
+    pages(:page_1).current_ayah = ayahs(:ayah_3)
+    assert_equal ayahs(:ayah_4), pages(:page_1).next_ayah
+  end
+
+  test 'next_ayah?' do
+    assert pages(:page_1).next_ayah?
+
+    pages(:page_1).current_ayah = ayahs(:ayah_7)
+    assert_not pages(:page_1).next_ayah?
+
+    pages(:page_1).current_ayah = ayahs(:ayah_3)
+    assert pages(:page_1).next_ayah?
+  end
 end
