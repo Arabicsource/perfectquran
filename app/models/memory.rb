@@ -14,5 +14,5 @@
 # :nodoc:
 class Memory < ApplicationRecord
   belongs_to :account
-  belongs_to :memorable, polymorphic: true
+  belongs_to :ayah
 end
