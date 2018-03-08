@@ -4,6 +4,9 @@ class Ayah < ApplicationRecord
   default_scope { order('id asc') }
 
   belongs_to :surah
+  belongs_to :page
+  belongs_to :juz
+
   has_many :memories
   has_many :bookmarks, as: :bookmarkable
   has_many :texts

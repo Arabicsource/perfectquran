@@ -3,7 +3,7 @@
 ayahs = YAML.load_file("#{Rails.root}/db/seeds/ayahs.yml")
 ayahs.each do |ayah|
   a = Ayah.find(ayah['id'])
-  a.update_attribute(:page_id, ayah['page_id'])
+  a.update_attribute(:juz_id, ayah['juz_id'])
 end
 
 # pages = YAML.load_file("#{Rails.root}/db/seeds/pages.yml")

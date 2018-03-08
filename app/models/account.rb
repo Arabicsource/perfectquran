@@ -35,10 +35,14 @@ class Account < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_one :subscription
   has_one :email_preference
+  has_one :memory_total
 
   has_many :articles, dependent: :destroy
   has_many :connections
   has_many :memories
+  has_many :surah_memories
+  has_many :page_memories
+  has_many :juz_memories
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

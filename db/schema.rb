@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_08_203354) do
+ActiveRecord::Schema.define(version: 2018_03_08_211904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,8 @@ ActiveRecord::Schema.define(version: 2018_03_08_203354) do
     t.integer "character_length"
     t.bigint "surah_id"
     t.bigint "page_id"
+    t.bigint "juz_id"
+    t.index ["juz_id"], name: "index_ayahs_on_juz_id"
     t.index ["page_id"], name: "index_ayahs_on_page_id"
     t.index ["surah_id"], name: "index_ayahs_on_surah_id"
   end
@@ -172,6 +174,16 @@ ActiveRecord::Schema.define(version: 2018_03_08_203354) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "juz_memories", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "juz_id"
+    t.integer "character_length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_juz_memories_on_account_id"
+    t.index ["juz_id"], name: "index_juz_memories_on_juz_id"
+  end
+
   create_table "juzs", force: :cascade do |t|
     t.integer "character_length"
   end
@@ -190,6 +202,17 @@ ActiveRecord::Schema.define(version: 2018_03_08_203354) do
     t.index ["ayah_id"], name: "index_memories_on_ayah_id"
   end
 
+  create_table "memory_totals", force: :cascade do |t|
+    t.bigint "account_id"
+    t.integer "surah_count", default: 0
+    t.integer "page_count", default: 0
+    t.integer "juz_count", default: 0
+    t.integer "character_length", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_memory_totals_on_account_id"
+  end
+
   create_table "menu_links", force: :cascade do |t|
     t.string "name"
     t.string "path"
@@ -204,6 +227,16 @@ ActiveRecord::Schema.define(version: 2018_03_08_203354) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "page_memories", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "page_id"
+    t.integer "character_length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_page_memories_on_account_id"
+    t.index ["page_id"], name: "index_page_memories_on_page_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -240,6 +273,16 @@ ActiveRecord::Schema.define(version: 2018_03_08_203354) do
     t.string "payment_last4"
     t.string "current_period_end"
     t.index ["account_id"], name: "index_subscriptions_on_account_id"
+  end
+
+  create_table "surah_memories", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "surah_id"
+    t.integer "character_length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_surah_memories_on_account_id"
+    t.index ["surah_id"], name: "index_surah_memories_on_surah_id"
   end
 
   create_table "surahs", force: :cascade do |t|
@@ -289,6 +332,7 @@ ActiveRecord::Schema.define(version: 2018_03_08_203354) do
   add_foreign_key "account_email_preferences", "accounts"
   add_foreign_key "articles", "accounts"
   add_foreign_key "articles", "categories"
+  add_foreign_key "ayahs", "juzs"
   add_foreign_key "ayahs", "pages"
   add_foreign_key "ayahs", "surahs"
   add_foreign_key "bookmarks", "accounts"
@@ -299,13 +343,20 @@ ActiveRecord::Schema.define(version: 2018_03_08_203354) do
   add_foreign_key "connections", "translations"
   add_foreign_key "daily_ayahs", "ayahs"
   add_foreign_key "facebook_shares", "ayahs"
+  add_foreign_key "juz_memories", "accounts"
+  add_foreign_key "juz_memories", "juzs"
   add_foreign_key "memories", "accounts"
   add_foreign_key "memories", "ayahs"
+  add_foreign_key "memory_totals", "accounts"
   add_foreign_key "menu_links", "menus"
+  add_foreign_key "page_memories", "accounts"
+  add_foreign_key "page_memories", "pages"
   add_foreign_key "pages", "juzs"
   add_foreign_key "profiles", "accounts"
   add_foreign_key "shares", "ayahs"
   add_foreign_key "subscriptions", "accounts"
+  add_foreign_key "surah_memories", "accounts"
+  add_foreign_key "surah_memories", "surahs"
   add_foreign_key "taggings", "accounts"
   add_foreign_key "taggings", "tags"
   add_foreign_key "texts", "ayahs"
