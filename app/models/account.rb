@@ -31,11 +31,12 @@ class Account < ApplicationRecord
   after_create :create_profile!
   after_create :create_email_preference!
   after_create :subscribe_to_newsletter
+  after_create :create_memory_total!
 
   has_one :profile, dependent: :destroy
   has_one :subscription
   has_one :email_preference
-  has_one :memory_total
+  has_one :memory_total, dependent: :destroy
 
   has_many :articles, dependent: :destroy
   has_many :connections
