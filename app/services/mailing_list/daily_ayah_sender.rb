@@ -50,7 +50,7 @@ module MailingList
       gibbon.campaigns(campaign_id).content.upsert(body: body)
       gibbon.campaigns(campaign_id).actions.send.create
 
-      DailyAyah.create!(quran_ayah_id: ayah.id)
+      DailyAyah.create!(ayah_id: ayah.id)
     end
 
     private
@@ -66,7 +66,7 @@ module MailingList
     end
 
     def ayah
-      ayah_id = DailyAyah.last.try(:quran_ayah_id).to_i
+      ayah_id = DailyAyah.last.try(:ayah_id).to_i
 
       ayah = if ayah_id.zero? || ayah_id == 6236
                Ayah.first
