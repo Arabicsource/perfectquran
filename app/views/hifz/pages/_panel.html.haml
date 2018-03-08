@@ -6,17 +6,17 @@
 
   .card-content
     .content
-      -# %p.uthmani-text= audible.current_ayah.uthmani_text
+      %p.uthmani-text= page.current_ayah.uthmani_text
 
       %p.is-hidden{data: {target: 'audio-player.transliteration'}}
-        <span class='has-text-primary'>Transliteration</span><br>
-        -# = sanitize audible.current_ayah.transliterated_text
+        %span.has-text-primary Transliteration
+        = sanitize page.current_ayah.transliterated_text
 
       %p.is-hidden{data: {target: 'audio-player.translation'}}
-        <span class='has-text-primary'>The Noble Quran</span><br>
-        -# = audible.current_ayah.noble_quran_text
+        %span.has-text-primary The Noble Quran
+        = page.current_ayah.noble_quran_text
 
-    -# = render 'hifz/pages/controls', audible: audible
+    = render 'hifz/pages/controls', page: page
 
   .card-footer
     = link_to '#', class: 'card-footer-item', data: {action: 'audio-player#translation'} do

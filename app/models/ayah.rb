@@ -22,6 +22,10 @@ class Ayah < ApplicationRecord
     texts.where(translation_id: 1).first.try(:content) || ''
   end
 
+  def transliterated_text
+    texts.where(translation_id: 2).first.content
+  end
+
   def surah_name
     surah.transliterated_name
   end

@@ -1,0 +1,24 @@
+.audio-controls
+  %progress.progress{value: "0", max: "0"}
+
+  .level.is-mobile
+    -# <%= link_to hifz_page_ayah_path(audible, audible.previous_ayah), class: 'backward' do %>
+    -#   <%= fa_icon 'step-backward' %>
+    -# <% end %>
+
+    -# <%= link_to '#', class: 'play', data: {action: 'audio-player#play', target: 'audio-player.play-button'} do %>
+    -#   <%= fa_icon 'play' %>
+    -# <% end %>
+
+    -# <%= link_to '#', class: 'pause is-hidden', data: {action: 'audio-player#pause', target: 'audio-player.pause-button'} do %>
+    -#   <%= fa_icon 'pause' %>
+    -# <% end %>
+
+    -# <div class='loop'>
+    -#   <%= check_box_tag :loop, 0, false, data: {action: 'click->audio-player#loop', target: 'audio-player.loop'} %>
+    -#   <span class='icon'><%= fa_icon 'refresh' %></span>
+    -# </div>
+
+    -# <%= link_to hifz_page_ayah_path(audible, audible.next_ayah), class: 'forward' do %>
+    -#   <%= fa_icon 'step-forward' %>
+    -# <% end %>
