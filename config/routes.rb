@@ -30,8 +30,11 @@ Rails.application.routes.draw do
     root 'dashboards#show'
 
     resources :juzs, only: %i[index]
-    resources :pages, only: %i[index show]
     resources :surahs, only: %i[index]
+
+    resources :pages, only: %i[index show] do
+      resources :ayahs, only: %i[show]
+    end
   end
 
   namespace :study do

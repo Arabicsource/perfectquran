@@ -2,9 +2,8 @@
   %progress.progress{value: "0", max: "0"}
 
   .level.is-mobile
-    -# <%= link_to hifz_page_ayah_path(audible, audible.previous_ayah), class: 'backward' do %>
-    -#   <%= fa_icon 'step-backward' %>
-    -# <% end %>
+    = link_to hifz_page_ayah_path(page, page.previous_ayah), class: 'backward' do
+      = fa_icon 'step-backward'
 
     -# <%= link_to '#', class: 'play', data: {action: 'audio-player#play', target: 'audio-player.play-button'} do %>
     -#   <%= fa_icon 'play' %>

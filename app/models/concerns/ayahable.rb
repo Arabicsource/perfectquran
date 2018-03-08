@@ -20,4 +20,16 @@ module Ayahable
   def first_ayah
     ayahs.first
   end
+
+  def previous_ayah
+    previous_ayah? ? current_ayah.previous : last_ayah
+  end
+
+  def previous_ayah?
+    current_ayah.id > first_ayah.id
+  end
+
+  def last_ayah
+    ayahs.last
+  end
 end
