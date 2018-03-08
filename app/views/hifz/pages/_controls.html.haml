@@ -1,5 +1,5 @@
-.audio-controls
-  %progress.progress{value: "0", max: "0"}
+.audio-controls{data: {controller:'audio-player'}}
+  %progress.progress{value: "0", max: "0", data: {target: 'audio-player.progress', action: 'click->audio-player#seek'}}
 
   .level.is-mobile
     = link_to hifz_page_ayah_path(page, page.previous_ayah), class: 'backward' do
@@ -17,3 +17,5 @@
 
     = link_to hifz_page_ayah_path(page, page.next_ayah), class: 'forward' do
       = fa_icon 'step-forward'
+
+  %span{data: {target: 'audio-player.src', src: "#{ayah_audio_file(page.current_ayah.surah_id, page.current_ayah.number)}"}}
