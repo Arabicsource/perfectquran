@@ -52,4 +52,9 @@ class Ayah < ApplicationRecord
   def to_s
     "#{surah_name}: #{number}"
   end
+
+  def memorize
+    return false if Current.account.guest?
+    Memory.create(account: Current.account, ayah: self)
+  end
 end

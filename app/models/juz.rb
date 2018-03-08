@@ -20,6 +20,14 @@ class Juz < ApplicationRecord
     character_length == juz_memory.character_length
   end
 
+  def memorize
+    ayahs.each do |ayah| 
+      unless ayah.memorize
+        return false
+      end
+    end
+  end
+
   private
 
   def juz_memory

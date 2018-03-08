@@ -26,6 +26,14 @@ class JuzTest < ActiveSupport::TestCase
     assert juz.memorized?
   end
 
+  test 'memorize' do
+    Current.account = accounts(:abdullah)
+    assert Current.account.memories.count.zero?
+
+    juzs(:juz_1).memorize
+    assert_equal 148, Current.account.memories.count
+  end
+
   test 'description' do
     skip
   end
