@@ -5,6 +5,7 @@ module Hifz
     setup do
       @ayah = ayahs(:ayah_1)
       @juz = juzs(:juz_1)
+      @page = pages(:page_1)
     end
 
     test 'create memory for ayah without account' do
@@ -23,6 +24,13 @@ module Hifz
 
       follow_redirect!
       assert_select '.notification', text: /Alhamdulillah/
+    end
+
+    test 'create memories for page without account' do
+      post hifz_page_memory_path(@page)
+
+      follow_redirect!
+      assert_select '.notification', text: /You must be logged in to record memories/
     end
 
     test 'create memories for juz without account' do

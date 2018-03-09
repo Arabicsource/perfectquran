@@ -1,0 +1,22 @@
+%section.section
+  .container
+    %header
+      %h1.title Pages
+      %h2.subtitle Quran Divided into it's 604 pages
+
+    %ul
+      - @pages.each do |page|
+        %li.field
+          .media
+            .media-left
+              = link_to hifz_page_memory_path(page), class: page.memorized? ? 'button is-large is-text has-text-memorized' : 'button is-large is-text has-text-dark', method: :post do
+                = fa_icon 'heart'
+
+            .media-content
+              = link_to hifz_page_path(page), class: 'has-text-dark' do
+                #{page}<br>#{page.reference}
+
+            .media-right
+              %p.is-size-4.has-text-grey-lighter= number_to_percentage(page.memorized_percentage, strip_insignificant_zeros: true)
+
+= provide :title, 'Pages | Hifz'

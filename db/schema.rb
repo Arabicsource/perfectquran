@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_08_232258) do
+ActiveRecord::Schema.define(version: 2018_03_09_001422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -232,7 +232,7 @@ ActiveRecord::Schema.define(version: 2018_03_08_232258) do
   create_table "page_memories", force: :cascade do |t|
     t.bigint "account_id"
     t.bigint "page_id"
-    t.integer "character_length"
+    t.integer "character_length", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_page_memories_on_account_id"
