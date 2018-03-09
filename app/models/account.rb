@@ -87,27 +87,39 @@ class Account < ApplicationRecord
   end
 
   def memorized_percentage(from: nil)
+    if from.nil?
+      (memory_total.character_length / 710630.0) * 100
+    else
+      memories = Memory.where(account: self, created_at: from..Time.now)
+      return 0 unless memories.any?
 
+      characters = memories.map(&:ayah).map(&:character_length).reduce(:+)
+      (characters / 710630.0) * 100
+    end
   end
 
   def memorized_ayahs_count
-
+    memories.count
   end
 
   def memorized_surahs_count
-
+    memory_total.surah_count
   end
 
   def memorized_pages_count
-
+    memory_total.page_count
   end
 
   def memorized_juzs_count
-
+    memory_total.juz_count
   end
 
   def guest?
     false
+  end
+
+  def group_memories_by_day_from(range_start, range_end = Time.now)
+    memories.group_by_day(:created_at, range: range_start..range_end).count
   end
 
   private

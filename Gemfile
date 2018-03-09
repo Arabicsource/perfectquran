@@ -9,11 +9,13 @@ end
 
 gem 'bootsnap', require: false
 gem 'bulma-rails', '~> 0.6.2'
+gem 'chartkick'
 gem 'coffee-rails', '~> 4.2'
 gem 'coveralls', require: false
 gem 'devise', '4.4.1'
 gem 'font-awesome-rails'
 gem 'gibbon'
+gem 'groupdate'
 gem 'haml'
 gem 'jbuilder', '~> 2.5'
 gem 'omniauth'

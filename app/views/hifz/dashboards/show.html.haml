@@ -47,6 +47,6 @@
               %td= Current.account.memorized_juzs_count
 
         .column.is-three-quarters
-          -# = area_chart Current.account.group_memories_by_day_from(1.month.ago.midnight)
+          = area_chart Current.account.group_memories_by_day_from(1.month.ago.midnight)
 
 - provide :title, 'Hifz Dashboard'

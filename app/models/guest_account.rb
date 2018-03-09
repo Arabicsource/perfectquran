@@ -26,4 +26,8 @@ class GuestAccount
   def guest?
     true
   end
+
+  def group_memories_by_day_from(range_start, range_end = Time.now)
+    0
+  end
 end
