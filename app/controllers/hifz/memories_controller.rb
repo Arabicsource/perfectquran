@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Hifz
+  # :nodoc:
   class MemoriesController < ApplicationController
     before_action :load_memorable
 
@@ -15,7 +18,7 @@ module Hifz
     private
 
     def load_memorable
-      resource, id = request.path.split('/')[2,3]
+      resource, id = request.path.split('/')[2, 3]
       @memorable = resource.singularize.classify.constantize.find(id)
     end
   end

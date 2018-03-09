@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 module Hifz
@@ -12,7 +14,9 @@ module Hifz
       post hifz_ayah_memory_path(@ayah)
 
       follow_redirect!
-      assert_select '.notification', text: /You must be logged in to record memories/
+      assert_select(
+        '.notification', text: /You must be logged in to record memories/
+      )
     end
 
     test 'create memory for ayah with account' do
@@ -30,16 +34,20 @@ module Hifz
       post hifz_page_memory_path(@page)
 
       follow_redirect!
-      assert_select '.notification', text: /You must be logged in to record memories/
+      assert_select(
+        '.notification', text: /You must be logged in to record memories/
+      )
     end
 
     test 'create memories for juz without account' do
       post hifz_juz_memory_path(@juz)
 
       follow_redirect!
-      assert_select '.notification', text: /You must be logged in to record memories/
+      assert_select(
+        '.notification', text: /You must be logged in to record memories/
+      )
     end
-  
+
     test 'create memories for juz with account' do
       login_as accounts(:abdullah)
 

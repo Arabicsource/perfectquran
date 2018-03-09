@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc:
 class Page < ApplicationRecord
   include Ayahable
 
@@ -19,9 +22,7 @@ class Page < ApplicationRecord
               end
   end
 
-  def reference
-
-  end
+  def reference; end
 
   def to_s
     "Page #{id}"
@@ -36,10 +37,8 @@ class Page < ApplicationRecord
   end
 
   def memorize
-    ayahs.each do |ayah| 
-      unless ayah.memorize
-        return false
-      end
+    ayahs.each do |ayah|
+      return false unless ayah.memorize
     end
   end
 

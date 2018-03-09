@@ -88,13 +88,13 @@ class Account < ApplicationRecord
 
   def memorized_percentage(from: nil)
     if from.nil?
-      (memory_total.character_length / 710630.0) * 100
+      (memory_total.character_length / 710_630.0) * 100
     else
       memories = Memory.where(account: self, created_at: from..Time.now)
       return 0 unless memories.any?
 
       characters = memories.map(&:ayah).map(&:character_length).reduce(:+)
-      (characters / 710630.0) * 100
+      (characters / 710_630.0) * 100
     end
   end
 

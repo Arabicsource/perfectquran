@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class PageTest < ActiveSupport::TestCase
@@ -39,7 +41,9 @@ class PageTest < ActiveSupport::TestCase
   test 'memorized?' do
     Current.account = accounts(:abdullah)
     page = pages(:page_1)
-    pm = PageMemory.create(account: Current.account, page: page, character_length: 55)
+    pm = PageMemory.create(
+      account: Current.account, page: page, character_length: 55
+    )
     assert_not page.memorized?
 
     pm.update_attribute(:character_length, page.character_length)

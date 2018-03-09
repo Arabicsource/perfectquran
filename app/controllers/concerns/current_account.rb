@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc:
 module CurrentAccount
   extend ActiveSupport::Concern
 
@@ -8,10 +11,6 @@ module CurrentAccount
   private
 
   def set_account
-    if current_account
-      Current.account = current_account
-    else
-      Current.account = GuestAccount.new
-    end
+    Current.account = current_account ? current_account : GuestAccount.new
   end
 end

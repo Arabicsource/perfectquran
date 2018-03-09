@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class JuzTest < ActiveSupport::TestCase
@@ -19,7 +21,9 @@ class JuzTest < ActiveSupport::TestCase
   test 'memorized?' do
     Current.account = accounts(:abdullah)
     juz = juzs(:juz_1)
-    jm = JuzMemory.create(account: Current.account, juz: juz, character_length: 55)
+    jm = JuzMemory.create(
+      account: Current.account, juz: juz, character_length: 55
+    )
     assert_not juz.memorized?
 
     jm.update_attribute(:character_length, juz.character_length)

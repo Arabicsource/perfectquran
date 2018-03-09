@@ -1,3 +1,4 @@
 # frozen_string_literal: true
 
-  class Language < ApplicationRecord; end
+# :nodoc:
+class Language < ApplicationRecord; end

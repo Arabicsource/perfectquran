@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class JuzMemoryTest < ActiveSupport::TestCase
@@ -11,7 +13,7 @@ class JuzMemoryTest < ActiveSupport::TestCase
   test 'after_save updates_total_memory_juz_count' do
     account = accounts(:abdullah)
     juz = juzs(:juz_1)
-    JuzMemory.create(account: account, juz: juz, character_length: 23322)
+    JuzMemory.create(account: account, juz: juz, character_length: 23_322)
     assert_equal 1, account.memory_total.juz_count
   end
 end

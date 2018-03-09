@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nodoc:
 class Ayah < ApplicationRecord
   default_scope { order('id asc') }
 
@@ -11,8 +12,8 @@ class Ayah < ApplicationRecord
   has_many :bookmarks, as: :bookmarkable
   has_many :texts
   has_many :texts_and_included_translations,
-            -> { includes(:translation) },
-            class_name: 'Text'
+           -> { includes(:translation) },
+           class_name: 'Text'
 
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings

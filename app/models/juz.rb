@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc:
 class Juz < ApplicationRecord
   has_many :ayahs
   has_many :pages, -> { distinct }, through: :ayahs
@@ -17,7 +20,8 @@ class Juz < ApplicationRecord
   end
 
   def description
-    "#{first_ayah.surah_name}: #{first_ayah.number} - #{last_ayah.surah_name}: #{last_ayah.number}"
+    "#{first_ayah.surah_name}: #{first_ayah.number}"\
+    " - #{last_ayah.surah_name}: #{last_ayah.number}"
   end
 
   def to_s
@@ -29,10 +33,8 @@ class Juz < ApplicationRecord
   end
 
   def memorize
-    ayahs.each do |ayah| 
-      unless ayah.memorize
-        return false
-      end
+    ayahs.each do |ayah|
+      return false unless ayah.memorize
     end
   end
 

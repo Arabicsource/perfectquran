@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc:
 class PageMemory < ApplicationRecord
   belongs_to :account
   belongs_to :page

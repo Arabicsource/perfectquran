@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Study
+  # :nodoc:
   class SurahsController < ApplicationController
     def index
       @surahs = Surah.all

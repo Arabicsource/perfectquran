@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# :nodoc:
 module Ayahable
   extend ActiveSupport::Concern
 

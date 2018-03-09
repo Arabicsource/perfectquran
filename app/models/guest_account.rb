@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
+# :nodoc:
 class GuestAccount
   def patron?
     false
   end
 
-  def memorized_percentage(from: nil)
+  def memorized_percentage(*)
     0
   end
 
@@ -27,7 +30,7 @@ class GuestAccount
     true
   end
 
-  def group_memories_by_day_from(range_start, range_end = Time.now)
+  def group_memories_by_day_from(*)
     0
   end
 end

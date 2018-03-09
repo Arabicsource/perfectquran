@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class SurahTest < ActiveSupport::TestCase
@@ -18,7 +20,9 @@ class SurahTest < ActiveSupport::TestCase
   test 'memorized?' do
     Current.account = accounts(:abdullah)
     surah = surahs(:surah_1)
-    sm = SurahMemory.create(account: Current.account, surah: surah, character_length: 55)
+    sm = SurahMemory.create(
+      account: Current.account, surah: surah, character_length: 55
+    )
     assert_not surah.memorized?
 
     sm.update_attribute(:character_length, surah.character_length)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class MemoryTest < ActiveSupport::TestCase
@@ -12,21 +14,27 @@ class MemoryTest < ActiveSupport::TestCase
     account = accounts(:abdullah)
     ayah = ayahs(:ayah_1)
     Memory.create(account: account, ayah: ayah)
-    assert_equal 38, account.surah_memories.find_by(surah: ayah.surah).character_length
+    assert_equal(
+      38, account.surah_memories.find_by(surah: ayah.surah).character_length
+    )
   end
 
   test 'after_create updates_page_memory' do
     account = accounts(:abdullah)
     ayah = ayahs(:ayah_1)
     Memory.create(account: account, ayah: ayah)
-    assert_equal 38, account.page_memories.find_by(page: ayah.page).character_length
+    assert_equal(
+      38, account.page_memories.find_by(page: ayah.page).character_length
+    )
   end
 
   test 'after_create updates_juz_memory' do
     account = accounts(:abdullah)
     ayah = ayahs(:ayah_1)
     Memory.create(account: account, ayah: ayah)
-    assert_equal 38, account.juz_memories.find_by(juz: ayah.juz).character_length
+    assert_equal(
+      38, account.juz_memories.find_by(juz: ayah.juz).character_length
+    )
   end
 
   test 'after_create update_memory_total_characters' do

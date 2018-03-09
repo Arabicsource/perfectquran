@@ -1,10 +1,15 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class TagsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @url = tags_path
-    @valid_params = { tag: { taggable_id: 1, taggable_type: 'Ayah', name: 'abc123' } }
-    @invalid_params = { tag: { taggable_id: 1, taggable_type: 'Ayah', name: '' } }
+    @valid_params = { tag:
+      { taggable_id: 1, taggable_type: 'Ayah', name: 'abc123' } }
+    @invalid_params = {
+      tag: { taggable_id: 1, taggable_type: 'Ayah', name: '' }
+    }
   end
 
   test 'post create without account' do
