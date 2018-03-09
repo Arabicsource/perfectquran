@@ -34,7 +34,9 @@ Rails.application.routes.draw do
       resource :memory, only: %i[create]
     end
 
-    resources :surahs, only: %i[index]
+    resources :surahs, only: %i[index] do
+      resource :memory, only: %i[create]
+    end
 
     resources :pages, only: %i[index show] do
       resources :ayahs, only: %i[show]

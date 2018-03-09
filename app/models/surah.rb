@@ -8,6 +8,8 @@ class Surah < ApplicationRecord
             -> { includes(:texts_and_included_translations) },
             class_name: 'Ayah'
   has_many :memories, through: :ayahs
+  has_many :pages, -> { distinct }, through: :ayahs
+
   def self.commonly_memorized
     where(id: 98..114).or(where(id: 1))
   end
@@ -38,5 +40,39 @@ class Surah < ApplicationRecord
 
   def to_s
     transliterated_name
+  end
+
+  def memorized?
+    character_length == surah_memory.character_length
+  end
+
+  def memorized_percentage
+    (surah_memory.character_length / character_length.to_f) * 100
+  end
+
+  def memorize
+    ayahs.each do |ayah| 
+      unless ayah.memorize
+        return false
+      end
+    end
+  end
+
+  def first_page
+    pages.first
+  end
+
+  def first_ayah
+    ayahs.first
+  end
+
+  private
+
+  def surah_memory
+    if Current.account.guest?
+      SurahMemory.new
+    else
+      SurahMemory.find_or_initialize_by(account: Current.account, surah: self)
+    end
   end
 end
