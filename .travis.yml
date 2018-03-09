@@ -23,5 +23,7 @@ before_script:
   - yarn install
   - bundle exec rails db:create
   - bundle exec rails db:schema:load
-script: 
+script:
+  - bundle exec rails test
   - bundle exec rspec
+  - bundle exec rubocop
