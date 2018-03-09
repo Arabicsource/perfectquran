@@ -21,7 +21,7 @@ before_script:
   - npm install -g yarn
   - npm --version
   - yarn install
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
+  - bundle exec rails db:create
+  - bundle exec rails db:schema:load
 script: 
   - bundle exec rspec
