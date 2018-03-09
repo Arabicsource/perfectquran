@@ -12,4 +12,13 @@ class AyahTest < ActiveSupport::TestCase
     ayahs(:ayah_1).memorize
     assert_equal 1, Current.account.memories.count
   end
+
+  test 'memorized?' do
+    Current.account = accounts(:abdullah)
+    ayah = ayahs(:ayah_1)
+    assert_not ayah.memorized?
+
+    ayah.memorize
+    assert ayah.memorized?
+  end
 end

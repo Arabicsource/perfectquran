@@ -39,6 +39,10 @@ Rails.application.routes.draw do
     resources :pages, only: %i[index show] do
       resources :ayahs, only: %i[show]
     end
+
+    resources :ayahs, only: %i[] do
+      resource :memory, only: %i[create]
+    end
   end
 
   namespace :study do

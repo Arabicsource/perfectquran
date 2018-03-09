@@ -57,4 +57,8 @@ class Ayah < ApplicationRecord
     return false if Current.account.guest?
     Memory.create(account: Current.account, ayah: self)
   end
+
+  def memorized?
+    Memory.where(account: Current.account, ayah: self).any?
+  end
 end
