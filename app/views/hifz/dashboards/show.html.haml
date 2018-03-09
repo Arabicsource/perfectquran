@@ -21,7 +21,7 @@
 
       .columns
         .column
-          %table.table
+          %table.table.is-fullwidth
             %tr
               %td Last 30 Days
               %td= number_to_percentage(Current.account.memorized_percentage(from: 30.days.ago), strip_insignificant_zeros: true)
