@@ -1,19 +1,5 @@
 # How to stub an active record set
 
-# frozen_string_literal: true
-
-# == Schema Information
-#
-# Table name: quran_ayahs
-#
-#  id               :integer          not null, primary key
-#  number           :integer
-#  character_length :integer
-#  percent_of_total :float
-#  percent_of_surah :float
-#  surah_id         :integer
-#
-
 require 'rails_helper'
 
 RSpec.describe Ayah, type: :model do

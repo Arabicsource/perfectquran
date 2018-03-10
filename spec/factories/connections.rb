@@ -1,24 +1,5 @@
 # frozen_string_literal: true
 
-# == Schema Information
-#
-# Table name: connections
-#
-#  id             :integer          not null, primary key
-#  name           :string
-#  provider       :string
-#  provider_uid   :string
-#  token          :string
-#  secret         :string
-#  account_id     :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  last_ayah_id   :integer          default(0)
-#  active         :boolean          default(FALSE)
-#  translation_id :integer
-#  hashtags       :string
-#
-
 FactoryBot.define do
   factory :connection do
     name 'nickname123'

@@ -1,22 +1,5 @@
 # frozen_string_literal: true
 
-# == Schema Information
-#
-# Table name: articles
-#
-#  id             :integer          not null, primary key
-#  title          :string
-#  content        :text
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  visibility     :integer          default("draft")
-#  permalink      :string
-#  collection     :integer          default("post")
-#  category_id    :integer
-#  account_id     :integer
-#  comments_count :integer          default(0)
-#
-
 # :nodoc:
 class Article < ApplicationRecord
   default_scope { order created_at: :desc }

@@ -1,15 +1,5 @@
 # frozen_string_literal: true
 
-# == Schema Information
-#
-# Table name: quran_translations
-#
-#  id          :integer          not null, primary key
-#  name        :string
-#  description :string
-#  language_id :integer
-#
-
 require 'rails_helper'
 
 RSpec.describe Translation, type: :model do
