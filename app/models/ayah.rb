@@ -11,10 +11,9 @@ class Ayah < ApplicationRecord
   has_many :memories
   has_many :bookmarks, as: :bookmarkable
   has_many :texts
-  has_many :texts_and_included_translations,
+  has_many :texts_and_translations,
            -> { includes(:translation) },
            class_name: 'Text'
-
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 

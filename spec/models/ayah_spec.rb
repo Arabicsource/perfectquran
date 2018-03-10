@@ -13,14 +13,8 @@ RSpec.describe Ayah, type: :model do
     it { is_expected.to have_many :memories }
     it { is_expected.to have_many :bookmarks }
     it { is_expected.to have_many :texts }
-
-    it do
-      is_expected.to(
-        have_many(:texts_and_included_translations)
-      )
-    end
-
+    it { is_expected.to have_many :texts_and_translations }
     it { is_expected.to have_many :taggings }
-    it { is_expected.to have_many(:tags).through(:taggings) }
+    it { is_expected.to have_many(:tags).through :taggings }
   end
 end

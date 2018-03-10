@@ -48,7 +48,7 @@
           .media
             .media-content
               .content
-                - @ayah.texts_and_included_translations.each do |text|
+                - @ayah.texts_and_translations.each do |text|
                   %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
                   %p{class: ('is-size-4 has-text-right' if text.uthmani?)}= sanitize text.content
 
