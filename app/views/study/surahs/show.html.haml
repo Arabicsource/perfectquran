@@ -36,16 +36,13 @@
 
         %main
           - @surah.ayahs_and_included_texts.each do |ayah|
-            .media
-              .media-left
-                %p.field
-                  %strong #{ayah.number}.
+            .ayah
+              = link_to ayah.number, study_ayah_path(ayah)
 
-              .media-content
-                .content
-                  - ayah.texts_and_translations.each do |text|
-                    %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
-                    %p{class: ('is-size-4 has-text-right' if text.uthmani?)}= sanitize text.content
+              .content
+                - ayah.texts_and_translations.each do |text|
+                  %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
+                  %p{class: ('uthmani-text' if text.uthmani?)}= sanitize text.content
 
       .column
         %aside
