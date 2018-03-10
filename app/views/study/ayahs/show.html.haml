@@ -36,30 +36,27 @@
               Your browser does not support the audio tag.
 
         %main
-          .media
-            .media-content
-              .content
-                %p
-                  %small
-                    %span.has-text-grey= truncate sanitize(@ayah.previous.noble_quran_text), length: 75
-                    = link_to study_ayah_path(@ayah.previous) do
-                      (#{@ayah.previous.surah_id}:#{@ayah.previous.number})
+          .previous-ayah
+            .content
+              %p
+                %small
+                  %span.has-text-grey= truncate sanitize(@ayah.previous.noble_quran_text), length: 75
+                  = link_to study_ayah_path(@ayah.previous) do
+                    (#{@ayah.previous.surah_id}:#{@ayah.previous.number})
 
-          .media
-            .media-content
-              .content
-                - @ayah.texts_and_translations.each do |text|
-                  %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
-                  %p{class: ('is-size-4 has-text-right' if text.uthmani?)}= sanitize text.content
+          .current-ayah
+            .content
+              - @ayah.texts_and_translations.each do |text|
+                %h3{class: ('is-hidden' if text.uthmani?)}= text.translation.name
+                %p{class: ('uthmani-text' if text.uthmani?)}= sanitize text.content
 
-          .media
-            .media-content
-              .content
-                %p
-                  %small
-                    %span.has-text-grey= truncate sanitize(@ayah.next.noble_quran_text), length: 75
-                    = link_to study_ayah_path(@ayah.next) do
-                      (#{@ayah.next.surah_id}:#{@ayah.next.number})
+          .next-ayah
+            .content
+              %p
+                %small
+                  %span.has-text-grey= truncate sanitize(@ayah.next.noble_quran_text), length: 75
+                  = link_to study_ayah_path(@ayah.next) do
+                    (#{@ayah.next.surah_id}:#{@ayah.next.number})
 
         %nav.pagination.is-hidden-tablet
           %a.pagination-previous Previous
