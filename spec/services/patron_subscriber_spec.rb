@@ -10,13 +10,13 @@ RSpec.describe PatronSubscriber do
 
   context 'when successful' do
     it 'creates a subscription' do
-      expect { PatronSubscriber.new(account, token, plan.id).run! }.to(
+      expect { PatronSubscriber.new(account, token, plan.id).call }.to(
         change(Subscription, :count).by(1)
       )
     end
 
     it 'creates a charge' do
-      expect { PatronSubscriber.new(account, token, plan.id).run! }.to(
+      expect { PatronSubscriber.new(account, token, plan.id).call }.to(
         change(Charge, :count).by(1)
       )
     end
@@ -26,17 +26,17 @@ RSpec.describe PatronSubscriber do
     before { StripeMock.prepare_card_error(:card_declined, :new_customer) }
 
     it 'returns false' do
-      expect(PatronSubscriber.new(account, token, plan.id).run!).to be_falsey
+      expect(PatronSubscriber.new(account, token, plan.id).call).to be_falsey
     end
 
     it 'does not create a subscription' do
-      expect { PatronSubscriber.new(account, token, plan.id).run! }.not_to(
+      expect { PatronSubscriber.new(account, token, plan.id).call }.not_to(
         change(Subscription, :count)
       )
     end
 
     it 'does not create a charge' do
-      expect { PatronSubscriber.new(account, token, plan.id).run! }.not_to(
+      expect { PatronSubscriber.new(account, token, plan.id).call }.not_to(
         change(Charge, :count)
       )
     end

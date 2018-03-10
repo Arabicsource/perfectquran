@@ -6,7 +6,7 @@ class PatronSubscriptionActivater
     @token = subscription.subscription_token
   end
 
-  def run!
+  def call
     activate_external_subscription
     activate_subscription
   rescue StandardError

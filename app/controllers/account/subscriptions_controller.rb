@@ -49,7 +49,7 @@ class Account
     private
 
     def subscribe_with_patron_subscriber
-      PatronSubscriber.new(current_account, params[:stripeToken], '1').run!
+      PatronSubscriber.new(current_account, params[:stripeToken], '1').call
     end
 
     def cancel_patron_subscription
@@ -57,7 +57,7 @@ class Account
     end
 
     def reactivate_patron_subscription
-      PatronSubscriptionActivater.new(@subscription).run!
+      PatronSubscriptionActivater.new(@subscription).call
     end
 
     def load_subscription

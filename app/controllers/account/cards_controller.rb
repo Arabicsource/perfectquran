@@ -17,7 +17,7 @@ class Account
 
     def update_payment_method
       subscription = Subscription.find_by(account: current_account)
-      PaymentMethodUpdater.new(subscription, params[:stripeToken]).run!
+      PaymentMethodUpdater.new(subscription, params[:stripeToken]).call
     end
   end
 end

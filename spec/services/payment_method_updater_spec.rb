@@ -17,7 +17,7 @@ RSpec.describe PaymentMethodUpdater do
 
   context 'when successful' do
     it 'updates a subscription' do
-      expect { PaymentMethodUpdater.new(subscription, token).run! }.to(
+      expect { PaymentMethodUpdater.new(subscription, token).call }.to(
         change(subscription.reload, :payment_last4)
       )
     end
@@ -27,11 +27,11 @@ RSpec.describe PaymentMethodUpdater do
     before { StripeMock.prepare_error(Stripe::StripeError, :get_customer) }
 
     it 'returns false' do
-      expect(PaymentMethodUpdater.new(subscription, token).run!).to be_falsey
+      expect(PaymentMethodUpdater.new(subscription, token).call).to be_falsey
     end
 
     it 'does not update subscription' do
-      expect { PaymentMethodUpdater.new(subscription, token).run! }.not_to(
+      expect { PaymentMethodUpdater.new(subscription, token).call }.not_to(
         change(subscription.reload, :payment_last4)
       )
     end

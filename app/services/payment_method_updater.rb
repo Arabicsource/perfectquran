@@ -6,7 +6,7 @@ class PaymentMethodUpdater
     @token = token
   end
 
-  def run!
+  def call
     update_external_customer
     update_subscription
   rescue StandardError

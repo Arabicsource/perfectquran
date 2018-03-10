@@ -17,11 +17,11 @@ RSpec.describe TwitterConnectionPoster do
     it 'returns true' do
       allow_any_instance_of(TwitterPoster).to receive(:call).and_return(true)
 
-      expect(TwitterConnectionPoster.new(connection).run!).to be_truthy
+      expect(TwitterConnectionPoster.new(connection).call).to be_truthy
     end
 
     it 'updates connection' do
-      expect { TwitterConnectionPoster.new(connection).run! }.to(
+      expect { TwitterConnectionPoster.new(connection).call }.to(
         change(connection, :last_ayah_id).from(0).to(1)
       )
     end
@@ -38,7 +38,7 @@ RSpec.describe TwitterConnectionPoster do
     end
 
     specify do
-      expect(TwitterConnectionPoster.new(connection).run!).to be_truthy
+      expect(TwitterConnectionPoster.new(connection).call).to be_truthy
     end
   end
 
@@ -50,7 +50,7 @@ RSpec.describe TwitterConnectionPoster do
     end
 
     specify do
-      expect(TwitterConnectionPoster.new(connection).run!).to be_truthy
+      expect(TwitterConnectionPoster.new(connection).call).to be_truthy
     end
   end
 
@@ -68,11 +68,11 @@ RSpec.describe TwitterConnectionPoster do
     end
 
     it 'returns false' do
-      expect(TwitterConnectionPoster.new(connection).run!).to be_falsey
+      expect(TwitterConnectionPoster.new(connection).call).to be_falsey
     end
 
     it 'does not update connection' do
-      expect { TwitterConnectionPoster.new(connection).run! }.not_to(
+      expect { TwitterConnectionPoster.new(connection).call }.not_to(
         change(connection, :last_ayah_id)
       )
     end

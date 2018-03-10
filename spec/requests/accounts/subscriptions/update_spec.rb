@@ -41,7 +41,7 @@ describe 'PATCH /account/subscriptions/update', type: :request do
       let(:token) { stripe_helper.generate_card_token }
 
       before do
-        PatronSubscriber.new(account, token, plan.id).run!
+        PatronSubscriber.new(account, token, plan.id).call
         subscription = Subscription.find_by(account: account)
         PatronSubscriptionCanceler.new(subscription).call
       end

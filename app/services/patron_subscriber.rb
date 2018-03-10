@@ -7,7 +7,7 @@ class PatronSubscriber
     @plan_id = plan_id
   end
 
-  def run!
+  def call
     create_external_customer
     create_external_subscription
     create_subscription

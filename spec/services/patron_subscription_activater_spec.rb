@@ -25,11 +25,11 @@ RSpec.describe PatronSubscriptionActivater do
 
   context 'when successful' do
     it 'returns true' do
-      expect(PatronSubscriptionActivater.new(subscription).run!).to be_truthy
+      expect(PatronSubscriptionActivater.new(subscription).call).to be_truthy
     end
 
     it 'updates a subscription' do
-      PatronSubscriptionActivater.new(subscription).run!
+      PatronSubscriptionActivater.new(subscription).call
 
       expect(subscription.status).to eq 'active'
     end
@@ -41,11 +41,11 @@ RSpec.describe PatronSubscriptionActivater do
     end
 
     it 'returns false' do
-      expect(PatronSubscriptionActivater.new(subscription).run!).to be_falsey
+      expect(PatronSubscriptionActivater.new(subscription).call).to be_falsey
     end
 
     it 'does not update subscription' do
-      PatronSubscriptionActivater.new(subscription).run!
+      PatronSubscriptionActivater.new(subscription).call
 
       expect(subscription.status).to eq 'cancelled'
     end

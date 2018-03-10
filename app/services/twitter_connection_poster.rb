@@ -10,7 +10,7 @@ class TwitterConnectionPoster
     @hashtags = connection.hashtags
   end
 
-  def run!
+  def call
     post_tweet
     update_connection
   rescue StandardError

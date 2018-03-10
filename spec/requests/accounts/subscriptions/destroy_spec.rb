@@ -40,7 +40,7 @@ describe 'DELETE /account/subscriptions/destroy', type: :request do
       let(:stripe_helper) { StripeMock.create_test_helper }
       let(:token) { stripe_helper.generate_card_token }
 
-      before { PatronSubscriber.new(account, token, plan.id).run! }
+      before { PatronSubscriber.new(account, token, plan.id).call }
 
       it 'redirects' do
         delete uri
