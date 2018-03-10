@@ -13,10 +13,6 @@ class Surah < ApplicationRecord
            class_name: 'Ayah'
   has_many :memories, through: :ayahs
 
-  def self.commonly_memorized
-    where(id: 98..114).or(where(id: 1))
-  end
-
   # Returns the next surah if surah < surah.last.
   # If surah is last, returns first surah.
   def next
