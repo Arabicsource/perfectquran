@@ -29,14 +29,6 @@ RSpec.describe Surah, type: :model do
   end
   it { is_expected.to have_many(:ayahs_and_included_texts).class_name('Ayah') }
 
-  describe '#ayahs' do
-    it 'returns ayahs in Ascending order' do
-      surah = Surah.first
-
-      expect(surah.ayahs.map(&:id)).to eq [1, 2, 3, 4, 5, 6, 7]
-    end
-  end
-
   describe '#next' do
     before do
       @first = Surah.first
