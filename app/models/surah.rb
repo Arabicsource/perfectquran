@@ -2,9 +2,9 @@
 
 # :nodoc:
 class Surah < ApplicationRecord
-  has_many :ayahs
+  include Ayahable
 
-  include Pageable
+  include Pageable # depends on Ayahable
 
   enum revelation_type: %i[meccan medinan]
   has_many :bookmarks, as: :bookmarkable
@@ -57,10 +57,6 @@ class Surah < ApplicationRecord
     ayahs.each do |ayah|
       return false unless ayah.memorize
     end
-  end
-
-  def first_ayah
-    ayahs.first
   end
 
   private

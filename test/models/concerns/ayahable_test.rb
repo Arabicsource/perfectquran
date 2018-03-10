@@ -5,11 +5,19 @@ require 'test_helper'
 class AyahableTest < ActiveSupport::TestCase
   test 'ayahs' do
     assert_equal (1..7).to_a, pages(:page_1).ayahs.map(&:id)
+    assert_equal (1..7).to_a, surahs(:surah_1).ayahs.map(&:id)
+    assert_equal (1..148).to_a, juzs(:juz_1).ayahs.map(&:id)
   end
 
   test 'first_ayah' do
     assert_equal ayahs(:ayah_1), pages(:page_1).first_ayah
     assert_equal ayahs(:ayah_8), pages(:page_2).first_ayah
+
+    assert_equal ayahs(:ayah_1), surahs(:surah_1).first_ayah
+    assert_equal ayahs(:ayah_8), surahs(:surah_2).first_ayah
+
+    assert_equal ayahs(:ayah_1), juzs(:juz_1).first_ayah
+    assert_equal ayahs(:ayah_149), juzs(:juz_2).first_ayah
   end
 
   test 'current_ayah' do
@@ -54,6 +62,12 @@ class AyahableTest < ActiveSupport::TestCase
   test 'last_ayah' do
     assert_equal ayahs(:ayah_7), pages(:page_1).last_ayah
     assert_equal ayahs(:ayah_12), pages(:page_2).last_ayah
+
+    assert_equal ayahs(:ayah_7), surahs(:surah_1).last_ayah
+    assert_equal ayahs(:ayah_293), surahs(:surah_2).last_ayah
+
+    assert_equal ayahs(:ayah_148), juzs(:juz_1).last_ayah
+    assert_equal ayahs(:ayah_259), juzs(:juz_2).last_ayah
   end
 
   test 'next_ayah' do

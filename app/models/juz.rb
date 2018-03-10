@@ -2,19 +2,11 @@
 
 # :nodoc:
 class Juz < ApplicationRecord
-  has_many :ayahs
+  include Ayahable
 
-  include Pageable
+  include Pageable # depends on Ayahable
 
   has_one :juz_memory
-
-  def first_ayah
-    ayahs.first
-  end
-
-  def last_ayah
-    ayahs.last
-  end
 
   def description
     "#{first_ayah.surah_name}: #{first_ayah.number}"\
