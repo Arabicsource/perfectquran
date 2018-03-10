@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class TwitterAutomater
   def initialize
     @connections = Connection.all_active

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class Profile < ApplicationRecord
   belongs_to :account
   validates :name, length: { maximum: 50 }

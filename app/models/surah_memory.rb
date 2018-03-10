@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class SurahMemory < ApplicationRecord
   belongs_to :account
   belongs_to :surah

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class Surah < ApplicationRecord
   include Ayahable
 

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Hifz
-  # :nodoc:
   class MemoriesController < ApplicationController
     before_action :load_memorable
 

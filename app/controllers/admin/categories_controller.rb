@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Admin
-  # :nodoc:
   class CategoriesController < Admin::BaseController
     def index
       @categories = Category.all

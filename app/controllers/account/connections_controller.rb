@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Account
-  # :nodoc:
   class ConnectionsController < Account::BaseController
     before_action :find_connection_by_provider, only: :callback
     before_action :find_connection, only: %i[edit update destroy]

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Study
-  # :nodoc:
   class AyahsController < ApplicationController
     def index
       respond_to do |format|

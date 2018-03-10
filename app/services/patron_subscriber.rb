@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class PatronSubscriber
   def initialize(account, token, plan_id)
     @account = account

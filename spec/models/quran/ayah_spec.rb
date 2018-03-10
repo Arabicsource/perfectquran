@@ -1,4 +1,4 @@
-# How to stub an active record set
+# frozen_string_literal: true
 
 require 'rails_helper'
 

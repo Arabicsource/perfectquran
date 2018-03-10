@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class TagsController < ApplicationController
   before_action :authenticate_account!
   before_action :load_tag

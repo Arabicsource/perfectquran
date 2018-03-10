@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class Memory < ApplicationRecord
   belongs_to :account
   belongs_to :ayah

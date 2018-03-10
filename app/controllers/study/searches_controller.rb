@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Study
-  # :nodoc:
   class SearchesController < ApplicationController
     def show
       @terms = params[:terms]

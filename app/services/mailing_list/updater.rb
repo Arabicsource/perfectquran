@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module MailingList
-  # :nodoc:
   class Updater
     LIST_ID = Rails.application.secrets.mailchimp_list_id
     DAILY_AYAH_ID = Rails.application.secrets.mailchimp_daily_ayah_id

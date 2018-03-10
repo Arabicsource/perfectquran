@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 # :nocov:
 class ApplicationMailer < ActionMailer::Base
   default from: 'from@example.com'

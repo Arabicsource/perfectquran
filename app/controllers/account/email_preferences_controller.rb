@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Account
-  # :nodoc:
   class EmailPreferencesController < Account::BaseController
     before_action :set_email_prefrence
 

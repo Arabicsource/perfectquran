@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Account
-  # :nodoc:
   class SubscriptionsController < Account::BaseController
     before_action :load_subscription, only: %i[show update destroy]
     before_action :require_subscription, only: %i[update destroy]

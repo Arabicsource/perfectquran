@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class TwitterConnectionPoster
   def initialize(connection)
     @connection = connection

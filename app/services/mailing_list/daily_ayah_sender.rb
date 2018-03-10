@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module MailingList
-  # :nodoc:
   class DailyAyahSender
     LIST_ID = Rails.application.secrets.mailchimp_list_id
     SEGMENT_ID = 12_583

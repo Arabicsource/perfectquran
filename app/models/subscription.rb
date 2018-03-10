@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class Subscription < ApplicationRecord
   belongs_to :account
 

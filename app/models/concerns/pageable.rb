@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 module Pageable
   extend ActiveSupport::Concern
 

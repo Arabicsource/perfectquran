@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Account
-  # :nodoc:
   class CardsController < Account::BaseController
     def edit; end
 

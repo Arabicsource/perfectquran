@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class Article < ApplicationRecord
   default_scope { order created_at: :desc }
 

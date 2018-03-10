@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 module ApplicationHelper
   def page_title(title = '')
     base_title = 'Perfect Quran'

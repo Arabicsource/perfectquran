@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Account
-  # :nodoc:
   class ProfilesController < Account::BaseController
     before_action :load_profile, only: %i[edit update]
 

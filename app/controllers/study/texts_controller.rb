@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Study
-  # :nodoc:
   class TextsController < ApplicationController
     def show
       text = Text.find_by!(

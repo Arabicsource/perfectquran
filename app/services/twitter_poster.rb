@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class TwitterPoster
   def initialize(token, secret, text)
     @client = Twitter::REST::Client.new do |config|

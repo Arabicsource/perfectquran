@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Content
-  # :nodoc:
   class CommentsController < ApplicationController
     before_action :authenticate_account!
 

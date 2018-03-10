@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class Text < ApplicationRecord
   searchkick word_middle: [:content], highlight: [:content]
 

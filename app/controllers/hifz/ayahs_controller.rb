@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Hifz
-  # :nodoc:
   class AyahsController < ApplicationController
     def show
       @page = Page.find(params[:page_id])

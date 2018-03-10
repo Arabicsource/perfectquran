@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class JuzMemory < ApplicationRecord
   belongs_to :account
   belongs_to :juz

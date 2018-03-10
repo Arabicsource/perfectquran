@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class PaymentMethodUpdater
   def initialize(subscription, token)
     @subscription = subscription

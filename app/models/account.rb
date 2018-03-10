@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class Account < ApplicationRecord
   default_scope { order('id desc') }
 

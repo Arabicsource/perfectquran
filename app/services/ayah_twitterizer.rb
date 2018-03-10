@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :nodoc:
 class AyahTwitterizer
   TWITTER_CHAR_LIMIT = 280
 
