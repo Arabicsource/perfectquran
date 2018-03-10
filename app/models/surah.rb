@@ -2,14 +2,16 @@
 
 # :nodoc:
 class Surah < ApplicationRecord
-  enum revelation_type: %i[meccan medinan]
   has_many :ayahs
+
+  include Pageable
+
+  enum revelation_type: %i[meccan medinan]
   has_many :bookmarks, as: :bookmarkable
   has_many :ayahs_and_included_texts,
            -> { includes(:texts_and_included_translations) },
            class_name: 'Ayah'
   has_many :memories, through: :ayahs
-  has_many :pages, -> { distinct }, through: :ayahs
 
   def self.commonly_memorized
     where(id: 98..114).or(where(id: 1))
@@ -55,10 +57,6 @@ class Surah < ApplicationRecord
     ayahs.each do |ayah|
       return false unless ayah.memorize
     end
-  end
-
-  def first_page
-    pages.first
   end
 
   def first_ayah

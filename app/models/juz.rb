@@ -3,13 +3,10 @@
 # :nodoc:
 class Juz < ApplicationRecord
   has_many :ayahs
-  has_many :pages, -> { distinct }, through: :ayahs
+
+  include Pageable
 
   has_one :juz_memory
-
-  def first_page
-    pages.first
-  end
 
   def first_ayah
     ayahs.first
