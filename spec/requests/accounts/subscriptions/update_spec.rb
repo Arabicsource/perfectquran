@@ -43,7 +43,7 @@ describe 'PATCH /account/subscriptions/update', type: :request do
       before do
         PatronSubscriber.new(account, token, plan.id).run!
         subscription = Subscription.find_by(account: account)
-        PatronSubscriptionCanceler.new(subscription).run!
+        PatronSubscriptionCanceler.new(subscription).call
       end
 
       it 'redirects' do

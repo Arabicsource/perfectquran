@@ -53,7 +53,7 @@ class Account
     end
 
     def cancel_patron_subscription
-      PatronSubscriptionCanceler.new(@subscription).run!
+      PatronSubscriptionCanceler.new(@subscription).call
     end
 
     def reactivate_patron_subscription

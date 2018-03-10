@@ -5,7 +5,7 @@ class TwitterAutomater
     @connections = Connection.all_active
   end
 
-  def run!
+  def call
     @connections.each do |connection|
       TwitterConnectionPoster.new(connection).run!
     end

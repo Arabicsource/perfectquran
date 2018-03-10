@@ -24,11 +24,11 @@ RSpec.describe PatronSubscriptionCanceler do
 
   context 'when successful' do
     it 'returns true' do
-      expect(PatronSubscriptionCanceler.new(subscription).run!).to be_truthy
+      expect(PatronSubscriptionCanceler.new(subscription).call).to be_truthy
     end
 
     it 'updates a subscription' do
-      PatronSubscriptionCanceler.new(subscription).run!
+      PatronSubscriptionCanceler.new(subscription).call
 
       expect(subscription.status).to eq 'cancelled'
     end
@@ -40,11 +40,11 @@ RSpec.describe PatronSubscriptionCanceler do
     end
 
     it 'returns false' do
-      expect(PatronSubscriptionCanceler.new(subscription).run!).to be_falsey
+      expect(PatronSubscriptionCanceler.new(subscription).call).to be_falsey
     end
 
     it 'does not update subscription' do
-      PatronSubscriptionCanceler.new(subscription).run!
+      PatronSubscriptionCanceler.new(subscription).call
 
       expect(subscription.status).to eq 'active'
     end

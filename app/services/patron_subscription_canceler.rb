@@ -6,7 +6,7 @@ class PatronSubscriptionCanceler
     @token = subscription.subscription_token
   end
 
-  def run!
+  def call
     cancel_external_subscription
     cancel_subscription
   rescue StandardError
