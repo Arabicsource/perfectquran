@@ -4,12 +4,10 @@
       %tr
         %th Name
         %th Active?
-        %th
     %tfoot
       %tr
         %th Name
         %th Active?
-        %th
     %tbody
       - @connections.each do |connection|
         %tr{id: "connection-#{connection.id}"}
@@ -18,10 +16,6 @@
             = link_to edit_account_connection_path(connection) do
               = connection.name
           %td= connection.active
-          %td
-            .buttons.has-addons
-              = link_to account_connection_path(connection), method: :delete, class: 'button is-danger', data: { confirm: 'Are you sure you want to delete this connection. There is no undo.'} do
-                #{fa_icon('trash')}
 
 - else
   %p.notification.is-info You have no connected social media accounts

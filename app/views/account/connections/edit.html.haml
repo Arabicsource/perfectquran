@@ -11,4 +11,12 @@
         %section
           = render 'form'
 
+      .column.is-one-fifth
+        %nav.menu.has-text-right
+          %ul.menu-list
+            %li
+              = link_to account_connection_path(@connection), method: :delete, class: 'has-text-danger', data: { confirm: 'Are you sure you want to delete this connection. There is no undo.'} do
+                %span Delete
+                %span.icon= fa_icon 'trash'
+
 - provide :title, 'Edit Connection'
