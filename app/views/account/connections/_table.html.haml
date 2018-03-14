@@ -1,21 +1,25 @@
 - if @connections.any?
-  %table.table.is-fullwidth
-    %thead
-      %tr
-        %th Name
-        %th Active?
-    %tfoot
-      %tr
-        %th Name
-        %th Active?
-    %tbody
-      - @connections.each do |connection|
-        %tr{id: "connection-#{connection.id}"}
-          %td
-            %span.icon= fa_icon connection.provider
-            = link_to edit_account_connection_path(connection) do
-              = connection.name
-          %td= connection.active
+  - @connections.each do |connection|
+    .box
+      %table.table.is-fullwidth{id: "connection-#{connection.id}"}
+        %tbody
+          %tr
+            %th Name
+            %td
+              = link_to edit_account_connection_path(connection) do
+                = connection.name
+          %tr
+            %th Last Posted
+            %td= connection.last_ayah_reference
+          %tr
+            %th Posting From
+            %td= connection.translation.name
+          %tr
+            %th Hashtag
+            %td= connection.hashtags
+          %tr
+            %th Active?
+            %td= connection.active
 
 - else
   %p.notification.is-info You have no connected social media accounts
