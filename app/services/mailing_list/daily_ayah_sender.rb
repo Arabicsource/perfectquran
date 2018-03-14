@@ -11,6 +11,9 @@ module MailingList
     end
 
     def call
+      campaign = gibbon.campaigns.create(body: campaign_body)
+      campaign_id = campaign.body['id']
+
       gibbon.campaigns(campaign_id).content.upsert(body: content_body)
       gibbon.campaigns(campaign_id).actions.send.create
 
@@ -60,10 +63,10 @@ module MailingList
       } }
     end
 
-    def campaign_id
-      campaign = gibbon.campaigns.create(body: campaign_body)
-      campaign.body['id']
-    end
+    # def campaign_id
+    #   campaign = gibbon.campaigns.create(body: campaign_body)
+    #   campaign.body['id']
+    # end
 
     def title
       "Daily Ayah: #{ayah.surah_name} #{ayah.number}"
