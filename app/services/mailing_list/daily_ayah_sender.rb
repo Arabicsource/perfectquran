@@ -70,8 +70,7 @@ module MailingList
     end
 
     def link
-      '<a href="https://perfectquran.co/#{ayah.surah_id}/#{ayah.number}" '\
-      'target=\"_blank\">View On PerfectQuran</a>'
+      '<a href="https://perfectquran.co/#{ayah.surah_id}/#{ayah.number}" target=\"_blank\">View On PerfectQuran</a>'
     end
 
     def ayah
