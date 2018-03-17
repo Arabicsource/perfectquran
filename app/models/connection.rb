@@ -14,6 +14,8 @@ class Connection < ApplicationRecord
   validates :hashtags, length: { maximum: 60 }
 
   scope :all_active, -> { where(active: true) }
+  scope :daily_active, -> { where active: true, frequency: :daily }
+  scope :hourly_active, -> { where active: true, frequency: :hourly }
 
   enum frequency: %i[daily hourly]
 
