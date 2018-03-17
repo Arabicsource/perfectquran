@@ -1,10 +1,25 @@
 # frozen_string_literal: true
 
-ayahs = YAML.load_file("#{Rails.root}/db/seeds/ayahs.yml")
-ayahs.each do |ayah|
-  a = Ayah.find(ayah['id'])
-  a.update_attribute(:juz_id, ayah['juz_id'])
-end
+
+  texts = YAML.load_file("#{Rails.root}/db/seeds/texts/4.yml")
+  texts.each do |t|
+    Text.find_or_create_by!(t)
+  end
+
+# texts = File.open("#{Rails.root}/db/seeds/texts/4.txt")
+# yyaml = File.open("#{Rails.root}/db/seeds/texts/4.yml", 'w')
+# texts.each_with_index do |line, number|
+#   yyaml.puts "- translation_id: 4"
+#   yyaml.puts "  content: >"
+#   yyaml.puts "    #{line.split('|')[2]}"
+#   yyaml.puts "  ayah_id: #{number + 1}"
+# end
+
+# ayahs = YAML.load_file("#{Rails.root}/db/seeds/ayahs.yml")
+# ayahs.each do |ayah|
+#   a = Ayah.find(ayah['id'])
+#   a.update_attribute(:juz_id, ayah['juz_id'])
+# end
 
 # pages = YAML.load_file("#{Rails.root}/db/seeds/pages.yml")
 # pages.each do |page|
