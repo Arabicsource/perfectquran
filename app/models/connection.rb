@@ -48,7 +48,7 @@ class Connection < ApplicationRecord
   def prepare_hashtags
     return unless hashtags.present?
 
-    result = '#' + hashtags.gsub(' ', '')
+    result = '#' + hashtags.delete(' ')
     self.hashtags = result.gsub('##', '#')
   end
 end
