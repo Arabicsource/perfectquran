@@ -15,10 +15,18 @@
           .select.is-fullwidth
             = f.select :translation_id, Translation.available_for_posting.map{|s|[s.name, s.id]}
 
-  .field
-    = f.label :hashtags, class: 'label'
-    .control
-      = f.text_field :hashtags, class: 'input', id: 'connection_hashtags', placeholder: '#PerfectQuran'
+  .columns
+    .column
+      = f.label :hashtags, 'Hashtag', class: 'label'
+      
+      .field.has-addons
+        .control
+          %a.button.is-static
+            = fa_icon 'hashtag'
+        .control.is-expanded
+          = f.text_field :hashtags, class: 'input', id: 'connection_hashtags', placeholder: 'PerfectQuran'
+
+    .column
 
   .field
     .control

@@ -14,7 +14,6 @@ RSpec.describe Connection, type: :model do
     it { is_expected.to validate_presence_of :provider_uid }
     it { is_expected.to validate_presence_of :token }
     it { is_expected.to validate_presence_of :secret }
-    it { is_expected.to validate_length_of(:hashtags).is_at_most(60) }
 
     it do
       is_expected.to validate_uniqueness_of(:provider_uid).scoped_to(:provider)

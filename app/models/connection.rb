@@ -4,6 +4,8 @@ class Connection < ApplicationRecord
   belongs_to :account
   belongs_to :translation
 
+  before_validation :prepare_hashtags
+
   validates :name, presence: true
   validates :provider, presence: true
   validates :provider_uid, presence: true, uniqueness: { scope: :provider }
@@ -41,5 +43,12 @@ class Connection < ApplicationRecord
 
   def last_ayah
     @last_ayah ||= Ayah.find(last_ayah_id)
+  end
+
+  def prepare_hashtags
+    return unless hashtags.present?
+
+    result = '#' + hashtags.gsub(' ', '')
+    self.hashtags = result.gsub('##', '#')
   end
 end
