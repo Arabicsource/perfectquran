@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class TwitterAutomater
-  def initialize
-    @connections = Connection.all_active
+  def initialize(frequency:)
+    @connections = Connection.send(frequency)
   end
 
   def call
