@@ -25,6 +25,11 @@ module Study
       assert_response :success
     end
 
+    test 'get show by reference with translation' do
+      get '/1/1/1'
+      assert_response :success
+    end
+
     test 'get show as json' do
       get '/study/ayahs/1.json'
       assert_response :success

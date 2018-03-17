@@ -63,6 +63,7 @@ Rails.application.routes.draw do
   get '/study/ayahs/:id', to: 'study/ayahs#show', as: :ayah
   get 'auth/:provider/callback', to: 'account/connections#callback'
   get '/:surah_id/:number', to: 'study/ayahs#show', as: :ayah_by_number
+  get '/:translation_id/:surah_id/:number', to: 'study/ayahs#show'
   get '/:permalink', to: 'study/surahs#show', as: :surah
 
   root to: 'study/surahs#index'

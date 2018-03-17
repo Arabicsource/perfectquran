@@ -3,10 +3,11 @@
 class AyahTwitterizer
   TWITTER_CHAR_LIMIT = 280
 
-  def initialize(text, ayah, hashtags)
+  def initialize(text, ayah, hashtags, translation_id)
     @text = text
     @ayah = ayah
     @hashtags = hashtags
+    @translation_id = translation_id
   end
 
   def run
@@ -15,7 +16,7 @@ class AyahTwitterizer
 
   private
 
-  attr_reader :hashtags, :ayah, :text
+  attr_reader :hashtags, :ayah, :text, :translation_id
 
   def content
     filter_apostraphe_html_entities
@@ -23,7 +24,7 @@ class AyahTwitterizer
   end
 
   def url
-    "https://perfectquran.co/#{ayah.surah_id}/#{ayah.number}"
+    "https://perfectquran.co/#{translation_id}/#{ayah.surah_id}/#{ayah.number}"
   end
 
   def reference

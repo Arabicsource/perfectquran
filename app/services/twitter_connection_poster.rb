@@ -30,7 +30,7 @@ class TwitterConnectionPoster
   end
 
   def twitterized_text
-    AyahTwitterizer.new(text, current_ayah, @hashtags).run
+    AyahTwitterizer.new(text, current_ayah, @hashtags, @translation.id).run
   end
 
   def text
