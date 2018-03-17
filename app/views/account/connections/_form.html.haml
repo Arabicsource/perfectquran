@@ -27,6 +27,11 @@
           = f.text_field :hashtags, class: 'input', id: 'connection_hashtags', placeholder: 'PerfectQuran'
 
     .column
+      .field
+        = f.label :frequency, class: 'label'
+        .control
+          .select.is-fullwidth
+            = f.select :frequency, Connection.frequencies.keys.map {|key| [key.humanize, key]}
 
   .field
     .control

@@ -15,6 +15,8 @@ class Connection < ApplicationRecord
 
   scope :all_active, -> { where(active: true) }
 
+  enum frequency: %i[daily hourly]
+
   def self.create_with_omniauth!(auth_hash, account)
     create! do |c|
       c.name = auth_hash[:info][:nickname]

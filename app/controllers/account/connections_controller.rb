@@ -71,7 +71,8 @@ class Account
     end
 
     def connection_params
-      params.require(:connection).permit(:active, :translation_id, :hashtags)
+      params.require(:connection)
+            .permit(:active, :translation_id, :hashtags, :frequency)
     end
   end
 end

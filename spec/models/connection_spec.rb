@@ -20,6 +20,14 @@ RSpec.describe Connection, type: :model do
     end
   end
 
+  describe 'enums' do
+    it do
+      is_expected.to(
+        define_enum_for(:frequency).with(%i[daily hourly])
+      )
+    end
+  end
+
   context '#account_name' do
     let!(:profile) { create :profile, name: 'name123', account: account }
     let(:account) { create :account }
