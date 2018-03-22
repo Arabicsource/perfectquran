@@ -19,6 +19,7 @@ class Account < ApplicationRecord
   has_many :surah_memories
   has_many :page_memories
   has_many :juz_memories
+  has_many :account_translations
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

@@ -1,0 +1,16 @@
+= form_with model: AccountTranslation.new, method: :post do |f|
+  .modal{data: {target: 'activity.toggable'}}
+    .modal-background
+    .modal-card
+      %header.modal-card-head
+        %p.modal-card-title Add Study Translation
+        %button.delete{aria: {label: "close"}, data: {action: 'activity#toggle'}}
+      %section.modal-card-body
+        .field
+          = f.label :translation, class: 'label'
+          .control
+            .select.is-fullwidth
+              = f.select :translation_id, translation_select_options, {prompt: 'Select...'}
+
+      %footer.modal-card-foot
+        = f.submit 'Add Study Translation', class: 'button is-success'

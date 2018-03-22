@@ -13,6 +13,13 @@ Rails.application.routes.draw do
     resource :subscription
     resources :connections
     resource :email_preference, only: %i[edit update]
+    resource :quran_preference, only: %i[edit]
+
+    namespace :translations do
+      resource :order, only: %i[update]
+    end
+
+    resources :translations, only: %i[create update destroy]
   end
 
   namespace :admin do

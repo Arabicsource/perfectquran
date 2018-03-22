@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_17_072637) do
+ActiveRecord::Schema.define(version: 2018_03_20_173629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2018_03_17_072637) do
     t.datetime "updated_at", null: false
     t.boolean "daily_ayah", default: false
     t.index ["account_id"], name: "index_account_email_preferences_on_account_id"
+  end
+
+  create_table "account_translations", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "translation_id"
+    t.integer "order", default: 0
+    t.boolean "primary", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_account_translations_on_account_id"
+    t.index ["translation_id"], name: "index_account_translations_on_translation_id"
   end
 
   create_table "accounts", force: :cascade do |t|
@@ -331,6 +342,8 @@ ActiveRecord::Schema.define(version: 2018_03_17_072637) do
   end
 
   add_foreign_key "account_email_preferences", "accounts"
+  add_foreign_key "account_translations", "accounts"
+  add_foreign_key "account_translations", "translations"
   add_foreign_key "articles", "accounts"
   add_foreign_key "articles", "categories"
   add_foreign_key "ayahs", "juzs"
