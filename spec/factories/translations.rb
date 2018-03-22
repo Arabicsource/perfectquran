@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :translation do
-    name 'string'
-    description 'string'
+    name 'translation_name'
+    description 'translation_description'
     language
   end
 end

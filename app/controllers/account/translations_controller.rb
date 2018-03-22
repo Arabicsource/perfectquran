@@ -8,9 +8,7 @@ class Account
                            .build(translation_id: trans_id, primary: primary)
 
       if translation.save
-        flash[:success] = 'Alhamdulillah'
-      else
-        flash[:error] = 'Alhamdulillah'
+        flash[:success] = 'Alhamdulillah, the study translation was added.'
       end
 
       redirect_to edit_account_quran_preference_path
@@ -19,7 +17,6 @@ class Account
     def destroy
       translation = AccountTranslation.find(params[:id])
       translation.delete
-      flash[:success] = 'Alhamdulillah'
       redirect_to edit_account_quran_preference_path
     end
 

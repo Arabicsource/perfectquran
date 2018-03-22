@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :language do
-    name 'string'
-    direction 'string'
+    name 'language_name'
+    direction 'language_direction'
   end
 end
