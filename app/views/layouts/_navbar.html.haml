@@ -55,8 +55,26 @@
 
         - if account_signed_in?
           = link_to 'Admin', admin_root_path, class: 'navbar-item' if current_account.role? :admin
-          = link_to 'Account', edit_account_profile_path, class: 'navbar-item'
-          = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'
+
+          .navbar-item.has-dropdown.is-hoverable
+            %a.navbar-link Account
+
+            .navbar-dropdown.is-right
+              = link_to 'Connections', account_connections_path, class: 'navbar-item'
+              .navbar-divider
+              = link_to 'Edit Profile', edit_account_profile_path, class: 'navbar-item'
+              = link_to 'Email Preferences', edit_account_email_preference_path, class: 'navbar-item'
+              = link_to 'Quran Preferences', edit_account_quran_preference_path, class: 'navbar-item'
+              .navbar-divider
+              = link_to 'Current Subscription', account_subscription_path, class: 'navbar-item' if current_account.patron?
+              = link_to 'New Subscription', new_account_subscription_path, class: 'navbar-item' unless current_account.patron?
+              = link_to 'Billing History', account_charges_path, class: 'navbar-item'
+              = link_to 'Update Payment Method', edit_account_card_path, class: 'navbar-item'
+              .navbar-divider
+              = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'
+              
+
+                
         - else
           = link_to 'Login', new_account_session_path, class: 'navbar-item'
           = link_to 'Register', new_account_registration_path, class: 'navbar-item'
