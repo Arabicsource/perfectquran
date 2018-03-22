@@ -3,7 +3,7 @@
 class Text < ApplicationRecord
   searchkick word_middle: [:content], highlight: [:content]
 
-  default_scope { order('id asc') }
+  # default_scope { order('id asc') }
 
   belongs_to :translation
   belongs_to :ayah

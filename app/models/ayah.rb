@@ -17,6 +17,14 @@ class Ayah < ApplicationRecord
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
+  def account_texts
+    if Current.account.account_translations.any?
+      texts.joins(translation: :account_translation).order('account_translations.order ASC')
+    else
+      texts.where(translation: [1,2,3]).order(:id)
+    end
+  end
+
   def noble_quran_text
     texts.where(translation_id: 3).first.try(:content) || ''
   end

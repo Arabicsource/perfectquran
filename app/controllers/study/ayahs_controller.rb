@@ -33,9 +33,11 @@ module Study
 
     def load_texts
       if params[:translation_id]
-        @ayah.texts.where(translation: [1, params[:translation_id]])
+        @ayah.texts.where(translation: [1, params[:translation_id]]).order(:id)
+      elsif Current.account.translations.any?
+        @ayah.account_texts
       else
-        @ayah.texts.where(translation: [1, 2, 3])
+        @ayah.texts.where(translation: [1, 2, 3]).order(:id)
       end
     end
   end

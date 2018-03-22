@@ -40,7 +40,7 @@
               = link_to ayah.number, study_ayah_path(ayah)
 
               .content
-                - ayah.texts_and_translations.each do |text|
+                - ayah.account_texts.each do |text|
                   %p.has-text-orange-dark{class: ('is-hidden' if text.uthmani?)}= text.translation.name
                   %p{class: ('uthmani-text' if text.uthmani?)}= sanitize text.content
 

@@ -20,6 +20,7 @@ class Account < ApplicationRecord
   has_many :page_memories
   has_many :juz_memories
   has_many :account_translations
+  has_many :translations, through: :account_translations
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
