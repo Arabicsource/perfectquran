@@ -1,12 +1,14 @@
 %section.section
   .container
-    .columns
-      .column.is-one-fifth.is-hidden-touch
-        = render 'account/shared/menu'
-
-      .column
+    .columns.is-centered
+      .column.is-two-thirds
         %header
           %h1.title Connections
+
+          .field
+            = link_to '#', class: 'button is-rounded is-twitter', data: {action: 'activity#toggle'} do
+              %span.icon= fa_icon 'twitter'
+              %span Connect Twitter Account
 
         %section
           = render 'table'
