@@ -3,9 +3,9 @@
 class Account
   class TranslationsController < Account::BaseController
     def create
-      primary = Current.account.account_translations.any? ? false : true
-
-      translation = Current.account.account_translations.build(translation_id: translation_params[:translation_id], primary: primary)
+      trans_id = translation_params[:translation_id]
+      translation = Current.account.account_translations
+                           .build(translation_id: trans_id, primary: primary)
 
       if translation.save
         flash[:success] = 'Alhamdulillah'
@@ -34,6 +34,10 @@ class Account
 
     def translation_params
       params.require(:account_translation).permit(:translation_id, :primary)
+    end
+
+    def primary
+      Current.account.account_translations.any? ? false : true
     end
   end
 end

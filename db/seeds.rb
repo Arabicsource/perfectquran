@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-
-  texts = YAML.load_file("#{Rails.root}/db/seeds/texts/4.yml")
-  texts.each do |t|
-    Text.find_or_create_by!(t)
-  end
+# texts = YAML.load_file("#{Rails.root}/db/seeds/texts/4.yml")
+# texts.each do |t|
+#   Text.find_or_create_by!(t)
+# end
 
 # texts = File.open("#{Rails.root}/db/seeds/texts/4.txt")
 # yyaml = File.open("#{Rails.root}/db/seeds/texts/4.yml", 'w')

@@ -11,9 +11,6 @@ module MailingList
     end
 
     def call
-      campaign = gibbon.campaigns.create(body: campaign_body)
-      campaign_id = campaign.body['id']
-
       gibbon.campaigns(campaign_id).content.upsert(body: content_body)
       gibbon.campaigns(campaign_id).actions.send.create
 
@@ -23,6 +20,14 @@ module MailingList
     private
 
     attr_reader :gibbon
+
+    def campaign_id
+      @campaign_id ||= campaign.body['id']
+    end
+
+    def campaign
+      @campaign ||= gibbon.campaigns.create(body: campaign_body)
+    end
 
     def settings
       {
@@ -63,17 +68,13 @@ module MailingList
       } }
     end
 
-    # def campaign_id
-    #   campaign = gibbon.campaigns.create(body: campaign_body)
-    #   campaign.body['id']
-    # end
-
     def title
       "Daily Ayah: #{ayah.surah_name} #{ayah.number}"
     end
 
     def link
-      "<a href='https://perfectquran.co/#{ayah.surah_id}/#{ayah.number}' target='_blank'>View On PerfectQuran</a>"
+      "<a href='https://perfectquran.co/#{ayah.surah_id}/#{ayah.number}'"\
+      "target='_blank'>View On PerfectQuran</a>"
     end
 
     def ayah

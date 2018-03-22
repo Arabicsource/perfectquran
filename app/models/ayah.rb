@@ -19,14 +19,16 @@ class Ayah < ApplicationRecord
 
   def account_texts
     if Current.account.account_translations.any?
-      texts.joins(translation: :account_translation).order('account_translations.order ASC')
+      texts.joins(translation: :account_translation)
+           .order('account_translations.order ASC')
     else
-      texts.where(translation: [1,2,3]).order(:id)
+      texts.where(translation: [1, 2, 3]).order(:id)
     end
   end
 
   def primary_text
-    primary = Current.account.account_translations.where(primary: true).first.translation
+    primary = Current.account.account_translations
+                     .where(primary: true).first.translation
     texts.where(translation: primary).first.content
   end
 

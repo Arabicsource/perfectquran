@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccountTranslation < ApplicationRecord
   default_scope { order(order: :asc) }
 
