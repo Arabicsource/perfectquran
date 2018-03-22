@@ -40,7 +40,7 @@
             .content
               %p
                 %small
-                  %span.has-text-grey= truncate sanitize(@ayah.previous.noble_quran_text), length: 75
+                  %span.has-text-grey= truncate sanitize(@ayah.previous.primary_text), length: 75
                   = link_to study_ayah_path(@ayah.previous) do
                     (#{@ayah.previous.surah_id}:#{@ayah.previous.number})
 
@@ -54,7 +54,7 @@
             .content
               %p
                 %small
-                  %span.has-text-grey= truncate sanitize(@ayah.next.noble_quran_text), length: 75
+                  %span.has-text-grey= truncate sanitize(@ayah.next.primary_text), length: 75
                   = link_to study_ayah_path(@ayah.next) do
                     (#{@ayah.next.surah_id}:#{@ayah.next.number})
 

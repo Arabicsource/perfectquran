@@ -25,6 +25,11 @@ class Ayah < ApplicationRecord
     end
   end
 
+  def primary_text
+    primary = Current.account.account_translations.where(primary: true).first.translation
+    texts.where(translation: primary).first.content
+  end
+
   def noble_quran_text
     texts.where(translation_id: 3).first.try(:content) || ''
   end
