@@ -102,3 +102,18 @@ noble_quran_7:
   content: Noble Quran 7
   translation_id: 3
   ayah_id: 7
+
+uthmani_6236:
+  content: Uthmani 6236
+  translation_id: 1
+  ayah_id: 6236
+
+transliteration_6236:
+  content: Transliteration 6236
+  translation_id: 2
+  ayah_id: 6236
+
+noble_quran_6236:
+  content: Noble Quran 6236
+  translation_id: 3
+  ayah_id: 6236

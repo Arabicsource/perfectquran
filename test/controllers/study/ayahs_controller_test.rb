@@ -16,7 +16,7 @@ module Study
 
     test 'get show when logged in' do
       login_as accounts(:abdullah)
-      get study_ayah_path(1)
+      get study_ayah_path(ayahs(:ayah_1))
       assert_response :success
     end
 

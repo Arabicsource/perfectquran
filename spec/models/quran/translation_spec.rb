@@ -8,7 +8,7 @@ RSpec.describe Translation, type: :model do
   describe '#available_for_posting' do
     specify do
       expect(Translation.available_for_posting.map(&:name)).to(
-        eq ['Uthmani', 'The Noble Quran']
+        eq ['Uthmani', 'The Noble Quran', 'Yusuf Ali']
       )
     end
   end

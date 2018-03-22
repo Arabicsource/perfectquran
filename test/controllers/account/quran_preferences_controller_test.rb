@@ -9,7 +9,13 @@ class Account
       assert_redirected_to new_account_session_path
     end
 
-    test 'get edit with account' do
+    test 'get edit with account without translations' do
+      login_as accounts(:blank)
+      get edit_account_quran_preference_path
+      assert_response :success
+    end
+
+    test 'get edit with account with translations' do
       login_as accounts(:abdullah)
       get edit_account_quran_preference_path
       assert_response :success

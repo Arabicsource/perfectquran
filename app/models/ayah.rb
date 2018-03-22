@@ -27,9 +27,16 @@ class Ayah < ApplicationRecord
   end
 
   def primary_text
-    primary = Current.account.account_translations
-                     .where(primary: true).first.translation
-    texts.where(translation: primary).first.content
+    return noble_quran_text if Current.account.guest?
+
+    primaries = Current.account.account_translations.where(primary: true)
+
+    if primaries.any?
+      primary = primaries.first.translation
+      texts.where(translation: primary).first.content
+    else
+      noble_quran_text
+    end
   end
 
   def noble_quran_text

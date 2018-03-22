@@ -3,6 +3,21 @@
 require 'test_helper'
 
 class AyahTest < ActiveSupport::TestCase
+  test 'primary_text with guesst account' do
+    Current.account = GuestAccount.new
+    assert_equal 'Noble Quran 1', ayahs(:ayah_1).primary_text
+  end
+
+  test 'primary_text with account without account_translations' do
+    Current.account = accounts(:blank)
+    assert_equal 'Noble Quran 1', ayahs(:ayah_1).primary_text
+  end
+
+  test 'primary_text with account with account_translations' do
+    Current.account = accounts(:abdullah)
+    assert_equal 'Transliteration 1', ayahs(:ayah_1).primary_text
+  end
+
   test 'uthmani_text' do
     assert_equal 'Uthmani 1', ayahs(:ayah_1).uthmani_text
   end

@@ -1,0 +1,164 @@
+arabic:
+  id: 1
+  name: "Arabic"
+  direction: "rtl"
+english:
+  id: 2
+  name: "English"
+  direction: "ltr"
+albanian:
+  id: 3
+  name: "Albanian"
+  direction: "ltr"
+azerbaijani:
+  id: 4
+  name: "Azerbaijani"
+  direction: "ltr"
+bengali:
+  id: 5
+  name: "Bengali"
+  direction: "ltr"
+bosnian:
+  id: 6
+  name: "Bosnian"
+  direction: "ltr"
+bulgarian:
+  id: 7
+  name: "Bulgarian"
+  direction: "ltr"
+chinese:
+  id: 8
+  name: "Chinese"
+  direction: "ltr"
+czech:
+  id: 9
+  name: "Czech"
+  direction: "ltr"
+divehi:
+  id: 10
+  name: "Divehi"
+  direction: "rtl"
+dutch:
+  id: 11
+  name: "Dutch"
+  direction: "ltr"
+french:
+  id: 12
+  name: "French"
+  direction: "ltr"
+german:
+  id: 13
+  name: "German"
+  direction: "ltr"
+hausa:
+  id: 14
+  name: "Hausa"
+  direction: "ltr"
+hindi:
+  id: 15
+  name: "Hindi"
+  direction: "ltr"
+indonesian:
+  id: 16
+  name: "Indonesian"
+  direction: "ltr"
+italian:
+  id: 17
+  name: "Italian"
+  direction: "ltr"
+japanese:
+  id: 18
+  name: "Japanese"
+  direction: "ltr"
+korean:
+  id: 19
+  name: "Korean"
+  direction: "ltr"
+kurdish:
+  id: 20
+  name: "Kurdish"
+  direction: "rtl"
+malay:
+  id: 21
+  name: "Malay"
+  direction: "ltr"
+malayalam:
+  id: 22
+  name: "Malayalam"
+  direction: "ltr"
+norwegian:
+  id: 23
+  name: "Norwegian"
+  direction: "ltr"
+persian:
+  id: 24
+  name: "Persian"
+  direction: "rtl"
+polish:
+  id: 25
+  name: "Polish"
+  direction: "ltr"
+portuguese:
+  id: 26
+  name: "Portuguese"
+  direction: "ltr"
+romanian:
+  id: 27
+  name: "Romanian"
+  direction: "ltr"
+russian:
+  id: 28
+  name: "Russian"
+  direction: "ltr"
+sindhi:
+  id: 29
+  name: "Sindhi"
+  direction: "rtl"
+somali:
+  id: 30
+  name: "Somali"
+  direction: "ltr"
+spanish:
+  id: 31
+  name: "Spanish"
+  direction: "ltr"
+swahili:
+  id: 32
+  name: "Swahili"
+  direction: "ltr"
+swedish:
+  id: 33
+  name: "Swedish"
+  direction: "ltr"
+tajik:
+  id: 34
+  name: "Tajik"
+  direction: "ltr"
+tamil:
+  id: 35
+  name: "Tamil"
+  direction: "ltr"
+tatar:
+  id: 36
+  name: "Tatar"
+  direction: "ltr"
+thai:
+  id: 37
+  name: "Thai"
+  direction: "ltr"
+turkish:
+  id: 38
+  name: "Turkish"
+  direction: "ltr"
+urdu:
+  id: 39
+  name: "Urdu"
+  direction: "rtl"
+uyghur:
+  id: 40
+  name: "Uyghur"
+  direction: "rtl"
+uzbek:
+  id: 41
+  name: "Uzbek"
+  direction: "ltr"
