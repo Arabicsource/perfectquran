@@ -32,4 +32,12 @@ class GuestAccount
   def group_memories_by_day_from(*)
     0
   end
+
+  def account_translations
+    []
+  end
+
+  def translations
+    []
+  end
 end
