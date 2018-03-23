@@ -2,6 +2,8 @@
 
 # :nodoc:
 class Ayah < ApplicationRecord
+  include Taggable
+
   default_scope { order('id asc') }
 
   belongs_to :surah
@@ -14,8 +16,6 @@ class Ayah < ApplicationRecord
   has_many :texts_and_translations,
            -> { includes(:translation) },
            class_name: 'Text'
-  has_many :taggings, as: :taggable
-  has_many :tags, through: :taggings
 
   def account_texts
     if Current.account.account_translations.any?
