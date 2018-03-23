@@ -56,19 +56,13 @@ class Ayah < ApplicationRecord
   end
 
   def previous
-    @previous ||= if id > 1
-                    self.class.find_by id: id - 1
-                  else
-                    self.class.find_by id: 6236
-                  end
+    previous_id = id > 1 ? id - 1 : 6236
+    @previous ||= self.class.find previous_id
   end
 
   def next
-    if id == 6236
-      self.class.find_by id: 1
-    else
-      self.class.find_by id: id + 1
-    end
+    next_id = id == 6236 ? 1 : id + 1
+    @next ||= self.class.find next_id
   end
 
   def to_s
