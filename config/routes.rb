@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboards#show'
     resources :articles, :categories, :accounts, :connections
+    resources :tags, only: %i[index]
   end
 
   namespace :content do

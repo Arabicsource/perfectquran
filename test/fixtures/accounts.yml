@@ -1,5 +1,9 @@
 abdullah:
   email: 'abdullah.slice.chop@gmail.com'
+  role: 'admin'
+
+abdurrahman:
+  email: 'abdurrahman@perfectquran.co'
 
 blank:
   email: 'blank@perfectquran.co'

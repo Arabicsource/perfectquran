@@ -1,0 +1,14 @@
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        = render 'admin/shared/menu'
+
+      .column
+        %header
+          %h1.title Articles
+
+        %section
+          = render 'table'
+
+- provide :title, 'Tags'
