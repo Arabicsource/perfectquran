@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module AccountHelper
+module TranslationHelper
   def translation_select_options
     option_groups_from_collection_for_select(
-      Language.all, :translations, :name, :id, :name, nil
+      Language.available_for_study, :translations_available_for_study, :name, :id, :name, nil
     )
   end
 end
