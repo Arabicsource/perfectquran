@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TranslationHelperTest < ActionView::TestCase
   test 'translation_select_options' do
     assert_dom_equal(

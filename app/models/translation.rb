@@ -6,7 +6,7 @@ class Translation < ApplicationRecord
   has_many :texts
   has_many :account_translation
 
-  scope :available_for_study, ->{ joins(:texts).order(:id).uniq }
+  scope :available_for_study, -> { joins(:texts).order(:id).uniq }
 
   def self.available_for_posting
     where(id: [1, 3, 4])
