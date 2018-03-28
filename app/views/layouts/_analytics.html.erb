@@ -1,13 +1,11 @@
-<% unless request.headers["User-Agent"].match(/facebookexternalhit/) || request.headers["User-Agent"].match(/Facebot/) %>
-  <% if Rails.env.production? %>
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106544716-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
-      gtag('js', new Date());
+<% if Rails.env.production? %>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106544716-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)};
+    gtag('js', new Date());
 
-      gtag('config', 'UA-106544716-1');
-    </script>
-  <% end %>
+    gtag('config', 'UA-106544716-1');
+  </script>
 <% end %>
