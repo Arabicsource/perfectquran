@@ -5,6 +5,9 @@ require 'rails_helper'
 RSpec.describe Connection, type: :model do
   fixtures :translations
 
+  let(:translation) { translations(:translation_1) }
+  let(:connection) { create :connection, translation: translation }
+
   context 'associations' do
     it { is_expected.to belong_to :account }
     it { is_expected.to belong_to :translation }
@@ -27,6 +30,32 @@ RSpec.describe Connection, type: :model do
       is_expected.to(
         define_enum_for(:frequency).with(%i[daily hourly])
       )
+    end
+  end
+
+  describe 'hashtags' do
+    it 'Adds a # to the begining' do
+      connection.update_attributes(hashtags: 'tag')
+
+      expect(connection.hashtags).to eq '#tag'
+    end
+
+    it 'is not more than 60 characters including the added #' do
+      connection.update_attributes(hashtags: 'a' * 59)
+
+      expect(connection.valid?).to be true
+    end
+
+    it 'is not more than 60 characters including the added # too long' do
+      connection.update_attributes(hashtags: 'a' * 60)
+
+      expect(connection.valid?).to be false
+    end
+
+    it 'removes spaces' do
+      connection.update_attributes(hashtags: '#Tag with Space')
+
+      expect(connection.hashtags).to eq '#TagwithSpace'
     end
   end
 
