@@ -3,7 +3,6 @@
 FactoryBot.define do
   factory :text do
     content 'string'
-    translation
     ayah
   end
 end

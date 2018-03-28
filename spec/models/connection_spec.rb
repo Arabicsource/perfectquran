@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Connection, type: :model do
+  fixtures :translations
+
   context 'associations' do
     it { is_expected.to belong_to :account }
     it { is_expected.to belong_to :translation }
@@ -31,20 +33,32 @@ RSpec.describe Connection, type: :model do
   context '#account_name' do
     let!(:profile) { create :profile, name: 'name123', account: account }
     let(:account) { create :account }
-    let(:connection) { create :connection, account: account }
+    let(:connection) do
+      create(
+        :connection, account: account, translation: translations(:translation_1)
+      )
+    end
 
     specify { expect(connection.account_name).to eq 'name123' }
   end
 
   context '#last_ayah_reference' do
     context 'connection has not posted previously' do
-      let(:connection) { create :connection }
+      let(:connection) do
+        create :connection, translation: translations(:translation_1)
+      end
 
       specify { expect(connection.last_ayah_reference).to eq '[0:0]' }
     end
 
     context 'connection has previously posted' do
-      let(:connection) { create :connection, last_ayah_id: 7 }
+      let(:connection) do
+        create(
+          :connection,
+          last_ayah_id: 7,
+          translation: translations(:translation_1)
+        )
+      end
 
       specify { expect(connection.last_ayah_reference).to eq '[1:7]' }
     end
@@ -77,7 +91,8 @@ RSpec.describe Connection, type: :model do
           :connection,
           provider_uid: '12345',
           active: true,
-          account: account
+          account: account,
+          translation: translations(:translation_1)
         )
       end
 
@@ -85,7 +100,8 @@ RSpec.describe Connection, type: :model do
         create(
           :connection,
           provider_uid: '67890',
-          account: account
+          account: account,
+          translation: translations(:translation_1)
         )
       end
 
@@ -94,7 +110,8 @@ RSpec.describe Connection, type: :model do
           :connection,
           provider_uid: 'abcdef',
           active: true,
-          account: account
+          account: account,
+          translation: translations(:translation_1)
         )
       end
 

@@ -3,9 +3,13 @@
 require 'rails_helper'
 
 describe 'Accounts::Connections#update', type: :request do
-  let(:uthmani) { Translation.first }
+  fixtures :translations
+
+  let(:uthmani) { translations(:translation_1) }
   let(:account) { create :account }
-  let(:connection) { create :connection, account: account }
+  let(:connection) do
+    create :connection, account: account, translation: uthmani
+  end
   let(:uri) { account_connection_path(connection) }
 
   let(:invalid_params) do

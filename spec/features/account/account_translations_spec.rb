@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 feature 'Account Translations', js: true do
+  fixtures :translations
+
   let(:account) { create :account }
 
   scenario 'account adds study translations' do
@@ -30,11 +32,15 @@ feature 'Account Translations', js: true do
 
   scenario 'account deletes study translations' do
     login_as account
-    create :account_translation, account: account
+    create(
+      :account_translation,
+      account: account,
+      translation: translations(:translation_1)
+    )
     visit edit_account_quran_preference_path
 
-    expect(page).to have_text 'translation_name'
-    expect(page).to have_text 'language_name'
+    expect(page).to have_text 'Uthmani'
+    expect(page).to have_text 'Arabic'
     expect(page).to have_text 'Primary'
 
     find('a.delete').click

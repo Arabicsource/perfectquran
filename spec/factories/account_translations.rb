@@ -2,7 +2,6 @@
 
 FactoryBot.define do
   factory :account_translation do
-    translation
     account
     primary true
   end

@@ -4,20 +4,34 @@ require 'test_helper'
 
 class ConnectionTest < ActiveSupport::TestCase
   test 'hashtags' do
-    connection = FactoryBot.create :connection, hashtags: '#Tag with Space'
+    connection = create_connection tag: '#Tag with Space'
 
     assert_equal '#TagwithSpace', connection.hashtags
   end
 
   test 'hashtags length too long' do
-    connection = FactoryBot.build :connection, hashtags: 'a' * 60
+    connection = build_connection tag: 'a' * 60
 
     assert_not connection.valid?
   end
 
   test 'hashtags length valid' do
-    connection = FactoryBot.build :connection, hashtags: 'a' * 59
+    connection = create_connection tag: 'a' * 59
 
     assert connection.valid?
+  end
+
+  private
+
+  def create_connection(tag:)
+    FactoryBot.create(
+      :connection, hashtags: tag, translation: translations(:translation_1)
+    )
+  end
+
+  def build_connection(tag:)
+    FactoryBot.build(
+      :connection, hashtags: tag, translation: translations(:translation_1)
+    )
   end
 end
