@@ -3,7 +3,7 @@
 class Translation < ApplicationRecord
   belongs_to :language
 
-  has_many :texts
+  has_many :texts, class_name: 'Quran::Text'
   has_many :account_translation
 
   scope :available_for_study, -> { joins(:texts).order(:id).uniq }

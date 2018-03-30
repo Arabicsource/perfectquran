@@ -34,7 +34,7 @@ class TwitterConnectionPoster
   end
 
   def text
-    Text.find_by!(translation: @translation, ayah: current_ayah).content
+    Quran::Text.find_by!(translation: @translation, ayah: current_ayah).content
   end
 
   def current_ayah

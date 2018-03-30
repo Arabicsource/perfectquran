@@ -7,7 +7,7 @@ module Study
 
       return redirect_to root_url if @terms.nil? || @terms.empty?
 
-      @results = Text.search(
+      @results = Quran::Text.search(
         @terms, fields: [:content], highlight: true
       )
     end

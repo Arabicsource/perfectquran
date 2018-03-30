@@ -2,16 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.describe Text, type: :model do
-  subject { Text.first }
-
+RSpec.describe Quran::Text, type: :model do
   it { is_expected.to belong_to(:translation) }
   it { is_expected.to belong_to :ayah }
   it { is_expected.to have_one(:surah).through(:ayah) }
 
   describe '#reference' do
     it 'returns a reference to the ayah the text belongs to' do
-      text = Text.where(ayah_id: 7).first
+      text = Quran::Text.where(ayah_id: 7).first
 
       expect(text.reference).to eq '[1:7]'
     end

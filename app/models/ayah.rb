@@ -12,10 +12,10 @@ class Ayah < ApplicationRecord
 
   has_many :memories
   has_many :bookmarks, as: :bookmarkable
-  has_many :texts
+  has_many :texts, class_name: 'Quran::Text'
   has_many :texts_and_translations,
            -> { includes(:translation) },
-           class_name: 'Text'
+           class_name: 'Quran::Text'
 
   def account_texts
     if Current.account.account_translations.any?
