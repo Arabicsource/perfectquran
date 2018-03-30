@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Translation < ApplicationRecord
-  belongs_to :language
+  belongs_to :language, class_name: 'Quran::Language'
 
   has_many :texts, class_name: 'Quran::Text'
   has_many :account_translation
