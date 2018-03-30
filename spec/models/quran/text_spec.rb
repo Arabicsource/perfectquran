@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Text, type: :model do
-  subject { build_stubbed :text }
+  subject { Text.first }
 
   it { is_expected.to belong_to(:translation) }
   it { is_expected.to belong_to :ayah }

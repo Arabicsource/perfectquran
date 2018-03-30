@@ -8,8 +8,6 @@ RSpec.describe TwitterConnectionPoster do
   let(:ayah) { Ayah.first }
 
   context 'when successful' do
-    let!(:text) { create :text, translation: translation, ayah: ayah }
-
     let(:connection) do
       create :connection, account: account
     end
@@ -54,7 +52,6 @@ RSpec.describe TwitterConnectionPoster do
   end
 
   context 'when failure' do
-    let!(:text) { create :text, translation: translation, ayah: ayah }
     let(:connection) { create :connection, account: account }
 
     before do
