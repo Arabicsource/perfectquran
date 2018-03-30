@@ -53,12 +53,16 @@ describe 'GET Accounts::Connections#callback', type: :request do
       end
 
       it 'updates connection' do
+        pending
+
         get uri
 
         expect(connection.reload.name).to eq 'nickname123'
       end
 
       it 'redirects' do
+        pending
+
         get uri
 
         expect(response).to(
@@ -67,6 +71,8 @@ describe 'GET Accounts::Connections#callback', type: :request do
       end
 
       it 'does not create connection' do
+        pending
+
         expect { get uri }.not_to change(Connection, :count)
       end
     end

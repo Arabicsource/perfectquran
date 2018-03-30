@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Connection, type: :model do
+  let(:account) { create :account }
   let(:connection) { create :connection }
 
   context 'associations' do
@@ -58,40 +59,24 @@ RSpec.describe Connection, type: :model do
 
   context '#account_name' do
     let!(:profile) { create :profile, name: 'name123', account: account }
-    let(:account) { create :account }
-    let(:connection) do
-      create(
-        :connection, account: account
-      )
-    end
+    let(:connection) { create :connection, account: account }
 
     specify { expect(connection.account_name).to eq 'name123' }
   end
 
   context '#last_ayah_reference' do
     context 'connection has not posted previously' do
-      let(:connection) do
-        create :connection
-      end
-
       specify { expect(connection.last_ayah_reference).to eq '[0:0]' }
     end
 
     context 'connection has previously posted' do
-      let(:connection) do
-        create(
-          :connection,
-          last_ayah_id: 7
-        )
-      end
+      let(:connection) { create :connection, last_ayah_id: 7 }
 
       specify { expect(connection.last_ayah_reference).to eq '[1:7]' }
     end
   end
 
   context '#create_with_omniauth!' do
-    let(:account) { create :account }
-
     let(:auth_hash) do
       {
         uid: 'uid12345',
@@ -107,39 +92,39 @@ RSpec.describe Connection, type: :model do
     end
   end
 
-  context 'scopes' do
-    context '#all_active' do
-      let(:account) { create :account }
+  describe 'daily_active' do
+    before do
+      create :connection, frequency: :daily, active: true, name: 'con_one'
+      create :connection, frequency: :daily, active: false, name: 'con_two'
+      create :connection, frequency: :daily, active: true, name: 'con_three'
+    end
 
-      let!(:first_active) do
-        create(
-          :connection,
-          provider_uid: '12345',
-          active: true,
-          account: account
-        )
-      end
+    specify do
+      expect(Connection.daily_active.map(&:name)).to eq %w(con_one con_three)
+    end
+  end
 
-      let!(:second_inactive) do
-        create(
-          :connection,
-          provider_uid: '67890',
-          account: account
-        )
-      end
+  describe 'daily_active' do
+    before do
+      create :connection, frequency: :hourly, active: true, name: 'con_one'
+      create :connection, frequency: :hourly, active: false, name: 'con_two'
+      create :connection, frequency: :hourly, active: true, name: 'con_three'
+    end
 
-      let!(:third_active) do
-        create(
-          :connection,
-          provider_uid: 'abcdef',
-          active: true,
-          account: account
-        )
-      end
+    specify do
+      expect(Connection.hourly_active.map(&:name)).to eq %w(con_one con_three)
+    end
+  end
 
-      it 'returns active' do
-        expect(Connection.all_active.size).to eq 2
-      end
+  context '#all_active' do
+    before do
+      create :connection, frequency: :hourly, active: true, name: 'con_one'
+      create :connection, frequency: :hourly, active: false, name: 'con_two'
+      create :connection, frequency: :daily, active: true, name: 'con_three'
+    end
+
+    specify do
+      expect(Connection.all_active.map(&:name)).to eq %w(con_one con_three)
     end
   end
 end

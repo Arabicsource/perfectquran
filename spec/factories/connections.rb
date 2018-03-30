@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :connection do
     name 'nickname123'
     provider 'twitter'
-    provider_uid 'uid12345'
+    sequence(:provider_uid) { |n| "uid#{n}" }
     token 'tok12345'
     secret 'sec12345'
     last_ayah_id 0
