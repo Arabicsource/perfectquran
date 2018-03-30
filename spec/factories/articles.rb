@@ -6,5 +6,13 @@ FactoryBot.define do
     content 'content_string'
     category
     account
+
+    trait :as_draft do
+      visibility :draft
+    end
+
+    trait :as_trash do
+      visibility :draft
+    end
   end
 end

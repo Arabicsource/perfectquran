@@ -21,7 +21,7 @@ module Content
     end
 
     test 'get show when draft' do
-      draft = articles(:draft)
+      draft = FactoryBot.create(:article, :as_draft)
 
       assert_raises ActiveRecord::RecordNotFound do
         get content_article_path(draft.permalink)
@@ -29,7 +29,7 @@ module Content
     end
 
     test 'get show when trash' do
-      trash = articles(:trash)
+      trash = FactoryBot.create(:article, :as_trash)
 
       assert_raises ActiveRecord::RecordNotFound do
         get content_article_path(trash.permalink)
