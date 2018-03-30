@@ -4,7 +4,7 @@ module Pageable
   extend ActiveSupport::Concern
 
   included do
-    has_many :pages, -> { distinct }, through: :ayahs
+    has_many :pages, -> { distinct }, through: :ayahs, class_name: 'Quran::Page'
   end
 
   def first_page

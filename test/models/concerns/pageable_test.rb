@@ -9,7 +9,7 @@ class PageableTest < ActiveSupport::TestCase
   end
 
   test 'first_page' do
-    assert_equal pages(:page_1), surahs(:surah_1).first_page
-    assert_equal pages(:page_1), juzs(:juz_1).first_page
+    assert_equal quran_pages(:page_1), surahs(:surah_1).first_page
+    assert_equal quran_pages(:page_1), juzs(:juz_1).first_page
   end
 end

@@ -3,11 +3,11 @@
 module Hifz
   class PagesController < ApplicationController
     def index
-      @pages = Page.all
+      @pages = Quran::Page.all
     end
 
     def show
-      @page = Page.find(params[:id])
+      @page = Quran::Page.find(params[:id])
     end
   end
 end

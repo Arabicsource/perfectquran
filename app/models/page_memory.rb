@@ -2,7 +2,7 @@
 
 class PageMemory < ApplicationRecord
   belongs_to :account
-  belongs_to :page
+  belongs_to :page, class_name: 'Quran::Page'
 
   validates :page_id, uniqueness: { scope: :account_id }
 

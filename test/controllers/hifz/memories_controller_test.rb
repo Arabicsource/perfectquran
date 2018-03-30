@@ -7,7 +7,7 @@ module Hifz
     setup do
       @ayah = ayahs(:ayah_1)
       @juz = juzs(:juz_1)
-      @page = pages(:page_1)
+      @page = quran_pages(:page_1)
     end
 
     test 'create memory for ayah without account' do

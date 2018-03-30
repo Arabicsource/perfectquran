@@ -7,7 +7,7 @@ class Ayah < ApplicationRecord
   default_scope { order('id asc') }
 
   belongs_to :surah
-  belongs_to :page
+  belongs_to :page, class_name: 'Quran::Page'
   belongs_to :juz
 
   has_many :memories
