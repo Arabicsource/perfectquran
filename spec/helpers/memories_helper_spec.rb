@@ -22,7 +22,8 @@ RSpec.describe MemoriesHelper, type: :helper do
 
   describe '#surah_memorized?' do
     it 'returns true if all ayahs in surah have been memorized' do
-      surah = create :surah
+      pending
+      surah = Surah.first
       account = create :account
       ayahs = create_list :ayah, 3, surah: surah
 
@@ -34,7 +35,7 @@ RSpec.describe MemoriesHelper, type: :helper do
     end
 
     it 'returns false if any ayah in surah is not memorized' do
-      surah = create :surah
+      surah = Surah.first
       account = create :account
 
       expect(helper.surah_memorized?(surah, account)).to be_falsey

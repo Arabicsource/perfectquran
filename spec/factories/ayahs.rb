@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :ayah do
     sequence(:number) { |n| n }
     character_length 1
-    surah
+    surah_id 1
     page_id 1
     juz_id 1
   end
