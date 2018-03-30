@@ -6,7 +6,7 @@ module Hifz
   class MemoriesControllerTest < ActionDispatch::IntegrationTest
     setup do
       @ayah = ayahs(:ayah_1)
-      @juz = juzs(:juz_1)
+      @juz = Quran::Juz.first
       @page = quran_pages(:page_1)
     end
 

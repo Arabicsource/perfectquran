@@ -3,7 +3,7 @@
 module Hifz
   class JuzsController < ApplicationController
     def index
-      @juzs = Juz.all
+      @juzs = Quran::Juz.all
     end
   end
 end

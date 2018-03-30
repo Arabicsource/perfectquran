@@ -3,11 +3,11 @@
 require 'test_helper'
 
 class JuzTest < ActiveSupport::TestCase
-  setup { @juz = juzs(:juz_1) }
+  setup { @juz = Quran::Juz.first }
 
   test 'memorized?' do
     Current.account = accounts(:abdullah)
-    juz = juzs(:juz_1)
+    juz = Quran::Juz.first
     jm = JuzMemory.create(
       account: Current.account, juz: juz, character_length: 55
     )
@@ -21,20 +21,20 @@ class JuzTest < ActiveSupport::TestCase
     Current.account = accounts(:abdullah)
     assert Current.account.memories.count.zero?
 
-    juzs(:juz_1).memorize
+    Quran::Juz.first.memorize
     assert_equal 148, Current.account.memories.count
   end
 
   test 'memorized_percentage' do
     Current.account = accounts(:abdullah)
-    assert juzs(:juz_1).memorized_percentage.zero?
+    assert Quran::Juz.first.memorized_percentage.zero?
 
     ayahs(:ayah_1).memorize
-    assert_equal 0.1629362833376211, juzs(:juz_1).memorized_percentage
+    assert_equal 0.1629362833376211, Quran::Juz.first.memorized_percentage
   end
 
   test 'description' do
-    assert_equal 'Al-Fatihah: 1 - Al-Baqarah: 141', juzs(:juz_1).description
+    assert_equal 'Al-Fatihah: 1 - Al-Baqarah: 141', Quran::Juz.first.description
   end
 
   test 'to_s' do

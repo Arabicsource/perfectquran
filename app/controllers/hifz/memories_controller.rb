@@ -19,7 +19,7 @@ module Hifz
     def load_memorable
       resource, id = request.path.split('/')[2, 3]
 
-      klass = if resource == 'pages'
+      klass = if resource == 'pages' || resource == 'juzs'
                 "Quran::#{resource.singularize.classify}"
               else
                 resource.singularize.classify

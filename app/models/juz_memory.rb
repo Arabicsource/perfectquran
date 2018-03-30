@@ -2,7 +2,7 @@
 
 class JuzMemory < ApplicationRecord
   belongs_to :account
-  belongs_to :juz
+  belongs_to :juz, class_name: 'Quran::Juz'
 
   validates :juz_id, uniqueness: { scope: :account_id }
 

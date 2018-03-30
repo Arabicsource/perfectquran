@@ -6,7 +6,7 @@ class AyahableTest < ActiveSupport::TestCase
   test 'ayahs' do
     assert_equal (1..7).to_a, quran_pages(:page_1).ayahs.map(&:id)
     assert_equal (1..7).to_a, Quran::Surah.first.ayahs.map(&:id)
-    assert_equal (1..148).to_a, juzs(:juz_1).ayahs.map(&:id)
+    assert_equal (1..148).to_a, Quran::Juz.first.ayahs.map(&:id)
   end
 
   test 'first_ayah' do
@@ -16,8 +16,8 @@ class AyahableTest < ActiveSupport::TestCase
     assert_equal ayahs(:ayah_1), Quran::Surah.first.first_ayah
     assert_equal ayahs(:ayah_8), Quran::Surah.second.first_ayah
 
-    assert_equal ayahs(:ayah_1), juzs(:juz_1).first_ayah
-    assert_equal ayahs(:ayah_149), juzs(:juz_2).first_ayah
+    assert_equal ayahs(:ayah_1), Quran::Juz.first.first_ayah
+    assert_equal ayahs(:ayah_149), Quran::Juz.second.first_ayah
   end
 
   test 'current_ayah' do
@@ -66,8 +66,8 @@ class AyahableTest < ActiveSupport::TestCase
     assert_equal ayahs(:ayah_7), Quran::Surah.first.last_ayah
     assert_equal ayahs(:ayah_293), Quran::Surah.second.last_ayah
 
-    assert_equal ayahs(:ayah_148), juzs(:juz_1).last_ayah
-    assert_equal ayahs(:ayah_259), juzs(:juz_2).last_ayah
+    assert_equal ayahs(:ayah_148), Quran::Juz.first.last_ayah
+    assert_equal ayahs(:ayah_259), Quran::Juz.second.last_ayah
   end
 
   test 'next_ayah' do

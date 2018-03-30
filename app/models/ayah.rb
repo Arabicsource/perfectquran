@@ -8,7 +8,7 @@ class Ayah < ApplicationRecord
 
   belongs_to :surah, class_name: 'Quran::Surah'
   belongs_to :page, class_name: 'Quran::Page'
-  belongs_to :juz
+  belongs_to :juz, class_name: 'Quran::Juz'
 
   has_many :memories
   has_many :bookmarks, as: :bookmarkable
