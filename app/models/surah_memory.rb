@@ -2,7 +2,7 @@
 
 class SurahMemory < ApplicationRecord
   belongs_to :account
-  belongs_to :surah
+  belongs_to :surah, class_name: 'Quran::Surah'
 
   validates :surah_id, uniqueness: { scope: :account_id }
 

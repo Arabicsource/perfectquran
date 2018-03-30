@@ -4,18 +4,18 @@ require 'test_helper'
 
 class SurahTest < ActiveSupport::TestCase
   test 'description' do
-    surah = surahs(:surah_1)
+    surah = Quran::Surah.first
     assert_equal 'The Opening - الفاتحة', surah.description
   end
 
   test 'to_s' do
-    surah = surahs(:surah_1)
+    surah = Quran::Surah.first
     assert_equal 'Al-Fatihah', surah.to_s
   end
 
   test 'memorized?' do
     Current.account = accounts(:abdullah)
-    surah = surahs(:surah_1)
+    surah = Quran::Surah.first
     sm = SurahMemory.create(
       account: Current.account, surah: surah, character_length: 55
     )
@@ -27,17 +27,17 @@ class SurahTest < ActiveSupport::TestCase
 
   test 'memorized_percentage' do
     Current.account = accounts(:abdullah)
-    assert surahs(:surah_1).memorized_percentage.zero?
+    assert Quran::Surah.first.memorized_percentage.zero?
 
     ayahs(:ayah_1).memorize
-    assert_equal 13.333333333333334, surahs(:surah_1).memorized_percentage
+    assert_equal 13.333333333333334, Quran::Surah.first.memorized_percentage
   end
 
   test 'memorize' do
     Current.account = accounts(:abdullah)
     assert Current.account.memories.count.zero?
 
-    surahs(:surah_1).memorize
+    Quran::Surah.first.memorize
     assert_equal 7, Current.account.memories.count
   end
 end

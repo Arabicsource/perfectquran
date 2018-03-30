@@ -3,7 +3,7 @@
 module Hifz
   class SurahsController < ApplicationController
     def index
-      @surahs = Surah.all
+      @surahs = Quran::Surah.all
     end
   end
 end

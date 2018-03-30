@@ -3,7 +3,7 @@
 module Study
   class SurahsController < ApplicationController
     def index
-      @surahs = Surah.all
+      @surahs = Quran::Surah.all
 
       respond_to do |format|
         format.html
@@ -13,9 +13,9 @@ module Study
 
     def show
       @surah = if params[:permalink].nil?
-                 Surah.find(params[:id])
+                 Quran::Surah.find(params[:id])
                else
-                 Surah.find_by(permalink: params[:permalink])
+                 Quran::Surah.find_by(permalink: params[:permalink])
                end
 
       respond_to do |format|

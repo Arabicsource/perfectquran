@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe MemoriesHelper, type: :helper do
   let(:account) { create :account }
   let(:ayah) { Ayah.first }
-  let(:surah) { Surah.first }
+  let(:surah) { Quran::Surah.first }
 
   describe 'memorized?' do
     it 'returns true if account has memorized the ayah' do

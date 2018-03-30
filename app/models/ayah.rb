@@ -6,7 +6,7 @@ class Ayah < ApplicationRecord
 
   default_scope { order('id asc') }
 
-  belongs_to :surah
+  belongs_to :surah, class_name: 'Quran::Surah'
   belongs_to :page, class_name: 'Quran::Page'
   belongs_to :juz
 
