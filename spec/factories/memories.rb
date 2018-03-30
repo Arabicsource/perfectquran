@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :memory do
     account
-    ayah
+    ayah Ayah.first
   end
 end

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe AyahTwitterizer do
   let(:text) { 'text123' }
-  let(:ayah) { build_stubbed :ayah, number: 6, surah_id: 3 }
+  let(:ayah) { Ayah.second }
   let(:hashtags) { '#hashtag123' }
   let(:translation_id) { 3 }
 
@@ -19,8 +19,8 @@ RSpec.describe AyahTwitterizer do
     end
 
     specify { expect(@result).to include 'text123' }
-    specify { expect(@result).to include 'perfectquran.co/3/3/6' }
-    specify { expect(@result).to include '[3:6]' }
+    specify { expect(@result).to include 'perfectquran.co/3/1/2' }
+    specify { expect(@result).to include '[1:2]' }
     specify { expect(@result).to include '#hashtag123' }
 
     context 'with &#8217;' do
@@ -46,7 +46,7 @@ RSpec.describe AyahTwitterizer do
 
     context 'without hashtags' do
       let(:hashtags) { '' }
-      let(:expected) { 'text123 [3:6] https://perfectquran.co/3/3/6' }
+      let(:expected) { 'text123 [1:2] https://perfectquran.co/3/1/2' }
 
       before do
         @result = AyahTwitterizer.new(text, ayah, hashtags, translation_id).run

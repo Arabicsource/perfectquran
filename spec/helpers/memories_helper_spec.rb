@@ -6,7 +6,7 @@ RSpec.describe MemoriesHelper, type: :helper do
   describe '#memorized?' do
     it 'returns true if account has memorized the ayah' do
       account = create :account
-      ayah = create :ayah
+      ayah = Ayah.first
       create :memory, ayah: ayah, account: account
 
       expect(helper.memorized?(ayah, account)).to be_truthy
@@ -14,7 +14,7 @@ RSpec.describe MemoriesHelper, type: :helper do
 
     it 'returns false if account has not memorized the ayah' do
       account = create :account
-      ayah = create :ayah
+      ayah = Ayah.first
 
       expect(helper.memorized?(ayah, account)).to be_falsey
     end
@@ -22,10 +22,9 @@ RSpec.describe MemoriesHelper, type: :helper do
 
   describe '#surah_memorized?' do
     it 'returns true if all ayahs in surah have been memorized' do
-      pending
       surah = Surah.first
       account = create :account
-      ayahs = create_list :ayah, 3, surah: surah
+      ayahs = surah.ayahs
 
       ayahs.each do |ayah|
         create :memory, ayah: ayah, account: account
