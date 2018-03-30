@@ -3,12 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe TwitterAutomater do
-  fixtures :translations
-
   let(:account) { create :account }
   let!(:connection) do
     create(
-      :connection, account: account, translation: translations(:translation_1)
+      :connection, account: account, translation: Quran::Translation.first
     )
   end
 

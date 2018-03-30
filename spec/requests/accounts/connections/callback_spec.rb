@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 describe 'GET Accounts::Connections#callback', type: :request do
-  fixtures :translations
-
   let(:uri) { '/auth/twitter/callback' }
   let(:account) { create :account }
   let(:redirect_path) do
@@ -47,8 +45,7 @@ describe 'GET Accounts::Connections#callback', type: :request do
         create(
           :connection,
           account: account,
-          name: 'name',
-          translation: translations(:translation_1)
+          name: 'name'
         )
       end
 

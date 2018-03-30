@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 feature 'Account Translations', js: true do
-  fixtures :translations
-
   let(:account) { create :account }
 
   scenario 'account adds study translations' do
@@ -35,7 +33,7 @@ feature 'Account Translations', js: true do
     create(
       :account_translation,
       account: account,
-      translation: translations(:translation_1)
+      translation: Quran::Translation.first
     )
     visit edit_account_quran_preference_path
 

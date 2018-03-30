@@ -3,13 +3,7 @@
 require 'rails_helper'
 
 describe '/account/connections/edit', type: :request do
-  fixtures :translations
-
-  let(:connection) do
-    create(
-      :connection, account: account, translation: translations(:translation_1)
-    )
-  end
+  let(:connection) { create :connection, account: account }
   let(:url) { edit_account_connection_path(connection) }
   let(:account) { create :account }
   let(:title) { 'Edit Connection' }

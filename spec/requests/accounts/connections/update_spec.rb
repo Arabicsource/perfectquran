@@ -3,9 +3,7 @@
 require 'rails_helper'
 
 describe 'Accounts::Connections#update', type: :request do
-  fixtures :translations
-
-  let(:uthmani) { translations(:translation_1) }
+  let(:uthmani) { Quran::Translation.first }
   let(:account) { create :account }
   let(:connection) do
     create :connection, account: account, translation: uthmani

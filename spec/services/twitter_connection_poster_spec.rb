@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe TwitterConnectionPoster do
   let(:account) { create :account }
-  let(:translation) { Translation.find_by(id: 3) }
+  let(:translation) { Quran::Translation.find_by(id: 3) }
   let(:ayah) { Ayah.first }
 
   context 'when successful' do

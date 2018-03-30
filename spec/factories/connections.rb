@@ -8,7 +8,7 @@ FactoryBot.define do
     token 'tok12345'
     secret 'sec12345'
     last_ayah_id 0
-    translation Translation.first
+    translation Quran::Translation.first
     account
   end
 end

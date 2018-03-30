@@ -3,14 +3,8 @@
 require 'rails_helper'
 
 describe 'Accounts::Connections#destroy', type: :request do
-  fixtures :translations
-
   let(:account) { create :account }
-  let(:connection) do
-    create(
-      :connection, account: account, translation: translations(:translation_1)
-    )
-  end
+  let(:connection) { create :connection, account: account }
   let(:uri) { "/account/connections/#{connection.id}" }
 
   context 'without account' do
