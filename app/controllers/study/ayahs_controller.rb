@@ -4,7 +4,7 @@ module Study
   class AyahsController < ApplicationController
     def index
       respond_to do |format|
-        format.json { render json: Ayah.all }
+        format.json { render json: Quran::Ayah.all }
       end
     end
 
@@ -23,9 +23,9 @@ module Study
 
     def load_ayah
       if params[:surah_id].nil?
-        Ayah.find(params[:id])
+        Quran::Ayah.find(params[:id])
       else
-        Ayah.find_by(
+        Quran::Ayah.find_by(
           surah_id: params[:surah_id], number: params[:number]
         )
       end

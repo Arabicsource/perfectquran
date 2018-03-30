@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe MemoriesHelper, type: :helper do
   let(:account) { create :account }
-  let(:ayah) { Ayah.first }
+  let(:ayah) { Quran::Ayah.first }
   let(:surah) { Quran::Surah.first }
 
   describe 'memorized?' do

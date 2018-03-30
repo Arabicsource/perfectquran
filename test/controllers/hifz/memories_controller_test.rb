@@ -5,7 +5,7 @@ require 'test_helper'
 module Hifz
   class MemoriesControllerTest < ActionDispatch::IntegrationTest
     setup do
-      @ayah = ayahs(:ayah_1)
+      @ayah = Quran::Ayah.first
       @juz = Quran::Juz.first
       @page = quran_pages(:page_1)
     end

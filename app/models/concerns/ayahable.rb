@@ -4,7 +4,7 @@ module Ayahable
   extend ActiveSupport::Concern
 
   included do
-    has_many :ayahs
+    has_many :ayahs, class_name: 'Quran::Ayah'
   end
 
   def current_ayah

@@ -29,7 +29,7 @@ class JuzTest < ActiveSupport::TestCase
     Current.account = accounts(:abdullah)
     assert Quran::Juz.first.memorized_percentage.zero?
 
-    ayahs(:ayah_1).memorize
+    Quran::Ayah.first.memorize
     assert_equal 0.1629362833376211, Quran::Juz.first.memorized_percentage
   end
 

@@ -43,7 +43,7 @@ class TagsController < ApplicationController
     taggable_id = taggable_params[:taggable_id]
     taggable_type = taggable_params[:taggable_type]
 
-    @taggable = taggable_type.constantize.find(taggable_id)
+    @taggable = "Quran::#{taggable_type}".constantize.find(taggable_id)
   end
 
   def load_tagging

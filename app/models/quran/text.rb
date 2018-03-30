@@ -7,7 +7,7 @@ module Quran
     # default_scope { order('id asc') }
 
     belongs_to :translation
-    belongs_to :ayah
+    belongs_to :ayah, class_name: 'Quran::Ayah'
     has_one :surah, through: :ayah
 
     def uthmani?

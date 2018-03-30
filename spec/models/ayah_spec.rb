@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Ayah, type: :model do
+RSpec.describe Quran::Ayah, type: :model do
   describe 'belongs_to associations' do
     it { is_expected.to belong_to :surah }
     it { is_expected.to belong_to :page }

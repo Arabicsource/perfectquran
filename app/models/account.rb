@@ -44,7 +44,7 @@ class Account < ApplicationRecord
   def memorized_ayahs(surah)
     memorized_ayahs = []
 
-    Ayah.where(surah: surah).each do |ayah|
+    Quran::Ayah.where(surah: surah).each do |ayah|
       memorized_ayahs << ayah if Memory.find_by(ayah: ayah, account: self)
     end
 
@@ -54,7 +54,7 @@ class Account < ApplicationRecord
   def not_memorized_ayahs(surah)
     not_memorized_ayahs = []
 
-    Ayah.where(surah: surah).each do |ayah|
+    Quran::Ayah.where(surah: surah).each do |ayah|
       unless Memory.find_by(ayah: ayah, account: self)
         not_memorized_ayahs << ayah
       end

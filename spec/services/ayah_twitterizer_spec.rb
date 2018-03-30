@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe AyahTwitterizer do
   let(:text) { 'text123' }
-  let(:ayah) { Ayah.second }
+  let(:ayah) { Quran::Ayah.second }
   let(:hashtags) { '#hashtag123' }
   let(:translation_id) { 3 }
 

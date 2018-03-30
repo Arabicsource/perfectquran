@@ -46,7 +46,7 @@ class Connection < ApplicationRecord
   private
 
   def last_ayah
-    @last_ayah ||= Ayah.find(last_ayah_id)
+    @last_ayah ||= Quran::Ayah.find(last_ayah_id)
   end
 
   def prepare_hashtags

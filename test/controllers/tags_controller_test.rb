@@ -22,7 +22,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     post @url, params: @invalid_params
     assert Tag.count.zero?
     assert Tagging.count.zero?
-    assert_redirected_to ayahs(:ayah_1)
+    assert_redirected_to Quran::Ayah.first
 
     follow_redirect!
     assert_select '.notification', text: /Name can't be blank/
@@ -33,7 +33,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     post @url, params: @valid_params
     assert_equal 1, Tag.count
     assert_equal 1, Tagging.count
-    assert_redirected_to ayahs(:ayah_1)
+    assert_redirected_to Quran::Ayah.first
 
     follow_redirect!
     assert_select '#tag-list', text: /abc123/
@@ -45,7 +45,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     post @url, params: @valid_params
 
     post @url, params: @valid_params
-    assert_redirected_to ayahs(:ayah_1)
+    assert_redirected_to Quran::Ayah.first
 
     follow_redirect!
     assert_select '.notification', text: /has already been used/

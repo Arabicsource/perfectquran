@@ -2,7 +2,7 @@
 
 class Memory < ApplicationRecord
   belongs_to :account
-  belongs_to :ayah
+  belongs_to :ayah, class_name: 'Quran::Ayah'
 
   validates :ayah_id, uniqueness: { scope: :account_id }
 

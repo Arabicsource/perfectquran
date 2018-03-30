@@ -54,7 +54,7 @@ class PageTest < ActiveSupport::TestCase
     Current.account = accounts(:abdullah)
     assert quran_pages(:page_1).memorized_percentage.zero?
 
-    ayahs(:ayah_1).memorize
+    Quran::Ayah.first.memorize
     assert_equal 13.333333333333334, quran_pages(:page_1).memorized_percentage
   end
 
