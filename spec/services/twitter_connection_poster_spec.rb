@@ -11,7 +11,7 @@ RSpec.describe TwitterConnectionPoster do
     let!(:text) { create :text, translation: translation, ayah: ayah }
 
     let(:connection) do
-      create :connection, account: account, translation: translation
+      create :connection, account: account
     end
 
     it 'returns true' do
@@ -32,8 +32,7 @@ RSpec.describe TwitterConnectionPoster do
       create(
         :connection,
         account: account,
-        last_ayah_id: 6236,
-        translation: translation
+        last_ayah_id: 6236
       )
     end
 
@@ -56,10 +55,7 @@ RSpec.describe TwitterConnectionPoster do
 
   context 'when failure' do
     let!(:text) { create :text, translation: translation, ayah: ayah }
-
-    let(:connection) do
-      create :connection, account: account, translation: translation
-    end
+    let(:connection) { create :connection, account: account }
 
     before do
       allow_any_instance_of(TwitterPoster).to(

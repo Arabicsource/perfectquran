@@ -3,10 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Connection, type: :model do
-  fixtures :translations
-
-  let(:translation) { translations(:translation_1) }
-  let(:connection) { create :connection, translation: translation }
+  let(:connection) { create :connection }
 
   context 'associations' do
     it { is_expected.to belong_to :account }
@@ -64,7 +61,7 @@ RSpec.describe Connection, type: :model do
     let(:account) { create :account }
     let(:connection) do
       create(
-        :connection, account: account, translation: translations(:translation_1)
+        :connection, account: account
       )
     end
 
@@ -74,7 +71,7 @@ RSpec.describe Connection, type: :model do
   context '#last_ayah_reference' do
     context 'connection has not posted previously' do
       let(:connection) do
-        create :connection, translation: translations(:translation_1)
+        create :connection
       end
 
       specify { expect(connection.last_ayah_reference).to eq '[0:0]' }
@@ -84,8 +81,7 @@ RSpec.describe Connection, type: :model do
       let(:connection) do
         create(
           :connection,
-          last_ayah_id: 7,
-          translation: translations(:translation_1)
+          last_ayah_id: 7
         )
       end
 
@@ -120,8 +116,7 @@ RSpec.describe Connection, type: :model do
           :connection,
           provider_uid: '12345',
           active: true,
-          account: account,
-          translation: translations(:translation_1)
+          account: account
         )
       end
 
@@ -129,8 +124,7 @@ RSpec.describe Connection, type: :model do
         create(
           :connection,
           provider_uid: '67890',
-          account: account,
-          translation: translations(:translation_1)
+          account: account
         )
       end
 
@@ -139,8 +133,7 @@ RSpec.describe Connection, type: :model do
           :connection,
           provider_uid: 'abcdef',
           active: true,
-          account: account,
-          translation: translations(:translation_1)
+          account: account
         )
       end
 

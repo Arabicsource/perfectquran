@@ -6,7 +6,7 @@ describe 'Admin::Connections#index', type: :request do
   fixtures :translations
 
   let!(:connection) do
-    create :connection, translation: translations(:translation_1)
+    create :connection
   end
   let(:admin) { create :account, :as_admin }
   let(:url) { admin_connections_path }
