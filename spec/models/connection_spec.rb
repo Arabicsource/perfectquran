@@ -100,7 +100,7 @@ RSpec.describe Connection, type: :model do
     end
 
     specify do
-      expect(Connection.daily_active.map(&:name)).to eq %w(con_one con_three)
+      expect(Connection.daily_active.map(&:name)).to eq %w[con_one con_three]
     end
   end
 
@@ -112,7 +112,7 @@ RSpec.describe Connection, type: :model do
     end
 
     specify do
-      expect(Connection.hourly_active.map(&:name)).to eq %w(con_one con_three)
+      expect(Connection.hourly_active.map(&:name)).to eq %w[con_one con_three]
     end
   end
 
@@ -124,7 +124,7 @@ RSpec.describe Connection, type: :model do
     end
 
     specify do
-      expect(Connection.all_active.map(&:name)).to eq %w(con_one con_three)
+      expect(Connection.all_active.map(&:name)).to eq %w[con_one con_three]
     end
   end
 end
