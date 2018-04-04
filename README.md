@@ -1,11 +1,3 @@
-<h1 align='center'>
-  <img src="app/assets/images/pq-full.png?raw=true" alt="PerfectQuran Logo" />
-</h1>
-
-[![Build Status](https://travis-ci.org/imabusabah/perfectquran.svg?branch=master)](https://travis-ci.org/imabusabah/perfectquran)
-
-[![Coverage Status](https://coveralls.io/repos/github/imabusabah/perfectquran/badge.svg?branch=master)](https://coveralls.io/github/imabusabah/perfectquran?branch=master)
-
 # Bismillah ar-Rahman ar-Rahim
 
 The Quran is a book that judges between right and wrong.
