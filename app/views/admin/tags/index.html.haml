@@ -1,14 +1,11 @@
+.navbar.is-dark
+
 %section.section
   .container
-    .columns
-      .column.is-one-fifth
-        = render 'admin/shared/menu'
+    %header
+      %h1.title Articles
 
-      .column
-        %header
-          %h1.title Articles
-
-        %section
-          = render 'table'
+    %section.box
+      = render 'table'
 
 - provide :title, 'Tags'

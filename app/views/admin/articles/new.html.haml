@@ -1,23 +1,29 @@
+.navbar.is-dark
+  .container
+    .navbar-end
+      .navbar-item
+        .field
+          %p.control
+            = link_to admin_articles_path, class: 'button' do
+              %span.icon= fa_icon 'th-list'
+              %span Articles Index
+
 %section.section
   .container
-    .columns
-      .column.is-one-fifth
-        = render 'admin/shared/menu'
+    %header
+      %h1.title New Article
 
-      .column
-        %header
-          %h1.title New Article
-
-        %section
-          = form_with scope: :article, url: admin_articles_path, id: 'new_article' do |f|
-            = render 'form_fields', f: f
-
-      .column.is-one-fifth
-        %nav.menu.has-text-right
-          %ul.menu-list
-            %li
-              = link_to admin_articles_path do
-                %span List
-                %span.icon= fa_icon 'list'
+    %section.box
+      = form_with scope: :article, url: admin_articles_path, id: 'new_article' do |f|
+        = render 'form_fields', f: f
 
 - provide :title, 'New Article'
+
+
+-# .column.is-one-fifth
+-#   %nav.menu.has-text-right
+-#     %ul.menu-list
+-#       %li
+-#         = link_to admin_articles_path do
+-#           %span List
+-#           %span.icon= fa_icon 'list'

@@ -1,0 +1,8 @@
+!!!5
+%html{ html_attrs('en') }
+  = render 'layouts/admin/head'
+  %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]}"}
+
+    = render 'layouts/admin/navbar'
+
+    = yield

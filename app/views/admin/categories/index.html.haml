@@ -1,14 +1,19 @@
+.navbar.is-dark
+  .container
+    .navbar-end
+      .navbar-item
+        .field.is-grouped
+          %p.control
+            = link_to new_admin_category_path, class: 'button' do
+              %span.icon= fa_icon 'pencil'
+              %span Create New Category
+
 %section.section
   .container
-    .columns
-      .column.is-one-fifth
-        = render 'admin/shared/menu'
+    %header
+      %h1.title Categories
 
-      .column
-        %header
-          %h1.title Categories
-
-        %section
-          = render 'table'
+    %section.box
+      = render 'table'
 
 - provide :title, 'Categories'

@@ -1,0 +1,30 @@
+%nav.navbar{role: 'navigation', aria: { label: 'main navigation'} }
+  .container
+    .navbar-brand
+      = link_to  admin_root_url, class: 'navbar-item' do
+        Dashboard
+
+    .navbar-menu{data: {target: 'navbar.menu'}}
+      .navbar-start
+        = link_to 'Site', root_path, class: 'navbar-item'
+
+      .navbar-end
+        .navbar-item.has-dropdown.is-hoverable
+          %a.navbar-link Accounts
+          .navbar-dropdown.is-right
+            = link_to 'List All', admin_accounts_path, class: 'navbar-item'
+            .navbar-divider
+            = link_to 'Connections', admin_connections_path, class: 'navbar-item'
+
+        .navbar-item.has-dropdown.is-hoverable
+          %a.navbar-link Content
+          .navbar-dropdown.is-right
+            = link_to 'New Article', new_admin_article_path, class: 'navbar-item'
+            = link_to 'Articles', admin_articles_path, class: 'navbar-item'
+            .navbar-divider
+            = link_to 'New Category', new_admin_category_path, class: 'navbar-item'
+            = link_to 'Categories', admin_categories_path, class: 'navbar-item'
+            .navbar-divider
+            = link_to 'Tags', admin_tags_path, class: 'navbar-item'
+
+        = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'

@@ -1,35 +1,35 @@
+.navbar.is-dark
+  .container
+    .navbar-end
+      .navbar-item
+        .field.is-grouped
+          %p.control
+            = link_to admin_categories_path, class: 'button' do
+              %span.icon= fa_icon 'th-list'
+              %span Categories Index
+
+          %p.control
+            = link_to new_admin_category_path, class: 'button' do
+              %span.icon= fa_icon 'pencil'
+              %span Create New Category
+
+          %p.control
+            = link_to edit_admin_category_path(@category), class: 'button is-success' do
+              %span.icon= fa_icon 'edit'
+              %span Edit Category
+
+          %p.control
+            = link_to admin_category_path(@category), method: :delete, class: 'button is-danger' do
+              %span.icon= fa_icon 'trash'
+              %span Delete Category
+
 %section.section
   .container
-    .columns
-      .column.is-one-fifth
-        = render 'admin/shared/menu'
+    %header
+      %h1.title= @category.name
 
-      .column
-        %header
-          %h1.title= @category.name
-
-        %section
-          .content
-            %p= @category.description
-
-      .column.is-one-fifth
-        %nav.menu.has-text-right
-          %ul.menu-list
-            %li
-              = link_to admin_categories_path do
-                %span List
-                %span.icon= fa_icon 'list'
-            %li
-              = link_to new_admin_category_path do
-                %span New
-                %span.icon= fa_icon 'plus'
-            %li
-              = link_to edit_admin_category_path @category do
-                %span Edit
-                %span.icon= fa_icon 'edit'
-            %li
-              = link_to admin_category_path @category, method: :delete, class: 'has-text-danger' do
-                %span Delete
-                %span.icon= fa_icon 'trash'
+    %section.box
+      .content
+        %p= @category.description
 
 - provide :title, @category.name

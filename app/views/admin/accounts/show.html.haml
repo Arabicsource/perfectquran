@@ -1,18 +1,21 @@
+.navbar.is-dark
+  .container
+    .navbar-end
+      .navbar-item
+        .field.is-grouped
+          %p.control
+            = link_to admin_accounts_path, class: 'button' do
+              %span.icon= fa_icon 'th-list'
+              %span Accounts Index
+
 %section.section
   .container
-    .columns
-      .column.is-one-fifth
-        = render 'admin/shared/menu'
+    %header
+      %h1.title= "Account: #{@account.email}"
 
-      .column
-        %header
-          %h1.title= "Account: #{@account.email}"
-
-        %section
-          = render 'profile_details'
-          = render 'connection_details'
-          = render 'memory_details'
-
-      .column.is-one-fifth
+      %section.box
+        = render 'profile_details'
+        = render 'connection_details'
+        = render 'memory_details'
 
 - provide :title, "Account: #{@account.email}"

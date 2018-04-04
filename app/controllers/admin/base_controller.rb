@@ -2,6 +2,8 @@
 
 module Admin
   class BaseController < ApplicationController
+    layout 'admin'
+
     before_action :authenticate_account!, :authorize_account!
 
     private def authorize_account!
