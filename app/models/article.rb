@@ -11,7 +11,7 @@ class Article < ApplicationRecord
   before_validation { self.permalink = title.parameterize if title.present? }
   validates :title, presence: true
   validates :content, presence: true
-  validates :permalink, presence: true, uniqueness: true
+  validates :permalink, presence: true, uniqueness: { case_sensitive: false }
   enum visibility: %i[draft published trash]
   enum collection: %i[post page]
   belongs_to :category

@@ -16,7 +16,7 @@ module Content
     end
 
     test 'get show' do
-      get content_article_path('one')
+      get content_article_path(article.permalink)
       assert_response :success
     end
 
@@ -38,8 +38,14 @@ module Content
 
     test 'get show when logged in' do
       login_as accounts(:abdullah)
-      get content_article_path('one')
+      get content_article_path(article.permalink)
       assert_response :success
+    end
+
+    private
+
+    def article
+      @article ||= FactoryBot.create :article
     end
   end
 end
