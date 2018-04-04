@@ -16,4 +16,12 @@ FactoryBot.define do
       visibility :draft
     end
   end
+
+  factory :post, class: 'Article' do
+    sequence(:title) { |n| "Post #{n}" }
+    content 'Post content'
+    visibility :published
+    category
+    account
+  end
 end
