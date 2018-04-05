@@ -5,22 +5,9 @@ require 'rails_helper'
 RSpec.describe Account, type: :model do
   context 'associations' do
     it { is_expected.to have_one :profile }
-    it { is_expected.to have_one :subscription }
     it { is_expected.to have_one :email_preference }
     it { is_expected.to have_many :connections }
     it { is_expected.to have_many :memories }
-  end
-
-  describe '#patron?' do
-    context 'with subscription' do
-      let(:account) { create :account, :with_subscription }
-      specify { expect(account.patron?).to be_truthy }
-    end
-
-    context 'without subscription' do
-      let(:account) { create :account }
-      specify { expect(account.patron?).to be_falsey }
-    end
   end
 
   describe '#name' do

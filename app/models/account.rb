@@ -9,7 +9,6 @@ class Account < ApplicationRecord
   after_create :create_memory_total!
 
   has_one :profile, dependent: :destroy
-  has_one :subscription
   has_one :email_preference
   has_one :memory_total, dependent: :destroy
 
@@ -35,10 +34,6 @@ class Account < ApplicationRecord
 
   def name
     profile.name || 'Anonymous'
-  end
-
-  def patron?
-    subscription
   end
 
   def memorized_ayahs(surah)

@@ -16,8 +16,4 @@ module ApplicationHelper
   def short_ordinal(date_column)
     date_column.to_date.to_formatted_s(:short_ordinal)
   end
-
-  def account_patron?
-    current_account&.patron?
-  end
 end

@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class GuestAccount
-  def patron?
-    false
-  end
-
   def memorized_percentage(*)
     0
   end

@@ -29,13 +29,6 @@
                 %li= link_to 'Email Preferences', edit_account_email_preference_path
                 %li= link_to 'Quran Preferences', edit_account_quran_preference_path
             
-              %p.menu-label Patronage
-              %ul.menu-list
-                %li= link_to 'Current Subscription', account_subscription_path if Current.account.patron?
-                %li= link_to 'New Subscription', new_account_subscription_path unless Current.account.patron?
-                %li= link_to 'Billing History', account_charges_path
-                %li= link_to 'Update Payment Method', edit_account_card_path
-
               %p.menu-label Account
               %ul.menu-list
                 %li= link_to "Logout", destroy_account_session_path, method: :delete
@@ -74,11 +67,6 @@
                 = link_to 'Edit Profile', edit_account_profile_path, class: 'navbar-item'
                 = link_to 'Email Preferences', edit_account_email_preference_path, class: 'navbar-item'
                 = link_to 'Quran Preferences', edit_account_quran_preference_path, class: 'navbar-item'
-                .navbar-divider
-                = link_to 'Current Subscription', account_subscription_path, class: 'navbar-item' if current_account.patron?
-                = link_to 'New Subscription', new_account_subscription_path, class: 'navbar-item' unless current_account.patron?
-                = link_to 'Billing History', account_charges_path, class: 'navbar-item'
-                = link_to 'Update Payment Method', edit_account_card_path, class: 'navbar-item'
                 .navbar-divider
                 = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'
 

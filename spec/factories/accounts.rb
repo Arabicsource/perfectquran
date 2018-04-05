@@ -29,11 +29,5 @@ FactoryBot.define do
       confirmed_at Time.now
       role 'admin'
     end
-
-    trait :with_subscription do
-      after(:create) do |account|
-        create :subscription, account: account
-      end
-    end
   end
 end

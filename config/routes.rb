@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resource :card, only: %i[edit update]
     resources :charges, only: :index
     resource :profile, only: %i[edit update]
-    resource :subscription
     resources :connections
     resource :email_preference, only: %i[edit update]
     resource :quran_preference, only: %i[edit]
