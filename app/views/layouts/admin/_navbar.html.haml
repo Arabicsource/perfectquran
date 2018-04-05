@@ -24,7 +24,5 @@
             .navbar-divider
             = link_to 'New Category', new_admin_category_path, class: 'navbar-item'
             = link_to 'Categories', admin_categories_path, class: 'navbar-item'
-            .navbar-divider
-            = link_to 'Tags', admin_tags_path, class: 'navbar-item'
 
         = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'

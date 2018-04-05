@@ -14,7 +14,5 @@ RSpec.describe Quran::Ayah, type: :model do
     it { is_expected.to have_many :bookmarks }
     it { is_expected.to have_many :texts }
     it { is_expected.to have_many :texts_and_translations }
-    it { is_expected.to have_many :taggings }
-    it { is_expected.to have_many(:tags).through :taggings }
   end
 end

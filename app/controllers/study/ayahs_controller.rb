@@ -9,7 +9,6 @@ module Study
     end
 
     def show
-      @tag = Tag.new
       @ayah = load_ayah
       @texts = load_texts
 

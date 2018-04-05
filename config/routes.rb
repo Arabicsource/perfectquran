@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboards#show'
     resources :articles, :categories, :accounts, :connections
-    resources :tags, only: %i[index]
   end
 
   namespace :study do
@@ -35,8 +34,6 @@ Rails.application.routes.draw do
 
     get '/texts/ayah/:ayah_id/translation/:translation_id', to: 'texts#show'
   end
-
-  resources :tags, only: :create
 
   get '/study/ayahs/:id', to: 'study/ayahs#show', as: :quran_ayah
   get 'auth/:provider/callback', to: 'account/connections#callback'
