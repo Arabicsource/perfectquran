@@ -7,7 +7,6 @@ RSpec.describe Account, type: :model do
     it { is_expected.to have_one :profile }
     it { is_expected.to have_one :email_preference }
     it { is_expected.to have_many :connections }
-    it { is_expected.to have_many :memories }
   end
 
   describe '#name' do

@@ -2,7 +2,6 @@ $alert: $red
 $brown: #653100
 $brown-dark: darken($brown, 5%)
 $error: $danger
-$memorized: $danger
 $notice: $green
 $orange: #FA9942
 $orange-dark: darken($orange, 20%)
@@ -14,7 +13,6 @@ $yellow: #FEC70A
 $alert-inverse: findColorInvert($alert)
 $brown-inverse: findColorInvert($brown)
 $error-inverse: findColorInvert($error)
-$memorized-inverse: findColorInvert($danger)
 $notice-inverse: findColorInvert($green)
 $orange-inverse: findColorInvert($orange)
 $orange-dark-inverse: findColorInvert($orange-dark)
@@ -26,7 +24,7 @@ $yellow-inverse: findColorInvert($yellow)
 $link: $orange-dark
 $primary: $orange
 
-$addColors: ("error":($error, $error-inverse), "primary":($primary, $primary-inverse), "memorized":($memorized, $memorized-inverse), "twitter":($twitter, $twitter-inverse), "brown":($brown, $brown-inverse), "yellow":($yellow, $yellow-inverse), "orange":($orange, $orange-inverse), "orange-light":($orange-light, $orange-light-inverse), "orange-dark":($orange-dark, $orange-dark-inverse), "alert":($alert, $alert-inverse), "notice":($notice, $notice-inverse))
+$addColors: ("error":($error, $error-inverse), "primary":($primary, $primary-inverse), "twitter":($twitter, $twitter-inverse), "brown":($brown, $brown-inverse), "yellow":($yellow, $yellow-inverse), "orange":($orange, $orange-inverse), "orange-light":($orange-light, $orange-light-inverse), "orange-dark":($orange-dark, $orange-dark-inverse), "alert":($alert, $alert-inverse), "notice":($notice, $notice-inverse))
 $colors: map-merge($colors, $addColors)
 
 $notification-radius: none

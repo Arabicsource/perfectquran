@@ -8,7 +8,6 @@ module Quran
     belongs_to :page, class_name: 'Quran::Page'
     belongs_to :juz, class_name: 'Quran::Juz'
 
-    has_many :memories
     has_many :bookmarks, as: :bookmarkable
     has_many :texts, class_name: 'Quran::Text'
     has_many :texts_and_translations,
@@ -65,15 +64,6 @@ module Quran
 
     def to_s
       "#{surah_name}: #{number}"
-    end
-
-    def memorize
-      return false if Current.account.guest?
-      Memory.create(account: Current.account, ayah: self)
-    end
-
-    def memorized?
-      Memory.where(account: Current.account, ayah: self).any?
     end
   end
 end

@@ -12,16 +12,6 @@
           %h1.title= @surah
           %h2.subtitle= @surah.description
     
-      -# .column
-      -#   .buttons
-      -#     %a.button
-      -#       %span.icon= fa_icon 'heart'
-      -#       %span Memory
-    
-      -#     %a.button
-      -#       %span.icon= fa_icon 'bookmark'
-      -#       %span Bookmark
-        
       .column.is-one-fifth.is-hidden-mobile
         %nav.pagination
           = link_to 'Previous', study_surah_path(@surah.previous), class: 'pagination-previous'

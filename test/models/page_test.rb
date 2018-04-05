@@ -37,32 +37,4 @@ class PageTest < ActiveSupport::TestCase
     page = quran_pages(:page_1)
     assert_equal 'Page 1', page.to_s
   end
-
-  test 'memorized?' do
-    Current.account = accounts(:abdullah)
-    page = quran_pages(:page_1)
-    pm = PageMemory.create(
-      account: Current.account, page: page, character_length: 55
-    )
-    assert_not page.memorized?
-
-    pm.update_attribute(:character_length, page.character_length)
-    assert page.memorized?
-  end
-
-  test 'memorized_percentage' do
-    Current.account = accounts(:abdullah)
-    assert quran_pages(:page_1).memorized_percentage.zero?
-
-    Quran::Ayah.first.memorize
-    assert_equal 13.333333333333334, quran_pages(:page_1).memorized_percentage
-  end
-
-  test 'memorize' do
-    Current.account = accounts(:abdullah)
-    assert Current.account.memories.count.zero?
-
-    quran_pages(:page_1).memorize
-    assert_equal 7, Current.account.memories.count
-  end
 end

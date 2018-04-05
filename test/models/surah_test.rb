@@ -12,32 +12,4 @@ class SurahTest < ActiveSupport::TestCase
     surah = Quran::Surah.first
     assert_equal 'Al-Fatihah', surah.to_s
   end
-
-  test 'memorized?' do
-    Current.account = accounts(:abdullah)
-    surah = Quran::Surah.first
-    sm = SurahMemory.create(
-      account: Current.account, surah: surah, character_length: 55
-    )
-    assert_not surah.memorized?
-
-    sm.update_attribute(:character_length, surah.character_length)
-    assert surah.memorized?
-  end
-
-  test 'memorized_percentage' do
-    Current.account = accounts(:abdullah)
-    assert Quran::Surah.first.memorized_percentage.zero?
-
-    Quran::Ayah.first.memorize
-    assert_equal 13.333333333333334, Quran::Surah.first.memorized_percentage
-  end
-
-  test 'memorize' do
-    Current.account = accounts(:abdullah)
-    assert Current.account.memories.count.zero?
-
-    Quran::Surah.first.memorize
-    assert_equal 7, Current.account.memories.count
-  end
 end

@@ -11,7 +11,6 @@ module Quran
     has_many :ayahs_and_included_texts,
             -> { includes(:texts_and_translations) },
             class_name: 'Quran::Ayah'
-    has_many :memories, through: :ayahs
 
     def next
       @next ||= if id < 114
@@ -35,30 +34,6 @@ module Quran
 
     def to_s
       transliterated_name
-    end
-
-    def memorized?
-      character_length == surah_memory.character_length
-    end
-
-    def memorized_percentage
-      (surah_memory.character_length / character_length.to_f) * 100
-    end
-
-    def memorize
-      ayahs.each do |ayah|
-        return false unless ayah.memorize
-      end
-    end
-
-    private
-
-    def surah_memory
-      if Current.account.guest?
-        SurahMemory.new
-      else
-        SurahMemory.find_or_initialize_by(account: Current.account, surah: self)
-      end
     end
   end
 end

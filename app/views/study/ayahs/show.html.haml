@@ -13,16 +13,6 @@
           %h1.title= @ayah
           %h2.subtitle= @ayah.surah.description
 
-      -# .column
-      -#   .buttons
-      -#     %a.button
-      -#       %span.icon= fa_icon 'heart'
-      -#       %span Memory
-
-      -#     %a.button
-      -#       %span.icon= fa_icon 'bookmark'
-      -#       %span Bookmark
-        
       .column.is-one-fifth.is-hidden-mobile
         %nav.pagination
           = link_to 'Previous', study_ayah_path(@ayah.previous), class: 'pagination-previous'

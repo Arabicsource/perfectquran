@@ -43,21 +43,4 @@ class AyahTest < ActiveSupport::TestCase
     assert_equal Quran::Ayah.second, Quran::Ayah.first.next
     assert_equal Quran::Ayah.first, Quran::Ayah.last.next
   end
-
-  test 'memorize' do
-    Current.account = accounts(:abdullah)
-    assert Current.account.memories.count.zero?
-
-    Quran::Ayah.first.memorize
-    assert_equal 1, Current.account.memories.count
-  end
-
-  test 'memorized?' do
-    Current.account = accounts(:abdullah)
-    ayah = Quran::Ayah.first
-    assert_not ayah.memorized?
-
-    ayah.memorize
-    assert ayah.memorized?
-  end
 end

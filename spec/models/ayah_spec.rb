@@ -10,7 +10,6 @@ RSpec.describe Quran::Ayah, type: :model do
   end
 
   describe 'has_many associations' do
-    it { is_expected.to have_many :memories }
     it { is_expected.to have_many :bookmarks }
     it { is_expected.to have_many :texts }
     it { is_expected.to have_many :texts_and_translations }
