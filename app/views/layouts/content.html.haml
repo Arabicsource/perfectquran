@@ -1,0 +1,10 @@
+!!!5
+%html{ html_attrs('en') }
+  = render 'layouts/content/head'
+  %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]}"}
+
+    = render 'layouts/default/navbar'
+
+    = yield
+
+    = render 'layouts/footer'

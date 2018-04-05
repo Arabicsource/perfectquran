@@ -8,6 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootsnap', require: false
+gem 'browser'
 gem 'bulma-rails', '~> 0.6.2'
 gem 'chartkick'
 gem 'coffee-rails', '~> 4.2'

@@ -1,0 +1,15 @@
+.navbar
+  img
+    border-radius: $radius
+
+  nav.menu.mobile
+    padding: $gap
+
+.mobile-navbar
+  @extend .navbar, .is-hidden-desktop, .is-fixed-bottom, .is-dark
+
+  .navbar-item
+    width: 25%
+
+    i.fa
+      margin: 0 auto

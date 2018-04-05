@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Content
-  class ArticlesController < ApplicationController
+  class ArticlesController < Content::BaseController
     def index
       @articles = Article.includes(:category, :account).published_posts
     end

@@ -1,0 +1,23 @@
+@import 'trix'
+@import 'font-awesome'
+@import "sass/utilities/initial-variables"
+@import "sass/utilities/functions"
+@import "sass/utilities/derived-variables"
+@import "content/variables"
+@import 'bulma'
+@import 'default/navbar'
+
+.navbar.secondary
+  @extend .is-brown
+
+  
+.navbar.is-brown
+  a.navbar-item
+    color: $yellow
+
+    &:hover, &:active, &:focus
+      border-bottom: 5px solid $yellow
+
+section.section
+  section
+    margin-bottom: 3rem
