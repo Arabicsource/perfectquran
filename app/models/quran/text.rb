@@ -2,8 +2,6 @@
 
 module Quran
   class Text < ApplicationRecord
-    searchkick word_middle: [:content], highlight: [:content]
-
     # default_scope { order('id asc') }
 
     belongs_to :translation

@@ -33,7 +33,6 @@ Rails.application.routes.draw do
 
     resources :surahs, only: %i[index show]
     resources :ayahs, only: %i[index show]
-    resource :search, only: :show
 
     get '/texts/ayah/:ayah_id/translation/:translation_id', to: 'texts#show'
   end

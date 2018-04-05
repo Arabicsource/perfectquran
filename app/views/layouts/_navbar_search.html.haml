@@ -1,7 +1,0 @@
-.navbar-item
-  = form_with url: study_search_path, method: :get, local: true do |f|
-    .field.has-addons
-      .control
-        = f.text_field :terms, id: 'search-terms-input', class: 'input', placeholder: 'Search the Quran'
-      .control
-        = f.submit 'Search', class: 'button is-orange'
