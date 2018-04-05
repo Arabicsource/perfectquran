@@ -10,13 +10,13 @@ class Account
     end
 
     test 'get edit with account without translations' do
-      login_as accounts(:blank)
+      login_as FactoryBot.create :account
       get edit_account_quran_preference_path
       assert_response :success
     end
 
     test 'get edit with account with translations' do
-      login_as accounts(:abdullah)
+      login_as FactoryBot.create :account
       get edit_account_quran_preference_path
       assert_response :success
     end

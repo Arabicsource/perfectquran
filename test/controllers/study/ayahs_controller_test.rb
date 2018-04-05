@@ -15,7 +15,7 @@ module Study
     end
 
     test 'get show when logged in' do
-      login_as accounts(:abdullah)
+      login_as FactoryBot.create :account
       get study_ayah_path(Quran::Ayah.first)
       assert_response :success
     end

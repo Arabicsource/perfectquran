@@ -10,7 +10,7 @@ class Account
     end
 
     test 'get edit with account' do
-      login_as accounts(:abdullah)
+      login_as FactoryBot.create :account
       get edit_account_email_preference_path
       assert_response :success
     end

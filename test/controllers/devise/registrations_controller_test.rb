@@ -10,7 +10,7 @@ module Devise
     end
 
     test 'get new with account' do
-      login_as accounts(:abdullah)
+      login_as FactoryBot.create :account
       get new_account_registration_path
       assert_redirected_to root_path
 

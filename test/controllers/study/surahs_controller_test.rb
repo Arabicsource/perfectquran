@@ -15,7 +15,7 @@ module Study
     end
 
     test 'get index when logged in' do
-      login_as accounts(:abdullah)
+      login_as FactoryBot.create :account
       get study_surahs_path
       assert_response :success
     end
@@ -36,7 +36,7 @@ module Study
     end
 
     test 'get show when logged in' do
-      login_as accounts(:abdullah)
+      login_as FactoryBot.create :account
       get study_surah_path(1)
       assert_response :success
     end

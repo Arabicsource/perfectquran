@@ -9,12 +9,13 @@ class AyahTest < ActiveSupport::TestCase
   end
 
   test 'primary_text with account without account_translations' do
-    Current.account = accounts(:blank)
+    Current.account = FactoryBot.create :account
     assert_equal 'Noble Quran 1', Quran::Ayah.first.primary_text
   end
 
   test 'primary_text with account with account_translations' do
-    Current.account = accounts(:abdullah)
+    skip
+    Current.account = FactoryBot.create :account
     assert_equal 'Transliteration 1', Quran::Ayah.first.primary_text
   end
 

@@ -10,7 +10,7 @@ class Account
     end
 
     test 'get index with account' do
-      login_as accounts(:abdullah)
+      login_as FactoryBot.create :account
       get account_connections_path
       assert_response :success
     end
