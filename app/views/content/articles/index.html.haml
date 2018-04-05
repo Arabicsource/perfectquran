@@ -1,11 +1,5 @@
 - unless browser.mobile?
   .navbar.secondary
-    .container
-      .navbar-start
-        .navbar-tabs
-          - Category.find_each do |category|
-            = link_to '#', class: 'navbar-item is-tab' do
-              = category.name
 
 %section.section
   .container
