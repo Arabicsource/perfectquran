@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   namespace :account do
     resource :card, only: %i[edit update]
-    resources :charges, only: :index
     resource :profile, only: %i[edit update]
     resources :connections
     resource :email_preference, only: %i[edit update]
