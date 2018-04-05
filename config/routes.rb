@@ -28,12 +28,6 @@ Rails.application.routes.draw do
     resources :tags, only: %i[index]
   end
 
-  namespace :content do
-    resources :articles, only: %i[index show] do
-      resources :comments, only: :create
-    end
-  end
-
   namespace :study do
     root 'surahs#index'
 
@@ -46,7 +40,6 @@ Rails.application.routes.draw do
 
   resources :tags, only: :create
 
-  get '/blog', to: 'content/articles#index'
   get '/study/ayahs/:id', to: 'study/ayahs#show', as: :quran_ayah
   get 'auth/:provider/callback', to: 'account/connections#callback'
   get '/:surah_id/:number', to: 'study/ayahs#show', as: :ayah_by_number

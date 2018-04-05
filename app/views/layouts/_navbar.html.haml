@@ -11,8 +11,6 @@
 
     .navbar-menu{data: {target: 'navbar.menu'}}
       .navbar-start
-        = link_to 'Blog', blog_path, class: 'navbar-item'
-
         = render 'layouts/navbar_search'
 
       .navbar-end
@@ -20,7 +18,6 @@
           %p.menu-label Main
           %ul.menu-list
             %li= link_to 'Study', study_root_path
-            %li= link_to 'Blog', blog_path
 
           - if account_signed_in?
             %p.menu-label Connections

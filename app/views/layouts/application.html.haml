@@ -11,4 +11,3 @@
     = render 'layouts/patron_banner' unless Current.account.patron?
     = render 'layouts/newsletter' unless account_signed_in?
     = render 'layouts/footer'
-    = render('layouts/cookie_notification') unless account_signed_in?
