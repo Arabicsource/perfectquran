@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module TranslationHelper
+module TranslationsHelper
   def translation_select_options
     option_groups_from_collection_for_select(
       Quran::Language.available_for_study,

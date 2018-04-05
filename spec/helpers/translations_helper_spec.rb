@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
-class TranslationHelperTest < ActionView::TestCase
-  test 'translation_select_options' do
-    assert_dom_equal(
-      expected_translation_select_options,
-      translation_select_options.to_str.squish.gsub('> <', '><')
-    )
+require 'rails_helper'
+
+RSpec.describe TranslationsHelper, type: :helper do
+  specify 'translation_select_options' do
+    actual = translation_select_options.to_str.squish.gsub('> <', '><')
+
+    expect(actual).to eq expected_translation_select_options
   end
+
+  private
 
   def expected_translation_select_options
     '<optgroup label="Arabic">
