@@ -7,22 +7,18 @@ module Quran
     belongs_to :juz
 
     def previous
-      @previous ||= if id == 1
-                      Quran::Page.last
-                    else
-                      Quran::Page.find id - 1
-                    end
+      previous_id = id > 1 ? id - 1 : 604
+      @previous ||= self.class.find previous_id
     end
 
     def next
-      @next ||= if id == 604
-                  Quran::Page.first
-                else
-                  Quran::Page.find id + 1
-                end
+      next_id = id == 604 ? 1 : id + 1
+      @next ||= self.class.find next_id
     end
 
-    def reference; end
+    def description
+      "Page #{id}"
+    end
 
     def to_s
       "Page #{id}"
