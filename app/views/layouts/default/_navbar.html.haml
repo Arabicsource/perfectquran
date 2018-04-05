@@ -19,7 +19,6 @@
             %p.menu-label Main
             %ul.menu-list
               %li= link_to 'Study', study_root_path
-              %li= link_to 'Hifz', hifz_root_path
               %li= link_to 'Blog', blog_path
 
             - if account_signed_in?
@@ -67,7 +66,6 @@
 
       .navbar-menu{data: {target: 'navbar.menu'}}
         .navbar-start
-          = link_to 'Hifz', hifz_root_path, class: 'navbar-item'
           = link_to 'Blog', blog_path, class: 'navbar-item'
 
           = render 'layouts/navbar_search'
