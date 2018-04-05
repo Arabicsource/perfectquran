@@ -1,6 +1,0 @@
-- page.ayahs.each do |ayah|
-  - if ayah.number == 1
-    %p.surah-title= ayah.surah.arabic_name
-  %span{class: page.current_ayah?(ayah) ? 'current-ayah': ''}
-    %span.uthmani-text= ayah.uthmani_text
-    %span.ayah-number= ayah.number

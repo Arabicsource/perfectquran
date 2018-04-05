@@ -10,8 +10,6 @@
 @import 'components/breadcrumbs'
 @import 'components/navbar'
 @import 'views/account/connections/index'
-@import 'views/hifz/dashboards/show'
-@import 'views/hifz/pages/show'
 @import 'views/study/ayahs/show'
 @import 'views/study/surahs/index'
 @import 'views/study/surahs/show'
@@ -77,13 +75,6 @@ section.patron-banner
     padding: 0 2px
     background: lighten($yellow, 35%)
 
-// HIFZ-SURAHS.INDEX, HIFZ-PAGES.INDEX, HIFZ-JUZS.INDEX
-#hifz-surahs.index, #hifz-pages.index, #hifz-juzs.index
-  +desktop
-    section.section
-      ul
-        column-count: 2
-
   section.section
     ul
       li
@@ -106,30 +97,6 @@ section.patron-banner
         .media-right
           padding: 5px
           line-height: 2.2
-
-// HIFZ-AYAHS.SHOW
-#hifz-ayahs.show
-  main
-    text-align: right
-
-    .uthmani-text
-      font-size: 1.25rem
-      line-height: 2
-
-    .current-ayah
-      color: $orange-dark
-
-      .ayah-number
-        color: $text
-        border-color: $text
-
-    .ayah-number
-      border: 1px solid $border
-      margin-left: 1rem
-      color: $border
-      border-radius: $radius
-      padding: 2px
-      font-size: 0.8rem
 
 .surah-title
   border: 1px solid $border
