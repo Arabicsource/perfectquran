@@ -2,20 +2,9 @@
 
 module Study
   class AyahsController < ApplicationController
-    def index
-      respond_to do |format|
-        format.json { render json: Quran::Ayah.all }
-      end
-    end
-
     def show
       @ayah = load_ayah
       @texts = load_texts
-
-      respond_to do |format|
-        format.html
-        format.json { render json: @ayah }
-      end
     end
 
     private
