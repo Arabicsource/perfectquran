@@ -94,9 +94,9 @@ RSpec.describe Connection, type: :model do
 
   describe 'daily_active' do
     before do
-      create :connection, frequency: :daily, active: true, name: 'con_one'
-      create :connection, frequency: :daily, active: false, name: 'con_two'
-      create :connection, frequency: :daily, active: true, name: 'con_three'
+      create :connection, :as_daily, active: true, name: 'con_one'
+      create :connection, :as_daily, active: false, name: 'con_two'
+      create :connection, :as_daily, active: true, name: 'con_three'
     end
 
     specify do
@@ -104,11 +104,11 @@ RSpec.describe Connection, type: :model do
     end
   end
 
-  describe 'daily_active' do
+  describe 'hourly_active' do
     before do
-      create :connection, frequency: :hourly, active: true, name: 'con_one'
-      create :connection, frequency: :hourly, active: false, name: 'con_two'
-      create :connection, frequency: :hourly, active: true, name: 'con_three'
+      create :connection, :as_hourly, active: true, name: 'con_one'
+      create :connection, :as_hourly, active: false, name: 'con_two'
+      create :connection, :as_hourly, active: true, name: 'con_three'
     end
 
     specify do
@@ -118,9 +118,9 @@ RSpec.describe Connection, type: :model do
 
   context '#all_active' do
     before do
-      create :connection, frequency: :hourly, active: true, name: 'con_one'
-      create :connection, frequency: :hourly, active: false, name: 'con_two'
-      create :connection, frequency: :daily, active: true, name: 'con_three'
+      create :connection, :as_hourly, active: true, name: 'con_one'
+      create :connection, :as_hourly, active: false, name: 'con_two'
+      create :connection, :as_daily, active: true, name: 'con_three'
     end
 
     specify do
