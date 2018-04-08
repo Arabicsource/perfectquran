@@ -1,0 +1,50 @@
+= render 'shared/error_messages', object: @mosque
+
+.field
+  = f.label :name, class: 'label'
+  .control
+    = f.text_field :name, autofocus: true, class: 'input', id: 'mosque_name'
+
+.field
+  = f.label :phone, class: 'label'
+  .control
+    = f.text_field :phone, class: 'input', id: 'mosque_phone'
+
+.field
+  = f.label :email, class: 'label'
+  .control
+    = f.email_field :email, class: 'input', id: 'mosque_email'
+
+.field
+  = f.label :street, class: 'label'
+  .control
+    = f.text_field :street, class: 'input', id: 'mosque_street'
+
+.field
+  = f.label :city, class: 'label'
+  .control
+    = f.text_field :city, class: 'input', id: 'mosque_city'
+
+.field
+  = f.label :state, class: 'label'
+  .control
+    = f.text_field :state, class: 'input', id: 'mosque_state'
+
+.field
+  = f.label :country, class: 'label'
+  .control
+    = f.text_field :country, class: 'input', id: 'mosque_country'
+
+.field
+  = f.label :zip_code, 'Zip Code', class: 'label'
+  .control
+    = f.text_field :zip_code, class: 'input', id: 'mosque_zip_code'
+
+.field
+  = f.label :website, class: 'label'
+  .control
+    = f.text_field :website, class: 'input', id: 'mosque_website'
+
+.field
+  .control
+    = f.submit nil, class: 'button is-orange'

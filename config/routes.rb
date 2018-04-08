@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboards#show'
     resources :articles, :categories, :accounts, :connections
+
+    resources :mosques, only: %i[index new create]
   end
 
   namespace :study do

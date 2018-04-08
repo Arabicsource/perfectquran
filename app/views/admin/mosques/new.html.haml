@@ -1,0 +1,20 @@
+.navbar.is-dark
+  .container
+    .navbar-end
+      .navbar-item
+        .field
+          %p.control
+            = link_to admin_mosques_path, class: 'button' do
+              %span.icon= fa_icon 'th-list'
+              %span Mosques Index
+
+%section.section
+  .container
+    %header
+      %h1.title New Mosque
+
+    %section.box
+      = form_with scope: :mosque, url: admin_mosques_path, id: 'new-mosque' do |f|
+        = render 'form_fields', f: f
+
+- provide :title, 'New Mosque'

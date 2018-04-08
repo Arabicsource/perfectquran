@@ -1,0 +1,12 @@
+%table#mosques.table.is-fullwidth
+  %tbody
+    %tr
+      %th #
+      %th Name
+      %th City
+  %tbody
+    - @mosques.each do |mosque|
+      %tr
+        %td= mosque.id
+        %td= mosque.name
+        %tdj= mosque.city

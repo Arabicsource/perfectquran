@@ -9,6 +9,9 @@
         = link_to 'Site', root_path, class: 'navbar-item'
 
       .navbar-end
+        = link_to admin_mosques_path, class: 'navbar-item' do
+          Mosques
+
         .navbar-item.has-dropdown.is-hoverable
           %a.navbar-link Accounts
           .navbar-dropdown.is-right
