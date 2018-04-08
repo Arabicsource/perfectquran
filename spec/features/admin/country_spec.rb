@@ -5,8 +5,7 @@ require 'rails_helper'
 feature 'New Country', js: true do
   scenario 'when successful' do
     login_as create :account, :as_admin
-    visit admin_root_path
-    click_on 'Countries'
+    visit admin_countries_path
     click_on 'New Country'
 
     fill_in 'Name', with: 'country123'

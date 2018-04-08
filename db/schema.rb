@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_08_141436) do
+ActiveRecord::Schema.define(version: 2018_04_08_171625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -267,6 +267,15 @@ ActiveRecord::Schema.define(version: 2018_04_08_141436) do
     t.index ["ayah_id"], name: "index_shares_on_ayah_id"
   end
 
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.bigint "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_states_on_country_id"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "account_id"
     t.datetime "created_at", null: false
@@ -345,6 +354,7 @@ ActiveRecord::Schema.define(version: 2018_04_08_141436) do
   add_foreign_key "pages", "juzs"
   add_foreign_key "profiles", "accounts"
   add_foreign_key "shares", "ayahs"
+  add_foreign_key "states", "countries"
   add_foreign_key "subscriptions", "accounts"
   add_foreign_key "taggings", "accounts"
   add_foreign_key "taggings", "tags"

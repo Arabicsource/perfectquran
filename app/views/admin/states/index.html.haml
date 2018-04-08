@@ -1,0 +1,17 @@
+.navbar.is-dark
+  .container
+    .navbar-end
+      .navbar-item
+        .field.is-grouped
+          %p.control
+            = link_to 'New State', new_admin_state_path, class: 'button is-success'
+
+%section.section
+  .container
+    %header
+      %h1.title States
+
+      %section.box
+        = render 'table'
+
+- provide :title, 'States'
