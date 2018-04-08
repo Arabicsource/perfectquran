@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :mosques, only: %i[index new create]
     resources :countries, only: %i[index new create]
     resources :states, only: %i[index new create]
+    resources :cities, only: %i[index new create]
   end
 
   namespace :study do

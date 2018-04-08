@@ -4,5 +4,6 @@ FactoryBot.define do
   factory :state do
     name 'State'
     code 'ST'
+    country
   end
 end
