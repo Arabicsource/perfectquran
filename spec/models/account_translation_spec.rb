@@ -3,5 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe AccountTranslation, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do
+    it { is_expected.to belong_to :account }
+    it { is_expected.to belong_to :translation }
+  end
 end
