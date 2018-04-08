@@ -5,6 +5,7 @@ require 'rails_helper'
 describe 'Admin::MosquesController' do
   let(:account) { create :account }
   let(:admin) { create :account, :as_admin }
+  let(:city) { create :city }
   let(:invalid_params) { { mosque: { name: '' } } }
 
   let(:valid_params) do
@@ -13,9 +14,7 @@ describe 'Admin::MosquesController' do
         phone: 'phone123',
         email: 'email123',
         street: 'street123',
-        city: 'city123',
-        state: 'state123',
-        country: 'country123',
+        city_id: city.id,
         zip_code: 'zip_code123',
         website: 'website123'
       } }

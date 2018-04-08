@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_08_200648) do
+ActiveRecord::Schema.define(version: 2018_04_08_221115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -251,6 +251,8 @@ ActiveRecord::Schema.define(version: 2018_04_08_200648) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_mosques_on_city_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -361,6 +363,7 @@ ActiveRecord::Schema.define(version: 2018_04_08_200648) do
   add_foreign_key "facebook_shares", "ayahs"
   add_foreign_key "memories", "accounts"
   add_foreign_key "menu_links", "menus"
+  add_foreign_key "mosques", "cities"
   add_foreign_key "pages", "juzs"
   add_foreign_key "profiles", "accounts"
   add_foreign_key "shares", "ayahs"

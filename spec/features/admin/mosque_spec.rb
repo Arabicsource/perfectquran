@@ -4,6 +4,7 @@ require 'rails_helper'
 
 feature 'New Mosque', js: true do
   scenario 'when successful' do
+    create :city, name: 'city123'
     login_as create :account, :as_admin
     visit admin_root_path
     click_on 'Mosques'
@@ -13,9 +14,7 @@ feature 'New Mosque', js: true do
     fill_in 'Phone',	with: "1111111111"
     fill_in 'Email',	with: 'info@mosqueemail.com'
     fill_in 'Street', with: '123 Main St.'
-    fill_in 'City', with: 'Mosque City'
-    fill_in 'State',	with: 'Mosque State'
-    fill_in 'Country',	with: 'Mosque Country'
+    select 'city123', from: 'Location'
     fill_in 'Zip Code', with: '12345'
     fill_in 'Website', with: 'mosquewebsite.com'
     click_on 'Save Mosque'

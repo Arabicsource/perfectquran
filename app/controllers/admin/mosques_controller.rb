@@ -22,8 +22,7 @@ module Admin
     def mosque_params
       params.require(:mosque)
             .permit(
-              :name, :phone, :email, :street, :city, :state, :country,
-              :zip_code, :website
+              :name, :phone, :email, :street, :city_id, :zip_code, :website
             )
     end
   end

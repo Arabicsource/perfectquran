@@ -28,32 +28,23 @@
 = field_set_tag 'Address' do
   .field
     .columns
-      .column.is-four-fifths
+      .column
         = f.label :street, class: 'label'
         .control
           = f.text_field :street, class: 'input', id: 'mosque_street'
+
+  .field
+    .columns
+      .column
+        = f.label :city_id, 'Location', class: 'label'
+        .control
+          .select.is-fullwidth
+            = f.select :city_id, City.all.collect {|c| [ c.name, c.id ] }, {}, id: 'mosque_city_id'
 
       .column
         = f.label :zip_code, 'Zip Code', class: 'label'
         .control
           = f.text_field :zip_code, class: 'input', id: 'mosque_zip_code'
-
-  .field
-    .columns
-      .column
-        = f.label :city, class: 'label'
-        .control
-          = f.text_field :city, class: 'input', id: 'mosque_city'
-
-      .column
-        = f.label :state, class: 'label'
-        .control
-          = f.text_field :state, class: 'input', id: 'mosque_state'
-
-      .column
-        = f.label :country, class: 'label'
-        .control
-          = f.text_field :country, class: 'input', id: 'mosque_country'
 
 .field
   .control

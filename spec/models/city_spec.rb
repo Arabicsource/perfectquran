@@ -12,6 +12,13 @@ RSpec.describe City, type: :model do
     specify { expect(city.state_name).to eq 'state123' }
   end
 
+  describe 'state_code' do
+    let(:city) { create :city, state: state }
+    let(:state) { create :state, code: 'ST123' }
+
+    specify { expect(city.state_code).to eq 'ST123' }
+  end
+
   describe 'country_code' do
     let(:city) { create :city, state: state }
     let(:country) { create :country, code: 'abc123' }
