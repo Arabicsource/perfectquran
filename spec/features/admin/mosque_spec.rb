@@ -20,7 +20,7 @@ feature 'New Mosque', js: true do
     fill_in 'Website', with: 'mosquewebsite.com'
     click_on 'Save Mosque'
 
-    expect(page).to have_css '.notification', /mosque was added/
+    expect(page).to have_css '.notification', text: /mosque was added/
     expect(page).to have_text 'name123'
   end
 end
