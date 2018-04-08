@@ -1,0 +1,20 @@
+.navbar.is-dark
+  .container
+    .navbar-end
+      .navbar-item
+        .field
+          %p.control
+            = link_to admin_countries_path, class: 'button' do
+              %span.icon= fa_icon 'th-list'
+              %span Countries Index
+
+%section.section
+  .container
+    %header
+      %h1.title New Country
+
+    %section.box
+      = form_with scope: :country, url: admin_countries_path, id: 'new-country' do |f|
+        = render 'form_fields', f: f
+
+- provide :title, 'New Country'

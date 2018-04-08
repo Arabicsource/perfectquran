@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :articles, :categories, :accounts, :connections
 
     resources :mosques, only: %i[index new create]
+    resources :countries, only: %i[index new create]
   end
 
   namespace :study do

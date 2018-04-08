@@ -1,0 +1,12 @@
+%table#countries.table.is-fullwidth
+  %tbody
+    %tr
+      %th #
+      %th Name
+      %th Code
+  %tbody
+    - @countries.each do |country|
+      %tr
+        %td= country.id
+        %td= country.name
+        %td= country.code
