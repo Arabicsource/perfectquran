@@ -1,0 +1,22 @@
+%section.section
+  .container
+    .columns
+      .column.is-one-fifth
+        .card
+          .card-content
+            .content
+              %h1.title.is-5= @mosque.name
+              %p
+                #{@mosque.street}<br>#{@mosque.location}, #{@mosque.zip_code}
+
+              %p
+                <a href="tel:+#{@mosque.phone.remove('-')}">#{@mosque.phone}</a>
+
+              %p
+                = link_to 'Website', @mosque.website
+
+      .column
+        = render 'inactive_mosque_message'
+
+      .column.is-one-quarter
+        = render 'daily_salah_times'

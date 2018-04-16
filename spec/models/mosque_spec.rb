@@ -41,4 +41,10 @@ RSpec.describe Mosque, type: :model do
 
     specify { expect(mosque.location).to eq 'City, ST, CC' }
   end
+
+  describe 'to_param' do
+    let(:mosque) { create :mosque, id: 1, name: 'Mosque 123'}
+
+    specify { expect(mosque.to_param).to eq '1-mosque-123' }
+  end
 end

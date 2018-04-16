@@ -37,6 +37,8 @@ Rails.application.routes.draw do
     resources :ayahs, only: %i[index show]
   end
 
+  resources :mosques, only: :show
+
   get '/study/ayahs/:id', to: 'study/ayahs#show', as: :quran_ayah
   get 'auth/:provider/callback', to: 'account/connections#callback'
   get '/:surah_id/:number', to: 'study/ayahs#show', as: :ayah_by_number

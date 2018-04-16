@@ -10,4 +10,8 @@ class Mosque < ApplicationRecord
   def location
     "#{city_name}, #{state_code}, #{country_code}"
   end
+
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 end
