@@ -9,7 +9,7 @@ end
 
 gem 'bootsnap', require: false
 gem 'browser'
-gem 'bulma-rails', '~> 0.6.2'
+gem 'bulma-rails', '~> 0.7.0'
 gem 'chartkick'
 gem 'coffee-rails', '~> 4.2'
 gem 'coveralls', require: false
