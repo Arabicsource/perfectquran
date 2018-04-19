@@ -4,7 +4,7 @@
   %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]}"}
 
     = render 'layouts/flash'
-    = render 'layouts/navbar'
+    = render 'layouts/default/navbar'
 
     = yield 
 
