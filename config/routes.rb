@@ -45,5 +45,5 @@ Rails.application.routes.draw do
   get '/:translation_id/:surah_id/:number', to: 'study/ayahs#show'
   get '/:permalink', to: 'study/surahs#show', as: :surah
 
-  root to: 'study/surahs#index'
+  root to: 'home#show'
 end

@@ -1,0 +1,42 @@
+%section.hero.intro
+  .hero-body
+    .container
+      .columns
+        .column
+          %h1.title
+            <strong>PerfectQuran</strong> connects Muslims to the 
+            #{link_to 'Quran', study_root_path} and the <strong>Masjid</strong>
+        .column
+          %h2.title
+            Join Our Newletter
+          = render 'shared/newsletter_signup'
+
+%section.hero.twitter-intro
+  .hero-body
+    .container
+      %h3.title.has-text-centered
+        <span class='has-text-twitter'>#{fa_icon 'twitter'}</span> Automatically
+        post Ayat of <strong class='has-text-twitter'>Quran</strong> to Twitter
+      %h4.subtitle.has-text-centered
+        Join 100s of Others Sharing Quranic Reminders
+
+      .columns.is-multiline
+        - @connections.find_each do |connection|
+          .column.is-one-third
+            %article
+              .media
+                .media-left
+                  <figure class="image is-64x64"><img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"></figure>
+                .media-content
+                  .content
+                    %p
+                      <strong>#{connection.name}</strong><br>
+                      @connection. username
+                    %p
+                      = 'connection.bio'
+                  = link_to 'Follow', '#', class: 'button is-twitter'
+
+%section.hero.is-primary
+  .hero-body
+    .container
+      %h6.title.has-text-centered Support PerfectQuran
