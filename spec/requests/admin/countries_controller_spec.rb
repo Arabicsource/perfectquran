@@ -95,7 +95,7 @@ describe 'Admin::CountriesController' do
 
       specify { expect(response).to redirect_to root_path }
     end
-  
+
     context 'when logged in as an admin' do
       before { login_as admin }
 

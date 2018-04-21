@@ -11,13 +11,13 @@ module Quran
     has_many :bookmarks, as: :bookmarkable
     has_many :texts, class_name: 'Quran::Text'
     has_many :texts_and_translations,
-            -> { includes(:translation) },
-            class_name: 'Quran::Text'
+             -> { includes(:translation) },
+             class_name: 'Quran::Text'
 
     def account_texts
       if Current.account.account_translations.any?
         texts.joins(translation: :account_translation)
-            .order('account_translations.order ASC')
+             .order('account_translations.order ASC')
       else
         texts.where(translation: [1, 2, 3]).order(:id)
       end

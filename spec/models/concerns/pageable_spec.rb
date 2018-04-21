@@ -9,7 +9,7 @@ RSpec.describe Pageable do
 
   describe 'pages' do
     specify { expect(surah_1.pages.map(&:id)).to eq [1] }
-    specify { expect(juz_1.pages.map(&:id)).to eq (1..21).to_a }
+    specify { expect(juz_1.pages.map(&:id)).to eq((1..21).to_a) }
   end
 
   describe 'first_page' do

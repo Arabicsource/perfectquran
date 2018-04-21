@@ -7,7 +7,10 @@ describe 'Admin::StatesController' do
   let(:admin) { create :account, :as_admin }
   let(:country) { countries :usa }
   let(:invalid_params) { { state: { name: '' } } }
-  let(:valid_params) { { state: { name: 'state123', code: 'ST', country_id: country.id } } }
+
+  let(:valid_params) do
+    { state: { name: 'state123', code: 'ST', country_id: country.id } }
+  end
 
   describe 'GET admin_states_path' do
     context 'when not logged in' do
@@ -96,7 +99,7 @@ describe 'Admin::StatesController' do
 
       specify { expect(response).to redirect_to root_path }
     end
-  
+
     context 'when logged in as an admin' do
       before { login_as admin }
 

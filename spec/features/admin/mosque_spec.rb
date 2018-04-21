@@ -11,7 +11,7 @@ feature 'New Mosque', js: true do
     click_on 'New Mosque'
 
     fill_in 'Name', with: 'name123'
-    fill_in 'Phone',	with: "1111111111"
+    fill_in 'Phone',	with: '1111111111'
     fill_in 'Email',	with: 'info@mosqueemail.com'
     fill_in 'Street', with: '123 Main St.'
     select 'city123', from: 'Location'

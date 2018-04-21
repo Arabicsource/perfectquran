@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'Devise::RegistrationsController' do
   let(:account) { create :account }
   let(:invalid_params) { { account: { email: '' } } }
-  
+
   let(:valid_params) do
     { account:
       { email: 'example@perfectquran.co',

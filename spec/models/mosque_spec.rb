@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Mosque, type: :model do
@@ -43,7 +45,7 @@ RSpec.describe Mosque, type: :model do
   end
 
   describe 'to_param' do
-    let(:mosque) { create :mosque, id: 1, name: 'Mosque 123'}
+    let(:mosque) { create :mosque, id: 1, name: 'Mosque 123' }
 
     specify { expect(mosque.to_param).to eq '1-mosque-123' }
   end

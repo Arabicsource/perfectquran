@@ -7,7 +7,10 @@ describe 'Admin::CitiesController' do
   let(:admin) { create :account, :as_admin }
   let(:state) { create :state }
   let(:invalid_params) { { city: { name: '' } } }
-  let(:valid_params) { { city: { name: 'city123', code: 'CI', state_id: state.id } } }
+
+  let(:valid_params) do
+    { city: { name: 'city123', code: 'CI', state_id: state.id } }
+  end
 
   describe 'GET admin_cities_path' do
     context 'when not logged in' do
@@ -96,7 +99,7 @@ describe 'Admin::CitiesController' do
 
       specify { expect(response).to redirect_to root_path }
     end
-  
+
     context 'when logged in as an admin' do
       before { login_as admin }
 

@@ -16,8 +16,7 @@ describe 'Admin::MosquesController' do
         street: 'street123',
         city_id: city.id,
         zip_code: 'zip_code123',
-        website: 'website123'
-      } }
+        website: 'website123' } }
   end
 
   describe 'GET admin_mosques_path' do
@@ -107,7 +106,7 @@ describe 'Admin::MosquesController' do
 
       specify { expect(response).to redirect_to root_path }
     end
-  
+
     context 'when logged in as an admin' do
       before { login_as admin }
 

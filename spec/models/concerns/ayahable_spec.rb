@@ -20,9 +20,9 @@ RSpec.describe Ayahable do
   let(:surah_2) { Quran::Surah.second }
 
   describe 'ayahs' do
-    specify { expect(page_1.ayahs.map(&:id)).to eq (1..7).to_a }
-    specify { expect(surah_1.ayahs.map(&:id)).to eq (1..7).to_a }
-    specify { expect(juz_1.ayahs.map(&:id)).to eq (1..148).to_a }
+    specify { expect(page_1.ayahs.map(&:id)).to eq((1..7).to_a) }
+    specify { expect(surah_1.ayahs.map(&:id)).to eq((1..7).to_a) }
+    specify { expect(juz_1.ayahs.map(&:id)).to eq((1..148).to_a) }
   end
 
   describe 'first_ayah' do
@@ -32,7 +32,6 @@ RSpec.describe Ayahable do
     specify { expect(surah_2.first_ayah).to eq ayah_8 }
     specify { expect(juz_1.first_ayah).to eq ayah_1 }
     specify { expect(juz_2.first_ayah).to eq ayah_149 }
-    
   end
 
   describe 'current_ayah' do
@@ -52,14 +51,14 @@ RSpec.describe Ayahable do
   end
 
   describe 'current_ayah?' do
-    specify { expect(page_1.current_ayah? ayah_1).to be true }
-    specify { expect(page_1.current_ayah? ayah_2).to be false }
+    specify { expect(page_1.current_ayah?(ayah_1)).to be true }
+    specify { expect(page_1.current_ayah?(ayah_2)).to be false }
 
     context 'when current_ayah is set to another ayah' do
       before { page_1.current_ayah = ayah_2 }
 
-      specify { expect(page_1.current_ayah? ayah_1).to be false }
-      specify { expect(page_1.current_ayah? ayah_2).to be true }
+      specify { expect(page_1.current_ayah?(ayah_1)).to be false }
+      specify { expect(page_1.current_ayah?(ayah_2)).to be true }
     end
   end
 
