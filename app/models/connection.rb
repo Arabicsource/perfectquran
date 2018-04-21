@@ -7,6 +7,9 @@ class Connection < ApplicationRecord
   before_validation :prepare_hashtags
 
   validates :name, presence: true
+  validates :nickname, presence: true
+  validates :image, presence: true
+  validates :description, presence: true
   validates :provider, presence: true
   validates :provider_uid, presence: true, uniqueness: { scope: :provider }
   validates :token, presence: true
@@ -21,7 +24,10 @@ class Connection < ApplicationRecord
 
   def self.create_with_omniauth!(auth_hash, account)
     create! do |c|
-      c.name = auth_hash[:info][:nickname]
+      c.name = auth_hash[:info][:name]
+      c.nickname = auth_hash[:info][:nickname]
+      c.image = auth_hash[:info][:image]
+      c.description = auth_hash[:info][:description]
       c.provider = 'twitter'
       c.provider_uid = auth_hash[:uid]
       c.token = auth_hash[:credentials][:token]

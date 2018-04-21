@@ -2,7 +2,10 @@
 
 FactoryBot.define do
   factory :connection do
-    name 'nickname123'
+    name 'name123'
+    nickname 'nickname123'
+    image 'image'
+    description 'description'
     provider 'twitter'
     provider_uid 'uid12345'
     token 'tok12345'

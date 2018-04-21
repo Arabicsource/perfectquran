@@ -13,6 +13,9 @@ RSpec.describe Connection, type: :model do
 
   context 'validations' do
     it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :nickname }
+    it { is_expected.to validate_presence_of :image }
+    it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :provider }
     it { is_expected.to validate_presence_of :provider_uid }
     it { is_expected.to validate_presence_of :token }
@@ -80,7 +83,7 @@ RSpec.describe Connection, type: :model do
     let(:auth_hash) do
       {
         uid: 'uid12345',
-        info: { nickname: 'nickname' },
+        info: { name: 'name', nickname: 'nickname', image: 'image', description: 'description' },
         credentials: { token: 'token', secret: 'secret' }
       }
     end

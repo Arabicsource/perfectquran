@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_08_221115) do
+ActiveRecord::Schema.define(version: 2018_04_21_072454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,9 @@ ActiveRecord::Schema.define(version: 2018_04_08_221115) do
     t.bigint "translation_id"
     t.string "hashtags"
     t.integer "frequency"
+    t.string "nickname"
+    t.string "image"
+    t.string "description"
     t.index ["account_id"], name: "index_connections_on_account_id"
     t.index ["provider_uid", "provider"], name: "index_connections_on_provider_uid_and_provider", unique: true
     t.index ["translation_id"], name: "index_connections_on_translation_id"

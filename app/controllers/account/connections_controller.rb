@@ -62,7 +62,10 @@ class Account
 
     def update_connection
       @connection.update_attributes!(
-        name: auth[:info][:nickname],
+        name: auth[:info][:name],
+        nickname: auth[:info][:nickname],
+        image: auth[:info][:image],
+        description: auth[:info][:description],
         token: auth[:credentials][:token],
         secret: auth[:credentials][:secret]
       )

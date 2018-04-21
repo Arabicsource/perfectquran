@@ -52,7 +52,7 @@ describe 'GET Accounts::Connections#callback', type: :request do
       it 'updates connection' do
         get uri
 
-        expect(connection.reload.name).to eq 'nickname123'
+        expect(connection.reload.name).to eq 'name123'
       end
 
       it 'redirects' do

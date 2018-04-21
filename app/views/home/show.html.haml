@@ -26,12 +26,12 @@
             %article
               .media
                 .media-left
-                  <figure class="image is-64x64"><img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"></figure>
+                  <figure class="image is-64x64"><img src="#{connection.image}" alt="#{connection.name}'s Twitter Profile Image'"></figure>
                 .media-content
                   .content
                     %p
-                      <strong>#{connection.name}</strong><br>
-                      @connection. username
+                      = link_to "https://twitter/com/#{connection.nickname}" do
+                        <strong>#{connection.name}</strong><br>
+                        @#{connection.nickname}
                     %p
-                      = 'connection.bio'
-                  = link_to 'Follow', '#', class: 'button is-twitter'
+                      = markdown(connection.description) if connection.description
