@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 namespace :specify do
-  abort('running in production') if Rails.env.production?
-  require 'rubocop/rake_task'
+  unless Rails.env.production?
+    require 'rubocop/rake_task'
 
-  RuboCop::RakeTask.new(:rubocop)
-  RSpec::Core::RakeTask.new(:spec)
+    RuboCop::RakeTask.new(:rubocop)
+    RSpec::Core::RakeTask.new(:spec)
+  end
 end
 
 task :specify do
