@@ -60,6 +60,7 @@ class Account
       @connection = Connection.create_with_omniauth! auth, current_account
     end
 
+    # rubocop:disable Metrics/AbcSize
     def update_connection
       @connection.update_attributes!(
         name: auth[:info][:name],
@@ -72,6 +73,7 @@ class Account
     rescue StandardError
       false
     end
+    # rubocop:enable Metrics/AbcSize
 
     def connection_params
       params.require(:connection)

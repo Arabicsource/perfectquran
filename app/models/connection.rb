@@ -22,6 +22,7 @@ class Connection < ApplicationRecord
 
   enum frequency: %i[daily hourly]
 
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def self.create_with_omniauth!(auth_hash, account)
     create! do |c|
       c.name = auth_hash[:info][:name]
@@ -36,6 +37,7 @@ class Connection < ApplicationRecord
       c.translation_id = 3
     end
   end
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   def last_ayah_reference
     if last_ayah_id.positive?

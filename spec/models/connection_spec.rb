@@ -83,7 +83,11 @@ RSpec.describe Connection, type: :model do
     let(:auth_hash) do
       {
         uid: 'uid12345',
-        info: { name: 'name', nickname: 'nickname', image: 'image', description: 'description' },
+        info:
+          { name: 'name',
+            nickname: 'nickname',
+            image: 'image',
+            description: 'description' },
         credentials: { token: 'token', secret: 'secret' }
       }
     end
