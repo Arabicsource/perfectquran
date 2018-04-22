@@ -1,5 +1,17 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: ayahs
+#
+#  id               :bigint(8)        not null, primary key
+#  number           :integer
+#  character_length :integer
+#  surah_id         :bigint(8)
+#  page_id          :bigint(8)
+#  juz_id           :bigint(8)
+#
+
 module Quran
   class Ayah < ApplicationRecord
     default_scope { order('id asc') }

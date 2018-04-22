@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: pages
+#
+#  id               :bigint(8)        not null, primary key
+#  character_length :integer
+#  juz_id           :bigint(8)
+#
+
 page_1:
   id: 1
   character_length: 285

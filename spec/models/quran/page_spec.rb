@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: pages
+#
+#  id               :bigint(8)        not null, primary key
+#  character_length :integer
+#  juz_id           :bigint(8)
+#
+
 require 'rails_helper'
 
 RSpec.describe Quran::Page, type: :model do

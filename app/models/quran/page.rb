@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: pages
+#
+#  id               :bigint(8)        not null, primary key
+#  character_length :integer
+#  juz_id           :bigint(8)
+#
+
 module Quran
   class Page < ApplicationRecord
     include Ayahable

@@ -1,5 +1,15 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: texts
+#
+#  id             :bigint(8)        not null, primary key
+#  content        :text
+#  translation_id :bigint(8)
+#  ayah_id        :bigint(8)
+#
+
 module Quran
   class Text < ApplicationRecord
     # default_scope { order('id asc') }

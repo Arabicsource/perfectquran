@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: juzs
+#
+#  id               :bigint(8)        not null, primary key
+#  character_length :integer
+#
+
 module Quran
   class Juz < ApplicationRecord
     include Ayahable
