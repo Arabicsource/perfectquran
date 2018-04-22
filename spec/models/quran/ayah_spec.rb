@@ -33,6 +33,36 @@ RSpec.describe Quran::Ayah, type: :model do
     it { is_expected.to have_many :texts_and_translations }
   end
 
+  describe 'account_texts' do
+    context 'with guest account' do
+      before { Current.account = GuestAccount.new }
+
+      specify do
+        expect(ayah_1.account_texts.map(&:translation_id)).to eq [1, 2, 3]
+      end
+    end
+
+    context 'with account without selected translations' do
+      before { Current.account = account }
+
+      specify do
+        expect(ayah_1.account_texts.map(&:translation_id)).to eq [1, 2, 3]
+      end
+    end
+
+    context 'with account with selected translations' do
+      before do
+        account.account_translations
+               .build(translation: uthmani, primary: true)
+               .save
+
+        Current.account = account
+      end
+
+      specify { expect(ayah_1.account_texts.map(&:translation_id)).to eq [1] }
+    end
+  end
+
   describe 'primary_text' do
     context 'with guest account' do
       before { Current.account = GuestAccount.new }
