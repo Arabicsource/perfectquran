@@ -1,9 +1,9 @@
 .container
   %nav.breadcrumb{aria: {label: "breadcrumbs"}}
     %ul
-      %li= link_to 'Study', study_root_path
-      %li= link_to @ayah.surah, study_surah_path(@ayah.surah)
-      %li.is-active= link_to @ayah.number, study_ayah_path(@ayah), aria: {current: "page"}
+      %li= link_to 'Quran', quran_root_path
+      %li= link_to @ayah.surah, quran_surah_path(@ayah.surah)
+      %li.is-active= link_to @ayah.number, quran_ayah_path(@ayah), aria: {current: "page"}
 
 %section.section
   .container
@@ -15,8 +15,8 @@
 
       .column.is-one-fifth.is-hidden-mobile
         %nav.pagination
-          = link_to 'Previous', study_ayah_path(@ayah.previous), class: 'pagination-previous'
-          = link_to 'Next Ayah', study_ayah_path(@ayah.next), class: 'pagination-next'
+          = link_to 'Previous', quran_ayah_path(@ayah.previous), class: 'pagination-previous'
+          = link_to 'Next Ayah', quran_ayah_path(@ayah.next), class: 'pagination-next'
 
     .columns.is-variable.is-6
       .column.is-three-fifths
@@ -31,7 +31,7 @@
               %p
                 %small
                   %span.has-text-grey= truncate sanitize(@ayah.previous.primary_text), length: 75
-                  = link_to study_ayah_path(@ayah.previous) do
+                  = link_to quran_ayah_path(@ayah.previous) do
                     (#{@ayah.previous.surah_id}:#{@ayah.previous.number})
 
           .current-ayah
@@ -45,7 +45,7 @@
               %p
                 %small
                   %span.has-text-grey= truncate sanitize(@ayah.next.primary_text), length: 75
-                  = link_to study_ayah_path(@ayah.next) do
+                  = link_to quran_ayah_path(@ayah.next) do
                     (#{@ayah.next.surah_id}:#{@ayah.next.number})
 
         %nav.pagination.is-hidden-tablet
@@ -54,7 +54,7 @@
 
       .column
         %aside
-          = render 'study/surahs/information', surah: @ayah.surah
+          = render 'quran/surahs/information', surah: @ayah.surah
           
 = render 'mobile_navbar'
 - provide :title, @ayah

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Study
+module Quran
   class SurahsController < ApplicationController
     def index
       @surahs = Quran::Surah.all

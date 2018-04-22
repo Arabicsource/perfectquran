@@ -4,13 +4,13 @@
       Your browser does not support the audio tag.
 
   .navbar-brand
-    = link_to study_surah_path(@ayah.surah), class: 'navbar-item' do
+    = link_to quran_surah_path(@ayah.surah), class: 'navbar-item' do
       = fa_icon 'list-ol'
 
     %a.navbar-item
 
-    = link_to study_ayah_path(@ayah.previous), class: 'navbar-item' do
+    = link_to quran_ayah_path(@ayah.previous), class: 'navbar-item' do
       = fa_icon 'chevron-left'
 
-    = link_to study_ayah_path(@ayah.next), class: 'navbar-item' do
+    = link_to quran_ayah_path(@ayah.next), class: 'navbar-item' do
       = fa_icon 'chevron-right'

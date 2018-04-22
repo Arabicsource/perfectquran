@@ -24,8 +24,8 @@ RSpec.describe Quran::Translation, type: :model do
     expect(actual).to eq expected
   end
 
-  specify 'available_for_study' do
-    actual = Quran::Translation.available_for_study.map(&:name)
+  specify 'available_for_quran' do
+    actual = Quran::Translation.available_for_quran.map(&:name)
     expected = ['Uthmani', 'Transliteration', 'The Noble Quran']
 
     expect(actual).to eq expected

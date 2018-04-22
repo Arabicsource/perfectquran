@@ -30,20 +30,26 @@ Rails.application.routes.draw do
     resources :cities, only: %i[index new create]
   end
 
-  namespace :study do
+  # namespace :st udy do
+  #   root 'surahs#index'
+
+  #   resources :surahs, only: %i[index show]
+  #   resources :ayahs, only: %i[index show]
+  # end
+
+  namespace :quran do
     root 'surahs#index'
 
     resources :surahs, only: %i[index show]
-    resources :ayahs, only: %i[index show]
   end
 
   resources :mosques, only: :show
 
-  get '/study/ayahs/:id', to: 'study/ayahs#show', as: :quran_ayah
+  get '/quran/ayahs/:id', to: 'quran/ayahs#show', as: :quran_ayah
   get 'auth/:provider/callback', to: 'account/connections#callback'
-  get '/:surah_id/:number', to: 'study/ayahs#show', as: :ayah_by_number
-  get '/:translation_id/:surah_id/:number', to: 'study/ayahs#show'
-  get '/:permalink', to: 'study/surahs#show', as: :surah
+  get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
+  get '/:translation_id/:surah_id/:number', to: 'quran/ayahs#show'
+  get '/:permalink', to: 'quran/surahs#show', as: :surah
 
   root to: 'home#show'
 end

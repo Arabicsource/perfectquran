@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Study::SurahsController', type: :request do
+describe 'Quran::SurahsController', type: :request do
   let(:account) { create :account }
 
   describe 'GET root_path' do
@@ -11,15 +11,15 @@ describe 'Study::SurahsController', type: :request do
     specify { expect(response).to be_successful }
   end
 
-  describe 'GET study_root_path' do
-    before { get study_root_path }
+  describe 'GET quran_root_path' do
+    before { get quran_root_path }
 
     specify { expect(response).to be_successful }
   end
 
-  describe 'GET study_surahs_path' do
+  describe 'GET quran_surahs_path' do
     context 'when not logged in' do
-      before { get study_surahs_path }
+      before { get quran_surahs_path }
 
       specify { expect(response).to be_successful }
     end
@@ -27,7 +27,7 @@ describe 'Study::SurahsController', type: :request do
     context 'when not logged in on mobile' do
       before do
         mobile_browser
-        get study_surahs_path
+        get quran_surahs_path
       end
 
       specify { expect(response).to be_successful }
@@ -36,7 +36,7 @@ describe 'Study::SurahsController', type: :request do
     context 'when logged in' do
       before do
         login_as account
-        get study_surahs_path
+        get quran_surahs_path
       end
 
       specify { expect(response).to be_successful }
@@ -46,7 +46,7 @@ describe 'Study::SurahsController', type: :request do
       before do
         login_as account
         mobile_browser
-        get study_surahs_path
+        get quran_surahs_path
       end
 
       specify { expect(response).to be_successful }
@@ -59,9 +59,9 @@ describe 'Study::SurahsController', type: :request do
     specify { expect(response).to be_successful }
   end
 
-  describe 'GET study_surah_path' do
+  describe 'GET quran_surah_path' do
     context 'when not logged in' do
-      before { get study_surah_path(1) }
+      before { get quran_surah_path(1) }
 
       specify { expect(response).to be_successful }
     end
@@ -69,7 +69,7 @@ describe 'Study::SurahsController', type: :request do
     context 'when not logged in on mobile' do
       before do
         mobile_browser
-        get study_surah_path(1)
+        get quran_surah_path(1)
       end
 
       specify { expect(response).to be_successful }
@@ -78,7 +78,7 @@ describe 'Study::SurahsController', type: :request do
     context 'when logged in' do
       before do
         login_as account
-        get study_surah_path(1)
+        get quran_surah_path(1)
       end
 
       specify { expect(response).to be_successful }
@@ -88,7 +88,7 @@ describe 'Study::SurahsController', type: :request do
       before do
         login_as account
         mobile_browser
-        get study_surah_path(1)
+        get quran_surah_path(1)
       end
 
       specify { expect(response).to be_successful }

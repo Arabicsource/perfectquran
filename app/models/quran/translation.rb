@@ -17,7 +17,7 @@ module Quran
     has_many :texts, class_name: 'Quran::Text'
     has_many :account_translation
 
-    scope :available_for_study, -> { joins(:texts).order(:id).uniq }
+    scope :available_for_quran, -> { joins(:texts).order(:id).uniq }
 
     def self.available_for_posting
       where(id: [1, 3, 4])

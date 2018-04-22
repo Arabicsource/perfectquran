@@ -8,7 +8,7 @@ class Account
                            .build(translation_id: trans_id, primary: primary)
 
       if translation.save
-        flash[:success] = 'Alhamdulillah, the study translation was added.'
+        flash[:success] = 'Alhamdulillah, the Quran translation was added.'
       end
 
       redirect_to edit_account_quran_preference_path

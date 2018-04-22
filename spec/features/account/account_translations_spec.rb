@@ -5,21 +5,21 @@ require 'rails_helper'
 feature 'Account Translations', js: true do
   let(:account) { create :account }
 
-  scenario 'account adds study translations' do
+  scenario 'account adds quran translations' do
     login_as account
     visit edit_account_quran_preference_path
-    click_on 'Add Study Translation'
+    click_on 'Add Quran Translation'
 
     select 'Uthmani', from: 'account_translation_translation_id'
-    within 'form#study-translation' do
-      click_on 'Add Study Translation'
+    within 'form#quran-translation' do
+      click_on 'Add Quran Translation'
     end
 
     expect(page)
       .to(
         have_css(
           '.notification',
-          text: 'Alhamdulillah, the study translation was added.'
+          text: 'Alhamdulillah, the Quran translation was added.'
         )
       )
 
@@ -28,7 +28,7 @@ feature 'Account Translations', js: true do
     expect(page).to have_text 'Primary'
   end
 
-  scenario 'account deletes study translations' do
+  scenario 'account deletes quran translations' do
     login_as account
     create(
       :account_translation,

@@ -1,9 +1,9 @@
-= form_with model: AccountTranslation.new, method: :post, id: 'study-translation' do |f|
+= form_with model: AccountTranslation.new, method: :post, id: 'quran-translation' do |f|
   .modal{data: {target: 'activity.toggable'}}
     .modal-background
     .modal-card
       %header.modal-card-head
-        %p.modal-card-title Add Study Translation
+        %p.modal-card-title Add Quran Translation
         %button.delete{aria: {label: "close"}, data: {action: 'activity#toggle'}}
       %section.modal-card-body
         .field
@@ -13,4 +13,4 @@
               = f.select :translation_id, translation_select_options, {prompt: 'Select...'}
 
       %footer.modal-card-foot
-        = f.submit 'Add Study Translation', class: 'button is-success'
+        = f.submit 'Add Quran Translation', class: 'button is-success'

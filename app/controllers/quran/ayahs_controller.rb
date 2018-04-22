@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Study
+module Quran
   class AyahsController < ApplicationController
     def show
       @ayah = load_ayah
