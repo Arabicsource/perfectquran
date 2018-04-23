@@ -12,7 +12,7 @@
       %ol#surahs
         - @surahs.each do |surah|
           %li
-            = link_to quran_surah_path(surah) do
+            = link_to quran_surah_path(surah), id: "surah-#{surah.id}" do
               .media
                 .media-content
                   .content

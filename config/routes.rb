@@ -40,7 +40,9 @@ Rails.application.routes.draw do
   namespace :quran do
     root 'surahs#index'
 
-    resources :surahs, only: %i[index show]
+    resources :surahs, only: :index
+
+    get '/:permalink', to: 'surahs#show', as: :surah
   end
 
   resources :mosques, only: :show
@@ -49,7 +51,6 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'account/connections#callback'
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:translation_id/:surah_id/:number', to: 'quran/ayahs#show'
-  get '/:permalink', to: 'quran/surahs#show', as: :surah
 
   root to: 'home#show'
 end

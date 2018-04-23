@@ -18,6 +18,8 @@
 require 'rails_helper'
 
 RSpec.describe Quran::Surah, type: :model do
+  let(:surah_1) { Quran::Surah.first }
+
   describe 'associations' do
     it { is_expected.to have_many(:ayahs) }
 
@@ -48,5 +50,9 @@ RSpec.describe Quran::Surah, type: :model do
 
   specify 'to_s' do
     expect(Quran::Surah.first.to_s).to eq 'Al-Fatihah'
+  end
+
+  specify 'to_param' do
+    expect(surah_1.to_param).to eq 'al-fatihah'
   end
 end

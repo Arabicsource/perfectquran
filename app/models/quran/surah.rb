@@ -21,6 +21,8 @@ module Quran
 
     include Pageable # depends on Ayahable
 
+    default_scope { order :id }
+
     enum revelation_type: %i[meccan medinan]
     has_many :bookmarks, as: :bookmarkable
     has_many :ayahs_and_included_texts,
@@ -49,6 +51,10 @@ module Quran
 
     def to_s
       transliterated_name
+    end
+
+    def to_param
+      permalink
     end
   end
 end
