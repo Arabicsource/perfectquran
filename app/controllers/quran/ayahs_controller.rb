@@ -11,7 +11,7 @@ module Quran
 
     def load_ayah
       if params.key? :permalink
-        Ayah.find_by_permalink params[:permalink], params[:number]
+        Ayah.find_by_reference params[:permalink], params[:number]
       else
         Ayah.find_by(
           surah_id: params[:surah_id], number: params[:number]

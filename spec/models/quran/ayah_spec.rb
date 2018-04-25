@@ -33,9 +33,9 @@ RSpec.describe Quran::Ayah, type: :model do
     it { is_expected.to have_many :texts_and_translations }
   end
 
-  describe 'self.find_by_permalink' do
+  describe 'self.find_by_reference' do
     specify do
-      expect(Quran::Ayah.find_by_permalink('al-fatihah', 1)).to eq ayah_1
+      expect(Quran::Ayah.find_by_reference('al-fatihah', 1)).to eq ayah_1
     end
   end
 

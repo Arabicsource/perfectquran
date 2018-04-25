@@ -78,7 +78,7 @@ module Quran
       "#{surah_name} #{number}"
     end
 
-    def self.find_by_permalink(permalink, number)
+    def self.find_by_reference(permalink, number)
       joins(:surah)
         .where(number: number)
         .merge(Surah.where(permalink: permalink))
