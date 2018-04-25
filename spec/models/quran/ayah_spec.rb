@@ -33,6 +33,12 @@ RSpec.describe Quran::Ayah, type: :model do
     it { is_expected.to have_many :texts_and_translations }
   end
 
+  describe 'self.find_by_permalink' do
+    specify do
+      expect(Quran::Ayah.find_by_permalink('al-fatihah', 1)).to eq ayah_1
+    end
+  end
+
   describe 'account_texts' do
     context 'with guest account' do
       before { Current.account = GuestAccount.new }

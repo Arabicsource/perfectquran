@@ -27,7 +27,7 @@
         %main
           - @surah.ayahs_and_included_texts.each do |ayah|
             .ayah
-              = link_to ayah.number, quran_ayah_path(ayah)
+              = link_to ayah.number, quran_ayah_path(@surah, ayah.number)
 
               .content
                 - ayah.account_texts.each do |text|

@@ -10,10 +10,10 @@ module Quran
     private
 
     def load_ayah
-      if params[:surah_id].nil?
-        Quran::Ayah.find(params[:id])
+      if params.key? :permalink
+        Ayah.find_by_permalink params[:permalink], params[:number]
       else
-        Quran::Ayah.find_by(
+        Ayah.find_by(
           surah_id: params[:surah_id], number: params[:number]
         )
       end

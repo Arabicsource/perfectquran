@@ -14,5 +14,9 @@ feature 'Browsing' do
     click_on 'Al-Fatihah'
 
     expect(page).to have_title 'Al-Fatihah'
+
+    click_on '1'
+
+    expect(page).to have_title 'Al-Fatihah 1'
   end
 end

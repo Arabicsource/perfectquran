@@ -43,11 +43,11 @@ Rails.application.routes.draw do
     resources :surahs, only: :index
 
     get '/:permalink', to: 'surahs#show', as: :surah
+    get '/:permalink/:number', to: 'ayahs#show', as: :ayah
   end
 
   resources :mosques, only: :show
 
-  get '/quran/ayahs/:id', to: 'quran/ayahs#show', as: :quran_ayah
   get 'auth/:provider/callback', to: 'account/connections#callback'
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:translation_id/:surah_id/:number', to: 'quran/ayahs#show'

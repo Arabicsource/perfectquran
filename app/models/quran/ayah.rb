@@ -75,7 +75,14 @@ module Quran
     end
 
     def to_s
-      "#{surah_name}: #{number}"
+      "#{surah_name} #{number}"
+    end
+
+    def self.find_by_permalink(permalink, number)
+      joins(:surah)
+        .where(number: number)
+        .merge(Surah.where(permalink: permalink))
+        .first
     end
   end
 end

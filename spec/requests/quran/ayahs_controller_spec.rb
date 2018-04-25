@@ -19,7 +19,7 @@ describe 'Quran::AyahsController', type: :request do
 
   describe 'GET quran_ayah_path' do
     context 'when not logged in' do
-      before { get quran_ayah_path(1) }
+      before { get quran_ayah_path('al-fatihah', 1) }
 
       specify { expect(response).to be_successful }
     end
@@ -27,7 +27,7 @@ describe 'Quran::AyahsController', type: :request do
     context 'when not logged in on mobile' do
       before do
         mobile_browser
-        get quran_ayah_path(1)
+        get quran_ayah_path('al-fatihah', 1)
       end
 
       specify { expect(response).to be_successful }
@@ -36,7 +36,7 @@ describe 'Quran::AyahsController', type: :request do
     context 'when logged in' do
       before do
         login_as account
-        get quran_ayah_path(1)
+        get quran_ayah_path('al-fatihah', 1)
       end
 
       specify { expect(response).to be_successful }
@@ -46,7 +46,7 @@ describe 'Quran::AyahsController', type: :request do
       before do
         login_as account
         mobile_browser
-        get quran_ayah_path(1)
+        get quran_ayah_path('al-fatihah', 1)
       end
 
       specify { expect(response).to be_successful }
