@@ -15,8 +15,8 @@
 
       .column.is-one-fifth.is-hidden-mobile
         %nav.pagination
-          = link_to 'Previous', quran_ayah_path(@ayah.previous), class: 'pagination-previous'
-          = link_to 'Next Ayah', quran_ayah_path(@ayah.next), class: 'pagination-next'
+          = link_to 'Previous', quran_ayah_path(@ayah.previous.surah, @ayah.previous.number), class: 'pagination-previous'
+          = link_to 'Next Ayah', quran_ayah_path(@ayah.next.surah, @ayah.next.number), class: 'pagination-next'
 
     .columns.is-variable.is-6
       .column.is-three-fifths
@@ -31,7 +31,7 @@
               %p
                 %small
                   %span.has-text-grey= truncate sanitize(@ayah.previous.primary_text), length: 75
-                  = link_to quran_ayah_path(@ayah.previous) do
+                  = link_to quran_ayah_path(@ayah.previous.surah, @ayah.previous.number) do
                     (#{@ayah.previous.surah_id}:#{@ayah.previous.number})
 
           .current-ayah
@@ -45,7 +45,7 @@
               %p
                 %small
                   %span.has-text-grey= truncate sanitize(@ayah.next.primary_text), length: 75
-                  = link_to quran_ayah_path(@ayah.next) do
+                  = link_to quran_ayah_path(@ayah.next.surah, @ayah.next.number) do
                     (#{@ayah.next.surah_id}:#{@ayah.next.number})
 
         %nav.pagination.is-hidden-tablet
