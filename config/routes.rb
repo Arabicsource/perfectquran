@@ -30,13 +30,6 @@ Rails.application.routes.draw do
     resources :cities, only: %i[index new create]
   end
 
-  # namespace :st udy do
-  #   root 'surahs#index'
-
-  #   resources :surahs, only: %i[index show]
-  #   resources :ayahs, only: %i[index show]
-  # end
-
   namespace :quran do
     root 'surahs#index'
 
