@@ -28,7 +28,7 @@ module Quran
 
     def account_texts
       if Current.account.account_translations.any?
-        texts.joins(translation: :account_translation)
+        texts.joins(translation: :account_translations)
              .order('account_translations.order ASC')
       else
         texts.where(translation: [1, 2, 3]).order(id: :desc)

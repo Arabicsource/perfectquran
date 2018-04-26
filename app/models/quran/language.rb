@@ -13,8 +13,8 @@ module Quran
   class Language < ApplicationRecord
     has_many :translations
 
-    delegate :available_for_quran, to: :translations, prefix: :translations
+    delegate :reading, to: :translations, prefix: :translations
 
-    scope :available_for_quran, -> { joins(translations: :texts).uniq }
+    scope :reading, -> { joins(translations: :texts).uniq }
   end
 end

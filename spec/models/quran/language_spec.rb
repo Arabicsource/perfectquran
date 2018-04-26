@@ -16,13 +16,13 @@ RSpec.describe Quran::Language, type: :model do
     it { is_expected.to have_many :translations }
   end
 
-  specify 'translations_available_for_quran' do
-    actual = Quran::Language.second.translations_available_for_quran.map(&:id)
+  specify 'translations_reading' do
+    actual = Quran::Language.second.translations_reading.map(&:id)
 
     expect(actual).to eq [2, 3]
   end
 
-  specify 'available_for_quran' do
-    expect(Quran::Language.available_for_quran.map(&:id)).to eq [1, 2]
+  specify 'reading' do
+    expect(Quran::Language.reading.map(&:id)).to eq [1, 2]
   end
 end
