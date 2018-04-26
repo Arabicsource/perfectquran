@@ -1,0 +1,10 @@
+.columns
+  .column
+    %header
+      %h1.title= @ayah
+      %h2.subtitle= @ayah.surah.description
+
+  .column.is-one-fifth.is-hidden-mobile
+    %nav.pagination
+      = link_to 'Previous', quran_ayah_path(@ayah.previous.surah, @ayah.previous.number), class: 'pagination-previous'
+      = link_to 'Next Ayah', quran_ayah_path(@ayah.next.surah, @ayah.next.number), class: 'pagination-next'

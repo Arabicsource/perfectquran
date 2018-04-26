@@ -1,60 +1,18 @@
-.container
-  %nav.breadcrumb{aria: {label: "breadcrumbs"}}
-    %ul
-      %li= link_to 'Quran', quran_root_path
-      %li= link_to @ayah.surah, quran_surah_path(@ayah.surah)
-      %li.is-active= link_to @ayah.number, quran_ayah_path(@ayah), aria: {current: "page"}
+= render 'breadcrumb'
 
 %section.section
   .container
+    = render 'page_header'
+
     .columns
-      .column
-        %header
-          %h1.title= @ayah
-          %h2.subtitle= @ayah.surah.description
+      %main.column.is-three-fifths
+        = render 'audio'
+        = render 'current_ayah'
+        = render 'previous_ayah'
+        = render 'next_ayah'
 
-      .column.is-one-fifth.is-hidden-mobile
-        %nav.pagination
-          = link_to 'Previous', quran_ayah_path(@ayah.previous.surah, @ayah.previous.number), class: 'pagination-previous'
-          = link_to 'Next Ayah', quran_ayah_path(@ayah.next.surah, @ayah.next.number), class: 'pagination-next'
-
-    .columns.is-variable.is-6
-      .column.is-three-fifths
-        %section.is-hidden-touch
-          %audio{controls: true}
-            %source{src: ayah_audio_file(@ayah.surah_id, @ayah.number), type: "audio/mpeg"}
-              Your browser does not support the audio tag.
-
-        %main
-          .previous-ayah
-            .content
-              %p
-                %small
-                  %span.has-text-grey= truncate sanitize(@ayah.previous.primary_text), length: 75
-                  = link_to quran_ayah_path(@ayah.previous.surah, @ayah.previous.number) do
-                    (#{@ayah.previous.surah_id}:#{@ayah.previous.number})
-
-          .current-ayah
-            .content
-              - @texts.each do |text|
-                %h3{class: ('is-hidden' if text.uthmani?)}= text.translation.name
-                %p{class: ('uthmani-text' if text.uthmani?)}= sanitize text.content
-
-          .next-ayah
-            .content
-              %p
-                %small
-                  %span.has-text-grey= truncate sanitize(@ayah.next.primary_text), length: 75
-                  = link_to quran_ayah_path(@ayah.next.surah, @ayah.next.number) do
-                    (#{@ayah.next.surah_id}:#{@ayah.next.number})
-
-        %nav.pagination.is-hidden-tablet
-          %a.pagination-previous Previous
-          %a.pagination-next Next Ayah
-
-      .column
-        %aside
-          = render 'quran/surahs/information', surah: @ayah.surah
+      %aside.column
+        = render 'quran/surahs/information', surah: @ayah.surah
           
 = render 'mobile_navbar'
 - provide :title, @ayah

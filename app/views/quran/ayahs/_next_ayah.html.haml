@@ -1,0 +1,7 @@
+.next-ayah
+  .content
+    %p
+      %small
+        %span.has-text-grey= truncate sanitize(@ayah.next.primary_text), length: 75
+        = link_to quran_ayah_path(@ayah.next.surah, @ayah.next.number) do
+          (#{@ayah.next.surah_id}:#{@ayah.next.number})
