@@ -1,0 +1,11 @@
+%section.section
+  %header
+    %h1.title Settings
+
+  .menu
+    %ul.menu-list
+      %li= link_to 'Edit Profile', edit_account_settings_profile_path
+      %li= link_to 'Email Preferences', edit_account_settings_email_path
+      %li= link_to 'Quran Preferences', edit_account_settings_quran_path
+
+- provide :title, 'Settings'

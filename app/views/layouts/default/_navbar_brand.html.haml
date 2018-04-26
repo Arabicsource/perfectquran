@@ -1,0 +1,21 @@
+.navbar-brand.is-hidden-tablet
+  .navbar-burger{data: {action: 'click->navbar#toggle_menu', target: 'navbar.burger'}}
+    %span
+    %span
+    %span
+
+  = link_to  root_url, class: 'navbar-item brand' do
+    = image_tag 'queue.jpg'
+
+  = link_to account_settings_path, class: 'navbar-item settings' do
+    = fa_icon 'gear'
+
+
+.navbar-brand.is-hidden-mobile
+  = link_to  root_url, class: 'navbar-item' do
+    = image_tag 'queue.jpg'
+
+  .navbar-burger{data: {action: 'click->navbar#toggle_menu', target: 'navbar.burger'}}
+    %span
+    %span
+    %span

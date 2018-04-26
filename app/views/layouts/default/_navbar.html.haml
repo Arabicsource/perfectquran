@@ -1,14 +1,7 @@
 - if browser.mobile?
   %nav.navbar.default{data: {controller: 'navbar'}, role: 'navigation', aria: { label: 'main navigation'} }
     .container
-      .navbar-brand
-        = link_to  root_url, class: 'navbar-item' do
-          = image_tag 'queue.jpg'
-
-        .navbar-burger{data: {action: 'click->navbar#toggle_menu', target: 'navbar.burger'}}
-          %span
-          %span
-          %span
+      = render 'layouts/default/navbar_brand'
 
       .navbar-menu{data: {target: 'navbar.menu'}}
         .navbar-end
@@ -22,13 +15,7 @@
               %ul.menu-list
                 %li= link_to 'List', account_connections_path
                 %li= link_to 'Connect Twitter Account', '/auth/twitter'
-          
-              %p.menu-label Settings
-              %ul.menu-list
-                %li= link_to 'Edit Profile', edit_account_profile_path
-                %li= link_to 'Email Preferences', edit_account_email_preference_path
-                %li= link_to 'Quran Preferences', edit_account_quran_preference_path
-            
+
               %p.menu-label Account
               %ul.menu-list
                 %li= link_to "Logout", destroy_account_session_path, method: :delete
@@ -44,14 +31,7 @@
 - else # Desktop
   %nav.navbar.default{data: {controller: 'navbar'}, role: 'navigation', aria: { label: 'main navigation'} }
     .container
-      .navbar-brand
-        = link_to  root_url, class: 'navbar-item' do
-          = image_tag 'queue.jpg'
-
-        .navbar-burger{data: {action: 'click->navbar#toggle_menu', target: 'navbar.burger'}}
-          %span
-          %span
-          %span
+      = render 'layouts/default/navbar_brand'
 
       .navbar-menu{data: {target: 'navbar.menu'}}
         .navbar-end
@@ -63,10 +43,6 @@
 
               .navbar-dropdown.is-right
                 = link_to 'Connections', account_connections_path, class: 'navbar-item'
-                .navbar-divider
-                = link_to 'Edit Profile', edit_account_profile_path, class: 'navbar-item'
-                = link_to 'Email Preferences', edit_account_email_preference_path, class: 'navbar-item'
-                = link_to 'Quran Preferences', edit_account_quran_preference_path, class: 'navbar-item'
                 .navbar-divider
                 = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item'
 
