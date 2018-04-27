@@ -6,9 +6,7 @@ feature 'Browsing' do
   include JavascriptHelper
 
   scenario 'surah' do
-    visit root_path
-
-    click_on 'Quran'
+    visit quran_root_path
     expect(page).to have_title 'Surahs'
 
     click_on 'Al-Fatihah'

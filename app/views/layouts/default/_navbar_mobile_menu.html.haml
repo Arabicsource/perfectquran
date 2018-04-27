@@ -1,0 +1,22 @@
+%nav.menu.mobile.is-hidden-tablet
+  %p.menu-label Main
+  %ul.menu-list
+    %li= link_to 'Quran', quran_root_path
+
+  - if account_signed_in?
+    %p.menu-label Connections
+    %ul.menu-list
+      %li= link_to 'List', account_connections_path
+      %li= link_to 'Connect Twitter Account', '/auth/twitter'
+
+    %p.menu-label Account
+    %ul.menu-list
+      %li= link_to "Logout", destroy_account_session_path, method: :delete
+
+  - else
+    %p.menu-label Account
+    %ul.menu-list
+      %li= link_to 'Login', new_account_session_path
+      %li= link_to 'Register', new_account_registration_path
+      %li= link_to 'Password Reset', new_account_password_path
+      %li= link_to 'Confirmation Instructions', new_account_confirmation_path
