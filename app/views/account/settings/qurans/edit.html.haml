@@ -1,4 +1,59 @@
 = link_to account_settings_path do
   #{fa_icon('arrow-left')} Settings
 
+%section.section
+  .container
+    .columns.is-centered
+      .column.is-two-thirds{data: {controller: 'account-translations'}}
+        %header
+          %h1.title Edit Quran Preferences
+
+          %section{data: {controller: 'activity'}}
+            .field.new-link
+              = link_to '#', class: 'button is-rounded is-success', data: {action: 'activity#toggle'} do
+                %span.icon= fa_icon 'plus'
+                %span Add Quran Translation
+
+            = render 'form'
+
+          - if Current.account.account_translations.any?
+            .responsive-table 
+              %table.table.is-fullwidth
+                %thead
+                  %tr
+                    %th
+                    %th Translation
+                    %th Language
+                    %th
+                    %th
+                %tfoot
+                  %tr
+                    %th
+                    %th
+                    %th
+                    %th
+                    %th
+
+                %tbody{data: {controller: 'draggable'}}
+                  - Current.account.account_translations.each do |t|
+                    %tr{draggable: 'true', data: {target: 'draggable.draggable', action: 'dragstart->draggable#drag dragenter->draggable#drag_enter dragleave->draggable#drag_leave dragover->draggable#drag_over drop->draggable#drop dragend->draggable#drag_end'}}
+                      %td{data: {id: t.id}}= fa_icon 'arrows-v'
+                      %td= t.translation.name
+                      %td= t.translation.language.name
+                      %td
+                        - if t.primary?
+                          Primary
+                        - else
+                          = link_to 'Make Primary', account_translation_path(t), method: :patch, remote: true
+                      %td
+                        = link_to '#', account_translation_path(t), class: 'delete', remote: true, method: :delete, data: {confirm: 'Are you sure?'}
+          - else
+            %article.message
+              .message-body
+                %p 
+                  Quran translations are the translations that you will see throughout PerfectQuran.
+                  They default to <em>Uthmani (Arabic)</em>, <em>Transliteration (English)</em> and <em>The Noble Quran (English)</em>
+                  in that order, with The Noble Quran set as the primary. You may choose any translation you wish and put them into any order that makes
+                  sense for you and select your own primary translation.
+
 - provide :title, 'Edit Quran Preferences'

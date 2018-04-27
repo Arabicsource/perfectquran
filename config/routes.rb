@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     resource :profile, only: %i[edit update]
     resources :connections
     resource :email_preference, only: %i[edit update]
-    resource :quran_preference, only: %i[edit]
     resources :settings, only: :index
 
     namespace :settings do

@@ -11,20 +11,20 @@ class Account
         flash[:success] = 'Alhamdulillah, the Quran translation was added.'
       end
 
-      redirect_to edit_account_quran_preference_path
+      redirect_to edit_account_settings_quran_path
     end
 
     def destroy
       translation = AccountTranslation.find(params[:id])
       translation.delete
-      redirect_to edit_account_quran_preference_path
+      redirect_to edit_account_settings_quran_path
     end
 
     def update
       AccountTranslation.update_all(primary: false)
       translation = AccountTranslation.find(params[:id])
       translation.update_attribute(:primary, true)
-      redirect_to edit_account_quran_preference_path
+      redirect_to edit_account_settings_quran_path
     end
 
     private

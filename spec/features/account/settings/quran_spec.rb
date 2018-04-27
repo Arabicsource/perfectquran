@@ -2,12 +2,12 @@
 
 require 'rails_helper'
 
-feature 'Account Translations', js: true do
+feature 'Quran Settings', js: true do
   let(:account) { create :account }
 
-  scenario 'account adds quran translations' do
+  scenario 'account adds quran translation' do
     login_as account
-    visit edit_account_quran_preference_path
+    visit edit_account_settings_quran_path
     click_on 'Add Quran Translation'
 
     select 'Uthmani', from: 'account_translation_translation_id'
@@ -28,14 +28,14 @@ feature 'Account Translations', js: true do
     expect(page).to have_text 'Primary'
   end
 
-  scenario 'account deletes quran translations' do
+  scenario 'account deletes quran translation' do
     login_as account
     create(
       :account_translation,
       account: account,
       translation: Quran::Translation.first
     )
-    visit edit_account_quran_preference_path
+    visit edit_account_settings_quran_path
 
     expect(page).to have_text 'Uthmani'
     expect(page).to have_text 'Arabic'
