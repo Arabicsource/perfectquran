@@ -3,29 +3,23 @@
   audio
     width: 100%
 
-  main
-    margin-bottom: 3rem
+  .previous-ayah, .next-ayah
+    padding: 5px
+    background: $background
+    border-radius: $radius
+    margin-bottom: $gap / 4
 
-    .previous-ayah, .next-ayah
-      padding: 5px
-      background: $background
-      border-radius: $radius
-      margin-bottom: $spacer
+  .current-ayah
+    margin-bottom: $gap / 2
 
-    .current-ayah
-      padding: 15px
-      background: $orange-lightest
-      border-radius: $radius
-      margin-bottom: $spacer
+    .uthmani-text
+      font-size: 2rem
+      text-align: right
+      line-height: 2.2
 
-      .uthmani-text
-        font-size: 1.5rem
-        text-align: right
-        line-height: 2
-
-      h3
-        font-size: 1.2rem
-        color: $orange-dark
+    h3
+      font-size: 1.1rem
+      color: $orange-dark
 
   +desktop
     audio
