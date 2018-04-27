@@ -1,4 +1,9 @@
 %nav.menu.mobile.is-hidden-tablet
+  %ul.menu-list
+    %li
+      = link_to account_settings_path do
+        #{fa_icon('gear')} Settings
+
   %p.menu-label Main
   %ul.menu-list
     %li= link_to 'Quran', quran_root_path
