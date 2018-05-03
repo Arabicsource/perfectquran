@@ -419,7 +419,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.7)
   rack-cors
-  rails (~> 5.2.0.rc1)
+  rails (~> 5.2.0.rc2)
   rails-controller-testing
   rb-gravatar
   redcarpet (= 3.4.0)
