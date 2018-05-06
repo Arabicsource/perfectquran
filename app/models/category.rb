@@ -12,6 +12,12 @@
 #
 
 class Category < ApplicationRecord
+  has_many :articles
+
   validates :name, presence: true
   validates :description, presence: true
+
+  def to_s
+    "Category: #{name}"
+  end
 end

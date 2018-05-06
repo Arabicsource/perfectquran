@@ -23,7 +23,7 @@ FactoryBot.define do
   factory :mosque do
     name 'Mosque'
     phone '111'
-    email 'email'
+    email 'mosque@perfectquran.co'
     street 'street'
     zip_code '222'
     website 'website'

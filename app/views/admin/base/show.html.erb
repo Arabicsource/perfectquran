@@ -1,0 +1,11 @@
+<div class='content'>
+  <h3><%= @resource %></h3>
+</div>
+
+<%= render 'show' %>
+
+<% content_for :page_navbar do %>
+  <%= render 'show_links' %>
+<% end %>
+
+<% provide :title, @resource %>

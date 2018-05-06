@@ -3,54 +3,62 @@
 module Admin
   class ArticlesController < Admin::BaseController
     def index
-      @articles = Article.all
+      @resources = Article.all
     end
 
     def show
-      @article = Article.find(params[:id])
+      @resource = Article.find(params[:id])
     end
 
     def new
-      @article = Article.new
+      @resource = Article.new
     end
 
+    # rubocop:disable Metrics/MethodLength
     def create
-      @article = Article.new(article_params)
-      @article.account = current_account
+      @resource = Article.new(article_params)
+      @resource.account = current_account
 
-      if @article.save
-        flash[:success] = I18n.t 'article_created', title: @article.title
+      if @resource.save
+        flash[:success] = 'Alhamdulillah, the article was added'
         redirect_to admin_articles_path
       else
-        render :new
+        respond_to do |format|
+          format.html { render :new, status: 422 }
+          format.js
+        end
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
     def edit
-      @article = Article.find(params[:id])
+      @resource = Article.find(params[:id])
     end
 
     def update
-      @article = Article.find(params[:id])
+      @resource = Article.find(params[:id])
 
-      if @article.update_attributes(article_params)
-        flash[:success] = I18n.t(
-          'admin.articles.update.success_notification', title: @article.title
-        )
+      if @resource.update_attributes(article_params)
+        flash[:success] = 'Alhamdulillah, the article was updated'
         redirect_to admin_articles_path
       else
-        render :edit
+        respond_to do |format|
+          format.html { render :edit, status: 422 }
+          format.js
+        end
       end
     end
 
     def destroy
-      @article = Article.find(params[:id])
-      @article.visibility = 'trash'
-      @article.save
-      flash[:success] = I18n.t(
-        'admin.articles.destroy.success_notification', title: @article.title
-      )
-      redirect_to admin_articles_path
+      @resource = Article.find(params[:id])
+
+      if can_be_deleted? && @resource.delete
+        flash[:success] = 'Alhamdulillah, the article was deleted'
+        redirect_to admin_articles_path
+      else
+        flash.now[:danger] = 'The article was not deleted'
+        render :show, status: 422
+      end
     end
 
     private
@@ -58,6 +66,10 @@ module Admin
     def article_params
       params.require(:article)
             .permit(:title, :content, :visibility, :collection, :category_id)
+    end
+
+    def can_be_deleted?
+      @resource.comments.empty?
     end
   end
 end

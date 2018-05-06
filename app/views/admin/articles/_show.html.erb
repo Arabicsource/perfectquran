@@ -1,0 +1,36 @@
+<table class='table is-fullwidth'>
+  <tbody>
+    <tr>
+      <th>#</th>
+      <td><%= @resource.id %></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><%= @resource.title %></td>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <td><%= @resource.category_name %></td>
+    </tr>
+    <tr>
+      <th>visibility</th>
+      <td><%= @resource.visibility %></td>
+    </tr>
+    <tr>
+      <th>Created At</th>
+      <td><%= @resource.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated At</th>
+      <td><%= @resource.updated_at %></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class='content'>
+  <h4>Content</h4>
+
+  <article>
+    <%= sanitize @resource.content %>
+  </article>
+</div>

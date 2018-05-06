@@ -12,5 +12,12 @@
 #
 
 class Country < ApplicationRecord
+  has_many :states
+
   validates :name, presence: true
+  validates :code, presence: true
+
+  def to_s
+    "Country: #{name} (#{code})"
+  end
 end

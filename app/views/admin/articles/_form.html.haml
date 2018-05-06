@@ -1,0 +1,34 @@
+= form_with model: [:admin, @resource], id: 'form' do |f|
+  = render 'shared/error_messages', object: @resource
+
+  .columns
+    .column
+      .field
+        = f.label :visibility, class: 'label'
+        .control
+          %span.select.is-fullwidth
+            = f.select :visibility, Article.visibilities.keys.map {|key| [key.humanize, key]}, {}, id: 'article_visibility'
+    .column
+      .field
+        = f.label :collection, class: 'label'
+        .control
+          .select.is-fullwidth
+            = f.select :collection, Article.collections.keys.map {|key| [key.humanize, key]}, {}, id: 'article_collection'
+    .column
+      .field
+        = f.label :category_id, 'Category', class: 'label'
+        .control
+          .select.is-fullwidth
+            = f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }, {}, id: 'article_category_id'
+
+  .field
+    = f.label :title, class: 'label'
+    .control
+      = f.text_field :title, autofocus: true, class: 'input', id: 'article_title'
+
+  .field
+    = f.label :content, class: 'label'
+    .control
+      = f.trix_editor :content
+
+  = f.submit nil, class: 'button is-primary'

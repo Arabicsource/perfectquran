@@ -6,13 +6,30 @@
 @import "admin/variables"
 @import 'bulma'
 
-.box
-  border-radius: none
+aside
+  position: fixed
+  width: 20%
+  height: 100vh
+  background: $dark
+  padding: $gap / 4
 
-header
-  margin-bottom: $gap
+main
+  margin: 0 $gap / 2
 
-fieldset
-  padding: $gap
-  margin-bottom: $gap
-  border-color: $background
+.navbar:last-of-type
+  margin-bottom: $gap / 2
+
+table
+  tbody
+    tr
+      border-bottom: 8px solid $background
+      background: $white
+      border-radius: 100px
+
+article
+  background: $white
+  padding: $gap / 4
+
+form#form
+  background: $white
+  padding: $gap / 4

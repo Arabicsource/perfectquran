@@ -3,7 +3,7 @@
 module Admin
   class ConnectionsController < Admin::BaseController
     def index
-      @connections = Connection.all
+      @resources = Connection.all
     end
   end
 end

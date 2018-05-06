@@ -38,4 +38,8 @@ class Article < ApplicationRecord
   def author_name
     account.name
   end
+
+  def to_s
+    "Article: #{title}"
+  end
 end

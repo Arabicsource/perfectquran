@@ -13,7 +13,7 @@
 
 FactoryBot.define do
   factory :category do
-    name 'name'
+    name 'Category'
     description 'description'
   end
 end

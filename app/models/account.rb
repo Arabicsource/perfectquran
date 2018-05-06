@@ -58,6 +58,10 @@ class Account < ApplicationRecord
     false
   end
 
+  def to_s
+    "Account: #{email}"
+  end
+
   private
 
   def subscribe_to_newsletter

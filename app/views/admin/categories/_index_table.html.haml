@@ -1,0 +1,12 @@
+%table#articles.table.is-fullwidth
+  %tbody
+    %tr
+      %th #
+      %th Name
+      %th Description
+  %tbody
+    - @resources.each do |category|
+      %tr
+        %td= link_to category.id, admin_category_path(category)
+        %td= category.name
+        %td= category.description

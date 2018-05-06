@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'Browsing' do
   let(:account) { create :account }
 
-  scenario 'settings' do
+  xscenario 'settings' do
     login_as account
     visit root_path
 

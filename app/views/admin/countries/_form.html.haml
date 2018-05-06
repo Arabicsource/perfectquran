@@ -1,0 +1,18 @@
+= form_with model: [:admin, @resource], id: 'form' do |f|
+  = render 'shared/error_messages', object: @resource
+
+  .field
+    .columns
+      .column.is-four-fifths
+        = f.label :name, class: 'label'
+        .control
+          = f.text_field :name, autofocus: true, class: 'input', id: 'country_name'
+
+      .column
+        = f.label :code, 'Code', class: 'label'
+        .control
+          = f.text_field :code, class: 'input', id: 'country_code'
+
+  .field
+    .control
+      = f.submit nil, class: 'button is-primary'

@@ -1,0 +1,14 @@
+%table#mosques.table.is-fullwidth
+  %thead
+    %tr
+      %th #
+      %th Name
+      %th location
+      %th Email
+  %tbody
+    - @resources.each do |mosque|
+      %tr
+        %td= link_to mosque.id, admin_mosque_path(mosque)
+        %td= mosque.name
+        %td= mosque.location
+        %td= mail_to mosque.email

@@ -117,4 +117,10 @@ RSpec.describe Article, type: :model do
       expect(Article.published_posts.map(&:title)).to eq %w[forth first]
     end
   end
+
+  describe 'to_s' do
+    let(:article) { create :article, title: 'title123' }
+
+    specify { expect(article.to_s).to eq 'Article: title123' }
+  end
 end

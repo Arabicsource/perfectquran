@@ -1,0 +1,7 @@
+<%= link_to [:admin, @resource.class], class: 'navbar-item' do %>
+  <span class='icon'><%= fa_icon 'th-list' %></span> <span>Index</span>
+<% end %>
+
+<%= link_to [:admin, @resource], class: 'navbar-item' do %>
+  <span class='icon'><%= fa_icon 'binoculars' %></span> <span>Show</span>
+<% end %>

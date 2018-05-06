@@ -1,0 +1,18 @@
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th #
+      %th Title
+      %th Permalink
+      %th Category
+      %th Visibility
+      %th Collection
+  %tbody
+    - @resources.each do |article|
+      %tr
+        %td= link_to article.id, admin_article_path(article)
+        %td= article.title
+        %td= article.permalink
+        %td= article.category.name
+        %td= article.visibility
+        %td= article.collection

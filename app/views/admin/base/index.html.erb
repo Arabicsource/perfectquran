@@ -1,0 +1,11 @@
+<div class='content'>
+  <h3><%= @resources.model.to_s.pluralize %></h3>
+</div>
+
+<%= render 'index_table' %>
+
+<% provide :title, @resources.model.to_s.pluralize %>
+
+<% content_for :page_navbar do %>
+  <%= render 'index_links' %>
+<% end %>

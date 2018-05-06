@@ -15,6 +15,15 @@
 class State < ApplicationRecord
   belongs_to :country
 
+  has_many :cities
+
+  validates :name, presence: true
+  validates :code, presence: true
+
   delegate :code, to: :country, prefix: true
   delegate :name, to: :country, prefix: true
+
+  def to_s
+    "State: #{name} (#{code})"
+  end
 end

@@ -17,6 +17,12 @@ require 'rails_helper'
 RSpec.describe City, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to :state }
+    it { is_expected.to have_many :mosques }
+  end
+
+  describe 'validations' do
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :code }
   end
 
   describe 'state_name' do
@@ -33,11 +39,18 @@ RSpec.describe City, type: :model do
     specify { expect(city.state_code).to eq 'ST123' }
   end
 
-  describe 'country_code' do
+  describe 'country_*' do
     let(:city) { create :city, state: state }
-    let(:country) { create :country, code: 'abc123' }
+    let(:country) { create :country, name: 'name123', code: 'abc123' }
     let(:state) { create :state, country: country }
 
+    specify { expect(city.country_name).to eq 'name123' }
     specify { expect(city.country_code).to eq 'abc123' }
+  end
+
+  describe 'to_s' do
+    let(:city) { create :city, name: 'city123', code: 'CI' }
+
+    specify { expect(city.to_s).to eq 'City: city123 (CI)' }
   end
 end

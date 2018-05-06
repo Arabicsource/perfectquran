@@ -1,0 +1,11 @@
+<div class='content'>
+  <h3><%= "New #{@resource.class}" %>
+</div>
+
+<%= render 'form' %>
+
+<% content_for :page_navbar do %>
+  <%= render 'new_links' %>
+<% end %>
+
+<% provide :title, "New #{@resource.class}" %>

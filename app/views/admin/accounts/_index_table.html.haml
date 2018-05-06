@@ -1,0 +1,12 @@
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th #
+      %th Email
+      %th Role
+  %tbody
+    - @resources.each do |account|
+      %tr
+        %td= link_to account.id, admin_account_path(account)
+        %td= account.email
+        %td= account.role

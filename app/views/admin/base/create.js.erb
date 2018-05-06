@@ -1,0 +1,7 @@
+<% if @resource.valid? %>
+  Turbolinks.clearCache()
+  Turbolinks.visit("<%= admin_roots_path %>", { action: "replace" })
+<% else %>
+  var form = document.getElementById('form')
+  form.outerHTML = "<%=j render 'form' %>"
+<% end %>

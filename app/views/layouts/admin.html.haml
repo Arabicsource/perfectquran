@@ -3,8 +3,63 @@
   = render 'layouts/admin/head'
   %body{id: params[:controller].try(:gsub, '/', '-'), class: "#{params[:action]}"}
 
-    = render 'layouts/admin/navbar'
+    .columns.is-gapless
+      .column.is-one-fifth
+        %aside.menu
+          %ul.menu-list
+            %li
+              = link_to admin_root_path do
+                #{fa_icon('dashboard')} Dashboard
 
-    = render 'layouts/flash'
+            %li
+              = link_to admin_accounts_path do
+                #{fa_icon('users')} Accounts
 
-    = yield
+            %li
+              = link_to admin_connections_path do
+                #{fa_icon('twitter')} Connections
+              
+            %li
+              = link_to admin_articles_path do
+                #{fa_icon('newspaper-o')} Articles
+
+            %li
+              = link_to admin_categories_path do
+                #{fa_icon('folder')} Categories
+
+            %li
+              = link_to admin_mosques_path do
+                #{fa_icon('life-ring')} Mosques
+            
+            %li
+              = link_to admin_countries_path do
+                #{fa_icon('globe')} Countries
+
+            %li
+              = link_to admin_states_path do
+                #{fa_icon('compass')} States
+
+            %li
+              = link_to admin_cities_path do
+                #{fa_icon('location-arrow')} Cities
+
+      .column
+        .navbar
+          .navbar-brand
+            = link_to  'Admin Panel', admin_root_path, class: 'navbar-item'
+            = link_to 'Site', root_path, class: 'navbar-item'
+
+          .navbar-menu
+            .navbar-end
+              %p.navbar-item 
+                Logged in as #{Current.account.email} (#{link_to "Logout", destroy_account_session_path, method: :delete})
+
+        - if content_for? :page_navbar
+          .navbar.is-primary
+            .navbar-menu
+              .navbar-start
+                = content_for :page_navbar
+        
+        %main
+          = render 'layouts/flash'
+          = yield

@@ -25,8 +25,10 @@ class Mosque < ApplicationRecord
   validates :name, presence: true
 
   delegate :country_code, to: :city
+  delegate :country_name, to: :city
   delegate :name, to: :city, prefix: true
   delegate :state_code, to: :city
+  delegate :state_name, to: :city
 
   def location
     "#{city_name}, #{state_code}, #{country_code}"
@@ -34,5 +36,9 @@ class Mosque < ApplicationRecord
 
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+
+  def to_s
+    "Mosque: #{name}"
   end
 end

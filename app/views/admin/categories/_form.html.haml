@@ -1,0 +1,14 @@
+= form_with model: [:admin, @resource], id: 'form' do |f|
+  = render 'shared/error_messages', object: @resource
+
+  .field
+    = f.label :name, class: 'label'
+    .control
+      = f.text_field :name, autofocus: true, class: 'input', id: 'category_name'
+
+  .field
+    = f.label :description, class: 'label'
+    .control
+      = f.text_field :description, class: 'input', id: 'category_description'
+
+  = f.submit nil, class: 'button is-primary'

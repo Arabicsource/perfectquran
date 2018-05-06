@@ -16,5 +16,6 @@ FactoryBot.define do
   factory :comment do
     content 'content'
     account
+    article
   end
 end

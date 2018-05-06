@@ -135,4 +135,10 @@ RSpec.describe Account, type: :model do
       end
     end
   end
+
+  describe 'to_s' do
+    let(:account) { create :account, email: 'account@perfectquran.co' }
+
+    specify { expect(account.to_s).to eq 'Account: account@perfectquran.co' }
+  end
 end

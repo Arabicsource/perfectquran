@@ -1,7 +1,5 @@
 <% flash.each do |type, message| %>
-  <div class="notification is-marginless is-<%= type %>" role="alert">
-    <div class='container'>
-      <%= message %>
-    </div>
+  <div class="notification is-<%= type %>" role="alert">
+    <%= message %>
   </div>
 <% end %>

@@ -3,11 +3,11 @@
 module Admin
   class AccountsController < Admin::BaseController
     def index
-      @accounts = Account.all
+      @resources = Account.all
     end
 
     def show
-      @account = Account.find(params[:id])
+      @resource = Account.find(params[:id])
     end
   end
 end

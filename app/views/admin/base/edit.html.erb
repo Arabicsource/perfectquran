@@ -1,0 +1,11 @@
+<div class='content'>
+  <h3><%= "Edit #{@resource}" %>
+</div>
+
+<%= render 'form' %>
+
+<% content_for :page_navbar do %>
+  <%= render 'edit_links' %>
+<% end %>
+
+<% provide :title, "Edit #{@resource}" %>

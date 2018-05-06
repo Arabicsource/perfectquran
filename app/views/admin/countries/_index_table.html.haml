@@ -1,0 +1,12 @@
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th #
+      %th Name
+      %th Code
+  %tbody
+    - @resources.each do |country|
+      %tr
+        %td= link_to country.id, admin_country_path(country)
+        %td= country.name
+        %td= country.code

@@ -1,0 +1,16 @@
+%table.table.is-fullwidth
+  %thead
+    %tr
+      %th #
+      %th Name
+      %th Code
+      %th State
+      %th Country
+  %tbody
+    - @resources.each do |city|
+      %tr
+        %td= link_to city.id, admin_city_path(city)
+        %td= city.name
+        %td= city.code
+        %td= city.state_name
+        %td= city.country_code

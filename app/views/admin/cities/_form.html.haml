@@ -1,0 +1,24 @@
+= form_with model: [:admin, @resource], id: 'form' do |f|
+  = render 'shared/error_messages', object: @resource
+
+  .field
+    .columns
+      .column
+        = f.label :name, class: 'label'
+        .control
+          = f.text_field :name, autofocus: true, class: 'input', id: 'city_name'
+
+      .column
+        = f.label :code, 'Code', class: 'label'
+        .control
+          = f.text_field :code, class: 'input', id: 'city_code'
+
+      .column
+        = f.label :state_id, 'State', class: 'label'
+        .control
+          .select.is-fullwidth
+            = f.select :state_id, State.all.collect {|s| [ s.name, s.id ] }, {}, id: 'city_state_id'
+
+  .field
+    .control
+      = f.submit nil, class: 'button is-primary'

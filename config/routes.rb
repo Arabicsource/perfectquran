@@ -28,12 +28,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'dashboards#show'
-    resources :articles, :categories, :accounts, :connections
-
-    resources :mosques, only: %i[index new create]
-    resources :countries, only: %i[index new create]
-    resources :states, only: %i[index new create]
-    resources :cities, only: %i[index new create]
+    resources :accounts, only: %i[index show]
+    resources :connections, only: :index
+    resources :articles, :categories, :cities, :countries, :mosques, :states
   end
 
   namespace :quran do

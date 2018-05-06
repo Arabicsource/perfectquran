@@ -37,21 +37,23 @@ RSpec.describe Mosque, type: :model do
     specify { expect(mosque.city_name).to eq 'city123' }
   end
 
-  describe 'state_code' do
+  describe 'state_*' do
     let(:city) { create :city, state: state }
     let(:mosque) { create :mosque, city: city }
-    let(:state) { create :state, code: 'ST123' }
+    let(:state) { create :state, name: 'state123', code: 'ST123' }
 
     specify { expect(mosque.state_code).to eq 'ST123' }
+    specify { expect(mosque.state_name).to eq 'state123' }
   end
 
-  describe 'country_code' do
+  describe 'country_*' do
     let(:city) { create :city, state: state }
-    let(:country) { create :country, code: 'CC123' }
+    let(:country) { create :country, name: 'Country123', code: 'CC123' }
     let(:mosque) { create :mosque, city: city }
     let(:state) { create :state, country: country }
 
     specify { expect(mosque.country_code).to eq 'CC123' }
+    specify { expect(mosque.country_name).to eq 'Country123' }
   end
 
   describe 'location' do
@@ -63,9 +65,10 @@ RSpec.describe Mosque, type: :model do
     specify { expect(mosque.location).to eq 'City, ST, CC' }
   end
 
-  describe 'to_param' do
+  describe 'to_*' do
     let(:mosque) { create :mosque, id: 1, name: 'Mosque 123' }
 
     specify { expect(mosque.to_param).to eq '1-mosque-123' }
+    specify { expect(mosque.to_s).to eq 'Mosque: Mosque 123' }
   end
 end

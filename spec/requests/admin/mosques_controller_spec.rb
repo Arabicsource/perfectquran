@@ -2,9 +2,10 @@
 
 require 'rails_helper'
 
-describe 'Admin::MosquesController' do
-  let(:account) { create :account }
-  let(:admin) { create :account, :as_admin }
+describe Admin::MosquesController, type: :request do
+  let(:admin) { create :admin }
+  let(:member) { create :member }
+  let(:mosque) { create :mosque }
   let(:city) { create :city }
   let(:invalid_params) { { mosque: { name: '' } } }
 
@@ -20,22 +21,22 @@ describe 'Admin::MosquesController' do
   end
 
   describe 'GET admin_mosques_path' do
-    context 'when not logged in' do
+    context 'as guest' do
       before { get admin_mosques_path }
 
       specify { expect(response).to redirect_to new_account_session_path }
     end
 
-    context 'when logged in as a non-admin' do
+    context 'as member' do
       before do
-        login_as account
+        login_as member
         get admin_mosques_path
       end
 
       specify { expect(response).to redirect_to root_path }
     end
 
-    context 'when logged in as admin' do
+    context 'as admin' do
       before do
         login_as admin
         get admin_mosques_path
@@ -43,12 +44,28 @@ describe 'Admin::MosquesController' do
 
       specify { expect(response).to be_successful }
     end
+  end
 
-    context 'when logged in as admin on mobile' do
+  describe 'GET admin_mosque_path' do
+    context 'as guest' do
+      before { get admin_mosque_path(mosque) }
+
+      specify { expect(response).to redirect_to new_account_session_path }
+    end
+
+    context 'as member' do
       before do
-        mobile_browser
+        login_as member
+        get admin_mosque_path(mosque)
+      end
+
+      specify { expect(response).to redirect_to root_path }
+    end
+
+    context 'as admin' do
+      before do
         login_as admin
-        get admin_mosques_path
+        get admin_mosque_path(mosque)
       end
 
       specify { expect(response).to be_successful }
@@ -56,33 +73,23 @@ describe 'Admin::MosquesController' do
   end
 
   describe 'GET new_admin_mosque_path' do
-    context 'when not logged in' do
+    context 'as guest' do
       before { get new_admin_mosque_path }
 
       specify { expect(response).to redirect_to new_account_session_path }
     end
 
-    context 'when logged in as a non-admin' do
+    context 'as member' do
       before do
-        login_as account
+        login_as member
         get new_admin_mosque_path
       end
 
       specify { expect(response).to redirect_to root_path }
     end
 
-    context 'when logged in as admin' do
+    context 'as admin' do
       before do
-        login_as admin
-        get new_admin_mosque_path
-      end
-
-      specify { expect(response).to be_successful }
-    end
-
-    context 'when logged in as admin on mobile' do
-      before do
-        mobile_browser
         login_as admin
         get new_admin_mosque_path
       end
@@ -91,44 +98,147 @@ describe 'Admin::MosquesController' do
     end
   end
 
-  describe 'POST /admin/mosques' do
-    context 'when not logged in' do
-      before { post '/admin/mosques', params: valid_params }
+  describe 'GET edit_admin_mosque_path' do
+    context 'as guest' do
+      before { get edit_admin_mosque_path(mosque) }
 
       specify { expect(response).to redirect_to new_account_session_path }
     end
 
-    context 'when logged in as a non-admin' do
+    context 'as member' do
       before do
-        login_as account
-        post '/admin/mosques', params: valid_params
+        login_as member
+        get edit_admin_mosque_path(mosque)
       end
 
       specify { expect(response).to redirect_to root_path }
     end
 
-    context 'when logged in as an admin' do
+    context 'as admin' do
+      before do
+        login_as admin
+        get edit_admin_mosque_path(mosque)
+      end
+
+      specify { expect(response).to be_successful }
+    end
+  end
+
+  describe 'POST admin_mosques_path' do
+    context 'as guest' do
+      before { post admin_mosques_path, params: valid_params }
+
+      specify { expect(response).to redirect_to new_account_session_path }
+    end
+
+    context 'as member' do
+      before do
+        login_as member
+        post admin_mosques_path, params: valid_params
+      end
+
+      specify { expect(response).to redirect_to root_path }
+    end
+
+    context 'as admin' do
       before { login_as admin }
 
-      context 'when params are valid' do
-        it 'redirects to admin_mosques_path' do
-          post '/admin/mosques', params: valid_params
+      context 'with valid params' do
+        it 'redirects' do
+          post admin_mosques_path, params: valid_params
 
           expect(response).to redirect_to admin_mosques_path
         end
 
-        specify 'Mosque record is created' do
+        specify 'record is created' do
           expect do
             post admin_mosques_path, params: valid_params
           end.to change(Mosque, :count).by(1)
         end
       end
 
-      context 'when params are invalid' do
-        specify 'Mosque record is not created' do
+      context 'with invalid params' do
+        it 'is unprocessable' do
+          post admin_mosques_path, params: invalid_params
+
+          expect(response).to be_unprocessable
+        end
+
+        specify 'record is not created' do
           expect do
             post admin_mosques_path, params: invalid_params
           end.to_not change(Mosque, :count)
+        end
+      end
+    end
+  end
+
+  describe 'PATCH admin_mosque_path' do
+    context 'as guest' do
+      before { patch admin_mosque_path(mosque), params: valid_params }
+
+      specify { expect(response).to redirect_to new_account_session_path }
+    end
+
+    context 'as member' do
+      before do
+        login_as member
+        patch admin_mosque_path(mosque), params: valid_params
+      end
+
+      specify { expect(response).to redirect_to root_path }
+    end
+
+    context 'as admin' do
+      before { login_as admin }
+
+      context 'with valid params' do
+        before { patch admin_mosque_path(mosque), params: valid_params }
+
+        specify { expect(response).to redirect_to admin_mosques_path }
+        specify { expect(mosque.reload.name).to eq 'name123' }
+      end
+
+      context 'with invalid params' do
+        before { patch admin_mosque_path(mosque), params: invalid_params }
+
+        specify { expect(response).to be_unprocessable }
+        specify { expect(mosque.reload.name).to eq 'Mosque' }
+      end
+    end
+  end
+
+  describe 'DELETE admin_mosque_path' do
+    context 'as guest' do
+      before { delete admin_mosque_path(mosque) }
+
+      specify { expect(response).to redirect_to new_account_session_path }
+    end
+
+    context 'as member' do
+      before do
+        login_as member
+        delete admin_mosque_path(mosque)
+      end
+
+      specify { expect(response).to redirect_to root_path }
+    end
+
+    context 'as admin' do
+      before { login_as admin }
+
+      context 'when can delete' do
+        it 'redirects' do
+          delete admin_mosque_path(mosque)
+
+          expect(response).to redirect_to admin_mosques_path
+        end
+
+        specify 'record is deleted' do
+          mosque
+
+          expect { delete admin_mosque_path(mosque) }
+            .to change(Mosque, :count).by(-1)
         end
       end
     end
