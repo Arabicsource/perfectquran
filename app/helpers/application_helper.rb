@@ -13,6 +13,10 @@ module ApplicationHelper
     markdown.render(text).html_safe
   end
 
+  def meta_description(text)
+    truncate text, length: 160, separator: ' '
+  end
+
   def short_ordinal(date_column)
     date_column.to_date.to_formatted_s(:short_ordinal)
   end
