@@ -1,8 +1,7 @@
 %nav.navbar.default{data: {controller: 'navbar'}, role: 'navigation', aria: { label: 'main navigation'} }
-  .container
-    = render 'layouts/default/navbar_brand'
+  = render 'layouts/default/navbar_brand'
 
-    .navbar-menu{data: {target: 'navbar.menu'}}
-      .navbar-end
-        = render 'layouts/default/navbar_mobile_menu'
-        = render 'layouts/default/navbar_desktop_menu'
+  .navbar-menu{data: {target: 'navbar.menu'}}
+    .navbar-end
+      = render 'layouts/default/navbar_mobile_menu'
+      = render 'layouts/default/navbar_desktop_menu'

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <title><%= yield :title %> | PerfectQuran</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'quran', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= render 'layouts/analytics' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/default/navbar' %>
+
+    <div class='columns is-gapless'>
+      <div class='column is-three-quarters'>
+        <main>
+          <%= yield %>
+        </main>
+      </div>
+      <div class='column is-one-quarter'>
+        <aside>
+          <% if content_for? :aside %>
+            <%= content_for :aside %>
+          <% end %>
+        </aside>
+      </div>
+    </div>
+
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

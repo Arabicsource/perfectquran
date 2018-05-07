@@ -2,6 +2,8 @@
 
 module Quran
   class AyahsController < ApplicationController
+    layout 'quran'
+
     def show
       @ayah = load_ayah
       @texts = load_texts

@@ -1,6 +1,5 @@
-%nav.breadcrumb.is-hidden-mobile{aria: {label: "breadcrumbs"}}
-  .container
-    %ul
-      %li= link_to 'Quran', quran_root_path
-      %li= link_to @ayah.surah, quran_surah_path(@ayah.surah)
-      %li.is-active= link_to @ayah.number, quran_ayah_path(@ayah), aria: {current: "page"}
+%nav.breadcrumb{aria: {label: "breadcrumbs"}}
+  %ul
+    %li= link_to 'Quran', quran_root_path
+    %li= link_to @ayah.surah, quran_surah_path(@ayah.surah)
+    %li.is-active= link_to @ayah.number, quran_ayah_path(@ayah), aria: {current: "page"}

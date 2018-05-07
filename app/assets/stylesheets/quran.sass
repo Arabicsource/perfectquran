@@ -1,0 +1,45 @@
+@import 'quran/variables'
+@import 'bulma'
+
+aside, main
+  padding: 24px 12px
+
+  +desktop
+    padding: 24px 12px $gap 12px
+
+aside
+  min-height: 100%
+  background: $background
+
+audio
+  width: 100%
+
+header
+  margin-bottom: 24px
+  padding-bottom: 12px
+
+.columns.is-gapless
+  margin-bottom: 0 !important
+
+.current-ayah
+  margin-bottom: $gap
+
+.footer
+  background: $dark-brown
+  color: $grey
+
+  strong
+    color: $white
+
+.previous-ayah, .next-ayah
+  background: $background
+  border-radius: $radius
+  padding: 12px
+  height: 100%
+
+.uthmani-text
+  text-align: right
+  font-size: 2rem
+
+  +desktop
+    font-size: 3rem
