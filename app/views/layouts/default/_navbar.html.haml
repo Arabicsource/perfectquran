@@ -3,5 +3,7 @@
 
   .navbar-menu{data: {target: 'navbar.menu'}}
     .navbar-end
-      = render 'layouts/default/navbar_mobile_menu'
-      = render 'layouts/default/navbar_desktop_menu'
+      - if browser.mobile?
+        = render 'layouts/default/navbar_mobile_menu'
+      - else
+        = render 'layouts/default/navbar_desktop_menu'
