@@ -18,10 +18,10 @@
         <span class='has-text-twitter'>#{fa_icon 'twitter'}</span> Automatically
         post Ayat of <strong class='has-text-twitter'>Quran</strong> to Twitter
       %h4.subtitle.has-text-centered
-        Join 100s of Others Sharing Quranic Reminders
+        Join Many Others Sharing Quranic Reminders
 
       .columns.is-multiline
-        - @connections.find_each do |connection|
+        - @connections.each do |connection|
           .column.is-one-third
             %article
               .media

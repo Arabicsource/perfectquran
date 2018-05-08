@@ -2,6 +2,6 @@
 
 class HomeController < ApplicationController
   def show
-    @connections = Connection.all_active.limit(3)
+    @connections = Connection.all_active.sample(6)
   end
 end
