@@ -1,4 +1,4 @@
 .current-ayah
   - @texts.each do |text|
-    %h3.has-text-primary.is-size-5{class: ('is-hidden' if text.uthmani?)}= text.translation.name
+    %h3.is-size-5{class: ('is-hidden' if text.uthmani?)}= text.translation.name
     %p{class: ('uthmani-text' if text.uthmani?)}= sanitize text.content
