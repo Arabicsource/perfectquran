@@ -1,9 +1,24 @@
 %nav.navbar.default{data: {controller: 'navbar'}, role: 'navigation', aria: { label: 'main navigation'} }
-  = render 'layouts/default/navbar_brand'
+  .navbar-brand
+    = link_to  root_url, class: 'navbar-item' do
+      = image_tag 'queue.jpg'
+
+    .navbar-burger{data: {action: 'click->navbar#toggle_menu', target: 'navbar.burger'}}
+      %span
+      %span
+      %span
 
   .navbar-menu{data: {target: 'navbar.menu'}}
+    .navbar-start
+      = link_to 'Quran', quran_root_path, class: 'navbar-item'
+
+      - if account_signed_in?
+        = link_to 'Connections', account_connections_path, class: 'navbar-item', rel: 'nofollow'
+        = link_to 'Admin', admin_root_path, rel: 'nofollow', class: 'navbar-item' if current_account.role? :admin
+
     .navbar-end
-      - if browser.mobile?
-        = render 'layouts/default/navbar_mobile_menu'
+      - if account_signed_in?
+        = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item', rel: 'nofollow'
       - else
-        = render 'layouts/default/navbar_desktop_menu'
+        = link_to 'Login', new_account_session_path, class: 'navbar-item', rel: 'nofollow'
+        = link_to 'Register', new_account_registration_path, class: 'navbar-item', rel: 'nofollow'
