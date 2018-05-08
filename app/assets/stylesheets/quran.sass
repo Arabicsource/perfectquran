@@ -1,3 +1,4 @@
+@import 'font-awesome'
 @import 'quran/variables'
 @import 'bulma'
 
@@ -6,6 +7,9 @@ aside, main
 
   +desktop
     padding: 24px 12px $gap 12px
+
+  section
+    margin-bottom: 24px
 
 aside
   min-height: 100%
@@ -18,8 +22,19 @@ header
   margin-bottom: 24px
   padding-bottom: 12px
 
+.next-ayah-link
+  float: right
+
 .columns.is-gapless
   margin-bottom: 0 !important
+
+.context
+  p
+    margin-bottom: 12px
+
+  .icon
+    padding-left: 24px
+    font-size: 3rem
 
 .current-ayah
   margin-bottom: $gap
@@ -34,12 +49,6 @@ header
 .navbar
   img
     border-radius: $radius
-
-.previous-ayah, .next-ayah
-  background: $background
-  border-radius: $radius
-  padding: 12px
-  height: 100%
 
 .uthmani-text
   text-align: right

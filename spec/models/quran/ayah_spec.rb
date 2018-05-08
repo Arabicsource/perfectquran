@@ -18,6 +18,8 @@ RSpec.describe Quran::Ayah, type: :model do
   let(:account) { create :account }
   let(:ayah_1) { Quran::Ayah.first }
   let(:ayah_2) { Quran::Ayah.second }
+  let(:ayah_7) { Quran::Ayah.find(7) }
+  let(:ayah_2635) { Quran::Ayah.find(6235) }
   let(:ayah_2636) { Quran::Ayah.last }
   let(:uthmani) { Quran::Translation.first }
 
@@ -114,10 +116,16 @@ RSpec.describe Quran::Ayah, type: :model do
   describe 'previous' do
     specify { expect(ayah_2.previous).to eq ayah_1 }
     specify { expect(ayah_1.previous).to eq ayah_2636 }
+    specify { expect(ayah_1.previous(2).map(&:id)).to eq [6235, 6236] }
+    specify { expect(ayah_2.previous(2).map(&:id)).to eq [6236, 1] }
+    specify { expect(ayah_7.previous(6).map(&:id)).to eq [1, 2, 3, 4, 5, 6] }
   end
 
   describe 'next' do
     specify { expect(ayah_1.next).to eq ayah_2 }
     specify { expect(ayah_2636.next).to eq ayah_1 }
+    specify { expect(ayah_1.next(2).map(&:id)).to eq [2, 3] }
+    specify { expect(ayah_2636.next(2).map(&:id)).to eq [1, 2] }
+    specify { expect(ayah_2635.next(2).map(&:id)).to eq [6236, 1] }
   end
 end

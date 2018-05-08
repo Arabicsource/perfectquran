@@ -1,41 +1,40 @@
-<div class='columns'>
-  <div class='column'>
-    <%= render 'breadcrumb' %>
-  </div>
-  <div class='column is-one-quarter'>
-    <nav class='pagination'>
-      <%= link_to 'Previous', quran_ayah_path(@ayah.previous.surah, @ayah.previous.number), class: 'pagination-previous' %>
-      <%= link_to 'Next Ayah', quran_ayah_path(@ayah.next.surah, @ayah.next.number), class: 'pagination-next' %>
-    </nav>
+<div class='columns is-centered'>
+  <div class='column is-four-fifths'>
+    <div class='columns is-mobile'>
+      <div class='column is-three-quarters-mobile'>
+        <%= render 'breadcrumb' %>
+      </div>
+
+      <div class='column'>
+        <nav>
+          <%= link_to quran_ayah_path(@ayah.previous.surah, @ayah.previous.number) do %>
+            <%= fa_icon 'arrow-left' %>
+            <span class='is-hidden-mobile'>Previous Ayah</span>
+          <% end %>
+
+          <%= link_to quran_ayah_path(@ayah.next.surah, @ayah.next.number), class: 'next-ayah-link' do %>
+            <span class='is-hidden-mobile'>Next Ayah</span>
+            <%= fa_icon 'arrow-right' %>
+          <% end %>
+        </nav>
+      </div>
+    </div>
+
+    <article>
+      <header>
+        <h1 class='title'><%= @ayah %></h1>
+      </header>
+
+      <div class='content'>
+        <%= render 'current_ayah' %>
+      </div>
+    </article>
   </div>
 </div>
 
-<article>
-  <header>
-    <h1 class='title'><%= @ayah %></h1>
-  </header>
-
-  <div class='content'>
-    <div class='columns is-centered'>
-      <div class='column is-four-fifths'>
-        <%= render 'current_ayah' %>
-
-        <div class='columns'>
-          <div class='column'>
-            <%= render 'previous_ayah' %>
-          </div>
-          <div class='column'>
-            <%= render 'next_ayah' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-
-
 <% content_for :aside do %>
   <%= render 'audio' %>
+  <%= render 'context' %>
 <% end %>
 
 <% provide :title, @ayah %>

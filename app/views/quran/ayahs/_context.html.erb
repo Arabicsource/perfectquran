@@ -1,0 +1,25 @@
+<section class='context'>
+  <div class='previous'>
+    <% @ayah.previous(3).each do |ayah| %>
+      <p>
+        <%= truncate sanitize(ayah.primary_text), length: 75 %>
+        <%= link_to quran_ayah_path(ayah.surah, ayah.number) do %>
+          (<%= "#{ayah.surah_id}:#{ayah.number}" %>)
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+
+    <span class='icon'><%= fa_icon 'ellipsis-h' %></span>
+
+  <div class='next'>
+    <% @ayah.next(3).each do |ayah| %>
+      <p>
+        <%= truncate sanitize(ayah.primary_text), length: 75 %>
+        <%= link_to quran_ayah_path(ayah.surah, ayah.number) do %>
+          (<%= "#{ayah.surah_id}:#{ayah.number}" %>)
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+</section>

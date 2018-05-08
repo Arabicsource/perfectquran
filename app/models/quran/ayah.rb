@@ -64,15 +64,57 @@ module Quran
       surah.transliterated_name
     end
 
-    def previous
-      previous_id = id > 1 ? id - 1 : 6236
-      @previous ||= self.class.find previous_id
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+    def previous(length = 1)
+      if length == 1
+        previous_id = id > 1 ? id - 1 : 6236
+        return self.class.find previous_id
+      end
+
+      ids = []
+
+      length.times do |i|
+        difference = id - (i + 1)
+
+        if difference.positive?
+          ids.push difference
+        else
+          ids.push 6236 + difference
+        end
+      end
+
+      if id < 4
+        self.class.where(id: ids).reorder(surah_id: :desc, number: :asc)
+      else
+        self.class.where(id: ids).reorder(surah_id: :asc, number: :asc)
+      end
     end
 
-    def next
-      next_id = id == 6236 ? 1 : id + 1
-      @next ||= self.class.find next_id
+    def next(length = 1)
+      if length == 1
+        next_id = id == 6236 ? 1 : id + 1
+        return self.class.find next_id
+      end
+
+      ids = []
+
+      length.times do |i|
+        sum = id + (i + 1)
+
+        if sum <= 6236
+          ids.push sum
+        else
+          ids.push sum - 6236
+        end
+      end
+
+      if id > 6233
+        self.class.where(id: ids).reorder(surah_id: :desc, number: :asc)
+      else
+        self.class.where(id: ids).reorder(surah_id: :asc, number: :asc)
+      end
     end
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
     def to_s
       "#{surah_name} #{number}"

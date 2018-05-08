@@ -1,7 +1,0 @@
-.previous-ayah
-  .content
-    %p
-      %small
-        %span.has-text-grey= truncate sanitize(@ayah.previous.primary_text), length: 75
-        = link_to quran_ayah_path(@ayah.previous.surah, @ayah.previous.number) do
-          (#{@ayah.previous.surah_id}:#{@ayah.previous.number})
