@@ -1,0 +1,78 @@
+<div class='columns is-centered'>
+  <div class='column is-four-fifths'>
+    <div class='columns is-mobile'>
+      <div class='column is-three-quarters-mobile'>
+        <nav class='breadcrumb' aria-label='breadcrumbs'>
+          <ul>
+            <li><%= link_to 'Quran', quran_root_path %></li>
+            <li class='is-active'>
+              <%= link_to @surah, quran_surah_path(@surah), aria: {current: "page"} %>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class='column'>
+        <nav>
+          <%= link_to quran_surah_path(@surah.previous) do %>
+            <%= fa_icon 'arrow-left' %>
+            <span class='is-hidden-mobile'>Previous Surah</span>
+          <% end %>
+
+          <%= link_to quran_surah_path(@surah.next), class: 'is-pulled-right' do %>
+            <span class='is-hidden-mobile'>Next Surah</span>
+            <%= fa_icon 'arrow-right' %>
+          <% end %>
+        </nav>
+      </div>
+    </div>
+
+    <article>
+      <header>
+        <h1 class='title'><%= @surah %></h1>
+        <h2 class='subtitle'><%= @surah.description %></h2>
+      </header>
+
+      <% @surah.ayahs.each do |ayah| %>
+        <article class='media ayah'>
+          <div class='media-content'>
+            <div class='content'>
+              <p><%= link_to "#{ayah}", quran_ayah_path(@surah.permalink, ayah.number) %></p>
+            </div>
+            <div class='columns is-variable is-8'>
+              <div class='column'>
+                <h3 class='is-hidden'>Uthmani</h3>
+                <p class='uthmani-text'><%= sanitize ayah.uthmani_text %></p>
+                <h3 class='is-hidden'>Transliteration</h3>
+                <p class='transliteration-text'><%= sanitize ayah.transliterated_text %></p>
+              </div>
+              <div class='column'>
+                <% ayah.account_texts.each do |text| %>
+                  <div class='content'>
+                    <h3 class='is-size-5'><%= text.translation.name %></h3>
+                    <p><%= sanitize text.content %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </article>
+  </div>
+</div>
+
+<% content_for :aside do %>
+  <section>
+    <audio controls>
+      <source src='<%= surah_audio_file(@surah.id) %>' type='audio/mpeg'>
+        Your browser does not support the audio tag.
+      </source>
+    </audio>
+  </section>
+
+  <%= render 'information', surah: @surah %>
+<% end %>
+
+<% provide :title, @surah %>
+<% provide :meta_description, @surah.description %>

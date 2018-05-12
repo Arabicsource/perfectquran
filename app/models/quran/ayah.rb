@@ -31,7 +31,7 @@ module Quran
         texts.joins(translation: :account_translations)
              .order('account_translations.order ASC')
       else
-        texts.where(translation: [1, 2, 3]).order(id: :desc)
+        texts.where(translation: 3)
       end
     end
 

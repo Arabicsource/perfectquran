@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'Browsing' do
   include JavascriptHelper
 
-  scenario 'surah' do
+  xscenario 'surah' do
     visit quran_root_path
     expect(page).to have_title 'Surahs'
 

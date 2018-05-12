@@ -1,27 +1,24 @@
-.panel
-  %p.panel-heading Surah Information
-
-  .panel-block
-    %table.table.is-fullwidth
-      %tbody
-        %tr
-          %td Placement
-          %td= surah.id.ordinalize
-        %tr
-          %td Number of Ayahs
-          %td= surah.number_of_ayahs
-        %tr
-          %td Order of Revelation
-          %td= surah.order_of_revelation.ordinalize
-        %tr
-          %td Revelation Type
-          %td= surah.revelation_type.capitalize
-        %tr
-          %td Arabic Name
-          %td= surah.arabic_name
-        %tr
-          %td Transliterated Name
-          %td= surah.transliterated_name
-        %tr
-          %td English Name
-          %td= surah.english_name
+%section
+  %table.table.is-fullwidth
+    %tbody
+      %tr
+        %td Placement
+        %td= surah.id.ordinalize
+      %tr
+        %td Number of Ayahs
+        %td= surah.number_of_ayahs
+      %tr
+        %td Order of Revelation
+        %td= surah.order_of_revelation.ordinalize
+      %tr
+        %td Revelation Type
+        %td= surah.revelation_type.capitalize
+      %tr
+        %td Arabic Name
+        %td= surah.arabic_name
+      %tr
+        %td Transliterated Name
+        %td= surah.transliterated_name
+      %tr
+        %td English Name
+        %td= surah.english_name

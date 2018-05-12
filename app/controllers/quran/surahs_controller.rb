@@ -8,6 +8,8 @@ module Quran
 
     def show
       @surah = Quran::Surah.find_by(permalink: params[:permalink])
+
+      render layout: 'quran'
     end
   end
 end

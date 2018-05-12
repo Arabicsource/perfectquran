@@ -46,7 +46,7 @@ RSpec.describe Quran::Ayah, type: :model do
       before { Current.account = GuestAccount.new }
 
       specify do
-        expect(ayah_1.account_texts.map(&:translation_id)).to eq [1, 2, 3]
+        expect(ayah_1.account_texts.map(&:translation_id)).to eq [3]
       end
     end
 
@@ -54,7 +54,7 @@ RSpec.describe Quran::Ayah, type: :model do
       before { Current.account = account }
 
       specify do
-        expect(ayah_1.account_texts.map(&:translation_id)).to eq [1, 2, 3]
+        expect(ayah_1.account_texts.map(&:translation_id)).to eq [3]
       end
     end
 
