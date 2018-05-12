@@ -5,41 +5,33 @@
         %p
           %strong PerfectQuran
           by
-          = link_to('Abdullah Hashim', 'https://imabusabah.github.io') + '.'
+          = link_to('Abdullah Hashim', 'https://imabusabah.github.io', rel: 'nofollow') + '.'
           He may also be found on
-          = link_to('Twitter', 'https://twitter.com/ImAbuDhuha') + '.'
+          = link_to('Twitter', 'https://twitter.com/ImAbuDhuha', rel: 'nofollow') + '.'
         %p
           The source code for this site can be found at
-          = link_to 'https://github.com/imabusabah/perfectquran' do
+          = link_to 'https://github.com/imabusabah/perfectquran', rel: 'nofollow' do
             = fa_icon 'github'
             GitHub
           and is licensed under the
-          = link_to 'MIT', 'https://opensource.org/licenses/mit-license.php'
+          = link_to 'MIT', 'https://opensource.org/licenses/mit-license.php', rel: 'nofollow'
           License.
         %p
           The content is licensed under the
-          = link_to('CC BY-NC-SA 4.0', 'https://creativecommons.org/licenses/by-nc-sa/4.0/') + '.'
+          = link_to('CC BY-NC-SA 4.0', 'https://creativecommons.org/licenses/by-nc-sa/4.0/', rel: 'nofollow') + '.'
           This does not cover the Quranic text, translations or audio. Please
           check the relevant websites for licensing information.
         %p
           The Quranic text and translations were obtained from
-          = link_to('Tanzil', 'http://tanzil.net/trans/') + '.'
+          = link_to('Tanzil', 'http://tanzil.net/trans/', rel: 'nofollow') + '.'
         %p
           The audio recitations are from
-          = link_to 'MP3 Quran', 'http://www.mp3quran.net/eng/'
+          = link_to 'MP3 Quran', 'http://www.mp3quran.net/eng/', rel: 'nofollow'
           and
-          = link_to('EveryAyah', 'http://everyayah.com/data/status.php') + '.'
+          = link_to('EveryAyah', 'http://everyayah.com/data/status.php', rel: 'nofollow') + '.'
 
       .column
         %p.content 
           All praise and thanks belongs to Allah alone.
         %p.content
           Copyright PerfectQuran &copy; 2017 - #{Time.now.year}, all rights reserved.
-
-        .menu
-          %p.menu-label Social Media Profiles
-          %ul.menu-list
-            %li
-              = link_to 'https://twitter.com/PerfectQuran' do
-                = fa_icon 'twitter'
-                Twitter
