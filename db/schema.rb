@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_21_072454) do
+ActiveRecord::Schema.define(version: 2018_05_13_064719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,16 +102,6 @@ ActiveRecord::Schema.define(version: 2018_04_21_072454) do
     t.index ["juz_id"], name: "index_ayahs_on_juz_id"
     t.index ["page_id"], name: "index_ayahs_on_page_id"
     t.index ["surah_id"], name: "index_ayahs_on_surah_id"
-  end
-
-  create_table "bookmarks", force: :cascade do |t|
-    t.string "bookmarkable_type"
-    t.bigint "bookmarkable_id"
-    t.bigint "account_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_bookmarks_on_account_id"
-    t.index ["bookmarkable_type", "bookmarkable_id"], name: "index_bookmarks_on_bookmarkable_type_and_bookmarkable_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -355,7 +345,6 @@ ActiveRecord::Schema.define(version: 2018_04_21_072454) do
   add_foreign_key "ayahs", "juzs"
   add_foreign_key "ayahs", "pages"
   add_foreign_key "ayahs", "surahs"
-  add_foreign_key "bookmarks", "accounts"
   add_foreign_key "charges", "accounts"
   add_foreign_key "cities", "states"
   add_foreign_key "comments", "accounts"
