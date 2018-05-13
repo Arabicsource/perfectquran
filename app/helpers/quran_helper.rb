@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module QuranHelper
-  def bookmarked?(resource)
-    Bookmark.where(bookmarkable: resource, account: current_account).any?
+  def bookmarked?(ayah, account = nil)
+    Quran::Bookmark.where(ayah: ayah, account: account).any?
   end
 
   def bookmarks

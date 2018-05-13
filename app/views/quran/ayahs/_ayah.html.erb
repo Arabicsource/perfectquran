@@ -1,4 +1,4 @@
-<article class='media ayah'>
+<article class='media ayah' id='ayah-<%= ayah.id %>'>
   <div class='media-content'>
     <% unless @surah.nil? %>
       <div class='content'>
@@ -21,5 +21,20 @@
         <% end %>
       </div>
     </div>
+    <% if account_signed_in? %>
+      <p>
+        <% if bookmarked? ayah, current_account %>
+          <%= link_to quran_ayah_bookmark_path(ayah), method: :delete, remote: true, class: 'bookmark active' do %>
+            <span><%= fa_icon 'bookmark' %><span>
+            <span>Bookmarked</span>
+          <% end %>
+        <% else %>
+          <%= link_to quran_ayah_bookmark_path(ayah), method: :post, remote: true, class: 'bookmark' do %>
+            <span><%= fa_icon 'bookmark-o' %><span>
+            <span>Bookmark</span>
+          <% end %>
+        <% end %>
+      </p>
+    <% end %>
   </div>
 </article>

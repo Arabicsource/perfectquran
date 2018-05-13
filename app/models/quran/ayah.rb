@@ -20,7 +20,7 @@ module Quran
     belongs_to :page, class_name: 'Quran::Page'
     belongs_to :juz, class_name: 'Quran::Juz'
 
-    has_many :bookmarks, as: :bookmarkable
+    has_many :bookmarks
     has_many :texts, class_name: 'Quran::Text'
     has_many :texts_and_translations,
              -> { includes(:translation) },

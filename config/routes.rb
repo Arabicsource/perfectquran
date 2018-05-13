@@ -38,6 +38,10 @@ Rails.application.routes.draw do
 
     resources :surahs, only: :index
 
+    resources :ayahs, only: [] do
+      resource :bookmark, only: %i[create destroy]
+    end
+
     get '/:permalink', to: 'surahs#show', as: :surah
     get '/:permalink/:number', to: 'ayahs#show', as: :ayah
   end
