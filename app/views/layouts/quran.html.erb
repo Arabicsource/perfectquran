@@ -19,12 +19,12 @@
     <%= render 'layouts/default/navbar' %>
 
     <div class='columns is-gapless'>
-      <div class='column is-three-quarters'>
+      <div class='column is-three-fifths'>
         <main>
           <%= yield %>
         </main>
       </div>
-      <div class='column is-one-quarter'>
+      <div class='column'>
         <aside>
           <% if content_for? :aside %>
             <%= content_for :aside %>
