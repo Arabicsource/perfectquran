@@ -1,0 +1,25 @@
+<article class='media ayah'>
+  <div class='media-content'>
+    <% unless @surah.nil? %>
+      <div class='content'>
+        <p><%= link_to "#{ayah}", quran_ayah_path(@surah.permalink, ayah.number) %></p>
+      </div>
+    <% end %>
+    <div class='columns is-variable is-8'>
+      <div class='column'>
+        <h3 class='is-hidden'>Uthmani</h3>
+        <p class='uthmani-text'><%= sanitize ayah.uthmani_text %></p>
+        <h3 class='is-hidden'>Transliteration</h3>
+        <p class='transliteration-text'><%= sanitize ayah.transliterated_text %></p>
+      </div>
+      <div class='column'>
+        <% ayah.account_texts.each do |text| %>
+          <div class='content'>
+            <h3 class='is-size-5'><%= text.translation.name %></h3>
+            <p><%= sanitize text.content %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</article>
