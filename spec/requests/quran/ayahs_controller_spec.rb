@@ -58,4 +58,10 @@ describe 'Quran::AyahsController', type: :request do
 
     specify { expect(response).to redirect_to '/quran/al-fatihah/1' }
   end
+
+  describe 'GET quran/:id/:number' do
+    before { get '/quran/1/1' }
+
+    specify { expect(response).to redirect_to '/quran/al-fatihah/1' }
+  end
 end

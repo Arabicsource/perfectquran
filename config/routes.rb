@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     end
 
     get '/:permalink', to: 'surahs#show', as: :permalink
+    get '/:id/:number', to: 'ayahs#show', constraints: { id: /\d+/ }
     get '/:permalink/:number', to: 'ayahs#show', as: :ayah
   end
 
