@@ -22,7 +22,7 @@ describe 'Quran::SurahsController', type: :request do
   describe 'GET quran_surah_path' do
     before { get '/quran/surahs/1' }
 
-    specify { expect(response).to be_not_found }
+    specify { expect(response).to redirect_to '/quran/al-fatihah' }
   end
 
   describe 'GET quran_permalink_path' do

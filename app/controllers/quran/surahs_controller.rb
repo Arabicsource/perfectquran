@@ -8,8 +8,8 @@ module Quran
 
     def show
       if params[:permalink].nil?
-        return render(file: "#{Rails.root}/public/404.html",
-                      status: 404, layout: false)
+        surah = Quran::Surah.find(params[:id])
+        return redirect_to "/quran/#{surah.permalink}"
       end
 
       @surah = Quran::Surah.find_by(permalink: params[:permalink])
