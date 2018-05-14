@@ -7,7 +7,7 @@ feature 'Bookmarking', js: true do
 
   scenario 'creating' do
     login_as member
-    visit quran_surah_path(quran_surahs(:surah_1))
+    visit quran_permalink_path(quran_surahs(:surah_1))
 
     within '#ayah-1' do
       click_on 'Bookmark'
@@ -18,7 +18,7 @@ feature 'Bookmarking', js: true do
   scenario 'deleting' do
     login_as member
     create :bookmark, account: member, ayah: Quran::Ayah.first
-    visit quran_surah_path(quran_surahs(:surah_1))
+    visit quran_permalink_path(quran_surahs(:surah_1))
 
     within '#ayah-1' do
       click_on 'Bookmarked'

@@ -9,7 +9,7 @@ module Quran
 
       if @ayah.present? && @ayah.bookmarks.create(account: current_account)
         respond_to do |format|
-          format.html { redirect_to quran_surah_path(@ayah.surah) }
+          format.html { redirect_to quran_permalink_path(@ayah.surah) }
           format.js
         end
       else
@@ -25,7 +25,7 @@ module Quran
          @ayah.bookmarks.any? &&
          @ayah.bookmarks.find_by(account: current_account).delete
         respond_to do |format|
-          format.html { redirect_to quran_surah_path(@ayah.surah) }
+          format.html { redirect_to quran_permalink_path(@ayah.surah) }
           format.js
         end
       else

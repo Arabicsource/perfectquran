@@ -36,13 +36,13 @@ Rails.application.routes.draw do
   namespace :quran do
     root 'surahs#index'
 
-    resources :surahs, only: :index
+    resources :surahs, only: %i[index show]
 
     resources :ayahs, only: [] do
       resource :bookmark, only: %i[create destroy]
     end
 
-    get '/:permalink', to: 'surahs#show', as: :surah
+    get '/:permalink', to: 'surahs#show', as: :permalink
     get '/:permalink/:number', to: 'ayahs#show', as: :ayah
   end
 

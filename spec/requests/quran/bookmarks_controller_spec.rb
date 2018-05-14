@@ -21,7 +21,7 @@ describe Quran::BookmarksController, type: :request do
         it 'redirects' do
           post quran_ayah_bookmark_path(valid_ayah_id)
 
-          expect(response).to redirect_to quran_surah_path('al-fatihah')
+          expect(response).to redirect_to quran_permalink_path('al-fatihah')
         end
 
         specify 'record is created' do
@@ -63,7 +63,7 @@ describe Quran::BookmarksController, type: :request do
         it 'redirects' do
           delete quran_ayah_bookmark_path(valid_ayah_id)
 
-          expect(response).to redirect_to quran_surah_path('al-fatihah')
+          expect(response).to redirect_to quran_permalink_path('al-fatihah')
         end
 
         specify 'record is deleted' do

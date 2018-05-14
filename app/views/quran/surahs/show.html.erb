@@ -6,7 +6,7 @@
           <ul>
             <li><%= link_to 'Quran', quran_root_path %></li>
             <li class='is-active'>
-              <%= link_to @surah, quran_surah_path(@surah), aria: {current: "page"} %>
+              <%= link_to @surah, quran_permalink_path(@surah), aria: {current: "page"} %>
             </li>
           </ul>
         </nav>
@@ -14,12 +14,12 @@
 
       <div class='column'>
         <nav>
-          <%= link_to quran_surah_path(@surah.previous) do %>
+          <%= link_to quran_permalink_path(@surah.previous) do %>
             <%= fa_icon 'arrow-left' %>
             <span class='is-hidden-mobile'>Previous Surah</span>
           <% end %>
 
-          <%= link_to quran_surah_path(@surah.next), class: 'is-pulled-right' do %>
+          <%= link_to quran_permalink_path(@surah.next), class: 'is-pulled-right' do %>
             <span class='is-hidden-mobile'>Next Surah</span>
             <%= fa_icon 'arrow-right' %>
           <% end %>
