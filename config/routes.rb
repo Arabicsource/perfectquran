@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   resources :mosques, only: :show
 
   get '/study/surahs/:id', to: 'quran/surahs#show'
+  get '/study/ayahs/:id', to: 'quran/ayahs#show'
   get 'auth/:provider/callback', to: 'account/connections#callback'
   get '/:surah_id/:number', to: 'quran/ayahs#show', as: :ayah_by_number
   get '/:translation_id/:surah_id/:number', to: 'quran/ayahs#show'

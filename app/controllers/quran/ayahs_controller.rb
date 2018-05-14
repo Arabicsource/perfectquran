@@ -5,6 +5,11 @@ module Quran
     layout 'quran'
 
     def show
+      if params[:id].present?
+        ayah = Quran::Ayah.find(params[:id])
+        return redirect_to quran_ayah_path(ayah.surah, ayah.number)
+      end
+
       @ayah = load_ayah
       @texts = load_texts
     end

@@ -52,4 +52,10 @@ describe 'Quran::AyahsController', type: :request do
       specify { expect(response).to be_successful }
     end
   end
+
+  describe 'GET study/ayahs/:id' do
+    before { get '/study/ayahs/1' }
+
+    specify { expect(response).to redirect_to '/quran/al-fatihah/1' }
+  end
 end
