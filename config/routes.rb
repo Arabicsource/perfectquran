@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       resource :bookmark, only: %i[create destroy]
     end
 
+    get '/ayahs/:id', to: 'ayahs#show'
     get '/:permalink', to: 'surahs#show', as: :permalink
     get '/:id/:number', to: 'ayahs#show', constraints: { id: /\d+/ }
     get '/:permalink/:number', to: 'ayahs#show', as: :ayah
