@@ -17,6 +17,8 @@
         = link_to 'Admin', admin_root_path, rel: 'nofollow', class: 'navbar-item' if current_account.role? :admin
 
     .navbar-end
+      = link_to 'Contact', new_contact_path, class: 'navbar-item'
+
       - if account_signed_in?
         = link_to "Logout", destroy_account_session_path, method: :delete, class: 'navbar-item', rel: 'nofollow'
       - else

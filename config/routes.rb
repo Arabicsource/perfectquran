@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     get '/:permalink/:number', to: 'ayahs#show', as: :ayah
   end
 
+  resource :contact, only: %i[new create]
   resources :mosques, only: :show
 
   get '/study/surahs/:id', to: 'quran/surahs#show'
