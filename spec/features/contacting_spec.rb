@@ -6,8 +6,8 @@ feature 'Contacting', js: true do
   scenario 'as guest' do
     visit new_contact_path
 
-    fill_in 'Name',	with: "name123"
-    fill_in 'Email',	with: "email@perfectquran.com"
+    fill_in 'Name',	with: 'name123'
+    fill_in 'Email',	with: 'email@perfectquran.com'
     fill_in 'Message',	with: 'message123'
     click_on 'Send'
 

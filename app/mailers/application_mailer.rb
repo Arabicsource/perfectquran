@@ -6,6 +6,8 @@ class ApplicationMailer < ActionMailer::Base
 
   def contact
     @contact = params[:contact]
-    mail(to: 'quran.is.perfect@gmail.com', from: @contact.email, subject: "Message from #{@contact.name}")
+    mail(to: 'quran.is.perfect@gmail.com',
+         from: @contact.email,
+         subject: "Message from #{@contact.name}")
   end
 end
