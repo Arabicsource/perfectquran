@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboards#show'
     resources :accounts, only: %i[index show]
+    resources :bookmarks, only: %i[index show destroy]
     resources :connections, only: :index
     resources :articles, :categories, :cities, :countries, :mosques, :states
   end

@@ -18,4 +18,10 @@ RSpec.describe Quran::Bookmark, type: :model do
     it { is_expected.to belong_to :ayah }
     it { is_expected.to belong_to :account }
   end
+
+  specify 'to_s' do
+    bookmark = create :bookmark
+
+    expect(bookmark.to_s).to eq "Bookmark #{bookmark.id}"
+  end
 end

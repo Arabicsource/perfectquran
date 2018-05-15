@@ -15,5 +15,9 @@ module Quran
   class Bookmark < ApplicationRecord
     belongs_to :ayah
     belongs_to :account
+
+    def to_s
+      "Bookmark #{id}"
+    end
   end
 end

@@ -1,0 +1,7 @@
+<%= link_to admin_bookmarks_path, class: 'navbar-item' do %>
+  <span class='icon'><%= fa_icon 'th-list' %></span> <span>Index</span>
+<% end %>
+
+<%= link_to admin_bookmark_path(@resource), method: :delete, class: 'navbar-item' do %>
+  <span class='icon'><%= fa_icon 'trash' %></span> <span>Delete</span>
+<% end %>
